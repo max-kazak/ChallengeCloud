@@ -1,4 +1,4 @@
-package com.challengecorp.sc.controllers;
+package com.codegroup.challenger.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

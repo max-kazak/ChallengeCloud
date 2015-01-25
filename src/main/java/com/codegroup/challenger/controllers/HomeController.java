@@ -1,4 +1,4 @@
-package com.challengecorp.sc.controllers;
+package com.codegroup.challenger.controllers;
 
 import java.text.DateFormat;
 import java.util.Date;
