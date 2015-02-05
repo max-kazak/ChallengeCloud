@@ -1,4 +1,4 @@
-Challenger
+ChallengeCloud
 ==============
 ###Idea
 Most of the people stuck in everyday usual routine. This app suppose to encourage them to bring something new to their life. New sport activity, discovering one's creative side, new positive habit, or one more step to a healthier life. By offering simple challenges for limited time and tracking one’s progress on it application may help to change life in a good way.
