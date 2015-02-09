@@ -1,5 +1,6 @@
-package com.codegroup.challenger.controllers;
+package com.codegroup.challengecloud.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +12,8 @@ public class WelcomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
- 
-		model.addAttribute("message", "whoever you are");
+		String name = SecurityContextHolder.getContext().getAuthentication().getName();
+		model.addAttribute("message", name);
 		return "welcome";
  
 	}

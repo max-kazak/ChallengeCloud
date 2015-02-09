@@ -1,4 +1,4 @@
-package com.codegroup.challenger.utils;
+package com.codegroup.challengecloud.utils;
 
 import java.util.UUID;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

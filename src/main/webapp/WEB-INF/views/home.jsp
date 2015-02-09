@@ -10,6 +10,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<p> <a href="welcome">Welcome page</a></p>
+<p> <a href="<c:url value="/welcome" />">Welcome page</a></p>
 </body>
 </html>

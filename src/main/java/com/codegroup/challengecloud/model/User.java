@@ -1,4 +1,4 @@
-package com.codegroup.challenger.model;
+package com.codegroup.challengecloud.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.codegroup.challenger.dao.impl;
+package com.codegroup.challengecloud.dao.impl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

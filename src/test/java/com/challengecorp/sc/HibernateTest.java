@@ -1,7 +1,7 @@
 package com.challengecorp.sc;
 
-import com.codegroup.challenger.model.User;
-import com.codegroup.challenger.services.UserService;
+import com.codegroup.challengecloud.model.User;
+import com.codegroup.challengecloud.services.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

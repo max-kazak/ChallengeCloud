@@ -1,8 +1,8 @@
-package com.codegroup.challenger.services;
+package com.codegroup.challengecloud.services;
 
-import com.codegroup.challenger.dao.UserDao;
-import com.codegroup.challenger.model.User;
-import com.codegroup.challenger.utils.Generator;
+import com.codegroup.challengecloud.dao.UserDao;
+import com.codegroup.challengecloud.model.User;
+import com.codegroup.challengecloud.utils.Generator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,7 +1,7 @@
-package com.codegroup.challenger.dao.impl;
+package com.codegroup.challengecloud.dao.impl;
 
-import com.codegroup.challenger.dao.UserDao;
-import com.codegroup.challenger.model.User;
+import com.codegroup.challengecloud.dao.UserDao;
+import com.codegroup.challengecloud.model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

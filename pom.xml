@@ -3,14 +3,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.codegroup</groupId>
-	<artifactId>challenger</artifactId>
-	<name>Challenger</name>
+	<artifactId>challengecloud</artifactId>
+	<name>ChallengeCloud</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.7</java-version>
 		<spring.version>3.2.8.RELEASE</spring.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
+		<spring-social.version>1.1.0.RELEASE</spring-social.version>
+		<spring-social-twitter.version>1.1.0.RELEASE</spring-social-twitter.version>
 		<hibernate.version>4.2.11.Final</hibernate.version>
 		<dbcp.version>1.4</dbcp.version>
 	</properties>
@@ -54,6 +56,25 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
+		
+		<!--  Spring Social -->
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-core</artifactId>
+		    <version>${spring-social.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-web</artifactId>
+		    <version>${spring-social.version}</version>
+		</dependency>
+		
+		<dependency>
+	        <groupId>org.springframework.social</groupId>
+	        <artifactId>spring-social-twitter</artifactId>
+	        <version>${spring-social-twitter.version}</version>
+	    </dependency>
 
 		<!-- MySQL database driver -->
 		<dependency>

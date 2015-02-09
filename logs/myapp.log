@@ -1,0 +1,731 @@
+2015-02-09 23:35:28 DEBUG StandardEnvironment:107 - Adding [systemProperties] PropertySource with lowest search precedence
+2015-02-09 23:35:28 DEBUG StandardEnvironment:107 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2015-02-09 23:35:28 DEBUG StandardEnvironment:126 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2015-02-09 23:35:28 INFO  ClassPathXmlApplicationContext:510 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@28d49111: startup date [Mon Feb 09 23:35:28 MSK 2015]; root of context hierarchy
+2015-02-09 23:35:28 DEBUG StandardEnvironment:107 - Adding [systemProperties] PropertySource with lowest search precedence
+2015-02-09 23:35:28 DEBUG StandardEnvironment:107 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2015-02-09 23:35:28 DEBUG StandardEnvironment:126 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2015-02-09 23:35:28 INFO  XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring/contextConfig.xml]
+2015-02-09 23:35:28 DEBUG DefaultDocumentLoader:72 - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+2015-02-09 23:35:28 DEBUG PluggableSchemaResolver:140 - Loading schema mappings from [META-INF/spring.schemas]
+2015-02-09 23:35:28 DEBUG PluggableSchemaResolver:146 - Loaded schema mappings: {http://www.springframework.org/schema/util/spring-util.xsd=org/springframework/beans/factory/xml/spring-util-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-3.2.xsd=org/springframework/ejb/config/spring-jee-3.2.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd=org/springframework/web/servlet/config/spring-mvc-3.1.xsd, http://www.springframework.org/schema/beans/spring-beans-3.1.xsd=org/springframework/beans/factory/xml/spring-beans-3.1.xsd, http://www.springframework.org/schema/task/spring-task.xsd=org/springframework/scheduling/config/spring-task-3.2.xsd, http://www.springframework.org/schema/security/spring-security-2.0.2.xsd=org/springframework/security/config/spring-security-2.0.2.xsd, http://www.springframework.org/schema/cache/spring-cache.xsd=org/springframework/cache/config/spring-cache-3.2.xsd, http://www.springframework.org/schema/aop/spring-aop-3.0.xsd=org/springframework/aop/config/spring-aop-3.0.xsd, http://www.springframework.org/schema/task/spring-task-3.1.xsd=org/springframework/scheduling/config/spring-task-3.1.xsd, http://www.springframework.org/schema/aop/spring-aop-2.0.xsd=org/springframework/aop/config/spring-aop-2.0.xsd, http://www.springframework.org/schema/tool/spring-tool-2.5.xsd=org/springframework/beans/factory/xml/spring-tool-2.5.xsd, http://www.springframework.org/schema/security/spring-security-3.1.xsd=org/springframework/security/config/spring-security-3.1.xsd, http://www.springframework.org/schema/beans/spring-beans.xsd=org/springframework/beans/factory/xml/spring-beans-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-2.5.xsd=org/springframework/ejb/config/spring-jee-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd=org/springframework/jdbc/config/spring-jdbc-3.1.xsd, http://www.springframework.org/schema/tool/spring-tool-3.1.xsd=org/springframework/beans/factory/xml/spring-tool-3.1.xsd, http://www.springframework.org/schema/security/spring-security-3.0.3.xsd=org/springframework/security/config/spring-security-3.0.3.xsd, http://www.springframework.org/schema/jee/spring-jee-3.1.xsd=org/springframework/ejb/config/spring-jee-3.1.xsd, http://www.springframework.org/schema/aop/spring-aop.xsd=org/springframework/aop/config/spring-aop-3.2.xsd, http://www.springframework.org/schema/tx/spring-tx-3.2.xsd=org/springframework/transaction/config/spring-tx-3.2.xsd, http://www.springframework.org/schema/context/spring-context-3.2.xsd=org/springframework/context/config/spring-context-3.2.xsd, http://www.springframework.org/schema/util/spring-util-3.2.xsd=org/springframework/beans/factory/xml/spring-util-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-2.0.xsd=org/springframework/beans/factory/xml/spring-beans-2.0.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd=org/springframework/web/servlet/config/spring-mvc-3.0.xsd, http://www.springframework.org/schema/lang/spring-lang-3.2.xsd=org/springframework/scripting/config/spring-lang-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-3.0.xsd=org/springframework/beans/factory/xml/spring-beans-3.0.xsd, http://www.springframework.org/schema/security/spring-security-2.0.1.xsd=org/springframework/security/config/spring-security-2.0.1.xsd, http://www.springframework.org/schema/cache/spring-cache-3.2.xsd=org/springframework/cache/config/spring-cache-3.2.xsd, http://www.springframework.org/schema/task/spring-task-3.0.xsd=org/springframework/scheduling/config/spring-task-3.0.xsd, http://www.springframework.org/schema/security/spring-security-2.0.xsd=org/springframework/security/config/spring-security-2.0.xsd, http://www.springframework.org/schema/security/spring-security-3.0.xsd=org/springframework/security/config/spring-security-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx-2.5.xsd=org/springframework/transaction/config/spring-tx-2.5.xsd, http://www.springframework.org/schema/context/spring-context-2.5.xsd=org/springframework/context/config/spring-context-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd=org/springframework/jdbc/config/spring-jdbc-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool-3.0.xsd=org/springframework/beans/factory/xml/spring-tool-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx.xsd=org/springframework/transaction/config/spring-tx-3.2.xsd, http://www.springframework.org/schema/util/spring-util-2.5.xsd=org/springframework/beans/factory/xml/spring-util-2.5.xsd, http://www.springframework.org/schema/tool/spring-tool-2.0.xsd=org/springframework/beans/factory/xml/spring-tool-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang.xsd=org/springframework/scripting/config/spring-lang-3.2.xsd, http://www.springframework.org/schema/lang/spring-lang-2.5.xsd=org/springframework/scripting/config/spring-lang-2.5.xsd, http://www.springframework.org/schema/security/spring-security-2.0.4.xsd=org/springframework/security/config/spring-security-2.0.4.xsd, http://www.springframework.org/schema/aop/spring-aop-3.2.xsd=org/springframework/aop/config/spring-aop-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-3.0.xsd=org/springframework/ejb/config/spring-jee-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx-3.1.xsd=org/springframework/transaction/config/spring-tx-3.1.xsd, http://www.springframework.org/schema/jee/spring-jee-2.0.xsd=org/springframework/ejb/config/spring-jee-2.0.xsd, http://www.springframework.org/schema/context/spring-context-3.1.xsd=org/springframework/context/config/spring-context-3.1.xsd, http://www.springframework.org/schema/util/spring-util-3.1.xsd=org/springframework/beans/factory/xml/spring-util-3.1.xsd, http://www.springframework.org/schema/lang/spring-lang-3.1.xsd=org/springframework/scripting/config/spring-lang-3.1.xsd, http://www.springframework.org/schema/cache/spring-cache-3.1.xsd=org/springframework/cache/config/spring-cache-3.1.xsd, http://www.springframework.org/schema/security/spring-security.xsd=org/springframework/security/config/spring-security-3.2.xsd, http://www.springframework.org/schema/context/spring-context.xsd=org/springframework/context/config/spring-context-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee.xsd=org/springframework/ejb/config/spring-jee-3.2.xsd, http://www.springframework.org/schema/aop/spring-aop-2.5.xsd=org/springframework/aop/config/spring-aop-2.5.xsd, http://www.springframework.org/schema/mvc/spring-mvc.xsd=org/springframework/web/servlet/config/spring-mvc-3.2.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc.xsd=org/springframework/jdbc/config/spring-jdbc-3.2.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd=org/springframework/web/servlet/config/spring-mvc-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-3.2.xsd=org/springframework/beans/factory/xml/spring-beans-3.2.xsd, http://www.springframework.org/schema/tx/spring-tx-2.0.xsd=org/springframework/transaction/config/spring-tx-2.0.xsd, http://www.springframework.org/schema/aop/spring-aop-3.1.xsd=org/springframework/aop/config/spring-aop-3.1.xsd, http://www.springframework.org/schema/task/spring-task-3.2.xsd=org/springframework/scheduling/config/spring-task-3.2.xsd, http://www.springframework.org/schema/tx/spring-tx-3.0.xsd=org/springframework/transaction/config/spring-tx-3.0.xsd, http://www.springframework.org/schema/context/spring-context-3.0.xsd=org/springframework/context/config/spring-context-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool.xsd=org/springframework/beans/factory/xml/spring-tool-3.2.xsd, http://www.springframework.org/schema/util/spring-util-3.0.xsd=org/springframework/beans/factory/xml/spring-util-3.0.xsd, http://www.springframework.org/schema/util/spring-util-2.0.xsd=org/springframework/beans/factory/xml/spring-util-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang-3.0.xsd=org/springframework/scripting/config/spring-lang-3.0.xsd, http://www.springframework.org/schema/security/spring-security-3.2.xsd=org/springframework/security/config/spring-security-3.2.xsd, http://www.springframework.org/schema/lang/spring-lang-2.0.xsd=org/springframework/scripting/config/spring-lang-2.0.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd=org/springframework/jdbc/config/spring-jdbc-3.2.xsd, http://www.springframework.org/schema/tool/spring-tool-3.2.xsd=org/springframework/beans/factory/xml/spring-tool-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-2.5.xsd=org/springframework/beans/factory/xml/spring-beans-2.5.xsd}
+2015-02-09 23:35:28 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-2.5.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-2.5.xsd
+2015-02-09 23:35:28 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/context/spring-context-2.5.xsd] in classpath: org/springframework/context/config/spring-context-2.5.xsd
+2015-02-09 23:35:28 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/tool/spring-tool-2.5.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-2.5.xsd
+2015-02-09 23:35:28 DEBUG DefaultBeanDefinitionDocumentReader:106 - Loading bean definitions
+2015-02-09 23:35:28 INFO  XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring/DataSource.xml]
+2015-02-09 23:35:28 DEBUG DefaultDocumentLoader:72 - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+2015-02-09 23:35:28 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-2.5.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-2.5.xsd
+2015-02-09 23:35:28 DEBUG DefaultBeanDefinitionDocumentReader:106 - Loading bean definitions
+2015-02-09 23:35:28 DEBUG BeanDefinitionParserDelegate:500 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0]
+2015-02-09 23:35:29 DEBUG DefaultBeanDefinitionDocumentReader:275 - Imported 2 bean definitions from relative location [DataSource.xml]
+2015-02-09 23:35:29 INFO  XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring/Hibernate.xml]
+2015-02-09 23:35:29 DEBUG DefaultDocumentLoader:72 - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+2015-02-09 23:35:29 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-2.5.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-2.5.xsd
+2015-02-09 23:35:29 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/tx/spring-tx-2.5.xsd] in classpath: org/springframework/transaction/config/spring-tx-2.5.xsd
+2015-02-09 23:35:29 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/tool/spring-tool-2.5.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-2.5.xsd
+2015-02-09 23:35:29 DEBUG DefaultBeanDefinitionDocumentReader:106 - Loading bean definitions
+2015-02-09 23:35:29 DEBUG DefaultNamespaceHandlerResolver:156 - Loaded NamespaceHandler mappings: {http://www.springframework.org/schema/p=org.springframework.beans.factory.xml.SimplePropertyNamespaceHandler, http://www.springframework.org/schema/mvc=org.springframework.web.servlet.config.MvcNamespaceHandler, http://www.springframework.org/schema/util=org.springframework.beans.factory.xml.UtilNamespaceHandler, http://www.springframework.org/schema/jee=org.springframework.ejb.config.JeeNamespaceHandler, http://www.springframework.org/schema/aop=org.springframework.aop.config.AopNamespaceHandler, http://www.springframework.org/schema/jdbc=org.springframework.jdbc.config.JdbcNamespaceHandler, http://www.springframework.org/schema/cache=org.springframework.cache.config.CacheNamespaceHandler, http://www.springframework.org/schema/c=org.springframework.beans.factory.xml.SimpleConstructorNamespaceHandler, http://www.springframework.org/schema/security=org.springframework.security.config.SecurityNamespaceHandler, http://www.springframework.org/schema/tx=org.springframework.transaction.config.TxNamespaceHandler, http://www.springframework.org/schema/task=org.springframework.scheduling.config.TaskNamespaceHandler, http://www.springframework.org/schema/lang=org.springframework.scripting.config.LangNamespaceHandler, http://www.springframework.org/schema/context=org.springframework.context.config.ContextNamespaceHandler}
+2015-02-09 23:35:29 DEBUG DefaultBeanDefinitionDocumentReader:275 - Imported 6 bean definitions from relative location [Hibernate.xml]
+2015-02-09 23:35:29 INFO  XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring/dispatcherServlet.xml]
+2015-02-09 23:35:29 DEBUG DefaultDocumentLoader:72 - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+2015-02-09 23:35:29 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/beans/spring-beans.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.2.xsd
+2015-02-09 23:35:29 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/mvc/spring-mvc.xsd] in classpath: org/springframework/web/servlet/config/spring-mvc-3.2.xsd
+2015-02-09 23:35:29 DEBUG PluggableSchemaResolver:118 - Found XML schema [http://www.springframework.org/schema/tool/spring-tool-3.2.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-3.2.xsd
+2015-02-09 23:35:29 DEBUG DefaultBeanDefinitionDocumentReader:106 - Loading bean definitions
+2015-02-09 23:35:29 DEBUG BeanDefinitionParserDelegate:500 - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.web.servlet.view.InternalResourceViewResolver#0]
+2015-02-09 23:35:29 DEBUG DefaultBeanDefinitionDocumentReader:275 - Imported 14 bean definitions from relative location [dispatcherServlet.xml]
+2015-02-09 23:35:29 DEBUG StandardEnvironment:107 - Adding [systemProperties] PropertySource with lowest search precedence
+2015-02-09 23:35:29 DEBUG StandardEnvironment:107 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2015-02-09 23:35:29 DEBUG StandardEnvironment:126 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:550 - Looking for matching resources in directory tree [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\constants] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\controllers] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\dao] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\dao\impl] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\model] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\services] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\services\security] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:612 - Searching directory [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\utils] for files matching pattern [D:/Projects/ChallengeCloud/target/classes/com/codegroup/challengecloud/**/*.class]
+2015-02-09 23:35:29 DEBUG PathMatchingResourcePatternResolver:351 - Resolved location pattern [classpath*:com/codegroup/challengecloud/**/*.class] to resources [file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\constants\UserRoles.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\controllers\HomeController.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\controllers\LoginController.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\controllers\WelcomeController.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\dao\impl\HibernateDao.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\dao\impl\UserDaoMySQL.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\dao\UserDao.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\model\User.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\services\security\ChallengerUserDetailsService.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\services\UserService.class], file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\utils\Generator.class]]
+2015-02-09 23:35:29 DEBUG ClassPathBeanDefinitionScanner:273 - Identified candidate component class: file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\controllers\HomeController.class]
+2015-02-09 23:35:29 DEBUG ClassPathBeanDefinitionScanner:273 - Identified candidate component class: file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\controllers\LoginController.class]
+2015-02-09 23:35:29 DEBUG ClassPathBeanDefinitionScanner:273 - Identified candidate component class: file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\controllers\WelcomeController.class]
+2015-02-09 23:35:29 DEBUG ClassPathBeanDefinitionScanner:273 - Identified candidate component class: file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\dao\impl\UserDaoMySQL.class]
+2015-02-09 23:35:29 DEBUG ClassPathBeanDefinitionScanner:273 - Identified candidate component class: file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\services\security\ChallengerUserDetailsService.class]
+2015-02-09 23:35:29 DEBUG ClassPathBeanDefinitionScanner:273 - Identified candidate component class: file [D:\Projects\ChallengeCloud\target\classes\com\codegroup\challengecloud\services\UserService.class]
+2015-02-09 23:35:29 DEBUG XmlBeanDefinitionReader:216 - Loaded 33 bean definitions from location pattern [spring/contextConfig.xml]
+2015-02-09 23:35:29 DEBUG ClassPathXmlApplicationContext:540 - Bean factory for org.springframework.context.support.ClassPathXmlApplicationContext@28d49111: org.springframework.beans.factory.support.DefaultListableBeanFactory@626e4c32: defining beans [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,loginController,welcomeController,userDao,userDetailsService,userService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor]; root of factory hierarchy
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0'
+2015-02-09 23:35:29 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from class path resource [database.properties]
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.aop.config.internalAutoProxyCreator' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2015-02-09 23:35:29 DEBUG ClassPathXmlApplicationContext:807 - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1219a6d9]
+2015-02-09 23:35:29 DEBUG ClassPathXmlApplicationContext:831 - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@342c5b4e]
+2015-02-09 23:35:29 INFO  DefaultListableBeanFactory:598 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@626e4c32: defining beans [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,dataSource,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,loginController,welcomeController,userDao,userDetailsService,userService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'dataSource'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'dataSource'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'dataSource' to allow for resolving potential circular references
+2015-02-09 23:35:29 INFO  DriverManagerDataSource:153 - Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.transaction.config.internalTransactionAdvisor' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG BeanFactoryAdvisorRetrievalHelper:87 - Skipping currently created advisor 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'dataSource'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'sessionFactory'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'sessionFactory'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'sessionFactory' to allow for resolving potential circular references
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'dataSource'
+2015-02-09 23:35:29 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'sessionFactory'
+2015-02-09 23:35:29 DEBUG logging:184 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration boolean -> org.hibernate.type.BooleanType@58a613c5
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration boolean -> org.hibernate.type.BooleanType@58a613c5
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@58a613c5
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@5704dd40
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration true_false -> org.hibernate.type.TrueFalseType@2c886a64
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration yes_no -> org.hibernate.type.YesNoType@2c299063
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration byte -> org.hibernate.type.ByteType@6e704a0
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration byte -> org.hibernate.type.ByteType@6e704a0
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@6e704a0
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration character -> org.hibernate.type.CharacterType@6772103c
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration char -> org.hibernate.type.CharacterType@6772103c
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@6772103c
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration short -> org.hibernate.type.ShortType@4ed405e2
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration short -> org.hibernate.type.ShortType@4ed405e2
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@4ed405e2
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration integer -> org.hibernate.type.IntegerType@320470d2
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration int -> org.hibernate.type.IntegerType@320470d2
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@320470d2
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration long -> org.hibernate.type.LongType@135b9bad
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration long -> org.hibernate.type.LongType@135b9bad
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Long -> org.hibernate.type.LongType@135b9bad
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration float -> org.hibernate.type.FloatType@7443f7a3
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration float -> org.hibernate.type.FloatType@7443f7a3
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@7443f7a3
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration double -> org.hibernate.type.DoubleType@2bb03240
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration double -> org.hibernate.type.DoubleType@2bb03240
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@2bb03240
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@2e97bb80
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@2e97bb80
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@14f8bb7e
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@14f8bb7e
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration string -> org.hibernate.type.StringType@6069094
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.String -> org.hibernate.type.StringType@6069094
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@af01f4d
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@2f82803
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration url -> org.hibernate.type.UrlType@562e7f78
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.net.URL -> org.hibernate.type.UrlType@562e7f78
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration date -> org.hibernate.type.DateType@232bb287
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.sql.Date -> org.hibernate.type.DateType@232bb287
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration time -> org.hibernate.type.TimeType@70630657
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@70630657
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration timestamp -> org.hibernate.type.TimestampType@373823d1
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@373823d1
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@373823d1
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@1e38b6fa
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration calendar -> org.hibernate.type.CalendarType@7ff44736
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@7ff44736
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@7ff44736
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@23af0b3c
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration locale -> org.hibernate.type.LocaleType@706485e4
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@706485e4
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration currency -> org.hibernate.type.CurrencyType@cb0014c
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@cb0014c
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration timezone -> org.hibernate.type.TimeZoneType@278fc222
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@278fc222
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration class -> org.hibernate.type.ClassType@3a9c7d64
+2015-02-09 23:35:29 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@3a9c7d64
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@14207dc1
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@14207dc1
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@7d766a1d
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@4be2e35a
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration binary -> org.hibernate.type.BinaryType@6ca5db85
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration byte[] -> org.hibernate.type.BinaryType@6ca5db85
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration [B -> org.hibernate.type.BinaryType@6ca5db85
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@59ac004c
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@59ac004c
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@59ac004c
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration image -> org.hibernate.type.ImageType@2142ea45
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration characters -> org.hibernate.type.CharArrayType@4f1aa03a
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration char[] -> org.hibernate.type.CharArrayType@4f1aa03a
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration [C -> org.hibernate.type.CharArrayType@4f1aa03a
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@7ecdc728
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@7ecdc728
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@7ecdc728
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration text -> org.hibernate.type.TextType@237056b0
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration ntext -> org.hibernate.type.NTextType@6ee33b3d
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration blob -> org.hibernate.type.BlobType@43cd6a2a
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@43cd6a2a
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@3837721a
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration clob -> org.hibernate.type.ClobType@62db15e1
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@62db15e1
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration nclob -> org.hibernate.type.NClobType@16de9eea
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@16de9eea
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@5fa14f1a
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@5aee58a1
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration serializable -> org.hibernate.type.SerializableType@2afd506
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration object -> org.hibernate.type.ObjectType@7d2f2ae0
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@7d2f2ae0
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@643b8f2e
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@782569ee
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@11fa682c
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@7f7b6d5e
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@57520c38
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@d4e97a1
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@27ad510b
+2015-02-09 23:35:30 DEBUG BasicTypeRegistry:148 - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@12efdb85
+2015-02-09 23:35:30 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2015-02-09 23:35:30 INFO  Version:41 - HHH000412: Hibernate Core {4.2.11.Final}
+2015-02-09 23:35:30 INFO  Environment:238 - HHH000206: hibernate.properties not found
+2015-02-09 23:35:30 INFO  Environment:345 - HHH000021: Bytecode provider name : javassist
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [hilo] -> [org.hibernate.id.TableHiLoGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.SequenceGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:93 - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+2015-02-09 23:35:30 DEBUG IntegratorServiceImpl:59 - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+2015-02-09 23:35:30 DEBUG Configuration:1781 - Preparing to build session factory with filters : {}
+2015-02-09 23:35:30 DEBUG DriverManagerDataSource:162 - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/challenger]
+2015-02-09 23:35:30 DEBUG JdbcServicesImpl:121 - Database ->
+       name : MySQL
+    version : 5.6.21-log
+      major : 5
+      minor : 6
+2015-02-09 23:35:30 DEBUG JdbcServicesImpl:127 - Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )
+      major : 5
+      minor : 1
+2015-02-09 23:35:30 DEBUG JdbcServicesImpl:133 - JDBC version : 4.0
+2015-02-09 23:35:30 INFO  Dialect:130 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-02-09 23:35:30 DEBUG Configuration:3528 - Processing hbm.xml files
+2015-02-09 23:35:30 DEBUG Configuration:3558 - Process annotated classes
+2015-02-09 23:35:30 DEBUG AnnotationBinder:534 - Binding entity from annotated class: com.codegroup.challengecloud.model.User
+2015-02-09 23:35:30 DEBUG Ejb3Column:196 - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+2015-02-09 23:35:30 DEBUG AnnotationBinder:1118 - No value specified for 'javax.persistence.sharedCache.mode'; using UNSPECIFIED
+2015-02-09 23:35:30 DEBUG EntityBinder:394 - Import with entity name User
+2015-02-09 23:35:30 DEBUG EntityBinder:564 - Bind entity com.codegroup.challengecloud.model.User on table users
+2015-02-09 23:35:30 DEBUG Ejb3Column:196 - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(challenger.users), mappingColumn=USER_ID, insertable=true, updatable=true, unique=true}
+2015-02-09 23:35:30 DEBUG PropertyBinder:179 - MetadataSourceProcessor property id with lazy=false
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:330 - building SimpleValue for id
+2015-02-09 23:35:30 DEBUG PropertyBinder:260 - Building property id
+2015-02-09 23:35:30 DEBUG Ejb3Column:196 - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(challenger.users), mappingColumn=EMAIL, insertable=true, updatable=true, unique=true}
+2015-02-09 23:35:30 DEBUG PropertyBinder:179 - MetadataSourceProcessor property email with lazy=false
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:330 - building SimpleValue for email
+2015-02-09 23:35:30 DEBUG PropertyBinder:260 - Building property email
+2015-02-09 23:35:30 DEBUG Ejb3Column:196 - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(challenger.users), mappingColumn=LOGIN, insertable=true, updatable=true, unique=true}
+2015-02-09 23:35:30 DEBUG PropertyBinder:179 - MetadataSourceProcessor property login with lazy=false
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:330 - building SimpleValue for login
+2015-02-09 23:35:30 DEBUG PropertyBinder:260 - Building property login
+2015-02-09 23:35:30 DEBUG Ejb3Column:196 - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(challenger.users), mappingColumn=NAME, insertable=true, updatable=true, unique=false}
+2015-02-09 23:35:30 DEBUG PropertyBinder:179 - MetadataSourceProcessor property name with lazy=false
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:330 - building SimpleValue for name
+2015-02-09 23:35:30 DEBUG PropertyBinder:260 - Building property name
+2015-02-09 23:35:30 DEBUG Ejb3Column:196 - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(challenger.users), mappingColumn=PASS, insertable=true, updatable=true, unique=false}
+2015-02-09 23:35:30 DEBUG PropertyBinder:179 - MetadataSourceProcessor property pass with lazy=false
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:330 - building SimpleValue for pass
+2015-02-09 23:35:30 DEBUG PropertyBinder:260 - Building property pass
+2015-02-09 23:35:30 DEBUG Ejb3Column:196 - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(challenger.users), mappingColumn=ROLES, insertable=true, updatable=true, unique=false}
+2015-02-09 23:35:30 DEBUG PropertyBinder:179 - MetadataSourceProcessor property role with lazy=false
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:330 - building SimpleValue for role
+2015-02-09 23:35:30 DEBUG PropertyBinder:260 - Building property role
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:368 - Setting SimpleValue typeName for id
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:368 - Setting SimpleValue typeName for email
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:368 - Setting SimpleValue typeName for login
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:368 - Setting SimpleValue typeName for name
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:368 - Setting SimpleValue typeName for pass
+2015-02-09 23:35:30 DEBUG SimpleValueBinder:368 - Setting SimpleValue typeName for role
+2015-02-09 23:35:30 DEBUG Configuration:1444 - Processing fk mappings (*ToOne and JoinedSubclass)
+2015-02-09 23:35:30 DEBUG Configuration:1631 - Processing extends queue
+2015-02-09 23:35:30 DEBUG Configuration:1689 - Processing extends queue
+2015-02-09 23:35:30 DEBUG Configuration:1634 - Processing collection mappings
+2015-02-09 23:35:30 DEBUG Configuration:1644 - Processing native query and ResultSetMapping mappings
+2015-02-09 23:35:30 DEBUG Configuration:1652 - Processing association property references
+2015-02-09 23:35:30 DEBUG Configuration:1674 - Creating tables' unique integer identifiers
+2015-02-09 23:35:30 DEBUG Configuration:1675 - Processing foreign key constraints
+2015-02-09 23:35:30 DEBUG SettingsFactory:117 - Automatic flush during beforeCompletion(): disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:123 - Automatic session close at end of transaction: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:134 - JDBC batch size: 15
+2015-02-09 23:35:30 DEBUG SettingsFactory:140 - JDBC batch updates for versioned data: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:150 - Scrollable result sets: enabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:156 - Wrap result sets: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:162 - JDBC3 getGeneratedKeys(): enabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:174 - multi-tenancy strategy : NONE
+2015-02-09 23:35:30 DEBUG SettingsFactory:180 - Connection release mode: auto
+2015-02-09 23:35:30 INFO  TransactionFactoryInitiator:68 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-02-09 23:35:30 DEBUG SettingsFactory:202 - Using BatchFetchStyle : LEGACY
+2015-02-09 23:35:30 DEBUG SettingsFactory:221 - Maximum outer join fetch depth: 2
+2015-02-09 23:35:30 DEBUG SettingsFactory:227 - Default batch fetch size: 1
+2015-02-09 23:35:30 DEBUG SettingsFactory:233 - Generate SQL with comments: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:239 - Order SQL updates by primary key: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:245 - Order SQL inserts for batching: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:253 - Default null ordering: none
+2015-02-09 23:35:30 DEBUG SettingsFactory:584 - Query translator: org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory
+2015-02-09 23:35:30 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-09 23:35:30 DEBUG SettingsFactory:263 - Query language substitutions: {}
+2015-02-09 23:35:30 DEBUG SettingsFactory:269 - JPA-QL strict compliance: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:277 - Second-level cache: enabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:283 - Query cache: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:524 - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+2015-02-09 23:35:30 DEBUG SettingsFactory:534 - org.hibernate.cache.internal.NoCachingRegionFactory did not provide constructor accepting java.util.Properties; attempting no-arg constructor.
+2015-02-09 23:35:30 DEBUG SettingsFactory:306 - Optimize cache for minimal puts: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:321 - Structured second-level cache entries: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:331 - Second-level cache direct-reference entries: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:339 - Statistics: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:345 - Deleted entity synthetic identifier rollback: disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:372 - Default entity-mode: pojo
+2015-02-09 23:35:30 DEBUG SettingsFactory:378 - Named query checking : enabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:384 - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:402 - Allow initialization of lazy state outside session : : disabled
+2015-02-09 23:35:30 DEBUG SettingsFactory:412 - JTA Track by Thread: enabled
+2015-02-09 23:35:30 DEBUG SessionFactoryImpl:228 - Building session factory
+2015-02-09 23:35:30 DEBUG SessionFactoryImpl:280 - Session factory constructed with filter configurations : {}
+2015-02-09 23:35:30 DEBUG SessionFactoryImpl:281 - Instantiating session factory with properties: {java.runtime.name=Java(TM) SE Runtime Environment, sun.boot.library.path=C:\Program Files\Java\jdk1.7.0_51\jre\bin, java.vm.version=24.51-b03, user.country.format=RU, java.vm.vendor=Oracle Corporation, java.vendor.url=http://java.oracle.com/, path.separator=;, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, file.encoding.pkg=sun.io, user.script=, user.country=US, sun.java.launcher=SUN_STANDARD, sun.os.patch.level=Service Pack 1, java.vm.specification.name=Java Virtual Machine Specification, user.dir=D:\Projects\ChallengeCloud, java.runtime.version=1.7.0_51-b13, java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment, basedir=D:\Projects\ChallengeCloud, hibernate.current_session_context_class=org.springframework.orm.hibernate4.SpringSessionContext, java.endorsed.dirs=C:\Program Files\Java\jdk1.7.0_51\jre\lib\endorsed, os.arch=amd64, surefire.real.class.path=D:\Projects\ChallengeCloud\target\surefire\surefirebooter2435432599302873998.jar, java.io.tmpdir=C:\Users\Max\AppData\Local\Temp\, line.separator=
+, java.vm.specification.vendor=Oracle Corporation, user.variant=, os.name=Windows 7, sun.jnu.encoding=Cp1251, java.library.path=C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Python\Python27\Scripts\;C:\Python\Python27\;C:\Program Files\R\Rtools\bin;C:\Program Files\R\Rtools\gcc-4.6.3\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\oracle\10.2.0\db_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Git\cmd;C:\Program Files\Java\maven\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Gource\cmd;C:\Octave\3.2.4_gcc-4.4.0\bin;C:\MATLAB\R2014a\runtime\win64;C:\MATLAB\R2014a\bin;C:\oracle;C:\Program Files (x86)\MiKTeX 2.9\miktex\bin\;C:\Program Files\MongoDB 2.6 Standard\bin;., hibernate.connection.datasource=org.springframework.jdbc.datasource.DriverManagerDataSource@5a11c653, surefire.test.class.path=D:\Projects\ChallengeCloud\target\test-classes;D:\Projects\ChallengeCloud\target\classes;D:\Users\Max\.m2\repository\org\springframework\spring-context\3.2.8.RELEASE\spring-context-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-aop\3.2.8.RELEASE\spring-aop-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-beans\3.2.8.RELEASE\spring-beans-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-expression\3.2.8.RELEASE\spring-expression-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-core\3.2.8.RELEASE\spring-core-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\commons-logging\commons-logging\1.1.3\commons-logging-1.1.3.jar;D:\Users\Max\.m2\repository\org\springframework\spring-web\3.2.8.RELEASE\spring-web-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-webmvc\3.2.8.RELEASE\spring-webmvc-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\security\spring-security-web\3.2.5.RELEASE\spring-security-web-3.2.5.RELEASE.jar;D:\Users\Max\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;D:\Users\Max\.m2\repository\org\springframework\security\spring-security-core\3.2.5.RELEASE\spring-security-core-3.2.5.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\security\spring-security-config\3.2.5.RELEASE\spring-security-config-3.2.5.RELEASE.jar;D:\Users\Max\.m2\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar;D:\Users\Max\.m2\repository\commons-dbcp\commons-dbcp\1.4\commons-dbcp-1.4.jar;D:\Users\Max\.m2\repository\commons-pool\commons-pool\1.5.4\commons-pool-1.5.4.jar;D:\Users\Max\.m2\repository\org\hibernate\hibernate-core\4.2.11.Final\hibernate-core-4.2.11.Final.jar;D:\Users\Max\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;D:\Users\Max\.m2\repository\org\jboss\logging\jboss-logging\3.1.0.GA\jboss-logging-3.1.0.GA.jar;D:\Users\Max\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;D:\Users\Max\.m2\repository\org\javassist\javassist\3.18.1-GA\javassist-3.18.1-GA.jar;D:\Users\Max\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.1_spec\1.0.1.Final\jboss-transaction-api_1.1_spec-1.0.1.Final.jar;D:\Users\Max\.m2\repository\org\hibernate\javax\persistence\hibernate-jpa-2.0-api\1.0.1.Final\hibernate-jpa-2.0-api-1.0.1.Final.jar;D:\Users\Max\.m2\repository\org\hibernate\common\hibernate-commons-annotations\4.0.2.Final\hibernate-commons-annotations-4.0.2.Final.jar;D:\Users\Max\.m2\repository\org\springframework\spring-orm\3.2.8.RELEASE\spring-orm-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-jdbc\3.2.8.RELEASE\spring-jdbc-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-tx\3.2.8.RELEASE\spring-tx-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\log4j\log4j\1.2.15\log4j-1.2.15.jar;D:\Users\Max\.m2\repository\javax\servlet\servlet-api\2.5\servlet-api-2.5.jar;D:\Users\Max\.m2\repository\javax\servlet\jsp\jsp-api\2.1\jsp-api-2.1.jar;D:\Users\Max\.m2\repository\javax\servlet\jstl\1.2\jstl-1.2.jar;D:\Users\Max\.m2\repository\junit\junit\4.7\junit-4.7.jar;, java.specification.name=Java Platform API Specification, java.class.version=51.0, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, os.version=6.1, user.home=D:\Users\Max, user.timezone=Europe/Moscow, java.awt.printerjob=sun.awt.windows.WPrinterJob, java.specification.version=1.7, file.encoding=Cp1251, user.name=Max, java.class.path=D:\Projects\ChallengeCloud\target\test-classes;D:\Projects\ChallengeCloud\target\classes;D:\Users\Max\.m2\repository\org\springframework\spring-context\3.2.8.RELEASE\spring-context-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-aop\3.2.8.RELEASE\spring-aop-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-beans\3.2.8.RELEASE\spring-beans-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-expression\3.2.8.RELEASE\spring-expression-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-core\3.2.8.RELEASE\spring-core-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\commons-logging\commons-logging\1.1.3\commons-logging-1.1.3.jar;D:\Users\Max\.m2\repository\org\springframework\spring-web\3.2.8.RELEASE\spring-web-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-webmvc\3.2.8.RELEASE\spring-webmvc-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\security\spring-security-web\3.2.5.RELEASE\spring-security-web-3.2.5.RELEASE.jar;D:\Users\Max\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;D:\Users\Max\.m2\repository\org\springframework\security\spring-security-core\3.2.5.RELEASE\spring-security-core-3.2.5.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\security\spring-security-config\3.2.5.RELEASE\spring-security-config-3.2.5.RELEASE.jar;D:\Users\Max\.m2\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar;D:\Users\Max\.m2\repository\commons-dbcp\commons-dbcp\1.4\commons-dbcp-1.4.jar;D:\Users\Max\.m2\repository\commons-pool\commons-pool\1.5.4\commons-pool-1.5.4.jar;D:\Users\Max\.m2\repository\org\hibernate\hibernate-core\4.2.11.Final\hibernate-core-4.2.11.Final.jar;D:\Users\Max\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;D:\Users\Max\.m2\repository\org\jboss\logging\jboss-logging\3.1.0.GA\jboss-logging-3.1.0.GA.jar;D:\Users\Max\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;D:\Users\Max\.m2\repository\org\javassist\javassist\3.18.1-GA\javassist-3.18.1-GA.jar;D:\Users\Max\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.1_spec\1.0.1.Final\jboss-transaction-api_1.1_spec-1.0.1.Final.jar;D:\Users\Max\.m2\repository\org\hibernate\javax\persistence\hibernate-jpa-2.0-api\1.0.1.Final\hibernate-jpa-2.0-api-1.0.1.Final.jar;D:\Users\Max\.m2\repository\org\hibernate\common\hibernate-commons-annotations\4.0.2.Final\hibernate-commons-annotations-4.0.2.Final.jar;D:\Users\Max\.m2\repository\org\springframework\spring-orm\3.2.8.RELEASE\spring-orm-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-jdbc\3.2.8.RELEASE\spring-jdbc-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\org\springframework\spring-tx\3.2.8.RELEASE\spring-tx-3.2.8.RELEASE.jar;D:\Users\Max\.m2\repository\log4j\log4j\1.2.15\log4j-1.2.15.jar;D:\Users\Max\.m2\repository\javax\servlet\servlet-api\2.5\servlet-api-2.5.jar;D:\Users\Max\.m2\repository\javax\servlet\jsp\jsp-api\2.1\jsp-api-2.1.jar;D:\Users\Max\.m2\repository\javax\servlet\jstl\1.2\jstl-1.2.jar;D:\Users\Max\.m2\repository\junit\junit\4.7\junit-4.7.jar;, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=true, hibernate.classLoader.application=sun.misc.Launcher$AppClassLoader@41556f4c, java.vm.specification.version=1.7, sun.arch.data.model=64, java.home=C:\Program Files\Java\jdk1.7.0_51\jre, sun.java.command=D:\Projects\ChallengeCloud\target\surefire\surefirebooter2435432599302873998.jar D:\Projects\ChallengeCloud\target\surefire\surefire5693957811540831312tmp D:\Projects\ChallengeCloud\target\surefire\surefire_0779397940036883427tmp, hibernate.dialect=org.hibernate.dialect.MySQLDialect, java.specification.vendor=Oracle Corporation, user.language=en, user.language.format=ru, awt.toolkit=sun.awt.windows.WToolkit, java.vm.info=mixed mode, java.version=1.7.0_51, java.ext.dirs=C:\Program Files\Java\jdk1.7.0_51\jre\lib\ext;C:\Windows\Sun\Java\lib\ext, sun.boot.class.path=C:\Program Files\Java\jdk1.7.0_51\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_51\jre\classes, java.vendor=Oracle Corporation, localRepository=D:\Users\Max\.m2\repository, file.separator=\, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, sun.cpu.endian=little, sun.io.unicode.encoding=UnicodeLittle, sun.desktop=windows, sun.cpu.isalist=amd64}
+2015-02-09 23:35:30 DEBUG DefaultIdentifierGeneratorFactory:107 - Setting dialect [org.hibernate.dialect.MySQLDialect]
+2015-02-09 23:35:31 DEBUG AbstractEntityPersister:3604 - Static SQL for entity: com.codegroup.challengecloud.model.User
+2015-02-09 23:35:31 DEBUG AbstractEntityPersister:3609 -  Version select: select USER_ID from challenger.users where USER_ID =?
+2015-02-09 23:35:31 DEBUG AbstractEntityPersister:3612 -  Snapshot select: select user_.USER_ID, user_.EMAIL as EMAIL2_0_, user_.LOGIN as LOGIN3_0_, user_.NAME as NAME4_0_, user_.PASS as PASS5_0_, user_.ROLES as ROLES6_0_ from challenger.users user_ where user_.USER_ID=?
+2015-02-09 23:35:31 DEBUG AbstractEntityPersister:3615 -  Insert 0: insert into challenger.users (EMAIL, LOGIN, NAME, PASS, ROLES, USER_ID) values (?, ?, ?, ?, ?, ?)
+2015-02-09 23:35:31 DEBUG AbstractEntityPersister:3616 -  Update 0: update challenger.users set EMAIL=?, LOGIN=?, NAME=?, PASS=?, ROLES=? where USER_ID=?
+2015-02-09 23:35:31 DEBUG AbstractEntityPersister:3617 -  Delete 0: delete from challenger.users where USER_ID=?
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [NONE]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=?
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [READ]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=?
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [UPGRADE]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=? for update
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [UPGRADE_NOWAIT]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=? for update
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [FORCE]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=? for update
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [PESSIMISTIC_READ]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=? lock in share mode
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [PESSIMISTIC_WRITE]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=? for update
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [PESSIMISTIC_FORCE_INCREMENT]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=? for update
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [OPTIMISTIC]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=?
+2015-02-09 23:35:31 DEBUG Loader:123 - Static select for entity com.codegroup.challengecloud.model.User [OPTIMISTIC_FORCE_INCREMENT]: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=?
+2015-02-09 23:35:31 DEBUG Loader:56 - Static select for action ACTION_MERGE on entity com.codegroup.challengecloud.model.User: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=?
+2015-02-09 23:35:31 DEBUG Loader:56 - Static select for action ACTION_REFRESH on entity com.codegroup.challengecloud.model.User: select user0_.USER_ID as USER_ID1_0_0_, user0_.EMAIL as EMAIL2_0_0_, user0_.LOGIN as LOGIN3_0_0_, user0_.NAME as NAME4_0_0_, user0_.PASS as PASS5_0_0_, user0_.ROLES as ROLES6_0_0_ from challenger.users user0_ where user0_.USER_ID=?
+2015-02-09 23:35:31 DEBUG SessionFactoryRegistry:62 - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@26c6079f
+2015-02-09 23:35:31 DEBUG SessionFactoryRegistry:75 - Registering SessionFactory: 91217d21-b007-48e4-809e-0dadf016fc10 (<unnamed>)
+2015-02-09 23:35:31 DEBUG SessionFactoryRegistry:82 - Not binding SessionFactory to JNDI, no JNDI name configured
+2015-02-09 23:35:31 DEBUG SessionFactoryImpl:492 - Instantiated session factory
+2015-02-09 23:35:31 DEBUG SessionFactoryImpl:1073 - Checking 0 named HQL queries
+2015-02-09 23:35:31 DEBUG SessionFactoryImpl:1096 - Checking 0 named SQL queries
+2015-02-09 23:35:31 DEBUG StatisticsInitiator:110 - Statistics initialized [enabled=false]
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'sessionFactory'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'transactionManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'transactionManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'transactionManager' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'sessionFactory'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'transactionManager'
+2015-02-09 23:35:31 INFO  HibernateTransactionManager:337 - Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@5a11c653] of Hibernate SessionFactory for HibernateTransactionManager
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'transactionManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'mvcContentNegotiationManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'mvcContentNegotiationManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'mvcContentNegotiationManager' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'mvcContentNegotiationManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'mvcContentNegotiationManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'mvcContentNegotiationManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)'
+2015-02-09 23:35:31 DEBUG BeanUtils:441 - No property editor [org.springframework.web.context.request.WebRequestInterceptorEditor] found for type org.springframework.web.context.request.WebRequestInterceptor according to 'Editor' suffix convention
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.handler.MappedInterceptor#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0'
+2015-02-09 23:35:31 DEBUG RequestMappingHandlerMapping:99 - Looking for request mappings in application context: org.springframework.context.support.ClassPathXmlApplicationContext@28d49111: startup date [Mon Feb 09 23:35:28 MSK 2015]; root of context hierarchy
+2015-02-09 23:35:31 INFO  RequestMappingHandlerMapping:180 - Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.codegroup.challengecloud.controllers.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+2015-02-09 23:35:31 INFO  RequestMappingHandlerMapping:180 - Mapped "{[/login],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.codegroup.challengecloud.controllers.LoginController.login(java.lang.String,java.lang.String)
+2015-02-09 23:35:31 INFO  RequestMappingHandlerMapping:180 - Mapped "{[/welcome],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.codegroup.challengecloud.controllers.WelcomeController.printWelcome(org.springframework.ui.ModelMap)
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'mvcContentNegotiationManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#1'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#1'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#2'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#2'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#3'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#3'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#4'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#4'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#5'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#5'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#6'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#6'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#7'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#7'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0'
+2015-02-09 23:35:31 DEBUG RequestMappingHandlerAdapter:618 - Looking for controller advice: org.springframework.context.support.ClassPathXmlApplicationContext@28d49111: startup date [Mon Feb 09 23:35:28 MSK 2015]; root of context hierarchy
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'mvcContentNegotiationManager'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#8'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#8'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#9'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#9'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#10'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#10'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#11'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#11'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#12'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#12'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean '(inner bean)#13'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean '(inner bean)#13'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG ExceptionHandlerExceptionResolver:284 - Looking for exception mappings: org.springframework.context.support.ClassPathXmlApplicationContext@28d49111: startup date [Mon Feb 09 23:35:28 MSK 2015]; root of context hierarchy
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:71 - Looking for URL mappings in application context: org.springframework.context.support.ClassPathXmlApplicationContext@28d49111: startup date [Mon Feb 09 23:35:28 MSK 2015]; root of context hierarchy
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'dataSource': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.aop.config.internalAutoProxyCreator': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.transaction.interceptor.TransactionInterceptor#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.transaction.config.internalTransactionAdvisor': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'sessionFactory': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'transactionManager': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'mvcContentNegotiationManager': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.handler.MappedInterceptor#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.web.servlet.view.InternalResourceViewResolver#0': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'homeController': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'loginController': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'welcomeController': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'userDao': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'userDetailsService': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'userService': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.context.annotation.internalRequiredAnnotationProcessor': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.context.annotation.internalCommonAnnotationProcessor': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'environment': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'systemProperties': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'systemEnvironment': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'messageSource': no URL paths identified
+2015-02-09 23:35:31 DEBUG BeanNameUrlHandlerMapping:86 - Rejected bean name 'applicationEventMulticaster': no URL paths identified
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:1555 - Invoking afterPropertiesSet() on bean with name 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-02-09 23:35:31 INFO  SimpleUrlHandlerMapping:315 - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'homeController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'homeController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'homeController' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'homeController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'loginController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'loginController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'loginController' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'loginController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'welcomeController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'welcomeController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'welcomeController' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'welcomeController'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'userDao'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'userDao'
+2015-02-09 23:35:31 DEBUG InjectionMetadata:71 - Registered injected element on class [com.codegroup.challengecloud.dao.impl.UserDaoMySQL]: AutowiredFieldElement for org.hibernate.SessionFactory com.codegroup.challengecloud.dao.impl.HibernateDao.sessionFactory
+2015-02-09 23:35:31 DEBUG InjectionMetadata:71 - Registered injected element on class [com.codegroup.challengecloud.dao.impl.UserDaoMySQL]: AutowiredMethodElement for public void com.codegroup.challengecloud.dao.impl.HibernateDao.setSessionFactory(org.hibernate.SessionFactory)
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'userDao' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG InjectionMetadata:85 - Processing injected method of bean 'userDao': AutowiredFieldElement for org.hibernate.SessionFactory com.codegroup.challengecloud.dao.impl.HibernateDao.sessionFactory
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'sessionFactory'
+2015-02-09 23:35:31 DEBUG AutowiredAnnotationBeanPostProcessor:436 - Autowiring by type from bean name 'userDao' to bean named 'sessionFactory'
+2015-02-09 23:35:31 DEBUG InjectionMetadata:85 - Processing injected method of bean 'userDao': AutowiredMethodElement for public void com.codegroup.challengecloud.dao.impl.HibernateDao.setSessionFactory(org.hibernate.SessionFactory)
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'sessionFactory'
+2015-02-09 23:35:31 DEBUG AutowiredAnnotationBeanPostProcessor:436 - Autowiring by type from bean name 'userDao' to bean named 'sessionFactory'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'userDao'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'userDetailsService'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'userDetailsService'
+2015-02-09 23:35:31 DEBUG InjectionMetadata:71 - Registered injected element on class [com.codegroup.challengecloud.services.security.ChallengerUserDetailsService]: AutowiredFieldElement for com.codegroup.challengecloud.services.UserService com.codegroup.challengecloud.services.security.ChallengerUserDetailsService.userService
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'userDetailsService' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG InjectionMetadata:85 - Processing injected method of bean 'userDetailsService': AutowiredFieldElement for com.codegroup.challengecloud.services.UserService com.codegroup.challengecloud.services.security.ChallengerUserDetailsService.userService
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:215 - Creating shared instance of singleton bean 'userService'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:432 - Creating instance of bean 'userService'
+2015-02-09 23:35:31 DEBUG InjectionMetadata:71 - Registered injected element on class [com.codegroup.challengecloud.services.UserService]: AutowiredFieldElement for com.codegroup.challengecloud.dao.UserDao com.codegroup.challengecloud.services.UserService.userDao
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:506 - Eagerly caching bean 'userService' to allow for resolving potential circular references
+2015-02-09 23:35:31 DEBUG InjectionMetadata:85 - Processing injected method of bean 'userService': AutowiredFieldElement for com.codegroup.challengecloud.dao.UserDao com.codegroup.challengecloud.services.UserService.userDao
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'userDao'
+2015-02-09 23:35:31 DEBUG AutowiredAnnotationBeanPostProcessor:436 - Autowiring by type from bean name 'userService' to bean named 'userDao'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG AnnotationTransactionAttributeSource:107 - Adding transactional method 'UserService.findByEmail' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2015-02-09 23:35:31 DEBUG InfrastructureAdvisorAutoProxyCreator:538 - Creating implicit proxy for bean 'userService' with 0 common interceptors and 1 specific interceptors
+2015-02-09 23:35:31 DEBUG CglibAopProxy:156 - Creating CGLIB proxy: target source is SingletonTargetSource for target object [com.codegroup.challengecloud.services.UserService@38445b4c]
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+2015-02-09 23:35:31 DEBUG CglibAopProxy:810 - Unable to apply any optimisations to advised method: public com.codegroup.challengecloud.model.User com.codegroup.challengecloud.services.UserService.findByEmail(java.lang.String)
+2015-02-09 23:35:31 DEBUG AnnotationTransactionAttributeSource:107 - Adding transactional method 'UserService.findByLogin' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2015-02-09 23:35:31 DEBUG CglibAopProxy:810 - Unable to apply any optimisations to advised method: public com.codegroup.challengecloud.model.User com.codegroup.challengecloud.services.UserService.findByLogin(java.lang.String)
+2015-02-09 23:35:31 DEBUG AnnotationTransactionAttributeSource:107 - Adding transactional method 'UserService.createProfile' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2015-02-09 23:35:31 DEBUG CglibAopProxy:810 - Unable to apply any optimisations to advised method: public com.codegroup.challengecloud.model.User com.codegroup.challengecloud.services.UserService.createProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:810 - Unable to apply any optimisations to advised method: public void com.codegroup.challengecloud.services.UserService.setUserDao(com.codegroup.challengecloud.dao.UserDao)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:810 - Unable to apply any optimisations to advised method: public void com.codegroup.challengecloud.services.UserService.updateProfile(com.codegroup.challengecloud.model.User)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:761 - Found finalize() method - using NO_OVERRIDE
+2015-02-09 23:35:31 DEBUG CglibAopProxy:773 - Found 'equals' method: public boolean java.lang.Object.equals(java.lang.Object)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:810 - Unable to apply any optimisations to advised method: public java.lang.String java.lang.Object.toString()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:778 - Found 'hashCode' method: public native int java.lang.Object.hashCode()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:810 - Unable to apply any optimisations to advised method: protected native java.lang.Object java.lang.Object.clone() throws java.lang.CloneNotSupportedException
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract int org.springframework.aop.framework.Advised.indexOf(org.springframework.aop.Advisor)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract int org.springframework.aop.framework.Advised.indexOf(org.aopalliance.aop.Advice)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract boolean org.springframework.aop.framework.Advised.isFrozen()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract org.springframework.aop.TargetSource org.springframework.aop.framework.Advised.getTargetSource()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract void org.springframework.aop.framework.Advised.setTargetSource(org.springframework.aop.TargetSource)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract void org.springframework.aop.framework.Advised.setPreFiltered(boolean)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract boolean org.springframework.aop.framework.Advised.isProxyTargetClass()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract void org.springframework.aop.framework.Advised.setExposeProxy(boolean)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract void org.springframework.aop.framework.Advised.addAdvisor(org.springframework.aop.Advisor) throws org.springframework.aop.framework.AopConfigException
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract void org.springframework.aop.framework.Advised.addAdvisor(int,org.springframework.aop.Advisor) throws org.springframework.aop.framework.AopConfigException
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract boolean org.springframework.aop.framework.Advised.isExposeProxy()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract void org.springframework.aop.framework.Advised.addAdvice(int,org.aopalliance.aop.Advice) throws org.springframework.aop.framework.AopConfigException
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract void org.springframework.aop.framework.Advised.addAdvice(org.aopalliance.aop.Advice) throws org.springframework.aop.framework.AopConfigException
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract boolean org.springframework.aop.framework.Advised.isPreFiltered()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract org.springframework.aop.Advisor[] org.springframework.aop.framework.Advised.getAdvisors()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract void org.springframework.aop.framework.Advised.removeAdvisor(int) throws org.springframework.aop.framework.AopConfigException
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract boolean org.springframework.aop.framework.Advised.removeAdvisor(org.springframework.aop.Advisor)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract boolean org.springframework.aop.framework.Advised.removeAdvice(org.aopalliance.aop.Advice)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract java.lang.Class[] org.springframework.aop.framework.Advised.getProxiedInterfaces()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract boolean org.springframework.aop.framework.Advised.isInterfaceProxied(java.lang.Class)
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract boolean org.springframework.aop.framework.Advised.replaceAdvisor(org.springframework.aop.Advisor,org.springframework.aop.Advisor) throws org.springframework.aop.framework.AopConfigException
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract java.lang.String org.springframework.aop.framework.Advised.toProxyConfigString()
+2015-02-09 23:35:31 DEBUG CglibAopProxy:767 - Method is declared on Advised interface: public abstract java.lang.Class org.springframework.aop.TargetClassAware.getTargetClass()
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'userService'
+2015-02-09 23:35:31 DEBUG AutowiredAnnotationBeanPostProcessor:436 - Autowiring by type from bean name 'userDetailsService' to bean named 'userService'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:460 - Finished creating instance of bean 'userDetailsService'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'userService'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+2015-02-09 23:35:31 DEBUG ClassPathXmlApplicationContext:858 - Unable to locate LifecycleProcessor with name 'lifecycleProcessor': using default [org.springframework.context.support.DefaultLifecycleProcessor@732961e6]
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'lifecycleProcessor'
+2015-02-09 23:35:31 DEBUG PropertySourcesPropertyResolver:81 - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemProperties]
+2015-02-09 23:35:31 DEBUG PropertySourcesPropertyResolver:81 - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemEnvironment]
+2015-02-09 23:35:31 DEBUG PropertySourcesPropertyResolver:103 - Could not find key 'spring.liveBeansView.mbeanDomain' in any property source. Returning [null]
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'userService'
+2015-02-09 23:35:31 DEBUG DefaultListableBeanFactory:246 - Returning cached instance of singleton bean 'transactionManager'
+2015-02-09 23:35:31 DEBUG HibernateTransactionManager:366 - Creating new transaction with name [com.codegroup.challengecloud.services.UserService.findByEmail]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2015-02-09 23:35:31 DEBUG HibernateTransactionManager:414 - Opened new Session [SessionImpl(PersistenceContext[entityKeys=[],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[] orphanRemovals=[] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] collectionQueuedOps=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])] for Hibernate transaction
+2015-02-09 23:35:32 DEBUG HibernateTransactionManager:424 - Preparing JDBC Connection of Hibernate Session [SessionImpl(PersistenceContext[entityKeys=[],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[] orphanRemovals=[] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] collectionQueuedOps=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])]
+2015-02-09 23:35:32 DEBUG LogicalConnectionImpl:212 - Obtaining JDBC connection
+2015-02-09 23:35:32 DEBUG DriverManagerDataSource:162 - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/challenger]
+2015-02-09 23:35:32 DEBUG LogicalConnectionImpl:218 - Obtained JDBC connection
+2015-02-09 23:35:32 DEBUG AbstractTransactionImpl:158 - begin
+2015-02-09 23:35:32 DEBUG JdbcTransaction:69 - initial autocommit status: true
+2015-02-09 23:35:32 DEBUG JdbcTransaction:71 - disabling autocommit
+2015-02-09 23:35:32 DEBUG HibernateTransactionManager:485 - Exposing Hibernate transaction as JDBC transaction [com.mysql.jdbc.JDBC4Connection@c3264a0]
+2015-02-09 23:35:32 DEBUG QueryTranslatorImpl:267 - parse() - HQL: from com.codegroup.challengecloud.model.User where email = ?
+2015-02-09 23:35:32 DEBUG QueryTranslatorImpl:285 - --- HQL AST ---
+ \-[QUERY] Node: 'query'
+    +-[SELECT_FROM] Node: 'SELECT_FROM'
+    |  \-[FROM] Node: 'from'
+    |     \-[RANGE] Node: 'RANGE'
+    |        \-[DOT] Node: '.'
+    |           +-[DOT] Node: '.'
+    |           |  +-[DOT] Node: '.'
+    |           |  |  +-[DOT] Node: '.'
+    |           |  |  |  +-[IDENT] Node: 'com'
+    |           |  |  |  \-[IDENT] Node: 'codegroup'
+    |           |  |  \-[IDENT] Node: 'challengecloud'
+    |           |  \-[IDENT] Node: 'model'
+    |           \-[IDENT] Node: 'User'
+    \-[WHERE] Node: 'where'
+       \-[EQ] Node: '='
+          +-[IDENT] Node: 'email'
+          \-[PARAM] Node: '?'
+
+2015-02-09 23:35:32 DEBUG ErrorCounter:82 - throwQueryException() : no errors
+2015-02-09 23:35:32 DEBUG HqlSqlBaseWalker:121 - select << begin [level=1, statement=select]
+2015-02-09 23:35:32 DEBUG FromElement:157 - FromClause{level=1} : com.codegroup.challengecloud.model.User (<no alias>) -> user0_
+2015-02-09 23:35:32 DEBUG FromReferenceNode:75 - Resolved : {synthetic-alias} -> {synthetic-alias}
+2015-02-09 23:35:32 DEBUG DotNode:620 - getDataType() : email -> org.hibernate.type.StringType@6069094
+2015-02-09 23:35:32 DEBUG FromReferenceNode:75 - Resolved : {synthetic-alias}.email -> user0_.EMAIL
+2015-02-09 23:35:32 WARN  HqlSqlWalker:930 - [DEPRECATION] Encountered positional parameter near line 1, column 60.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2015-02-09 23:35:32 DEBUG HqlSqlBaseWalker:125 - select : finishing up [level=1, statement=select]
+2015-02-09 23:35:32 DEBUG HqlSqlWalker:630 - processQuery() :  ( SELECT ( FromClause{level=1} challenger.users user0_ ) ( where ( = ( user0_.EMAIL {synthetic-alias} email ) ? ) ) )
+2015-02-09 23:35:32 DEBUG HqlSqlWalker:870 - Derived SELECT clause created.
+2015-02-09 23:35:32 DEBUG JoinProcessor:177 - Using FROM fragment [challenger.users user0_]
+2015-02-09 23:35:32 DEBUG HqlSqlBaseWalker:129 - select >> end [level=1, statement=select]
+2015-02-09 23:35:32 DEBUG QueryTranslatorImpl:254 - --- SQL AST ---
+ \-[SELECT] QueryNode: 'SELECT'  querySpaces (challenger.users)
+    +-[SELECT_CLAUSE] SelectClause: '{derived select clause}'
+    |  +-[SELECT_EXPR] SelectExpressionImpl: 'user0_.USER_ID as USER_ID1_0_' {FromElement{explicit,not a collection join,not a fetch join,fetch non-lazy properties,classAlias=null,role=null,tableName=challenger.users,tableAlias=user0_,origin=null,columns={,className=com.codegroup.challengecloud.model.User}}}
+    |  \-[SQL_TOKEN] SqlFragment: 'user0_.EMAIL as EMAIL2_0_, user0_.LOGIN as LOGIN3_0_, user0_.NAME as NAME4_0_, user0_.PASS as PASS5_0_, user0_.ROLES as ROLES6_0_'
+    +-[FROM] FromClause: 'from' FromClause{level=1, fromElementCounter=1, fromElements=1, fromElementByClassAlias=[], fromElementByTableAlias=[user0_], fromElementsByPath=[], collectionJoinFromElementsByPath=[], impliedElements=[]}
+    |  \-[FROM_FRAGMENT] FromElement: 'challenger.users user0_' FromElement{explicit,not a collection join,not a fetch join,fetch non-lazy properties,classAlias=null,role=null,tableName=challenger.users,tableAlias=user0_,origin=null,columns={,className=com.codegroup.challengecloud.model.User}}
+    \-[WHERE] SqlNode: 'where'
+       \-[EQ] BinaryLogicOperatorNode: '='
+          +-[DOT] DotNode: 'user0_.EMAIL' {propertyName=email,dereferenceType=ALL,propertyPath=email,path={synthetic-alias}.email,tableAlias=user0_,className=com.codegroup.challengecloud.model.User,classAlias=null}
+          |  +-[IDENT] IdentNode: '{synthetic-alias}' {originalText={synthetic-alias}}
+          |  \-[IDENT] IdentNode: 'email' {originalText=email}
+          \-[PARAM] ParameterNode: '?' {ordinal=0, expectedType=org.hibernate.type.StringType@6069094}
+
+2015-02-09 23:35:32 DEBUG ErrorCounter:82 - throwQueryException() : no errors
+2015-02-09 23:35:32 DEBUG QueryTranslatorImpl:237 - HQL: from com.codegroup.challengecloud.model.User where email = ?
+2015-02-09 23:35:32 DEBUG QueryTranslatorImpl:238 - SQL: select user0_.USER_ID as USER_ID1_0_, user0_.EMAIL as EMAIL2_0_, user0_.LOGIN as LOGIN3_0_, user0_.NAME as NAME4_0_, user0_.PASS as PASS5_0_, user0_.ROLES as ROLES6_0_ from challenger.users user0_ where user0_.EMAIL=?
+2015-02-09 23:35:32 DEBUG ErrorCounter:82 - throwQueryException() : no errors
+2015-02-09 23:35:32 DEBUG SQL:104 - select user0_.USER_ID as USER_ID1_0_, user0_.EMAIL as EMAIL2_0_, user0_.LOGIN as LOGIN3_0_, user0_.NAME as NAME4_0_, user0_.PASS as PASS5_0_, user0_.ROLES as ROLES6_0_ from challenger.users user0_ where user0_.EMAIL=?
+2015-02-09 23:35:32 DEBUG Loader:948 - Result set row: 0
+2015-02-09 23:35:32 DEBUG Loader:1480 - Result row: EntityKey[com.codegroup.challengecloud.model.User#d6fbf948694caf35]
+2015-02-09 23:35:32 DEBUG TwoPhaseLoad:158 - Resolving associations for [com.codegroup.challengecloud.model.User#d6fbf948694caf35]
+2015-02-09 23:35:32 DEBUG TwoPhaseLoad:283 - Done materializing entity [com.codegroup.challengecloud.model.User#d6fbf948694caf35]
+2015-02-09 23:35:32 DEBUG HibernateTransactionManager:753 - Initiating transaction commit
+2015-02-09 23:35:32 DEBUG HibernateTransactionManager:548 - Committing Hibernate transaction on Session [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.codegroup.challengecloud.model.User#d6fbf948694caf35]],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[] orphanRemovals=[] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] collectionQueuedOps=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])]
+2015-02-09 23:35:32 DEBUG AbstractTransactionImpl:173 - committing
+2015-02-09 23:35:32 DEBUG AbstractFlushingEventListener:147 - Processing flush-time cascades
+2015-02-09 23:35:32 DEBUG AbstractFlushingEventListener:188 - Dirty checking collections
+2015-02-09 23:35:32 DEBUG AbstractFlushingEventListener:121 - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2015-02-09 23:35:32 DEBUG AbstractFlushingEventListener:128 - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2015-02-09 23:35:32 DEBUG EntityPrinter:114 - Listing entities:
+2015-02-09 23:35:32 DEBUG EntityPrinter:121 - com.codegroup.challengecloud.model.User{id=d6fbf948694caf35, email=volterr@gmail.com, name=max kazakov, role=7, login=volterr, pass=$2a$10$rdHCgQDkMqQSk9IK8rhsVu1XhC/Y/VA5ohsMgGtjasABH7b.WAWzi}
+2015-02-09 23:35:32 DEBUG JdbcTransaction:113 - committed JDBC Connection
+2015-02-09 23:35:32 DEBUG JdbcTransaction:126 - re-enabling autocommit
+2015-02-09 23:35:32 DEBUG HibernateTransactionManager:630 - Closing Hibernate Session [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.codegroup.challengecloud.model.User#d6fbf948694caf35]],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[] orphanRemovals=[] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] collectionQueuedOps=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])] after transaction
+2015-02-09 23:35:32 DEBUG LogicalConnectionImpl:232 - Releasing JDBC connection
+2015-02-09 23:35:32 DEBUG LogicalConnectionImpl:250 - Released JDBC connection

@@ -1,7 +1,7 @@
-package com.codegroup.challenger.services.security;
+package com.codegroup.challengecloud.services.security;
 
-import com.codegroup.challenger.constants.UserRoles;
-import com.codegroup.challenger.services.UserService;
+import com.codegroup.challengecloud.constants.UserRoles;
+import com.codegroup.challengecloud.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,14 +24,14 @@ public class ChallengerUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
 
-        com.codegroup.challenger.model.User user = userService.findByLogin(username);
+        com.codegroup.challengecloud.model.User user = userService.findByLogin(username);
         List<GrantedAuthority> authorities = buildUserAuthority(user.getRole());
 
         return buildUserForAuthentication(user, authorities);
     }
 
     // Converts User user to org.springframework.security.core.userdetails.User
-    private User buildUserForAuthentication(com.codegroup.challenger.model.User user, List<GrantedAuthority> authorities) {
+    private User buildUserForAuthentication(com.codegroup.challengecloud.model.User user, List<GrantedAuthority> authorities) {
         return new User(user.getLogin(),
                 user.getPass(),
                 true, true, true, true, authorities);

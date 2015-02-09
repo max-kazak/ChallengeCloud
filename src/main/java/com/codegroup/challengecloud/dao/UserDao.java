@@ -1,6 +1,6 @@
-package com.codegroup.challenger.dao;
+package com.codegroup.challengecloud.dao;
 
-import com.codegroup.challenger.model.User;
+import com.codegroup.challengecloud.model.User;
 
 /**
  * Created by Max on 24.01.2015.

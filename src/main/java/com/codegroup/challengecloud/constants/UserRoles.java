@@ -1,4 +1,4 @@
-package com.codegroup.challenger.constants;
+package com.codegroup.challengecloud.constants;
 
 import java.util.*;
 
