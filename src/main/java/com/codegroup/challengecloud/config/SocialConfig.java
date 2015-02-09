@@ -41,7 +41,7 @@ public class SocialConfig {
 	public ConnectionFactoryLocator connectionFactoryLocator() {
 	    ConnectionFactoryRegistry registry = new ConnectionFactoryRegistry();
 	    registry.addConnectionFactory(new TwitterConnectionFactory(environment.getProperty("twitter.clientId"),
-	        environment.getProperty("facebook.clientSecret")));
+	        environment.getProperty("twitter.clientSecret")));
 	    return registry;
 	}
 	
