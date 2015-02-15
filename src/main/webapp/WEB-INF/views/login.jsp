@@ -38,6 +38,7 @@
  
 	<h1>Login Form</h1>
  
+    <!--  Internal Sign in -->
 	<div id="login-box">
  
 		<c:if test="${not empty error}">
@@ -70,6 +71,14 @@
  
 		</form>
 	</div>
+	<!--  Login with Social Services -->
+	<div>
+		<form action="<c:url value="/signin/twitter" />" method="POST">
+		    <button type="submit">Sign in with Twitter</button>
+		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		</form>
+	</div>
+	
  
 </body>
 </html>

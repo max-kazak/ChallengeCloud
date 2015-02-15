@@ -52,7 +52,7 @@ public class User implements Serializable{
         this.login = login;
     }
 
-    @Column(name = "PASS", nullable = false)
+    @Column(name = "PASS")
     public String getPass() {
         return pass;
     }
