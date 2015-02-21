@@ -18,3 +18,5 @@ create table `challenger`.`challengegroup` (
   `ICON` BINARY(200),
   PRIMARY KEY (`GROUP_ID`) USING BTREE
 );
+
+commit;
