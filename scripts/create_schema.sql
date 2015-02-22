@@ -14,7 +14,7 @@ create table `challenger`.`users` (
 drop table `challenger`.`usersettings`;
 CREATE TABLE `challenger`.`usersettings` (
   `USER_ID` VARCHAR(16) NOT NULL,
-  `USER_LANG` VARCHAR(16) NOT NULL,
+  `USER_LANG` VARCHAR(16),
   FOREIGN KEY (`USER_ID`) REFERENCES challenger.users(USER_ID),
   PRIMARY KEY (`USER_ID`)
 );
@@ -40,7 +40,7 @@ CREATE UNIQUE INDEX UserConnectionRank ON UserConnection
 (userId, providerId, rank);
 
 drop table `challenger`.`origins`;
-CREATE TABLE `challenger`.`origin` (
+CREATE TABLE `challenger`.`origins` (
   `ORIGIN_ID` VARCHAR(16) NOT NULL,
   `NAME` varchar(20) NOT NULL,
   PRIMARY KEY (`ORIGIN_ID`) USING BTREE
