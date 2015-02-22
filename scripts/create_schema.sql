@@ -42,3 +42,18 @@ create table `challenger`.`posts` (
   `POST_URL` VARCHAR(512) NOT NULL,
   PRIMARY KEY (`POST_ID`) USING BTREE,
 );
+
+/* Creating table of subscriptions */
+DROP TABLE `challenger`.`subscriptions`;
+
+CREATE TABLE `challenger`.`subscribtions`(
+  `SUB_ID` VARCHAR(16) NOT NULL,
+  `USER_ID` VARCHAR(16) NOT NULL,
+  `CHALLENGE_ID` VARCHAR(16) NOT NULL,
+  `DATE` DATE NOT NULL,
+CONSTRAINT pk_SubID PRIMARY KEY (`SUB_ID`, `DATE`),
+FOREIGN KEY (`USER_ID`) 
+  REFERENCES `challenger`.`users`(`USER_ID`),
+FOREIGN KEY (`CHALLENGE_ID`) 
+  REFERENCES `challenger`.`challenges`(`CHALLENGE_ID`)
+);
