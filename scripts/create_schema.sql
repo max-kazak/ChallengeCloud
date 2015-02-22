@@ -6,7 +6,6 @@ create table `challenger`.`users` (
   `NAME` VARCHAR(20) NOT NULL,
   `PASS` varchar(60),
   `EMAIL` varchar(20),
-  `NAME` varchar(20) NOT NULL,
   `ROLES` int(3) NOT NULL,
   PRIMARY KEY (`USER_ID`) USING BTREE,
   UNIQUE KEY `UNI_USER_EMAIL` (`EMAIL`) USING BTREE,
@@ -16,7 +15,8 @@ drop table `challenger`.`usersettings`;
 CREATE TABLE `challenger`.`usersettings` (
   `USER_ID` VARCHAR(16) NOT NULL,
   `USER_LANG` VARCHAR(16) NOT NULL,
-  FOREIGN KEY (`USER_ID`) REFERENCES challenger.users(USER_ID)
+  FOREIGN KEY (`USER_ID`) REFERENCES challenger.users(USER_ID),
+  PRIMARY KEY (`USER_ID`)
 );
 
 drop table `challenger`.`UserConnection`;
@@ -39,20 +39,22 @@ CREATE TABLE `challenger`.`UserConnection`
 CREATE UNIQUE INDEX UserConnectionRank ON UserConnection
 (userId, providerId, rank);
 
-drop table `challenger`.`posts`;
-create table `challenger`.`posts` (
-  `POST_ID` VARCHAR(16) NOT NULL,
-  `ORIGIN_ID` VARCHAR(16) NOT NULL
-  `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
-  `DATE` TIMESTAMP NOT NULL,
-  `POST_URL` VARCHAR(512) NOT NULL,
-  PRIMARY KEY (`POST_ID`) USING BTREE
-);
-drop table `challenger`.`origin`;
+drop table `challenger`.`origins`;
 CREATE TABLE `challenger`.`origin` (
   `ORIGIN_ID` VARCHAR(16) NOT NULL,
   `NAME` varchar(20) NOT NULL,
-  FOREIGN KEY (`ORIGIN_ID`) REFERENCES  challenger.posts(ORIGIN_ID)
+  PRIMARY KEY (`ORIGIN_ID`) USING BTREE
+);
+
+drop table `challenger`.`posts`;
+create table `challenger`.`posts` (
+  `POST_ID` VARCHAR(16) NOT NULL,
+  `ORIGIN_ID` VARCHAR(16) NOT NULL,
+  `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
+  `DATE` TIMESTAMP NOT NULL,
+  `POST_URL` VARCHAR(512) NOT NULL,
+  PRIMARY KEY (`POST_ID`) USING BTREE,
+  FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins(`ORIGIN_ID`)
 );
 
 /* Creating table of subscriptions */
