@@ -8,10 +8,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.web.SignInAdapter;
+import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.NativeWebRequest;
 
 import com.codegroup.challengecloud.services.security.ChallengerUserDetailsService;
 
+@Service
 public class UserSignInAdapter implements SignInAdapter{
 
 	@Inject
@@ -19,7 +21,7 @@ public class UserSignInAdapter implements SignInAdapter{
 	
 	@Override
 	public String signIn(String userId, Connection<?> connection, NativeWebRequest request) {
-		UserDetails userDetail = userDetailsService.loadUserByUsername(userId);
+		UserDetails userDetail = userDetailsService.loadUserById(userId);
 		
 		Authentication auth = new UsernamePasswordAuthenticationToken(userDetail, null, userDetail.getAuthorities());
 		SecurityContextHolder.getContext().setAuthentication(auth);

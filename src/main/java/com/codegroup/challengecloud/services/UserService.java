@@ -1,8 +1,10 @@
 package com.codegroup.challengecloud.services;
 
+import com.codegroup.challengecloud.constants.UserRoles;
 import com.codegroup.challengecloud.dao.UserDao;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +35,7 @@ public class UserService {
         user.setPass(pass);
         user.setEmail(email);
         user.setName(name);
+        user.setRole(UserRoles.ROLE_USER_ID);
 
         userDao.save(user);
 
@@ -47,5 +50,10 @@ public class UserService {
     @Transactional
     public User findByLogin(String login) {
         return userDao.findByLogin(login);
+    }
+    
+    @Transactional
+    public User findById(String id) {
+    	return userDao.findById(id);
     }
 }

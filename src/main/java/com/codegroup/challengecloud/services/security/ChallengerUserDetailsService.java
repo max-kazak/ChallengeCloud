@@ -2,6 +2,8 @@ package com.codegroup.challengecloud.services.security;
 
 import com.codegroup.challengecloud.constants.UserRoles;
 import com.codegroup.challengecloud.services.UserService;
+import com.codegroup.challengecloud.utils.Generator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -10,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
 import java.util.*;
 
 /**
@@ -23,17 +26,24 @@ public class ChallengerUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-
         com.codegroup.challengecloud.model.User user = userService.findByLogin(username);
-        List<GrantedAuthority> authorities = buildUserAuthority(user.getRole());
-
+        return convertUserToUserDetails(user);
+    }
+    
+    public UserDetails loadUserById(final String id){
+        com.codegroup.challengecloud.model.User user = userService.findById(id);
+        return convertUserToUserDetails(user);
+    }
+    
+    private UserDetails convertUserToUserDetails(com.codegroup.challengecloud.model.User user){
+    	List<GrantedAuthority> authorities = buildUserAuthority(user.getRole());
         return buildUserForAuthentication(user, authorities);
     }
 
     // Converts User user to org.springframework.security.core.userdetails.User
     private User buildUserForAuthentication(com.codegroup.challengecloud.model.User user, List<GrantedAuthority> authorities) {
         return new User(user.getLogin(),
-                user.getPass(),
+                user.getPass()!=null?user.getPass():Generator.generateHashedPass(Generator.generateId()),
                 true, true, true, true, authorities);
     }
 

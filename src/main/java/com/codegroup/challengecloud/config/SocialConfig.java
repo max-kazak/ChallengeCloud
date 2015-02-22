@@ -1,8 +1,8 @@
 package com.codegroup.challengecloud.config;
 
-import javax.inject.Inject;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -21,11 +21,11 @@ import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
-import org.springframework.social.connect.support.ConnectionFactoryRegistry;
 import org.springframework.social.connect.web.ConnectController;
 import org.springframework.social.connect.web.ProviderSignInController;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.connect.TwitterConnectionFactory;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.codegroup.challengecloud.services.social.ConnectionSignUpAdapter;
 import com.codegroup.challengecloud.services.social.UserSignInAdapter;
@@ -36,10 +36,11 @@ import com.codegroup.challengecloud.services.social.UserSignInAdapter;
 
 @Configuration
 @EnableSocial
+@EnableTransactionManagement
 @PropertySource("classpath:application.properties")
 public class SocialConfig implements SocialConfigurer{
 
-	@Inject
+	@Autowired
 	private DataSource dataSource;
 	
 
@@ -60,17 +61,19 @@ public class SocialConfig implements SocialConfigurer{
 		};
 	}
 
+	@Autowired
+	ConnectionSignUpAdapter connectionSignUpAdapter;
+	
 	@Override
 	public UsersConnectionRepository getUsersConnectionRepository(ConnectionFactoryLocator connectionFactoryLocator) {
 		JdbcUsersConnectionRepository repository = new JdbcUsersConnectionRepository(
 				dataSource, 
 				connectionFactoryLocator, 
 				Encryptors.noOpText());
-	    repository.setConnectionSignUp(new ConnectionSignUpAdapter());
+	    repository.setConnectionSignUp(connectionSignUpAdapter);
 		return repository;
 	}
 	
-
 	@Bean
 	@Scope(value="request", proxyMode=ScopedProxyMode.INTERFACES)
 	public Twitter twitter(ConnectionRepository repository) {
@@ -79,8 +82,10 @@ public class SocialConfig implements SocialConfigurer{
 	}
 
 	@Bean
-	public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository usersConnectionRepository) {
-		return new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository, new UserSignInAdapter());
+	public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator, 
+			UsersConnectionRepository usersConnectionRepository,
+			UserSignInAdapter userSignInAdapter) {
+		return new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository, userSignInAdapter);
 	}
 	
 	@Bean
