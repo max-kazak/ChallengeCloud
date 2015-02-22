@@ -12,28 +12,28 @@ create table `challenger`.`users` (
   UNIQUE KEY `UNI_USER_EMAIL` (`EMAIL`) USING BTREE,
   UNIQUE KEY `UNI_USER_LOGIN` (`NAME`) USING BTREE
 );
-
+drop table `challenger`.`usersettings`;
 CREATE TABLE `challenger`.`usersettings` (
   `USER_ID` VARCHAR(16) NOT NULL,
-  'USER_LANG' VARCHAR(16) NOT NULL,
-  FOREIGN KEY ('USER_ID') REFERENCES challenger.users(USER_ID)
+  `USER_LANG` VARCHAR(16) NOT NULL,
+  FOREIGN KEY (`USER_ID`) REFERENCES challenger.users(USER_ID)
 );
 
 drop table `challenger`.`UserConnection`;
 CREATE TABLE `challenger`.`UserConnection`
 (
-    userId varchar(255) NOT NULL,
-    providerId varchar(255) NOT NULL,
-    providerUserId varchar(255),
-    rank int not null,
-    displayName varchar(255),
-    profileUrl varchar(512),
-    imageUrl varchar(512),
-    accessToken varchar(255) NOT NULL,					
-    secret varchar(255),
-    refreshToken varchar(255),
-    expireTime long,
-    primary key (userId, providerId, providerUserId)
+  userId varchar(255) NOT NULL,
+  providerId varchar(255) NOT NULL,
+  providerUserId varchar(255),
+  rank int not null,
+  displayName varchar(255),
+  profileUrl varchar(512),
+  imageUrl varchar(512),
+  accessToken varchar(255) NOT NULL,
+  secret varchar(255),
+  refreshToken varchar(255),
+  expireTime long,
+  primary key (userId, providerId, providerUserId)
 );
 
 CREATE UNIQUE INDEX UserConnectionRank ON UserConnection
@@ -48,11 +48,11 @@ create table `challenger`.`posts` (
   `POST_URL` VARCHAR(512) NOT NULL,
   PRIMARY KEY (`POST_ID`) USING BTREE
 );
-
-CREATE TABLE `challenger`.`origin`; (
+drop table `challenger`.`origin`;
+CREATE TABLE `challenger`.`origin` (
   `ORIGIN_ID` VARCHAR(16) NOT NULL,
   `NAME` varchar(20) NOT NULL,
-  FOREIGN KEY ('ORIGIN_ID') REFERENCES  challenger.posts(ORIGIN_ID)
+  FOREIGN KEY (`ORIGIN_ID`) REFERENCES  challenger.posts(ORIGIN_ID)
 );
 
 /* Creating table of subscriptions */
@@ -63,9 +63,9 @@ CREATE TABLE `challenger`.`subscribtions`(
   `USER_ID` VARCHAR(16) NOT NULL,
   `CHALLENGE_ID` VARCHAR(16) NOT NULL,
   `DATE` DATE NOT NULL,
-CONSTRAINT pk_SubID PRIMARY KEY (`SUB_ID`, `DATE`),
-FOREIGN KEY (`USER_ID`) 
+  CONSTRAINT pk_SubID PRIMARY KEY (`SUB_ID`, `DATE`),
+  FOREIGN KEY (`USER_ID`)
   REFERENCES `challenger`.`users`(`USER_ID`),
-FOREIGN KEY (`CHALLENGE_ID`) 
+  FOREIGN KEY (`CHALLENGE_ID`)
   REFERENCES `challenger`.`challenges`(`CHALLENGE_ID`)
 );
