@@ -47,7 +47,7 @@ create table `challenger`.`posts` (
 DROP TABLE `challenger`.`subscriptions`;
 
 CREATE TABLE `challenger`.`subscribtions`(
-  `SUB_ID` VARCHAR(16) NOT NULL,
+  `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
   `USER_ID` VARCHAR(16) NOT NULL,
   `CHALLENGE_ID` VARCHAR(16) NOT NULL,
   `DATE` DATE NOT NULL,
