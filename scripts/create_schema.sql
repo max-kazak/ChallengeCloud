@@ -32,3 +32,13 @@ CREATE TABLE `challenger`.`UserConnection`
 
 CREATE UNIQUE INDEX UserConnectionRank ON UserConnection
 (userId, providerId, rank);
+
+drop table `challenger`.`posts`;
+create table `challenger`.`posts` (
+  `POST_ID` VARCHAR(16) NOT NULL,
+  `ORIGIN_ID` VARCHAR(16) NOT NULL
+  `SUBSRIPTION_ID` VARCHAR(16) NOT NULL,
+  `DATE` TIMESTAMP NOT NULL,
+  `POST_URL` VARCHAR(512) NOT NULL,
+  PRIMARY KEY (`POST_ID`) USING BTREE,
+);
