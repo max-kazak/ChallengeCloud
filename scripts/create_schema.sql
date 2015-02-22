@@ -3,14 +3,20 @@ create schema if not exists challenger;
 drop table `challenger`.`users`;
 create table `challenger`.`users` (
   `USER_ID` VARCHAR(16) NOT NULL,
-  `LOGIN` VARCHAR(20) NOT NULL,
+  `NAME` VARCHAR(20) NOT NULL,
   `PASS` varchar(60),
   `EMAIL` varchar(20),
   `NAME` varchar(20) NOT NULL,
   `ROLES` int(3) NOT NULL,
   PRIMARY KEY (`USER_ID`) USING BTREE,
   UNIQUE KEY `UNI_USER_EMAIL` (`EMAIL`) USING BTREE,
-  UNIQUE KEY `UNI_USER_LOGIN` (`LOGIN`) USING BTREE
+  UNIQUE KEY `UNI_USER_LOGIN` (`NAME`) USING BTREE
+);
+
+CREATE TABLE `challenger`.`usersettings` (
+  `USER_ID` VARCHAR(16) NOT NULL,
+  'USER_LANG' VARCHAR(16) NOT NULL,
+  FOREIGN KEY ('USER_ID') REFERENCES challenger.users(USER_ID)
 );
 
 drop table `challenger`.`UserConnection`;
@@ -37,10 +43,16 @@ drop table `challenger`.`posts`;
 create table `challenger`.`posts` (
   `POST_ID` VARCHAR(16) NOT NULL,
   `ORIGIN_ID` VARCHAR(16) NOT NULL
-  `SUBSRIPTION_ID` VARCHAR(16) NOT NULL,
+  `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
   `DATE` TIMESTAMP NOT NULL,
   `POST_URL` VARCHAR(512) NOT NULL,
-  PRIMARY KEY (`POST_ID`) USING BTREE,
+  PRIMARY KEY (`POST_ID`) USING BTREE
+);
+
+CREATE TABLE `challenger`.`origin`; (
+  `ORIGIN_ID` VARCHAR(16) NOT NULL,
+  `NAME` varchar(20) NOT NULL,
+  FOREIGN KEY ('ORIGIN_ID') REFERENCES  challenger.posts(ORIGIN_ID)
 );
 
 /* Creating table of subscriptions */
