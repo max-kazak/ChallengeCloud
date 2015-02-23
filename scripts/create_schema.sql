@@ -58,9 +58,9 @@ create table `challenger`.`posts` (
 );
 
 /* Creating table of subscriptions */
-DROP TABLE `challenger`.`subscribtions`;
+DROP TABLE `challenger`.`subscriptions`;
 
-CREATE TABLE `challenger`.`subscribtions`(
+CREATE TABLE `challenger`.`subscriptions`(
   `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
   `USER_ID` VARCHAR(16) NOT NULL,
   `CHALLENGE_ID` VARCHAR(16) NOT NULL,

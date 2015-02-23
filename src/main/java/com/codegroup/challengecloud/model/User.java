@@ -2,6 +2,7 @@ package com.codegroup.challengecloud.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by Max on 24.01.2015.
@@ -29,6 +30,7 @@ public class User implements Serializable{
      */
     Integer role;
 
+    Set<Subscribe> subscriptions;
 
     public User() {
     }
@@ -113,5 +115,17 @@ public class User implements Serializable{
                 ", name='" + name + '\'' +
                 ", role=" + role +
                 '}';
+    }
+
+    /**
+     * This method returns Set of Subscriptions of the User.
+     * Using @OneToMany annotation means that every user can have
+     * several subscriptions at the same time.
+     * @return Set of subscriptions
+     * Nipel-Crumple
+     */
+    @OneToMany(mappedBy = "Users", cascade = CascadeType.ALL)
+    public Set<Subscribe> getSubscriptions() {
+        return subscriptions;
     }
 }

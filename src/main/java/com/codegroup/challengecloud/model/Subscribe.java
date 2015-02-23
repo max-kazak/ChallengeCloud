@@ -4,37 +4,34 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by Johnny D on 23.02.2015.
+ * This class is an entity 'Subscribe' which interacts
+ * with MySql database through Hibernate framework
+ * Created by Nipel-Crumple on 23.02.2015.
  */
 @Entity
 @Table( name = "subscriptions",
         schema = "challenger",
         uniqueConstraints = {
-            @UniqueConstraint( columnNames = {"SUBSCRIPTION_ID", "DATE"})})
+            @UniqueConstraint( columnNames = {"SUBSCRIPTION_ID"})})
 public class Subscribe {
     String id;
-    String userId;
     String challengeId;
     Date date;
 
+    User user;
+
+    public Subscribe() {
+
+    }
+
     @Id
-    @Column( name = "SUBSCRIPTION_ID", unique = false, nullable = false)
+    @Column( name = "SUBSCRIPTION_ID", unique = true, nullable = false)
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    @Id
-    @Column( name = "USER_ID", unique = false, nullable = false)
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     @Id
@@ -47,12 +44,29 @@ public class Subscribe {
         this.challengeId = challengeId;
     }
 
+
+    @Column( name = "DATE", unique = false, nullable = false)
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    /**
+     * @ManyToOne annotation means that every User can have a lot of
+     * subscriptions
+     * Nipel-Crumple
+     */
+    @ManyToOne
+    @JoinColumn( name = "USER_ID" , unique = false, nullable = false)
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }
