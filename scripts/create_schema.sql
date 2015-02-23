@@ -58,14 +58,14 @@ create table `challenger`.`posts` (
 );
 
 /* Creating table of subscriptions */
-DROP TABLE `challenger`.`subscriptions`;
+DROP TABLE `challenger`.`subscribtions`;
 
 CREATE TABLE `challenger`.`subscribtions`(
   `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
   `USER_ID` VARCHAR(16) NOT NULL,
   `CHALLENGE_ID` VARCHAR(16) NOT NULL,
   `DATE` DATE NOT NULL,
-  CONSTRAINT pk_SubID PRIMARY KEY (`SUBSCRIPTION_ID`, `DATE`),
+  PRIMARY KEY (`SUBSCRIPTION_ID`),
   FOREIGN KEY (`USER_ID`)
   REFERENCES `challenger`.`users`(`USER_ID`),
   FOREIGN KEY (`CHALLENGE_ID`)
