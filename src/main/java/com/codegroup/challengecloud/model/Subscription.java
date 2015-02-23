@@ -13,14 +13,14 @@ import java.sql.Date;
         schema = "challenger",
         uniqueConstraints = {
             @UniqueConstraint( columnNames = {"SUBSCRIPTION_ID"})})
-public class Subscribe {
+public class Subscription {
     String id;
-    String challengeId;
     Date date;
 
     User user;
+//    Challenge challenge;
 
-    public Subscribe() {
+    public Subscription() {
 
     }
 
@@ -34,15 +34,19 @@ public class Subscribe {
         this.id = id;
     }
 
-    @Id
-    @Column( name = "CHALLENGE_ID", unique = false, nullable = false)
-    public String getChallengeId() {
-        return challengeId;
-    }
+    /**
+     * Cannot user while there is no challengeDao
+     */
+//    @ManyToOne
+//    @JoinColumn( name = "CHALLENGE_ID", unique = false, nullable = false)
+//    public Challenge getChallenge() {
+//        return challenge;
+//    }
+//
+//    public void setChallenge(Challenge challenge) {
+//        this.challenge = challenge;
+//    }
 
-    public void setChallengeId(String challengeId) {
-        this.challengeId = challengeId;
-    }
 
 
     @Column( name = "DATE", unique = false, nullable = false)

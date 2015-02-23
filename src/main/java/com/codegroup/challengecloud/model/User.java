@@ -30,7 +30,7 @@ public class User implements Serializable{
      */
     Integer role;
 
-    Set<Subscribe> subscriptions;
+    Set<Subscription> subscriptions;
 
     public User() {
     }
@@ -125,7 +125,7 @@ public class User implements Serializable{
      * Nipel-Crumple
      */
     @OneToMany(mappedBy = "Users", cascade = CascadeType.ALL)
-    public Set<Subscribe> getSubscriptions() {
+    public Set<Subscription> getSubscriptions() {
         return subscriptions;
     }
 }
