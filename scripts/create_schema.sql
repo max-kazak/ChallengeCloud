@@ -46,17 +46,6 @@ CREATE TABLE `challenger`.`origins` (
   PRIMARY KEY (`ORIGIN_ID`) USING BTREE
 );
 
-drop table `challenger`.`posts`;
-create table `challenger`.`posts` (
-  `POST_ID` VARCHAR(16) NOT NULL,
-  `ORIGIN_ID` VARCHAR(16) NOT NULL,
-  `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
-  `DATE` TIMESTAMP NOT NULL,
-  `POST_URL` VARCHAR(512) NOT NULL,
-  PRIMARY KEY (`POST_ID`) USING BTREE,
-  FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins(`ORIGIN_ID`)
-);
-
 drop table `challenger`.`challengegroups`;
 create table `challenger`.`challengegroups` (
   `GROUP_ID` VARCHAR(16) NOT NULL,
@@ -92,3 +81,17 @@ CREATE TABLE `challenger`.`subscriptions`(
   FOREIGN KEY (`CHALLENGE_ID`)
   REFERENCES `challenger`.`challenges`(`CHALLENGE_ID`)
 );
+
+/*Creating table of posts. By Andrey */
+drop table `challenger`.`posts`;
+create table `challenger`.`posts` (
+  `POST_ID` VARCHAR(16) NOT NULL,
+  `ORIGIN_ID` VARCHAR(16) NOT NULL,
+  `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
+  `DATE` TIMESTAMP NOT NULL,
+  `POST_URL` VARCHAR(512) NOT NULL,
+  PRIMARY KEY (`POST_ID`) USING BTREE,
+  FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins(`ORIGIN_ID`)
+  FOREIGN KEY (`SUBSCRIPTION_ID`) REFERENCES challenger.subscriptions(`SUBSCRIPTION_ID`)
+);
+
