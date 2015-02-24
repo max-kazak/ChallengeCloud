@@ -58,15 +58,36 @@ create table `challenger`.`posts` (
   FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins(`ORIGIN_ID`)
 );
 
+drop table `challenger`.`challengegroups`;
+create table `challenger`.`challengegroups` (
+  `GROUP_ID` VARCHAR(16) NOT NULL,
+  `NAME` VARCHAR(25) NOT NULL,
+  `ICON` BINARY(200),
+  PRIMARY KEY (`GROUP_ID`) USING BTREE
+);
+
+drop table `challenger`.`challenges`;
+create table `challenger`.`challenges` (
+  `CHALLENGE_ID` VARCHAR(16) NOT NULL,
+  `TITLE` VARCHAR(25) NOT NULL,
+  `DESCRIPTION` VARCHAR(200) NOT NULL,
+  `DIFFICULTY` TINYINT (2) NOT NULL,#10 of 10, f.e.
+  `HASHTAG` VARCHAR(200),
+  `GROUP_ID` VARCHAR(16) NOT NULL,
+  PRIMARY KEY (`CHALLENGE_ID`) USING BTREE,
+  FOREIGN KEY (`GROUP_ID`)
+  REFERENCES `challenger`.`challengegroups`(`GROUP_ID`)
+);
+
 /* Creating table of subscriptions */
 DROP TABLE `challenger`.`subscriptions`;
 
-CREATE TABLE `challenger`.`subscribtions`(
+CREATE TABLE `challenger`.`subscriptions`(
   `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
   `USER_ID` VARCHAR(16) NOT NULL,
   `CHALLENGE_ID` VARCHAR(16) NOT NULL,
   `DATE` DATE NOT NULL,
-  CONSTRAINT pk_SubID PRIMARY KEY (`SUB_ID`, `DATE`),
+  PRIMARY KEY (`SUBSCRIPTION_ID`),
   FOREIGN KEY (`USER_ID`)
   REFERENCES `challenger`.`users`(`USER_ID`),
   FOREIGN KEY (`CHALLENGE_ID`)

@@ -27,6 +27,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.codegroup.challengecloud.model.User</value>
+                <value>com.codegroup.challengecloud.model.Subscription</value>
             </list>
         </property>
 
