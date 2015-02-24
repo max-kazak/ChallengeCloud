@@ -50,7 +50,7 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
 
     @Override
     public User findByEmail(String email) {
-    	log.debug("lokking for user by email = " + email);
+    	log.debug("looking for user by email = " + email);
         List list = find("from User where email = ?", email);
         return (User) list.get(0);
     }
