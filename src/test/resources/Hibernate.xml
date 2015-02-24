@@ -11,7 +11,6 @@
     <tx:annotation-driven/>
     <!-- Hibernate session factory -->
 
-    <bean id="dataSource"/>
 
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
