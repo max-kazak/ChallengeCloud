@@ -3,6 +3,7 @@ create schema if not exists challenger;
 drop table `challenger`.`users`;
 create table `challenger`.`users` (
   `USER_ID` VARCHAR(16) NOT NULL,
+  `LOGIN` VARCHAR(20) NOT NULL,
   `NAME` VARCHAR(20) NOT NULL,
   `PASS` varchar(60),
   `EMAIL` varchar(20),
