@@ -123,8 +123,12 @@ public class User implements Serializable{
      * This method returns Set of Subscriptions of the User.
      * Using @OneToMany annotation means that every user can have
      * several subscriptions at the same time.
+<<<<<<< HEAD
      * @return Set of subscriptions
      * mappedby = 'field name' on the other side (see here: Subscription field called "user")
+=======
+     * @return Set of subscriptions 
+>>>>>>> ea87d5f31ab3f271bd2b2d3da79334ac4fdb0ffd
      * Nipel-Crumple
      */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

@@ -1,7 +1,9 @@
 package com.codegroup.challengecloud.model;
 
 import javax.persistence.*;
+
 import java.sql.Date;
+import java.util.Set;
 
 /**
  * This class is an entity 'Subscribe' which interacts
@@ -18,7 +20,13 @@ public class Subscription {
     Date date;
 
     User user;
+<<<<<<< HEAD
     String challengeId;
+=======
+//    Challenge challenge;
+    
+    Set<Post> posts;
+>>>>>>> ea87d5f31ab3f271bd2b2d3da79334ac4fdb0ffd
 
     public Subscription() {
 
@@ -72,6 +80,16 @@ public class Subscription {
 
     public void setUser(User user) {
         this.user = user;
+    }
+    
+    /**
+     * This method returns set of posts relevant to this subscription.
+     * @return Set of posts
+     * @author Andrey
+     */
+    @OneToMany(mappedBy = "Subsriptions", cascade = CascadeType.ALL)
+    public Set<Post> getPosts() {
+        return posts;
     }
 
 }

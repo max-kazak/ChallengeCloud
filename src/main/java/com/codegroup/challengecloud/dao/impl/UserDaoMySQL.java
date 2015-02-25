@@ -50,6 +50,7 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
 
     @Override
     public User findByEmail(String email) {
+<<<<<<< HEAD
     	log.debug("lokking for user by email = " + email);
         /**
          * In this query from ... there should be name of the Class which
@@ -57,6 +58,9 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
          * For example, we should write 'from User..'(case-sensitive) because User is our Entity class.
          * The same with Subscription (in SubscriptionDaoMySQL
          */
+=======
+    	log.debug("looking for user by email = " + email);
+>>>>>>> ea87d5f31ab3f271bd2b2d3da79334ac4fdb0ffd
         List list = find("from User where email = ?", email);
         return (User) list.get(0);
     }
