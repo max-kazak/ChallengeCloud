@@ -92,7 +92,7 @@ create table `challenger`.`posts` (
   `DATE` TIMESTAMP NOT NULL,
   `POST_URL` VARCHAR(512) NOT NULL,
   PRIMARY KEY (`POST_ID`) USING BTREE,
-  FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins(`ORIGIN_ID`)
+  FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins(`ORIGIN_ID`),
   FOREIGN KEY (`SUBSCRIPTION_ID`) REFERENCES challenger.subscriptions(`SUBSCRIPTION_ID`)
 );
 

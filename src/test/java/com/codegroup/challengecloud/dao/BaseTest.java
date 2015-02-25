@@ -29,8 +29,4 @@ public class BaseTest {
         sessionFactory.close();
     }
 
-    @Test
-    public void checkNotNull() {
-        Assert.assertNull(null);
-    }
 }

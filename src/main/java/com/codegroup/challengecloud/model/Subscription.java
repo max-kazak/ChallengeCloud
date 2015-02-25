@@ -18,7 +18,7 @@ public class Subscription {
     Date date;
 
     User user;
-//    Challenge challenge;
+    String challengeId;
 
     public Subscription() {
 
@@ -37,15 +37,16 @@ public class Subscription {
     /**
      * Cannot user while there is no challengeDao
      */
-//    @ManyToOne
-//    @JoinColumn( name = "CHALLENGE_ID", unique = false, nullable = false)
-//    public Challenge getChallenge() {
-//        return challenge;
-//    }
-//
-//    public void setChallenge(Challenge challenge) {
-//        this.challenge = challenge;
-//    }
+    /*@ManyToOne
+    @JoinColumn( name = "CHALLENGE_ID", unique = false, nullable = false)*/
+    @Column( name = "CHALLENGE_ID", unique = false, nullable = false)
+    public String getChallengeId() {
+        return challengeId;
+    }
+
+    public void setChallengeId(String challengeId) {
+        this.challengeId = challengeId;
+    }
 
 
 

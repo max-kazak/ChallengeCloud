@@ -38,8 +38,8 @@ public class SubscriptionDaoMySQL extends HibernateDao implements SubscriptionDa
     @Override
     public Subscription findById(String subscriptionId) {
         log.debug("finding subscription by ID " + subscriptionId);
-        List list = find("from subscriptions where " +
-                "subscription_id = ?", subscriptionId);
+        List list = find("from Subscription where " +
+                "SUBSCRIPTION_ID = ?", subscriptionId);
         return (Subscription) list.get(0);
     }
 
