@@ -8,17 +8,17 @@ import java.util.Set;
  * Created by Max on 24.01.2015.
  */
 @Entity
-@Table(name="users", catalog = "challenger", uniqueConstraints = {
+@Table(name = "users", catalog = "challenger", uniqueConstraints = {
         @UniqueConstraint(columnNames = "EMAIL"),
-        @UniqueConstraint(columnNames = "LOGIN") })
-public class User implements Serializable{
+        @UniqueConstraint(columnNames = "LOGIN")})
+public class User implements Serializable {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	String id;
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    String id;
     String login;
     String pass;
     String email;
@@ -31,8 +31,8 @@ public class User implements Serializable{
     Integer role;
 
 
-
     Set<Subscription> subscriptions;
+    UserSettings userSettings;
 
     public User() {
     }
@@ -93,18 +93,18 @@ public class User implements Serializable{
     }
 
     @Transient
-    public boolean isUser(){
-        return (role&1)!=0;
+    public boolean isUser() {
+        return (role & 1) != 0;
     }
 
     @Transient
-    public boolean isAdmin(){
-        return (role&2)!=0;
+    public boolean isAdmin() {
+        return (role & 2) != 0;
     }
 
     @Transient
-    public boolean isModerator(){
-        return (role&4)!=0;
+    public boolean isModerator() {
+        return (role & 4) != 0;
     }
 
     @Override
@@ -124,6 +124,7 @@ public class User implements Serializable{
      * Using @OneToMany annotation means that every user can have
      * several subscriptions at the same time.
      * mappedby = 'field name' on the other side (see here: Subscription field called "user")
+     *
      * @return Set of subscriptions
      * @author Nipel-Crumple
      */
@@ -134,5 +135,18 @@ public class User implements Serializable{
 
     public void setSubscriptions(Set<Subscription> subscriptions) {
         this.subscriptions = subscriptions;
+    }
+
+    /**
+     * @return UserSettings of current user
+     * @author Yefim-Krokhin
+     */
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    public UserSettings getUserSettings() {
+        return userSettings;
+    }
+
+    public void setUserSettings(UserSettings userSettings) {
+        this.userSettings = userSettings;
     }
 }

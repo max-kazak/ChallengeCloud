@@ -36,21 +36,21 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
 
     @Override
     public User findById(String id) {
-    	log.debug("lokking for user by id = " + id);
+    	log.debug("looking for user by id = " + id);
         List list = find("from User where user_id = ?", id);
         return (User) list.get(0);
     }
 
     @Override
     public User findByLogin(String login) {
-    	log.debug("lokking for user by login = " + login);
+    	log.debug("looking for user by login = " + login);
         List list = find("from User where login = ?", login);
         return (User) list.get(0);
     }
 
     @Override
     public User findByEmail(String email) {
-    	log.debug("lokking for user by email = " + email);
+    	log.debug("looking for user by email = " + email);
         /**
          * In this query from ... there should be name of the Class which
          * maps given table.
