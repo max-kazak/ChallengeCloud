@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * This class is an entity 'Subscribe' which interacts
  * with MySql database through Hibernate framework
- * Created by Nipel-Crumple on 23.02.2015.
+ * @author Nipel-Crumple on 23.02.2015.
  */
 @Entity
 @Table( name = "subscriptions",
@@ -20,13 +20,11 @@ public class Subscription {
     Date date;
 
     User user;
-<<<<<<< HEAD
+    //TODO:: change this field to 'Challenge challenge' after creating Challenge's class.
     String challengeId;
-=======
 //    Challenge challenge;
     
     Set<Post> posts;
->>>>>>> ea87d5f31ab3f271bd2b2d3da79334ac4fdb0ffd
 
     public Subscription() {
 
@@ -42,9 +40,7 @@ public class Subscription {
         this.id = id;
     }
 
-    /**
-     * Cannot user while there is no challengeDao
-     */
+    //TODO:: change this method after creating Challenge's classes
     /*@ManyToOne
     @JoinColumn( name = "CHALLENGE_ID", unique = false, nullable = false)*/
     @Column( name = "CHALLENGE_ID", unique = false, nullable = false)
@@ -70,7 +66,7 @@ public class Subscription {
     /**
      * @ManyToOne annotation means that every User can have a lot of
      * subscriptions
-     * Nipel-Crumple
+     * @author Nipel-Crumple
      */
     @ManyToOne
     @JoinColumn( name = "USER_ID" , unique = false, nullable = false)
@@ -87,7 +83,11 @@ public class Subscription {
      * @return Set of posts
      * @author Andrey
      */
-    @OneToMany(mappedBy = "Subsriptions", cascade = CascadeType.ALL)
+    /**
+     * Some corrections in 'mappedBy' attribute (see comment above User.getSubscriptions())
+     * @author Nipel-Crumple
+     */
+    @OneToMany(mappedBy = "subscription", cascade = CascadeType.ALL)
     public Set<Post> getPosts() {
         return posts;
     }
