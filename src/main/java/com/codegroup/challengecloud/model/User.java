@@ -30,6 +30,8 @@ public class User implements Serializable{
      */
     Integer role;
 
+
+
     Set<Subscription> subscriptions;
 
     public User() {
@@ -122,10 +124,15 @@ public class User implements Serializable{
      * Using @OneToMany annotation means that every user can have
      * several subscriptions at the same time.
      * @return Set of subscriptions
+     * mappedby = 'field name' on the other side (see here: Subscription field called "user")
      * Nipel-Crumple
      */
-    @OneToMany(mappedBy = "Users", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     public Set<Subscription> getSubscriptions() {
         return subscriptions;
+    }
+
+    public void setSubscriptions(Set<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
     }
 }
