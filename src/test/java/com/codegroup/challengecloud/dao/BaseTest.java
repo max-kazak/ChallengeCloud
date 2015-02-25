@@ -21,12 +21,12 @@ public class BaseTest {
 
     @Before
     public void createSession() {
-        sessionFactory.openSession();
+//        sessionFactory.openSession();
     }
 
     @After
     public void closeSession() {
-        sessionFactory.close();
+//        sessionFactory.close();
     }
 
 }

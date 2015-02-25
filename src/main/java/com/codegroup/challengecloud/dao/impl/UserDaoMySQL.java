@@ -51,6 +51,12 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
     @Override
     public User findByEmail(String email) {
     	log.debug("lokking for user by email = " + email);
+        /**
+         * In this query from ... there should be name of the Class which
+         * maps given table.
+         * For example, we should write 'from User..'(case-sensitive) because User is our Entity class.
+         * The same with Subscription (in SubscriptionDaoMySQL
+         */
         List list = find("from User where email = ?", email);
         return (User) list.get(0);
     }
