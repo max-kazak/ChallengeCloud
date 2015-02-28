@@ -88,7 +88,7 @@ CREATE TABLE `challenger`.`subscriptions` (
 DROP TABLE `challenger`.`posts`;
 CREATE TABLE `challenger`.`posts` (
   `POST_ID`         VARCHAR(16)  NOT NULL,
-  `postIN_ID`       VARCHAR(16)  NOT NULL,
+  `ORIGIN_ID`       VARCHAR(16)  NOT NULL,
   `SUBSCRIPTION_ID` VARCHAR(16)  NOT NULL,
   `DATE`            TIMESTAMP    NOT NULL,
   `POST_URL`        VARCHAR(512) NOT NULL,
