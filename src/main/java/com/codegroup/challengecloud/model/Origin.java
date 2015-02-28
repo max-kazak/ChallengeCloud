@@ -17,9 +17,6 @@ public class Origin implements Serializable {
     String id;
     String name;
 
-
-    Set<Post> posts;
-
     public Origin() {
 
     }
@@ -45,21 +42,9 @@ public class Origin implements Serializable {
 
     @Override
     public String toString() {
-        return "Origins{" +
+        return "Origin{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '}';
     }
 
-    @OneToMany(mappedBy = "origin", cascade = CascadeType.ALL)
-    public Set<Post> getPosts() {
-        return posts;
-    }
-
-    /**
-     * Set method is neccesarily has to be in @Entity class
-     * @author Nipel-Crumple
-     */
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
-    }
 }

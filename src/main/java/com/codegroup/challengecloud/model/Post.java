@@ -20,8 +20,6 @@ public class Post {
     Subscription subscription;
     Date date;
     String url;
-
-
     Origin origin;
 
     public Post() {
@@ -88,10 +86,10 @@ public class Post {
      * @author Yefim-Krokhin
      */
     @ManyToOne
+    @JoinColumn(name = "ORIGIN_ID", nullable = false)
     public Origin getOrigin() {
         return origin;
     }
-
     /**
      * Set method is neccesarily has to be in @Entity class
      * @author Nipel-Crumple

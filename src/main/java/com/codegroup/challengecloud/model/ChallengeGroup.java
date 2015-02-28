@@ -73,7 +73,6 @@ public class ChallengeGroup implements Serializable {
         return challenges;
     }
 
-
     /**
      * it is necessary to add setters to every field
      * @author Nipel-Crumple
@@ -81,4 +80,5 @@ public class ChallengeGroup implements Serializable {
     public void setChallenges(Set<Challenge> challenges) {
         this.challenges = challenges;
     }
+
 }
