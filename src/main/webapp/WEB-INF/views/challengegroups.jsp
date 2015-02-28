@@ -38,54 +38,41 @@
         </div>
         <ul class="nav navbar-nav col-md-2 sign-out">
             <li class="list-item last-list-item">
-                <a href="#"  class="linker"> Sign out </a>
+                <a href="#" class="linker"> Sign out </a>
             </li>
         </ul>
     </div>
 </div>
 
-<div class="container body">
-    <div class="col-md-10 text-left left-block">
-        <h2> Posts </h2>
 
-        <ul class="pull-left">
-            <li>
-                <h2>
-                    1jan, 2015
-                </h2>
+<div class="neighborhood-guides">
+    <div class="container">
+        <h2>
+            Choose challenge category
+        </h2>
 
-                <div class="th.">
-                    <img src="post.png">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="ch1.PNG">
                 </div>
-            </li>
-
-            <li>
-                <h2>
-                    3jan, 2015
-                </h2>
-
-                <div class="th.">
-                    <img src="post.png">
+                <div class="thumbnail">
+                    <img src="ch4.PNG">
                 </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="col-md-2 text-left right-block">
-        <h2> Options </h2>
-
-        <div class="col-md-10">
-            <ul class="pull-left">
-                <li>
-                    <button type="button" class="btn btn-default"> Cancel</button>
-                </li>
-
-                <li>
-                    <button type="button" class="btn btn-default"> Dare</button>
-                </li>
-            </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="ch2.PNG">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="ch3.PNG">
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>
