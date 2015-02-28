@@ -1,6 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS challenger;
 
-DROP TABLE `challenger`.`users`;
+DROP TABLE IF EXISTS`challenger`.`users`;
 CREATE TABLE `challenger`.`users` (
   `USER_ID` VARCHAR(16) NOT NULL,
   `LOGIN`   VARCHAR(20) NOT NULL,
@@ -12,16 +12,16 @@ CREATE TABLE `challenger`.`users` (
   UNIQUE KEY `UNI_USER_EMAIL` (`EMAIL`) USING BTREE,
   UNIQUE KEY `UNI_USER_LOGIN` (`NAME`) USING BTREE
 );
-DROP TABLE `challenger`.`usersettings`;
+
+DROP TABLE IF EXISTS `challenger`.`usersettings`;
 CREATE TABLE `challenger`.`usersettings` (
   `USER_ID`   VARCHAR(16) NOT NULL,
   `USER_LANG` VARCHAR(16),
   FOREIGN KEY (`USER_ID`) REFERENCES challenger.users (USER_ID),
-  PRIMARY KEY (`USER_ID`),
-  UNIQUE KEY `UNI_USER_ID` (`ID`) USING BTREE
+  PRIMARY KEY (`USER_ID`)
 );
 
-DROP TABLE `challenger`.`UserConnection`;
+DROP TABLE IF EXISTS `challenger`.`UserConnection`;
 CREATE TABLE `challenger`.`UserConnection`
 (
   userId         VARCHAR(255) NOT NULL,
@@ -41,14 +41,14 @@ CREATE TABLE `challenger`.`UserConnection`
 CREATE UNIQUE INDEX UserConnectionRank ON UserConnection
 (userId, providerId, rank);
 
-DROP TABLE `challenger`.`origins`;
+DROP TABLE IF EXISTS `challenger`.`origins`;
 CREATE TABLE `challenger`.`origins` (
   `ORIGIN_ID` VARCHAR(16) NOT NULL,
   `NAME`      VARCHAR(20) NOT NULL,
   PRIMARY KEY (`ORIGIN_ID`) USING BTREE
 );
 
-DROP TABLE `challenger`.`challengegroups`;
+DROP TABLE IF EXISTS `challenger`.`challengegroups`;
 CREATE TABLE `challenger`.`challengegroups` (
   `GROUP_ID` VARCHAR(16) NOT NULL,
   `NAME`     VARCHAR(25) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `challenger`.`challengegroups` (
   PRIMARY KEY (`GROUP_ID`) USING BTREE
 );
 
-DROP TABLE `challenger`.`challenges`;
+DROP TABLE IF EXISTS `challenger`.`challenges`;
 CREATE TABLE `challenger`.`challenges` (
   `CHALLENGE_ID` VARCHAR(16)  NOT NULL,
   `TITLE`        VARCHAR(25)  NOT NULL,
@@ -65,27 +65,23 @@ CREATE TABLE `challenger`.`challenges` (
   `HASHTAG`      VARCHAR(200),
   `GROUP_ID`     VARCHAR(16)  NOT NULL,
   PRIMARY KEY (`CHALLENGE_ID`) USING BTREE,
-  FOREIGN KEY (`GROUP_ID`)
-  REFERENCES `challenger`.`challengegroups` (`GROUP_ID`)
+  FOREIGN KEY (`GROUP_ID`) REFERENCES `challenger`.`challengegroups` (`GROUP_ID`)
 );
 
 /* Creating table of subscriptions */
-DROP TABLE `challenger`.`subscriptions`;
-
+DROP TABLE IF EXISTS `challenger`.`subscriptions`;
 CREATE TABLE `challenger`.`subscriptions` (
   `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
   `USER_ID`         VARCHAR(16) NOT NULL,
   `CHALLENGE_ID`    VARCHAR(16) NOT NULL,
   `DATE`            DATE        NOT NULL,
   PRIMARY KEY (`SUBSCRIPTION_ID`),
-  FOREIGN KEY (`USER_ID`)
-  REFERENCES `challenger`.`users` (`USER_ID`),
-  FOREIGN KEY (`CHALLENGE_ID`)
-  REFERENCES `challenger`.`challenges` (`CHALLENGE_ID`)
+  FOREIGN KEY (`USER_ID`) REFERENCES `challenger`.`users` (`USER_ID`),
+  FOREIGN KEY (`CHALLENGE_ID`) REFERENCES `challenger`.`challenges` (`CHALLENGE_ID`)
 );
 
 /*Creating table of posts. By Andrey */
-DROP TABLE `challenger`.`posts`;
+DROP TABLE IF EXISTS `challenger`.`posts`;
 CREATE TABLE `challenger`.`posts` (
   `POST_ID`         VARCHAR(16)  NOT NULL,
   `ORIGIN_ID`       VARCHAR(16)  NOT NULL,
