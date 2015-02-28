@@ -20,7 +20,7 @@ public class Post {
     Subscription subscription;
     Date date;
     String url;
-    Origins origin;
+    Origin origin;
 
     public Post() {
     }
@@ -86,7 +86,14 @@ public class Post {
      * @author Yefim-Krokhin
      */
     @ManyToOne
-    public Origins getOrigins() {
+    @JoinColumn(name = "ORIGIN_ID", nullable = false)
+    public Origin getOrigin() {
         return origin;
     }
+
+	public void setOrigin(Origin origin) {
+		this.origin = origin;
+	}
+    
+    
 }

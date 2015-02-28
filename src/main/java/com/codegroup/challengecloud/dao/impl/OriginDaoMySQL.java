@@ -1,7 +1,7 @@
 package com.codegroup.challengecloud.dao.impl;
 
-import com.codegroup.challengecloud.dao.OriginsDao;
-import com.codegroup.challengecloud.model.Origins;
+import com.codegroup.challengecloud.dao.OriginDao;
+import com.codegroup.challengecloud.model.Origin;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -9,32 +9,32 @@ import java.util.List;
 /**
  * Created by Yefim on 25.02.2015.
  */
-public class OriginsDaoMySQL extends HibernateDao implements OriginsDao {
+public class OriginDaoMySQL extends HibernateDao implements OriginDao {
 
-    private static final Logger log = Logger.getLogger(OriginsDaoMySQL.class);
+    private static final Logger log = Logger.getLogger(OriginDaoMySQL.class);
 
     @Override
-    public void save(Origins origin) {
+    public void save(Origin origin) {
         log.debug("save origin " + origin.getId());
         getSession().save(origin);
     }
 
     @Override
-    public void update(Origins origin) {
+    public void update(Origin origin) {
         log.debug("update origin " + origin.getId());
         getSession().update(origin);
     }
 
     @Override
-    public void delete(Origins origin) {
+    public void delete(Origin origin) {
         log.debug("delete origin " + origin.getId());
         getSession().delete(origin);
     }
 
     @Override
-    public Origins findById(String originId) {
+    public Origin findById(String originId) {
         log.debug("find by Id origin with ID: " + originId);
         List originList = find("from Origins where ORIGIN_ID = ?", originId);
-        return (Origins)originList.get(0);
+        return (Origin)originList.get(0);
     }
 }

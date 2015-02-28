@@ -13,14 +13,14 @@ import java.util.Set;
 }*/)
 
 //TODO deal with unique fields
-public class Origins implements Serializable {
+public class Origin implements Serializable {
     String id;
     String name;
 
 
     Set<Post> posts;
 
-    public Origins() {
+    public Origin() {
 
     }
 
