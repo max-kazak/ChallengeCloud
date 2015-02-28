@@ -1,0 +1,88 @@
+@font-face {
+    font-family: Nipel; /* Имя шрифта */
+    src: url(../fonts/toms-handwritten-new.ttf); /* Путь к файлу со шрифтом */
+   }
+
+body {
+	font-family: Nipel;
+}
+
+.navigator {
+	border-bottom: 2px solid grey;
+	width:60%;
+}
+
+.body {
+	width: 60%;
+}
+
+.list-item {
+	font-size: 28px;
+	margin: 0px;
+	height: 100%;
+	border-right: 1px solid grey;
+}
+
+.last-list-item {
+	border-right: 0px;
+}
+
+.header {
+	font-size: 34px;
+	margin: 1px 0px 1px 0px;
+}
+
+
+.list-inline {
+	margin-left: 0px;
+	margin-bottom: 0px
+}
+
+.vertical {
+	border-right: 2px solid grey;
+}
+
+.nav-pills {
+	margin-left: 0px;
+}
+
+.linker {
+	width: 100%;
+	color: #4169E1;
+	height: 100%;
+}
+
+
+.soc-net {
+	margin: 0px 6px 0px 0px;
+	color: inherit;
+	padding-left: 5px;
+	height: 100%;
+	text-decoration: none;
+}
+
+.control-label {
+	padding: 0px 5px;
+}
+
+.btn-default {
+	background: #EBEBEB;
+	color: #4169E1;
+	font-size: 20px;
+}
+
+#project {
+	text-decoration: none;
+	color: inherit;
+}
+
+#project:hover{
+	color: inherit;
+}
+
+.divider {
+	width: 1px;
+	height: 100%;
+	padding: 0;
+	background: grey;
+}
