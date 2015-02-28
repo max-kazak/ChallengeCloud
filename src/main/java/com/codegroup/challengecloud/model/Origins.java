@@ -8,7 +8,7 @@ import java.util.Set;
  * Created by Yefim on 25.02.2015.
  */
 @Entity
-@Table(name = "users", catalog = "challenger"/*, uniqueConstraints = {
+@Table(name = "origins", catalog = "challenger"/*, uniqueConstraints = {
         @UniqueConstraint(columnNames = ))
 }*/)
 
@@ -16,6 +16,8 @@ import java.util.Set;
 public class Origins implements Serializable {
     String id;
     String name;
+
+
     Set<Post> posts;
 
     public Origins() {
@@ -51,5 +53,13 @@ public class Origins implements Serializable {
     @OneToMany(mappedBy = "origins", cascade = CascadeType.ALL)
     public Set<Post> getPosts() {
         return posts;
+    }
+
+    /**
+     * Set method is neccesarily has to be in @Entity class
+     * @author Nipel-Crumple
+     */
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
     }
 }

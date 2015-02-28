@@ -7,8 +7,13 @@ import java.io.Serializable;
  * Created by Yefim-Krokhin on 23.02.2015.
  */
 @Entity
-@Table(name = "users", catalog = "challenger", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "ID")
+/**
+ *columnNames should be USER_ID
+ * name should be usersettings not users
+ * @author Nipel-Crumple
+ */
+@Table(name = "usersettings", catalog = "challenger", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "USER_ID")
 })
 public class UserSettings implements Serializable {
     //TODO correct USER_LANG to all user params

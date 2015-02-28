@@ -46,7 +46,7 @@ public class Post {
 //    }
 
     @ManyToOne
-    @Column(name = "SUBSCRIPTION_ID", unique = false, nullable = false)
+    @JoinColumn(name = "SUBSCRIPTION_ID", unique = false, nullable = false)
     public Subscription getSubscription() {
         return subscription;
     }
