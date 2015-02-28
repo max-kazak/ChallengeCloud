@@ -12,6 +12,7 @@ CREATE TABLE `challenger`.`users` (
   UNIQUE KEY `UNI_USER_EMAIL` (`EMAIL`) USING BTREE,
   UNIQUE KEY `UNI_USER_LOGIN` (`NAME`) USING BTREE
 );
+
 DROP TABLE IF EXISTS `challenger`.`usersettings`;
 CREATE TABLE `challenger`.`usersettings` (
   `USER_ID`   VARCHAR(16) NOT NULL,
@@ -64,8 +65,7 @@ CREATE TABLE `challenger`.`challenges` (
   `HASHTAG`      VARCHAR(200),
   `GROUP_ID`     VARCHAR(16)  NOT NULL,
   PRIMARY KEY (`CHALLENGE_ID`) USING BTREE,
-  FOREIGN KEY (`GROUP_ID`)
-  REFERENCES `challenger`.`challengegroups` (`GROUP_ID`)
+  FOREIGN KEY (`GROUP_ID`) REFERENCES `challenger`.`challengegroups` (`GROUP_ID`)
 );
 
 /* Creating table of subscriptions */
@@ -76,10 +76,8 @@ CREATE TABLE `challenger`.`subscriptions` (
   `CHALLENGE_ID`    VARCHAR(16) NOT NULL,
   `DATE`            DATE        NOT NULL,
   PRIMARY KEY (`SUBSCRIPTION_ID`),
-  FOREIGN KEY (`USER_ID`)
-  REFERENCES `challenger`.`users` (`USER_ID`),
-  FOREIGN KEY (`CHALLENGE_ID`)
-  REFERENCES `challenger`.`challenges` (`CHALLENGE_ID`)
+  FOREIGN KEY (`USER_ID`) REFERENCES `challenger`.`users` (`USER_ID`),
+  FOREIGN KEY (`CHALLENGE_ID`) REFERENCES `challenger`.`challenges` (`CHALLENGE_ID`)
 );
 
 /*Creating table of posts. By Andrey */
