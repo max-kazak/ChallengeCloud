@@ -15,14 +15,14 @@ import java.io.Serializable;
 @Table(name = "usersettings", catalog = "challenger", uniqueConstraints = {
         @UniqueConstraint(columnNames = "USER_ID")
 })
-public class UserSettings implements Serializable {
+public class UserSetting implements Serializable {
     //TODO correct USER_LANG to all user params
 
     String id;
     String lang;
     User user;
 
-    public UserSettings() {
+    public UserSetting() {
 
     }
 
@@ -41,9 +41,14 @@ public class UserSettings implements Serializable {
         return lang;
     }
 
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
     @Override
     public String toString() {
-        return "UserSettings{" +
+        return "UserSetting{" +
                 "id='" + id + '\'' +
                 ", lang='" + lang + '}';
     }
@@ -53,6 +58,7 @@ public class UserSettings implements Serializable {
     }
 
     @OneToOne
+    @PrimaryKeyJoinColumn
     public User getUser() {
         return user;
     }

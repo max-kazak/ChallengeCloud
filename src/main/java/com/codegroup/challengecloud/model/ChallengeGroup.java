@@ -19,6 +19,7 @@ public class ChallengeGroup implements Serializable {
     String name;
     //TODO: IN SQL it is Binary(200) ICON Now. I think, reference would be better decision.
     String iconref;
+
     Set<Challenge> challenges = new HashSet<Challenge>(0);
 
 
@@ -72,5 +73,12 @@ public class ChallengeGroup implements Serializable {
         return challenges;
     }
 
-    
+
+    /**
+     * it is necessary to add setters to every field
+     * @author Nipel-Crumple
+     */
+    public void setChallenges(Set<Challenge> challenges) {
+        this.challenges = challenges;
+    }
 }

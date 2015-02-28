@@ -33,9 +33,9 @@
                 <value>com.codegroup.challengecloud.model.Subscription</value>
                 <value>com.codegroup.challengecloud.model.Challenge</value>
                 <value>com.codegroup.challengecloud.model.Post</value>
-                <value>com.codegroup.challengecloud.model.UserSettings</value>
+                <value>com.codegroup.challengecloud.model.UserSetting</value>
                 <value>com.codegroup.challengecloud.model.ChallengeGroup</value>
-                <value>com.codegroup.challengecloud.model.Origins</value>
+                <value>com.codegroup.challengecloud.model.Origin</value>
             </list>
         </property>
 

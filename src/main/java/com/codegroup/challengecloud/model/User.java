@@ -32,7 +32,7 @@ public class User implements Serializable {
 
 
     Set<Subscription> subscriptions;
-    UserSettings userSettings;
+    UserSetting userSetting;
 
     public User() {
     }
@@ -142,11 +142,11 @@ public class User implements Serializable {
      * @author Yefim-Krokhin
      */
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    public UserSettings getUserSettings() {
-        return userSettings;
+    public UserSetting getUserSetting() {
+        return userSetting;
     }
 
-    public void setUserSettings(UserSettings userSettings) {
-        this.userSettings = userSettings;
+    public void setUserSetting(UserSetting userSetting) {
+        this.userSetting = userSetting;
     }
 }

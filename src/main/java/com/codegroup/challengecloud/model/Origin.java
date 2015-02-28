@@ -13,14 +13,14 @@ import java.util.Set;
 }*/)
 
 //TODO deal with unique fields
-public class Origins implements Serializable {
+public class Origin implements Serializable {
     String id;
     String name;
 
 
     Set<Post> posts;
 
-    public Origins() {
+    public Origin() {
 
     }
 
@@ -50,7 +50,7 @@ public class Origins implements Serializable {
                 ", name='" + name + '}';
     }
 
-    @OneToMany(mappedBy = "origins", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "origin", cascade = CascadeType.ALL)
     public Set<Post> getPosts() {
         return posts;
     }

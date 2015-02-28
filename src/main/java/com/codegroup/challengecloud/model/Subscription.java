@@ -19,10 +19,9 @@ import java.util.Set;
 public class Subscription implements Serializable{
     String id;
     Date date;
-
     User user;
     Challenge challenge;
-    
+
     Set<Post> posts;
 
     public Subscription() {
@@ -86,6 +85,11 @@ public class Subscription implements Serializable{
     @OneToMany(mappedBy = "subscription", cascade = CascadeType.ALL)
     public Set<Post> getPosts() {
         return posts;
+    }
+
+
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
     }
 
 }

@@ -20,7 +20,9 @@ public class Post {
     Subscription subscription;
     Date date;
     String url;
-    Origins origin;
+
+
+    Origin origin;
 
     public Post() {
     }
@@ -86,7 +88,15 @@ public class Post {
      * @author Yefim-Krokhin
      */
     @ManyToOne
-    public Origins getOrigins() {
+    public Origin getOrigin() {
         return origin;
+    }
+
+    /**
+     * Set method is neccesarily has to be in @Entity class
+     * @author Nipel-Crumple
+     */
+    public void setOrigin(Origin origin) {
+        this.origin = origin;
     }
 }
