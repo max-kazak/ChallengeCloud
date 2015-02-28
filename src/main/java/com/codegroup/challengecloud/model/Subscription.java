@@ -88,4 +88,10 @@ public class Subscription implements Serializable{
         return posts;
     }
 
+	public void setPosts(Set<Post> posts) {
+		this.posts = posts;
+	}
+    
+    
+
 }

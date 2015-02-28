@@ -34,7 +34,7 @@ public class OriginDaoMySQL extends HibernateDao implements OriginDao {
     @Override
     public Origin findById(String originId) {
         log.debug("find by Id origin with ID: " + originId);
-        List originList = find("from Origins where ORIGIN_ID = ?", originId);
+        List originList = find("from Origin where ORIGIN_ID = ?", originId);
         return (Origin)originList.get(0);
     }
 }

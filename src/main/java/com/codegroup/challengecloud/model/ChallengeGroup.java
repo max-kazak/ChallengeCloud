@@ -72,5 +72,11 @@ public class ChallengeGroup implements Serializable {
         return challenges;
     }
 
+	public void setChallenges(Set<Challenge> challenges) {
+		this.challenges = challenges;
+	}
+    
+    
+
     
 }
