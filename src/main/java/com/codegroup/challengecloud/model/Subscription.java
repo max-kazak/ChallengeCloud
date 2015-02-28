@@ -2,6 +2,7 @@ package com.codegroup.challengecloud.model;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Set;
 
@@ -12,17 +13,15 @@ import java.util.Set;
  */
 @Entity
 @Table( name = "subscriptions",
-        schema = "challenger",
+        catalog = "challenger",
         uniqueConstraints = {
             @UniqueConstraint( columnNames = {"SUBSCRIPTION_ID"})})
-public class Subscription {
+public class Subscription implements Serializable{
     String id;
     Date date;
 
     User user;
-    //TODO:: change this field to 'Challenge challenge' after creating Challenge's class.
-    String challengeId;
-//    Challenge challenge;
+    Challenge challenge;
     
     Set<Post> posts;
 
@@ -40,18 +39,15 @@ public class Subscription {
         this.id = id;
     }
 
-    //TODO:: change this method after creating Challenge's classes
-    /*@ManyToOne
-    @JoinColumn( name = "CHALLENGE_ID", unique = false, nullable = false)*/
-    @Column( name = "CHALLENGE_ID", unique = false, nullable = false)
-    public String getChallengeId() {
-        return challengeId;
+    @ManyToOne
+    @JoinColumn( name = "CHALLENGE_ID", unique = false, nullable = false)
+    public Challenge getChallenge() {
+        return challenge;
     }
 
-    public void setChallengeId(String challengeId) {
-        this.challengeId = challengeId;
+    public void setChallenge(Challenge challenge) {
+        this.challenge = challenge;
     }
-
 
 
     @Column( name = "DATE", unique = false, nullable = false)

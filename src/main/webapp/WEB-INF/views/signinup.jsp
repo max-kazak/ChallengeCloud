@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./../css/bootstrap.min.css">
-	<link rel="stylesheet" href="./../css/font-awesome.min.css">
-	<link rel="stylesheet" href="./../css/main.css">
+	<link rel="stylesheet" href="./../../resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./../../resources/css/main.css">
 	<title>Document</title>
 </head>
 <body>
