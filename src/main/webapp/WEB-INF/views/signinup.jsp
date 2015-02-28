@@ -38,10 +38,11 @@
 
 	<div class="container body">
 		<div class="col-md-6 text-left left-block">
-			<h2> Sign In using existing account </h2>
+			
 			<div class="col-md-12">
+				<h2> Sign In using existing account </h2>
 				<h3 > In Social Networks </h3>
-				<div class="row">
+				<div class="">
 					<a href="#" class="soc-net"><i class="fa fa-vk fa-3x"></i></a>
 					<a href="#" class="soc-net"><i class="fa fa-facebook-official fa-3x"></i></a>
 					<a href="#" class="soc-net"><i class="fa fa-twitter fa-3x"></i></a>
@@ -80,8 +81,8 @@
 		</div>
 		
 		<div class="col-md-6 text-left right-block">
-			<h2> Create new account </h2>
 			<div class="col-md-10">
+				<h2> Create new account </h2>
 				<form action="form-horizontal" class>
 					<div class="form-group">
 						<label for="inputLogin" class="control-label col-md-2"></label>
