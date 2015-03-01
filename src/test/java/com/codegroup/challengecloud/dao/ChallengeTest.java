@@ -28,8 +28,8 @@ public class ChallengeTest{
 
     @Test
     public void testFindById() {
-        Assert.assertNotNull(challengeService.findById("challenge1"));
-        System.out.println(challengeService.findById("challenge1").getTitle());
+        Assert.assertNotNull(challengeService.findById("876aee6e27926e59"));
+        System.out.println(challengeService.findById("876aee6e27926e59").getTitle());
     }
 }
 

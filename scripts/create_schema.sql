@@ -1,6 +1,15 @@
 CREATE SCHEMA IF NOT EXISTS challenger;
 
-DROP TABLE IF EXISTS`challenger`.`users`;
+/* Firstly drop all tebles. By Vladimir Zhdanov */
+DROP TABLE IF EXISTS `challenger`.`posts`;
+DROP TABLE IF EXISTS `challenger`.`subscriptions`;
+DROP TABLE IF EXISTS `challenger`.`challenges`;
+DROP TABLE IF EXISTS `challenger`.`challengegroups`;
+DROP TABLE IF EXISTS `challenger`.`origins`;
+DROP TABLE IF EXISTS `challenger`.`UserConnection`;
+DROP TABLE IF EXISTS `challenger`.`usersettings`;
+DROP TABLE IF EXISTS `challenger`.`users`;
+
 CREATE TABLE `challenger`.`users` (
   `USER_ID` VARCHAR(16) NOT NULL,
   `LOGIN`   VARCHAR(20) NOT NULL,
@@ -13,7 +22,6 @@ CREATE TABLE `challenger`.`users` (
   UNIQUE KEY `UNI_USER_LOGIN` (`NAME`) USING BTREE
 );
 
-DROP TABLE IF EXISTS `challenger`.`usersettings`;
 CREATE TABLE `challenger`.`usersettings` (
   `USER_ID`   VARCHAR(16) NOT NULL,
   `USER_LANG` VARCHAR(16),
@@ -21,7 +29,6 @@ CREATE TABLE `challenger`.`usersettings` (
   PRIMARY KEY (`USER_ID`)
 );
 
-DROP TABLE IF EXISTS `challenger`.`UserConnection`;
 CREATE TABLE `challenger`.`UserConnection`
 (
   userId         VARCHAR(255) NOT NULL,
@@ -41,22 +48,21 @@ CREATE TABLE `challenger`.`UserConnection`
 CREATE UNIQUE INDEX UserConnectionRank ON UserConnection
 (userId, providerId, rank);
 
-DROP TABLE IF EXISTS `challenger`.`origins`;
 CREATE TABLE `challenger`.`origins` (
   `ORIGIN_ID` VARCHAR(16) NOT NULL,
   `NAME`      VARCHAR(20) NOT NULL,
   PRIMARY KEY (`ORIGIN_ID`) USING BTREE
 );
 
-DROP TABLE IF EXISTS `challenger`.`challengegroups`;
+/* Creating table of challenge groups by Vladimir Zhdanov */
 CREATE TABLE `challenger`.`challengegroups` (
   `GROUP_ID` VARCHAR(16) NOT NULL,
   `NAME`     VARCHAR(25) NOT NULL,
-  `ICON`     BINARY(200),
+  `ICON`     VARCHAR(25),
   PRIMARY KEY (`GROUP_ID`) USING BTREE
 );
 
-DROP TABLE IF EXISTS `challenger`.`challenges`;
+/* Creating table of challenges by Vladimir Zhdanov */
 CREATE TABLE `challenger`.`challenges` (
   `CHALLENGE_ID` VARCHAR(16)  NOT NULL,
   `TITLE`        VARCHAR(25)  NOT NULL,
@@ -69,7 +75,6 @@ CREATE TABLE `challenger`.`challenges` (
 );
 
 /* Creating table of subscriptions */
-DROP TABLE IF EXISTS `challenger`.`subscriptions`;
 CREATE TABLE `challenger`.`subscriptions` (
   `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
   `USER_ID`         VARCHAR(16) NOT NULL,
@@ -81,7 +86,6 @@ CREATE TABLE `challenger`.`subscriptions` (
 );
 
 /*Creating table of posts. By Andrey */
-DROP TABLE IF EXISTS `challenger`.`posts`;
 CREATE TABLE `challenger`.`posts` (
   `POST_ID`         VARCHAR(16)  NOT NULL,
   `ORIGIN_ID`       VARCHAR(16)  NOT NULL,
@@ -92,4 +96,6 @@ CREATE TABLE `challenger`.`posts` (
   FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins (`ORIGIN_ID`),
   FOREIGN KEY (`SUBSCRIPTION_ID`) REFERENCES challenger.subscriptions (`SUBSCRIPTION_ID`)
 );
+
+commit;
 
