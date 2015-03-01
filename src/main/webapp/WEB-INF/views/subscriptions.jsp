@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./../css/bootstrap.min.css">
-    <link rel="stylesheet" href="./../css/font-awesome.min.css">
-    <link rel="stylesheet" href="./../css/main.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./../../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./../../resources/css/main.css">
+    <title>Subscriptions</title>
 </head>
 <body>
 
@@ -55,7 +55,7 @@
                 </h2>
 
                 <div class="th.">
-                    <img src="post.png">
+                    <img src="http://goo.gl/an2HXY">
                 </div>
             </li>
 
@@ -65,7 +65,7 @@
                 </h2>
 
                 <div class="th.">
-                    <img src="post.png">
+                    <img src="http://goo.gl/an2HXY">
                 </div>
             </li>
         </ul>

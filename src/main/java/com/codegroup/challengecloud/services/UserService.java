@@ -6,6 +6,8 @@ import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,5 +57,11 @@ public class UserService {
     @Transactional
     public User findById(String id) {
     	return userDao.findById(id);
+    }
+
+    @Transactional
+    public User getCurrentUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return findById(authentication.getName());
     }
 }

@@ -42,7 +42,7 @@ public class ChallengerUserDetailsService implements UserDetailsService {
 
     // Converts User user to org.springframework.security.core.userdetails.User
     private User buildUserForAuthentication(com.codegroup.challengecloud.model.User user, List<GrantedAuthority> authorities) {
-        return new User(user.getLogin(),
+        return new User(user.getId(),
                 user.getPass()!=null?user.getPass():Generator.generateHashedPass(Generator.generateId()),
                 true, true, true, true, authorities);
     }

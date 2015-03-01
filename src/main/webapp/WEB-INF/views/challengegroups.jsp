@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./../css/bootstrap.min.css">
-    <link rel="stylesheet" href="./../css/font-awesome.min.css">
-    <link rel="stylesheet" href="./../css/main.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./../../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./../../resources/css/main.css">
+    <title>Groups of challenges</title>
 </head>
 <body>
 
@@ -54,20 +54,20 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="thumbnail">
-                    <img src="ch1.PNG">
+                    <img src="http://goo.gl/an2HXY">
                 </div>
                 <div class="thumbnail">
-                    <img src="ch4.PNG">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <img src="ch2.PNG">
+                    <img src="http://goo.gl/an2HXY">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="thumbnail">
-                    <img src="ch3.PNG">
+                    <img src="http://goo.gl/an2HXY">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="http://goo.gl/an2HXY">
                 </div>
             </div>
         </div>
