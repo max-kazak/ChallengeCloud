@@ -16,7 +16,6 @@ import javax.persistence.*;
 public class Post {
 
     String id;
-    //    Origin origin;
     Subscription subscription;
     Date date;
     String url;
@@ -34,16 +33,6 @@ public class Post {
     public void setId(String id) {
         this.id = id;
     }
-
-//    TODO
-//    "ManyToOne
-//    public Origin getOrigin() {
-//    	return origin;
-//    }
-//    
-//    public void setOrigin(Origin origin) {
-//    	this.origin = origin;
-//    }
 
     @ManyToOne
     @JoinColumn(name = "SUBSCRIPTION_ID", unique = false, nullable = false)
