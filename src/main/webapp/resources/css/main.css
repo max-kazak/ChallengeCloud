@@ -9,13 +9,9 @@ body {
 
 .navigator {
 	border-bottom: 2px solid grey;
-	width:60%;
+	/*	width:60%;*/
 }
-
-.body {
-	width: 60%;
-}
-
+/*
 .list-item {
 	font-size: 28px;
 	margin: 0px;
@@ -25,7 +21,7 @@ body {
 
 .last-list-item {
 	border-right: 0px;
-}
+}*/
 
 .header {
 	font-size: 34px;
@@ -105,4 +101,19 @@ body {
 .neighborhood-guides p {
     font-size: 15px;
     margin-bottom:13px;
+}
+
+.nav i {
+  color: #5a5a5a;
+  font-size: 28px;
+}
+
+.nav a {
+  color: #5a5a5a;
+  font-size: 28px;
+}
+
+.nav li {
+  display: inline;
+  margin: 10px;
 }
