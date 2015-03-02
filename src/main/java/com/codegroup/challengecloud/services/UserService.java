@@ -62,6 +62,7 @@ public class UserService {
     @Transactional
     public User getCurrentUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        /*Spring User has our User Id as Name (see in  ChallengerUserDetailsService.buildUserForAuthentication) */
         return findById(authentication.getName());
     }
 }
