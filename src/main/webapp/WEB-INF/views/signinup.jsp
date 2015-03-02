@@ -5,36 +5,31 @@
 	<link rel="stylesheet" href="./../../resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
 	<link rel="stylesheet" href="./../../resources/css/main.css">
-	<title>Document</title>
+	<title>CCloud|Login</title>
 </head>
 <body>
-
-	<div class="container navigator">
-		<div class="row">
-			<div class="col-md-4">
-				<a href="#" id="project">
-					<div class="header">
-						<i class="fa fa-cloud"></i> ChallengeCloud
-					</div>
-				</a>
-			</div>
-			<div class="col-md-8">
-				<ul class="nav navbar-nav">
-					<li class="list-item" >
-						<a href="#" class="linker"> Home </a>
-					</li>
-					
-					<li class="list-item" >
-						<a href="#" class="linker"> About </a>
-					</li>
-				
-					<li class="list-item last-list-item">
-						<a href="#" class="linker"> Our Team </a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<div class="nav navigator">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <a href="#">
+                <i class="fa fa-cloud"></i>ChallengeCloud
+              </a>
+            </div>
+            <div class="col-md-9">
+              <ul class="pull-left">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Our Team</a></li>
+              </ul>
+              <ul class="pull-right">
+                <li><a href="#">Sign UP</a></li>
+                <li><a href="#">Sign IN</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
 	<div class="container body">
 		<div class="col-md-6 text-left left-block">
@@ -50,7 +45,7 @@
 				</div>
 				<h3> In ChallengeCloud </h3>
 			</div>
-			<div class="col-md-10">
+			<div class="col-md-8">
 				<form action="form-horizontal">
 					<div class="form-group">
 						<label for="inputEmail" class="control-label col-md-2"></label>
@@ -64,7 +59,7 @@
 							<input type="password" class="form-control" id="inputPassword" placeholder="Password" style="font-size: 20px;">
 						</div>
 					</div>
-					<div class="form-group text-left">
+					<div class="form-group">
 						<div class="checkbox">
 							<label  style="font-size: 16px;">
 								<input type="checkbox"> Remember Me
@@ -79,9 +74,11 @@
 				</form>
 			</div>
 		</div>
-		
+		<!-- 
+		<div class="vertical-divider"></div> -->
+
 		<div class="col-md-6 text-left right-block">
-			<div class="col-md-10">
+			<div class="col-md-8">
 				<h2> Create new account </h2>
 				<form action="form-horizontal" class>
 					<div class="form-group">
