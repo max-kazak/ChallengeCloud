@@ -45,7 +45,7 @@ CREATE TABLE `challenger`.`UserConnection`
   PRIMARY KEY (userId, providerId, providerUserId)
 );
 
-CREATE UNIQUE INDEX UserConnectionRank ON UserConnection
+CREATE UNIQUE INDEX UserConnectionRank ON `challenger`.`UserConnection`
 (userId, providerId, rank);
 
 CREATE TABLE `challenger`.`origins` (
