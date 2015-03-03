@@ -11,5 +11,5 @@ public interface UserSettingDao {
     public void update(UserSetting userSetting);
     public void delete(UserSetting userSetting);
 
-    public UserSetting findById(String settingsId);
+    public UserSetting findById(String settingId);
 }
