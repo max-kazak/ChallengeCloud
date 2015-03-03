@@ -1,4 +1,4 @@
-package com.codegroup.challengecloud.services.social;
+package com.codegroup.challengecloud.services;
 
 import com.codegroup.challengecloud.dao.UserSettingDao;
 import com.codegroup.challengecloud.model.User;

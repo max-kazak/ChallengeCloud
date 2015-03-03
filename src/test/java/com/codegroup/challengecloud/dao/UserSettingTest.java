@@ -1,6 +1,6 @@
 package com.codegroup.challengecloud.dao;
 
-import com.codegroup.challengecloud.services.social.UserSettingService;
+import com.codegroup.challengecloud.services.UserSettingService;
 import junit.framework.Assert;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
