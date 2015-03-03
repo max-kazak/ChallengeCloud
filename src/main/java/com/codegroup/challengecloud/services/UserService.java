@@ -29,8 +29,12 @@ public class UserService {
         userDao.update(user);
     }
 
+    public void deleteProfile(User user) {
+        userDao.delete(user);
+    }
+
     @Transactional
-    public User createProfile(String login, String email, String pass, String name){
+    public User createProfile(String login, String email, String pass, String name) {
         User user = new User();
         user.setId(Generator.generateId());
         user.setLogin(login);
@@ -53,14 +57,14 @@ public class UserService {
     public User findByLogin(String login) {
         return userDao.findByLogin(login);
     }
-    
+
     @Transactional
     public User findById(String id) {
-    	return userDao.findById(id);
+        return userDao.findById(id);
     }
 
     @Transactional
-    public User getCurrentUser(){
+    public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         /*Spring User has our User Id as Name (see in  ChallengerUserDetailsService.buildUserForAuthentication) */
         return findById(authentication.getName());
