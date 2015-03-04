@@ -58,7 +58,7 @@ CREATE TABLE `challenger`.`origins` (
 CREATE TABLE `challenger`.`challengegroups` (
   `GROUP_ID` VARCHAR(16) NOT NULL,
   `NAME`     VARCHAR(25) NOT NULL,
-  `ICON`     VARCHAR(25),
+  `ICON`     VARCHAR(50),
   PRIMARY KEY (`GROUP_ID`) USING BTREE
 );
 
