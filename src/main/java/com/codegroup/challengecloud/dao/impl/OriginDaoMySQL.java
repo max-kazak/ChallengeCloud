@@ -3,12 +3,13 @@ package com.codegroup.challengecloud.dao.impl;
 import com.codegroup.challengecloud.dao.OriginDao;
 import com.codegroup.challengecloud.model.Origin;
 import org.apache.log4j.Logger;
-
+import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
  * Created by Yefim on 25.02.2015.
  */
+@Repository("originDao")
 public class OriginDaoMySQL extends HibernateDao implements OriginDao {
 
     private static final Logger log = Logger.getLogger(OriginDaoMySQL.class);

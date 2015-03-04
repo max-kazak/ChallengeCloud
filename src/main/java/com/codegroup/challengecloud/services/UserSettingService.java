@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by Yefim on 04.03.2015.
  */
-@Service("userSettingsService")
+@Service("userSettingService")
 public class UserSettingService {
     @Autowired
     UserSettingDao userSettingDao;
