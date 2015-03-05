@@ -51,8 +51,8 @@ public class ChallengeGroupService {
     	return challengeGroupDao.findById(id);
     }
     
-//    @Transactional
-//    public List<ChallengeGroup> findAll() {
-//    	return challengeGroupDao.findAll();
-//    }
+    @Transactional
+    public List<ChallengeGroup> findAll() {
+    	return challengeGroupDao.findAll();
+    }
 }

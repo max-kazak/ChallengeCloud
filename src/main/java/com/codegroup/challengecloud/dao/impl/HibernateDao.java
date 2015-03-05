@@ -24,6 +24,18 @@ public class HibernateDao{
         return sessionFactory.getCurrentSession();
     }
 
+    /* Created on 01.03.2015 by Vladimir Zhdanov */
+    /**
+     * Querry without parameters. Can be used to get all elements,
+     * like challengeGroups.
+     * @author Vladimir Zhdanov
+     * @param query - Querry string
+     * @return List of elements
+     */
+    protected List<Objects> find(String query){
+        return getSession().createQuery(query).list();
+    }
+    
     protected List<Objects> find(String query, String parameter){
         return getSession().createQuery(query).setParameter(0, parameter).list();
     }

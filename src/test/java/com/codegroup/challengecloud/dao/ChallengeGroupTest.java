@@ -31,6 +31,12 @@ public class ChallengeGroupTest{
         Assert.assertNotNull(challengeGroupService.findById("5d2c117e674b39de"));
         System.out.println(challengeGroupService.findById("5d2c117e674b39de").getName());
     }
+
+    @Test
+    public void testFindAll() {
+        Assert.assertTrue(challengeGroupService.findAll().size() > 0);
+        System.out.println("There are " + challengeGroupService.findAll().size() + "ChallengeGroups");
+    }
 }
 
 

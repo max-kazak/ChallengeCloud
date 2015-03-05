@@ -41,5 +41,12 @@ public class ChallengeGroupDaoMySQL extends HibernateDao implements ChallengeGro
         return (ChallengeGroup) list.get(0);
     }
 
+    @Override
+    public List<ChallengeGroup> findAll() {
+    	log.debug("looking for all challengeGroups");
+        List list = find("from ChallengeGroup");
+        return (List<ChallengeGroup>) list;
+    }
+
 
 }
