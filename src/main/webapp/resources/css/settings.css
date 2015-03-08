@@ -31,7 +31,6 @@
 }
 
 .menu2 ul {
-  list-style-type: none;
   font-size: 28px;
   border-bottom: 1px solid grey;
 }
@@ -40,21 +39,21 @@
   margin: 0%;
 }
 .challenge-img {
-  /* border: 1px solid grey; */
   float: left;
   width: 25%;
+  /* border: 1px solid grey; */
   padding: 1%;
 }
 .challenge img{
   max-width: 100%;
-  border: 1px solid grey;
   /* max-height: 100%; */
+  border: 1px solid grey;
   size: auto;
 }
 .challenge-info {
-  /* border: 1px solid grey; */
   float: right;
   width: 75%;
+  /* border: 1px solid grey; */
   padding: 1%;
 }
 .challenge p {
