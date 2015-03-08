@@ -18,8 +18,15 @@ body {
                 $('#result').html(data);
             }
         });
+        $.ajax({
+            url : 'challenges-all.html',
+            success : function(data) {
+                $('#challenges-all').html(data);
+        	}
+        });
     }
 </script>
+ 
  
 <script type="text/javascript">
     var intervalId = 0;
@@ -31,6 +38,7 @@ body {
     <div align="center">
         <br> <br> ${message} <br> <br>
         <div id="result"></div>
+        <div id="challenges-all"></div>
         <br>
         <p>
             by <a href="http://crunchify.com">Crunchify.com</a>
