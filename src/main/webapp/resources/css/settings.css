@@ -34,14 +34,12 @@
   border: 1px solid grey;
   margin: 2%;
 }
-
 .challenge img{
   max-width: 98%;
   max-height: 98%;
   size: auto;
   margin: 2%;
 }
-
 .challenge p{
 	font-size: 20;
 }
