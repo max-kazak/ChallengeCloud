@@ -2,7 +2,7 @@
 <html>
 <!--Created by Vladimir Zhdanov on 05.03.2015-->
 <head>
-<title>Settings</title>
+<title>Challenges</title>
 <link rel="stylesheet" href="./../../resources/css/bootstrap.css">
 <link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
 <link rel="stylesheet" href="./../../resources/css/main.css">
@@ -19,7 +19,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<a href="#"> <i class="fa fa-cloud"></i>ChallengeCloud2
+						<a href="#"> <i class="fa fa-cloud"></i>ChallengeCloud
 						</a>
 					</div>
 
@@ -52,12 +52,14 @@
 					</ul>
 				</div>
 			</div>
+
 			<div class="col-md-6">
+				<!-- Central col -->
 				<div class="row">
 					<div class="heading">
 						<h1>Challenges</h1>
 					</div>
-					<div>
+					<div class="menu2">
 						<ul class="nav nav-pills">
 							<li role="presentation" class="active"><a href="#">All</a></li>
 							<li role="presentation"><a href="#">Recommendations</a></li>
@@ -66,78 +68,52 @@
 					</div>
 					<!-- Pills -->
 				</div>
-
-				<div><!-- Here were class="row" -->
-				
-					<div class="row challenge"> <!-- first challenge -->
-						<div class="col-sm-4 col-md-4">
-							<img src="./../../resources/img/ch1.PNG" alt="Image For Challenge">
-						</div>
-						<div class="col-md-8">
-							<!-- <div class="row"> -->
-							<div>
-								<div style="float: left;">
-									<p>Challenge Name</p>
-								</div>
-								<div style="float: right;">
-									<p>1 jan, 2015</p>
-								</div>
-							</div>
-							<br /> <br />
-							<div class="progress">
-								<div
-									class="progress-bar progress-bar-success progress-bar-striped"
-									role="progressbar" aria-valuenow="40" aria-valuemin="0"
-									aria-valuemax="100" style="width: 40%">
-									<span class="sr-only">40% Complete (success)</span>
-								</div>
-							</div>
-							<div style="float: left;">
-								<p class="pull-left">5/20 posts</p>
-							</div>
-							<div style="float: right;">
-								<a href="#" class="btn btn-primary pull-right" role="button">Details</a>
-							</div>
-						</div>
-					</div>       <!-- end of 1 Challenge -->
-
-					<div class="row challenge"> <!-- second challenge -->
-						<div style="float: left; width: 25%;">
-							<img src="./../../resources/img/ch1.PNG" alt="Image For Challenge">
-						</div>
-						<div >
-							<!-- <div class="row"> -->
-							<div>
-								<div style="float: left;">
-									<p>Challenge Name</p>
-								</div>
-								<div style="float: right;">
-									<p>1 jan, 2015</p>
-								</div>
-							</div>
-							<br /> <br />
-							<div class="progress">
-								<div
-									class="progress-bar progress-bar-success progress-bar-striped"
-									role="progressbar" aria-valuenow="40" aria-valuemin="0"
-									aria-valuemax="100" style="width: 40%">
-									<span class="sr-only">40% Complete (success)</span>
-								</div>
-							</div>
-							<div style="float: left;">
-								<p class="pull-left">5/20 posts</p>
-							</div>
-							<div style="float: right;">
-								<a href="#" class="btn btn-primary pull-right" role="button">Details</a>
-							</div>
-						</div>
-					</div>       <!-- end of 2 Challenge -->
-					
-					
-				</div>
+                <br/>
 				<!-- Challenges -->
+				<div>
+					<!-- first challenge -->
+					<div class="row challenge">
+						<div class="challenge-img">
+							<img src="./../../resources/img/ch1.PNG"
+								alt="Image For Challenge">
+						</div>
+						<!-- Challenge Info -->
+						<div class="challenge-info">
+							<div>
+								<div style="float: left;">
+									<p>Challenge Name</p>
+								</div>
+								<div style="float: right;">
+									<p>1 jan, 2015</p>
+								</div>
+							</div>
+							<br /> <br />
+							<div class="progress">
+								<div
+									class="progress-bar progress-bar-success progress-bar-striped"
+									role="progressbar" aria-valuenow="40" aria-valuemin="0"
+									aria-valuemax="100" style="width: 40%">
+									<span class="sr-only">40% Complete (success)</span>
+								</div>
+							</div>
+							<div style="float: left;">
+								<p class="pull-left">5/20 posts</p>
+							</div>
+							<div style="float: right;">
+								<a href="#" class="btn btn-primary pull-right" role="button">Details</a>
+							</div>
+						</div>
+						<!-- End of Challenge Info -->
+					</div>
+					<!-- end of 2 Challenge -->
+
+				</div>
+				<!-- End of Challenges -->
+
 			</div>
-			<!-- row with challenges -->
+			<!-- End of Central col -->
 			<div></div>
+		</div>
+	</div>
 </body>
 </html>
