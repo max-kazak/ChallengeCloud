@@ -15,7 +15,7 @@
 
 .heading {
   position: relative;
-  margin-left: 25%;
+  margin-left: 12%;
 }
 
 .menu ul {
@@ -29,22 +29,35 @@
   font-size: 18px;
   border-right: 1px solid grey;
 }
-.challenges ul {
+
+.menu2 ul {
   list-style-type: none;
-  font-size: 18px;
+  font-size: 28px;
   border-bottom: 1px solid grey;
 }
 .challenge {
   border: 1px solid grey;
-  margin: 2%;
+  margin: 0%;
 }
-.challenge.picture {
-  text-align:center;
+.challenge-img {
+  /* border: 1px solid grey; */
+  float: left;
+  width: 25%;
+  padding: 1%;
 }
 .challenge img{
-  max-width: 98%;
-  max-height: 98%;
+  max-width: 100%;
+  border: 1px solid grey;
+  /* max-height: 100%; */
   size: auto;
-  margin: 2%;
+}
+.challenge-info {
+  /* border: 1px solid grey; */
+  float: right;
+  width: 75%;
+  padding: 1%;
+}
+.challenge p {
+  font-size: 20px;
 }
 
