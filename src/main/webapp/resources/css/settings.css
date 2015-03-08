@@ -29,22 +29,20 @@
   font-size: 18px;
   border-right: 1px solid grey;
 }
-.challenges ul {
-  list-style-type: none;
-  font-size: 18px;
-  border-bottom: 1px solid grey;
-}
+
 .challenge {
   border: 1px solid grey;
   margin: 2%;
 }
-.challenge.picture {
-  text-align:center;
-}
+
 .challenge img{
   max-width: 98%;
   max-height: 98%;
   size: auto;
   margin: 2%;
+}
+
+.challenge p{
+	font-size: 20;
 }
 
