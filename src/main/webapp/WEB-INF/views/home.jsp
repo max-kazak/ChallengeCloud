@@ -3,10 +3,14 @@
   <!--Created by Vladimir Zhdanov on 05.03.2015-->
   <head>
     <title>Settings</title>
-    <link rel="stylesheet" href="./../../resources/css/bootstrap.css">
+    <!--  <link rel="stylesheet" href="./../../resources/css/bootstrap.css">
     <link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
     <link rel="stylesheet" href="./../../resources/css/main.css">
-    <link rel="stylesheet" href="./../../resources/css/settings.css">
+    <link rel="stylesheet" href="./../../resources/css/settings.css"> -->
+    <link rel="stylesheet" href="./resources/css/bootstrap.css">
+    <link rel="stylesheet" href="./resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./resources/css/main.css">
+    <link rel="stylesheet" href="./resources/css/settings.css">
   </head>
 
   <body>
@@ -16,7 +20,7 @@
         <div class="row">
           <div class="col-md-3">
             <a href="#">
-              <i class="fa fa-cloud"></i>ChallengeCloud
+              <i class="fa fa-cloud"></i>ChallengeCloud2
             </a>
           </div>
 
