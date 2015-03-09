@@ -5,6 +5,7 @@ import com.codegroup.challengecloud.dao.UserDao;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,10 +19,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("userService")
 public class UserService {
 
+	private static final Logger log = Logger.getLogger(UserService.class);
+	
     @Autowired
     UserDao userDao;
 
-    public void setUserDao(UserDao userDao) {
+    
+    public UserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
 
@@ -67,6 +75,8 @@ public class UserService {
     public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         /*Spring User has our User Id as Name (see in  ChallengerUserDetailsService.buildUserForAuthentication) */
-        return findById(authentication.getName());
+        String id = authentication.getName();
+        log.debug("returning current user " + id);
+        return findById(id);
     }
 }
