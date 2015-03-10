@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,10 +22,12 @@ import java.util.Random;
 
 
 
+
 //import com.codegroup.challengecloud.model.User;
 //import com.codegroup.challengecloud.services.UserService;
 import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.services.ChallengeService;
+
 
 
 
@@ -69,7 +72,9 @@ public class ChallengesController {
     
     @RequestMapping(value = "/challenges-all", method = RequestMethod.GET)
     public @ResponseBody
-    String getAllChallenges() throws Exception {
+    String getAllChallenges(
+    		@RequestParam(value = "num", required = false) String num
+    		) throws Exception {
 		log.info("getAllChallenges().");
     	String code = "<p> Internal Error! </p>";
     	
@@ -77,7 +82,7 @@ public class ChallengesController {
         cfg.setClassForTemplateLoading(ChallengesController.class, "/");// TODO /templates
         
         Map<String, Object> input = new HashMap<String, Object>();
-        input.put("challengeName", "Challenge 1");
+        input.put("challengeName", "Challenge " + new String(num));
 
         StringWriter stringWriter;
         try {
