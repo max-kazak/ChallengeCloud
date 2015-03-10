@@ -7,16 +7,21 @@
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/welcome**" access="ROLE_USER" />
+		<intercept-url pattern="/home**" access="ROLE_USER" />
+		<intercept-url pattern="/challengegroups**" access="ROLE_USER" />
+		<intercept-url pattern="/settings**" access="ROLE_USER" />
+		<intercept-url pattern="/challenges**" access="ROLE_USER" />
+		<intercept-url pattern="/subscription**" access="ROLE_USER" />
+
 		<form-login 
 		    login-page="/signinup"
-		    default-target-url="/welcome" 
+		    default-target-url="/home"
 			authentication-failure-url="/signinup?error"
 			username-parameter="username"
 			password-parameter="password" />
 		<logout logout-success-url="/signinup?logout" />
 		<!-- enable csrf protection -->
-		<csrf/>
+		<!--<csrf/>-->
 	</http>
 
 	<authentication-manager>

@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/challengecloud/resources/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/challengecloud/resources/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/challengecloud/resources/css/main.css">
+	<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
+	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
+	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
 	<title>CCloud | Login</title>
 </head>
 <body>
@@ -48,11 +48,11 @@
 					<h3> In ChallengeCloud </h3>
 				</div>
 				<div class="col-md-8">
-					<form action="form-horizontal <c:url value='/j_spring_security_check'/>" method='POST'>
+					<form class="form-horizontal" name="loginForm" action="<c:url value='j_spring_security_check'/>" method='POST'>
 						<div class="form-group">
 							<label for="inputEmailExisting" class="control-label col-md-2"></label>
 							<div>
-								<input class="form-control" name="username" id="inputEmailExisting" placeholder="Username" style="font-size: 20px;">
+								<input type="text" class="form-control" name="username" id="inputEmailExisting" placeholder="Username" style="font-size: 20px;">
 							</div>
 						</div>
 						<div class="form-group">
@@ -70,12 +70,11 @@
 						</div>
 						<div class="form-group text-left">
 							<div>
-								<button type="submit" class="btn btn-default"> Sign In </button>
+								<button name="submit" type="submit" class="btn btn-default"> Sign In </button>
 							</div>
 						</div>
 
-						<input type="hidden" name="${_csrf.parameterName}"
-							   value="${_csrf.token}" />
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					</form>
 					<c:if test="${not empty error}">
 						<div class="error">${error}</div>
