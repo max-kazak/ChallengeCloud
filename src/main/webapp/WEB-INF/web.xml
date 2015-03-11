@@ -28,10 +28,6 @@
 		<welcome-file>welcome.jsp</welcome-file>
 	</welcome-file-list>
 	
-	<welcome-file-list>
-        <welcome-file>welcome.jsp</welcome-file>
-    </welcome-file-list>
-	
 	<!-- Loads Spring config file -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
