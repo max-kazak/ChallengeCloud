@@ -16,17 +16,14 @@ import java.util.Random;
 public class ChallengeGroupController {
 
         @RequestMapping("/challengegroups")
-        public ModelAndView helloAjaxTest() {
-            return new ModelAndView("ajax", "message", "Crunchify Spring MVC with Ajax and JQuery Demo..");
+        public ModelAndView insertImageAjax() {
+            return new ModelAndView("challengegroups");
         }
 
-        @RequestMapping(value = "/ajaxtest", method = RequestMethod.GET)
+        @RequestMapping(value = "/ajaxscroll", method = RequestMethod.GET)
         public @ResponseBody
-        String getTime() {
-            Random rand = new Random();
-            float r = rand.nextFloat() * 100;
-            String result = "<br>Next Random # is <b>" + r + "</b>. Generated on <b>" + new Date().toString() + "</b>";
-            System.out.println("Debug Message from CrunchifySpringAjaxJQuery Controller.." + new Date().toString());
+        String getImage() {
+            String result = "<img src='http://mirgif.com/humor/prikol104.jpg'>";
             return result;
         }
     }
