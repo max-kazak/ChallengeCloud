@@ -12,16 +12,16 @@
 		<intercept-url pattern="/settings**" access="ROLE_USER" />
 		<intercept-url pattern="/challenges**" access="ROLE_USER" />
 		<intercept-url pattern="/subscription**" access="ROLE_USER" />
-		
+
 		<form-login 
-		    login-page="/login" 
-		    default-target-url="/home" 
-			authentication-failure-url="/login?error" 
+		    login-page="/signinup"
+		    default-target-url="/home"
+			authentication-failure-url="/signinup?error"
 			username-parameter="username"
 			password-parameter="password" />
-		<logout logout-success-url="/login?logout" />
+		<logout logout-success-url="/signinup?logout" />
 		<!-- enable csrf protection -->
-		<csrf/>
+		<!--<csrf/>-->
 	</http>
 
 	<authentication-manager>

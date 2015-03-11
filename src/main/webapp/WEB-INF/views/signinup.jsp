@@ -1,10 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./../../resources/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
-	<link rel="stylesheet" href="./../../resources/css/main.css">
+	<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
+	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
+	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
 	<title>CCloud | Login</title>
 </head>
 <body>
@@ -47,17 +48,17 @@
 					<h3> In ChallengeCloud </h3>
 				</div>
 				<div class="col-md-8">
-					<form action="form-horizontal">
+					<form class="form-horizontal" name="loginForm" action="<c:url value='j_spring_security_check'/>" method='POST'>
 						<div class="form-group">
-							<label for="inputEmail" class="control-label col-md-2"></label>
+							<label for="inputEmailExisting" class="control-label col-md-2"></label>
 							<div>
-								<input type="email" class="form-control" id="inputEmail" placeholder="Email" style="font-size: 20px;">
+								<input type="text" class="form-control" name="username" id="inputEmailExisting" placeholder="Username" style="font-size: 20px;">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputPassword" class="control-label col-md-2"></label>
+							<label for="inputPasswordExisting" class="control-label col-md-2"></label>
 							<div>
-								<input type="password" class="form-control" id="inputPassword" placeholder="Password" style="font-size: 20px;">
+								<input type="password" class="form-control" name="password" id="inputPasswordExisting" placeholder="Password" style="font-size: 20px;">
 							</div>
 						</div>
 						<div class="form-group">
@@ -69,10 +70,18 @@
 						</div>
 						<div class="form-group text-left">
 							<div>
-								<button type="submit" class="btn btn-default"> Sign In </button>
+								<button name="submit" type="submit" class="btn btn-default"> Sign In </button>
 							</div>
 						</div>
+
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					</form>
+					<c:if test="${not empty error}">
+						<div class="error">${error}</div>
+					</c:if>
+					<c:if test="${not empty msg}">
+						<div class="msg">${msg}</div>
+					</c:if>
 				</div>
 			</div>
 			<!-- 

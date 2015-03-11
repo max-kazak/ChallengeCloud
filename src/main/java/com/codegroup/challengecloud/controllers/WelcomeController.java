@@ -11,16 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/welcome")
 public class WelcomeController {
-    private User currentUser;
-    private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
-        userService = new UserService();
-        currentUser = userService.getCurrentUser();
-        model.addAttribute("message", currentUser.getName());
         return "welcome";
-
     }
 
 }

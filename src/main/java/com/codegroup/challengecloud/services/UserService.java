@@ -19,8 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("userService")
 public class UserService {
 
-	private static final Logger log = Logger.getLogger(UserService.class);
-	
+    private static final Logger log = Logger.getLogger(UserService.class);
+
     @Autowired
     UserDao userDao;
 
