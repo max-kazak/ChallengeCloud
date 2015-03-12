@@ -12,6 +12,8 @@ import junit.framework.Assert;
 
 /**
  * Created by Nipel-Crumple on 12.03.2015.
+ * This test should work in your IDE
+ * because of identity of DB scripts
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
