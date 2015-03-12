@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS `challenger`.`usersettings`;
 DROP TABLE IF EXISTS `challenger`.`users`;
 
 CREATE TABLE `challenger`.`images` (
-	`IMAGE_ID` VARCHAR(16) NOT NULL,
+	`IMAGE_ID` INT NOT NULL AUTO_INCREMENT,
 	`NAME` VARCHAR(20),
 	`DATE` DATE NOT NULL,
 	`SIZE` CHAR(1),
@@ -68,7 +68,7 @@ CREATE TABLE `challenger`.`origins` (
 CREATE TABLE `challenger`.`challengegroups` (
   `GROUP_ID` VARCHAR(16) NOT NULL,
   `NAME`     VARCHAR(25) NOT NULL,
-  `IMAGE_ID` VARCHAR(16),
+  `IMAGE_ID` INT,
   PRIMARY KEY (`GROUP_ID`) USING BTREE,
   FOREIGN KEY (`IMAGE_ID`) REFERENCES `challenger`.`images` (`IMAGE_ID`)
 );

@@ -36,6 +36,7 @@
                 <value>com.codegroup.challengecloud.model.UserSetting</value>
                 <value>com.codegroup.challengecloud.model.ChallengeGroup</value>
                 <value>com.codegroup.challengecloud.model.Origin</value>
+                <value>com.codegroup.challengecloud.model.Image</value>
             </list>
         </property>
 

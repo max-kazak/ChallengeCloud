@@ -7,32 +7,32 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/welcome.css" />">
     <title>CCloud|Groups</title>
-    <script type="text/javascript"
-            src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript">
-        //TODO: finish with ajax later @Nipel-Crumple
-        $(document).ready(function() {
-            loadImg();
-            loadImg();
-            $(window).scroll(loadImg);
-            function loadImg() {
-                if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-                    console.log("SCROLLING SHMOLING");
-                    for (var i = 0; i < 3; i++) {
-                        $.ajax({
-                            url: 'ajaxscroll.html',
-                            success: function (img) {
-                                $('#image-holder').append("<div class='col-md-4'>" +
-                                "                               <div class='thumbnail'>" + img + "</div>" +
-                                "                          </div>");
-                            }
-                        });
-                    }
-                }
-            }
-        });
+    <%--<script type="text/javascript"--%>
+            <%--src="http://code.jquery.com/jquery-1.10.1.min.js"></script>--%>
+    <%--<script type="text/javascript">--%>
+        <%--//TODO: finish with ajax later @Nipel-Crumple--%>
+        <%--$(document).ready(function() {--%>
+            <%--loadImg();--%>
+            <%--loadImg();--%>
+            <%--$(window).scroll(loadImg);--%>
+            <%--function loadImg() {--%>
+                <%--if ($(window).scrollTop() + $(window).height() >= $(document).height()) {--%>
+                    <%--console.log("SCROLLING SHMOLING");--%>
+                    <%--for (var i = 0; i < 3; i++) {--%>
+                        <%--$.ajax({--%>
+                            <%--url: 'ajaxscroll.html',--%>
+                            <%--success: function (img) {--%>
+                                <%--$('#image-holder').append("<div class='col-md-4'>" +--%>
+                                <%--"                               <div class='thumbnail'>" + img + "</div>" +--%>
+                                <%--"                          </div>");--%>
+                            <%--}--%>
+                        <%--});--%>
+                    <%--}--%>
+                <%--}--%>
+            <%--}--%>
+        <%--});--%>
 
-    </script>
+    <%--</script>--%>
 
 </head>
 <body>
@@ -68,12 +68,11 @@
         </div>
         <div align="center">
             <br> <br> ${message} <br> <br>
-                <div id="result"></div>
+                <div id="result">
+                    <img src="/images/123123" alt="car_image"/>
+                </div>
             <br>
 
-            <p>
-                by <a href="http://crunchify.com">Crunchify.com</a>
-            </p>
         </div>
     </div>
 </div>

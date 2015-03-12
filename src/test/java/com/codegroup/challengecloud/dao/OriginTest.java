@@ -28,7 +28,7 @@ public class OriginTest {
 
     @Test
     public void testFindById() {
-        /*Origin result = originService.findById(ORIGIN_ID);*/
+        /*Origin result = originService.getImageById(ORIGIN_ID);*/
         Assert.assertNotNull(originService.findById(ORIGIN_ID));
         /*Assert.assertEquals(result.getId(), ORIGIN_ID);
         Assert.assertEquals(result.getName(), ORIGIN_NAME);*/
