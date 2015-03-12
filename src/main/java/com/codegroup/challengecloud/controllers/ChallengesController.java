@@ -50,7 +50,7 @@ import freemarker.template.Version;
  
 @Controller
 public class ChallengesController {
-	private static final Logger log = Logger.getLogger(HomeController.class);
+	private static final Logger log = Logger.getLogger(ChallengesController.class);
     private Challenge challenge;
     private ChallengeService challengeService;
  
@@ -91,13 +91,15 @@ public class ChallengesController {
 	        try {
 	        	template.process(input, stringWriter);
 	        } catch (TemplateException e2) {
-				throw new Exception("ChallengesController.getAllChallenges: TemplateExcepon: "+e2.toString());
+	    		log.error("Template Exception.");
+				//throw new Exception("ChallengesController.getAllChallenges: TemplateExcepon: "+e2.toString());
 			} finally {
 				stringWriter.close();
 				code = stringWriter.toString();
 	        }
 		} catch (IOException e) {
-			throw new IOException("ChallengesController.getAllChallenges: Can't load template challenge.ftl: "+e.toString());
+    		log.error("Can't load template.");
+			//throw new IOException("ChallengesController.getAllChallenges: Can't load template challenge.ftl: "+e.toString());
 		}
 		log.info("getAllChallenges() returns [" + code + "].");
         return code;

@@ -16,23 +16,56 @@ body {
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
 	var num = 0;
-    function crunchifyAjax() {
+	function appendChallenge() {
     	num = num + 1;
+        $.ajax({
+            url : 'challenges-all.html?num=' + num.toString(),
+            success : function(data) {
+                $('#challenges-all').append(data);
+        	}
+        });
+	}
+    function crunchifyAjax() {
+    	//num = num + 1;
         $.ajax({
             url : 'challengestest.html',
             success : function(data) {
                 $('#result').html(data);
             }
         });
-        $.ajax({
-            url : 'challenges-all.html?num=' + num.toString(),
-            success : function(data) {
-                $('#challenges-all').html(data);
-        	}
-        });
+        appendChallenge();
     }
 </script>
- 
+
+<script type="text/javascript">
+	var loading = false;
+	$(window).scroll(function(){
+	//if((($(window).scrollTop()+$(window).height())+2)>=$(document).height()){ //Doesn't work
+	if($(document).height() <= $(window).scrollTop() + 1920){
+		if(loading == false){
+			loading = true;
+	    	num = num + 1;
+			//$('#loadingbar').css("display","block");
+			//$.get("load.php?start="+$('#loaded_max').val(), function(loaded){
+			//	$('body').append(loaded);
+			//	$('#loaded_max').val(parseInt($('#loaded_max').val())+50);
+			//	$('#loadingbar').css("display","none");
+			//	loading = false;
+			//});
+			appendChallenge();
+			loading = false;
+		}
+		  
+	}
+	});
+	$(document).ready(function() {
+		//$('#loaded_max').val(50);
+		for (i =0; i< 20; i++) {
+			appendChallenge();
+			$(window).scrollTo(0);
+		}
+	});
+</script> 
  
 <script type="text/javascript">
     var intervalId = 0;
@@ -68,6 +101,7 @@ body {
 </head>
  
 <body>
+<ifame>
     <div align="center">
         <br> <br> ${message} <br> <br>
         <div id="result"></div>
@@ -77,5 +111,6 @@ body {
             by <a href="http://crunchify.com">Crunchify.com</a>
         </p>
     </div>
+</ifame>
 </body>
 </html>
