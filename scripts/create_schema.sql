@@ -5,10 +5,20 @@ DROP TABLE IF EXISTS `challenger`.`posts`;
 DROP TABLE IF EXISTS `challenger`.`subscriptions`;
 DROP TABLE IF EXISTS `challenger`.`challenges`;
 DROP TABLE IF EXISTS `challenger`.`challengegroups`;
+DROP TABLE IF EXISTS `challenger`.`images`;
 DROP TABLE IF EXISTS `challenger`.`origins`;
 DROP TABLE IF EXISTS `challenger`.`UserConnection`;
 DROP TABLE IF EXISTS `challenger`.`usersettings`;
 DROP TABLE IF EXISTS `challenger`.`users`;
+
+CREATE TABLE `challenger`.`images` (
+	`IMAGE_ID` VARCHAR(16) NOT NULL,
+	`NAME` VARCHAR(20),
+	`DATE` DATE NOT NULL,
+	`SIZE` CHAR(1),
+	`IMAGE` MEDIUMBLOB NOT NULL,
+	PRIMARY KEY (`IMAGE_ID`) USING BTREE
+);
 
 CREATE TABLE `challenger`.`users` (
   `USER_ID` VARCHAR(16) NOT NULL,
@@ -58,8 +68,9 @@ CREATE TABLE `challenger`.`origins` (
 CREATE TABLE `challenger`.`challengegroups` (
   `GROUP_ID` VARCHAR(16) NOT NULL,
   `NAME`     VARCHAR(25) NOT NULL,
-  `ICON_REF`     VARCHAR(50),
-  PRIMARY KEY (`GROUP_ID`) USING BTREE
+  `IMAGE_ID` VARCHAR(16),
+  PRIMARY KEY (`GROUP_ID`) USING BTREE,
+  FOREIGN KEY (`IMAGE_ID`) REFERENCES `challenger`.`images` (`IMAGE_ID`)
 );
 
 /* Creating table of challenges by Vladimir Zhdanov */
