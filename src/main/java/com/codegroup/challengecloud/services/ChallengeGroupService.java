@@ -2,6 +2,7 @@ package com.codegroup.challengecloud.services;
 
 import com.codegroup.challengecloud.dao.ChallengeGroupDao;
 import com.codegroup.challengecloud.model.ChallengeGroup;
+import com.codegroup.challengecloud.model.Image;
 import com.codegroup.challengecloud.utils.Generator;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class ChallengeGroupService {
 
     @Autowired
     ChallengeGroupDao challengeGroupDao;
+    @Autowired
+    ImageService imageService;
 
     public void setChallengeGroupDao(ChallengeGroupDao challengeGroupDao) {
         this.challengeGroupDao = challengeGroupDao;
@@ -29,11 +32,13 @@ public class ChallengeGroupService {
     }
 
     @Transactional
-    public ChallengeGroup createChallengeGroup(String name, String icon){
+    public ChallengeGroup createChallengeGroup(String name, byte[] imageData){
     	ChallengeGroup challengeGroup = new ChallengeGroup();
     	challengeGroup.setId(Generator.generateId());
     	challengeGroup.setName(name);
-    	challengeGroup.setIconref(icon);
+
+        Image image = imageService.createImage(name, 'M', imageData);
+    	challengeGroup.setImageId(image.getId());
 
     	challengeGroupDao.save(challengeGroup);
 
