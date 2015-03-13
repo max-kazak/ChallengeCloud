@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS `challenger`.`usersettings`;
 DROP TABLE IF EXISTS `challenger`.`users`;
 
 CREATE TABLE `challenger`.`images` (
-	`IMAGE_ID` VARCHAR(16) NOT NULL AUTO_INCREMENT,
+	`IMAGE_ID` VARCHAR(16) NOT NULL,
 	`NAME` VARCHAR(20),
 	`DATE` DATE NOT NULL,
 	`SIZE` CHAR(1),
