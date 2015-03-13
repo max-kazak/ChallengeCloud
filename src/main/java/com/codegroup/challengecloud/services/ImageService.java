@@ -21,12 +21,13 @@ public class ImageService {
     ImageDao imageDao;
 
     @Transactional
-    public Image createImage(String name, Date date, char size, byte[] image) {
+    public Image createImage(String name, Date date, char size, byte[] data) {
         Image imageEntity = new Image();
+        imageEntity.setId(Generator.generateId());
         imageEntity.setName(name);
         imageEntity.setDate(date);
         imageEntity.setSize(size);
-        imageEntity.setImage(image);
+        imageEntity.setData(data);
         log.debug("Saving new Image to DB" + imageEntity.getId());
         imageDao.save(imageEntity);
 
@@ -34,7 +35,7 @@ public class ImageService {
     }
 
     @Transactional
-    public Image getImage(int id) {
+    public Image getImage(String id) {
         return imageDao.getImageById(id);
     }
 }

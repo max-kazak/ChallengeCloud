@@ -24,7 +24,7 @@ public class ImageController {
     @ResponseBody
     public byte[] returnImage(@PathVariable int imageId) {
         Image image = imageService.getImage(imageId);
-        return image.getImage();
+        return image.getData();
     }
     /**
     * If you want to check downloading pictures from DB just add this line

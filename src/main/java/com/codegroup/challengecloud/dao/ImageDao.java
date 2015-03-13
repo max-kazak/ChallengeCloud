@@ -10,5 +10,5 @@ public interface ImageDao {
     public void delete(Image image);
     public void update(Image image);
 
-    public Image getImageById(int imageId);
+    public Image getImageById(String imageId);
 }

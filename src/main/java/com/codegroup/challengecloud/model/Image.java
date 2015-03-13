@@ -10,20 +10,19 @@ import java.sql.Date;
 @Entity
 @Table(name = "images", catalog = "challenger")
 public class Image implements Serializable {
-    int id;
+    String id;
     String name;
     Date date;
     char size;
     byte[] image;
 
     @Id
-    @GeneratedValue
     @Column(name="IMAGE_ID", unique=true, nullable=false)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,12 +53,12 @@ public class Image implements Serializable {
         this.size = size;
     }
 
-    @Column(name="IMAGE", nullable = false)
-    public byte[] getImage() {
+    @Column(name="DATA", nullable = false)
+    public byte[] getData() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setData(byte[] image) {
         this.image = image;
     }
 }

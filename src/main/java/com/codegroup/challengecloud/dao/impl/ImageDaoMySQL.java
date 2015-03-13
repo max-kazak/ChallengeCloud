@@ -34,9 +34,9 @@ public class ImageDaoMySQL extends HibernateDao implements ImageDao {
     }
 
     @Override
-    public Image getImageById(int imageId) {
+    public Image getImageById(String imageId) {
         log.debug("Looking for image with id=" + imageId);
-        List list = find("from Image where IMAGE_ID = ?", Integer.valueOf(imageId).toString());
+        List list = find("from Image where IMAGE_ID = ?" + imageId);
         return (Image) list.get(0);
     }
 }
