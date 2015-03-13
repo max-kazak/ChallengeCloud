@@ -1,10 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--Created by Yefim on 02.03.2015-->
 <head>
-    <link rel="stylesheet" href="./../../resources/css/bootstrap.css">
-    <link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./../../resources/css/main.css">
-    <link rel="stylesheet" href="./../../resources/css/welcome.css">
+    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/welcome.css" />">
     <title>CCloud|Subscriptions</title>
 </head>
 <body>
