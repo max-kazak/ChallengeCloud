@@ -58,7 +58,7 @@ body {
 		  
 	}
 	});
-	$(document).ready(function() {
+	$(document).ready(function() { //Doesn't work
 		//$('#loaded_max').val(50);
 		for (i =0; i< 20; i++) {
 			appendChallenge();
