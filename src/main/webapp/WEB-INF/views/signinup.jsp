@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="./../../resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
 	<link rel="stylesheet" href="./../../resources/css/main.css">
-	<title>CCloudLogin|</title>
+	<title>CCloud | Login</title>
 </head>
 <body>
 	<div class="main">

@@ -39,7 +39,8 @@
   margin: 0%;
 }
 .challenge-img {
-  float: left; width: 25%;
+  float: left;
+  width: 25%;
   /* border: 1px solid grey; */
   padding: 1%;
 }
@@ -50,11 +51,12 @@
   size: auto;
 }
 .challenge-info {
-  float: right; width: 75%;
+  float: right;
+  width: 75%;
   /* border: 1px solid grey; */
   padding: 1%;
 }
-.challenge p{
-	font-size: 20;
+.challenge p {
+  font-size: 20px;
 }
 

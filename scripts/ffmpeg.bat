@@ -1,0 +1,1 @@
+D:\\ffmpeg\\bin\\ffmpeg -y -r 30 -f image2pipe -vcodec ppm -i vid -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.x264.avi
