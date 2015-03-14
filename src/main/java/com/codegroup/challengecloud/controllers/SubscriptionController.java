@@ -20,7 +20,7 @@ public class SubscriptionController {
     public
     @ResponseBody
     String getSubscription() {
-        String subscriptionSrc = "<img src='http://mirgif.com/humor/prikol104.jpg'>";
+        String subscriptionSrc = "<img src='http://www.sunhome.ru/UsersGallery/Cards/prazdnik_den_zemli_kartinka.jpg'>";
         return subscriptionSrc;
     }
 }

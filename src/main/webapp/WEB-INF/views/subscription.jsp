@@ -11,7 +11,7 @@
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             loadImg();
             loadImg();
             $(window).scroll(loadImg);
@@ -22,9 +22,8 @@
                         $.ajax({
                             url: 'ajaxscroll1.html',
                             success: function (img) {
-                                $('#image-holder').append("<div class='col-md-4'>" +
-                                "                               <div class='thumbnail'>" + img + "</div>" +
-                                "                          </div>");
+                                $('#image-holder').append("<div class='th.' id='image - holder' >" + img + "</div>")
+                                ;
                             }
                         });
                     }
@@ -68,19 +67,8 @@
                         1jan, 2015
                     </h2>
 
-                    <div class="th." id="image-holder" >
-                        <img src="http://goo.gl/an2HXY">
+                    <div class="th." id="image-holder">
                     </div>
-                </li>
-
-                <%--<li>
-                    <h2>
-                        3jan, 2015
-                    </h2>
-
-                    <div class="th.">
-                        <img src="http://goo.gl/an2HXY">
-                    </div>--%>
                 </li>
             </ul>
         </div>
