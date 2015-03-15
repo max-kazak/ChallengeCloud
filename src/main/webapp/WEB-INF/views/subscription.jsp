@@ -7,6 +7,34 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/welcome.css" />">
     <title>CCloud|Subscriptions</title>
+
+    <script type="text/javascript"
+            src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            loadImg();
+            loadImg();
+            $(window).scroll(loadImg);
+
+            function loadImg() {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                    console.log("SUBSCRIPTION SCROLL");
+                    $.ajax({
+                        url: 'ajaxscroll1.html',
+                        success: function (img) {
+                            /*TODO add content from DB*/
+                            $('#image-holder').append("<h2>ADD DATE FROM DB</h2>" +
+                            "<div class='col-md-6>" +
+                            "                               <div class='thumbnail'>" + img + "</div>" +
+                            "                          </div>")
+                            ;
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+
 </head>
 <body>
 
@@ -38,23 +66,10 @@
 
             <ul class="pull-left">
                 <li>
-                    <h2>
-                        1jan, 2015
-                    </h2>
+                    <div class="container th." id="image-holder">
 
-                    <div class="th.">
-                        <img src="http://goo.gl/an2HXY">
                     </div>
-                </li>
 
-                <li>
-                    <h2>
-                        3jan, 2015
-                    </h2>
-
-                    <div class="th.">
-                        <img src="http://goo.gl/an2HXY">
-                    </div>
                 </li>
             </ul>
         </div>
