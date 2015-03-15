@@ -15,18 +15,21 @@
             loadImg();
             loadImg();
             $(window).scroll(loadImg);
+
             function loadImg() {
                 if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
                     console.log("SUBSCRIPTION SCROLL");
-                    for (var i = 0; i < 3; i++) {
-                        $.ajax({
-                            url: 'ajaxscroll1.html',
-                            success: function (img) {
-                                $('#image-holder').append("<div class='th.' id='image - holder' >" + img + "</div>")
-                                ;
-                            }
-                        });
-                    }
+                    $.ajax({
+                        url: 'ajaxscroll1.html',
+                        success: function (img) {
+                            /*TODO add content from DB*/
+                            $('#image-holder').append("<h2>ADD DATE FROM DB</h2>" +
+                            "<div class='col-md-6>" +
+                            "                               <div class='thumbnail'>" + img + "</div>" +
+                            "                          </div>")
+                            ;
+                        }
+                    });
                 }
             }
         });
@@ -63,12 +66,10 @@
 
             <ul class="pull-left">
                 <li>
-                    <h2>
-                        1jan, 2015
-                    </h2>
+                    <div class="container th." id="image-holder">
 
-                    <div class="th." id="image-holder">
                     </div>
+
                 </li>
             </ul>
         </div>
