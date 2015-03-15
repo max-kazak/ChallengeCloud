@@ -1,11 +1,39 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--Created by Yefim on 02.03.2015-->
 <head>
-    <link rel="stylesheet" href="./../../resources/css/bootstrap.css">
-    <link rel="stylesheet" href="./../../resources/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./../../resources/css/main.css">
-    <link rel="stylesheet" href="./../../resources/css/welcome.css">
+    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/welcome.css" />">
     <title>CCloud|Groups</title>
+    <script type="text/javascript"
+            src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        //TODO: finish with ajax later @Nipel-Crumple
+        $(document).ready(function () {
+            loadImg();
+            loadImg();
+            $(window).scroll(loadImg);
+            function loadImg() {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                    console.log("SCROLLING SHMOLING");
+                    for (var i = 0; i < 3; i++) {
+                        $.ajax({
+                            url: 'ajaxscroll.html',
+                            success: function (img) {
+                                $('#image-holder').append("<div class='col-md-4'>" +
+                                "                               <div class='thumbnail'>" + img + "</div>" +
+                                "                          </div>");
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
+    </script>
+
 </head>
 <body>
 
@@ -33,33 +61,13 @@
     </div>
 
     <div class="neighborhood-guides">
-        <div class="container">
+        <div class="container" id="image-holder">
             <h2>
                 Choose challenge category
             </h2>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://goo.gl/an2HXY">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="http://goo.gl/an2HXY">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://goo.gl/an2HXY">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://goo.gl/an2HXY">
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>

@@ -17,8 +17,7 @@ public class ChallengeGroup implements Serializable {
 
     String id;
     String name;
-    //TODO: IN SQL it is Binary(200) ICON Now. I think, reference would be better decision.
-    String iconref;
+    String imageId;
 
     Set<Challenge> challenges = new HashSet<Challenge>(0);
 
@@ -43,12 +42,12 @@ public class ChallengeGroup implements Serializable {
         this.name = name;
     }
 
-    @Column(name = "ICON_REF", nullable = false)
-    public String getIconref() {
-        return iconref;
+    @Column(name = "IMAGE_ID", nullable = false)
+    public String getImageId() {
+        return imageId;
     }
-    public void setIconref(String iconref) {
-        this.iconref = iconref;
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
     
     
@@ -58,7 +57,7 @@ public class ChallengeGroup implements Serializable {
         return "Challenge{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", iconref='" + iconref + '\'' +
+                ", iconref='" + imageId + '\'' +
                 '}';
     }
 

@@ -7,8 +7,11 @@ insert into challenger.usersettings values ("d6fbf948694caf35",   "English");
 insert into challenger.origins values ("twit_id", "Twitter");
 
 /* By Vladimir Zhdanov 01.03.2015 */
-insert into challenger.challengegroups values ("5d2c117e674b39de", "Challenge group 1 name", "Challenge group 1 icon path");
-insert into challenger.challengegroups values ("ee637271e976b5e9", "Challenge group 2 name", "Challenge group 2 icon path");
+-- just to insert some picture try to change path depending on your own PC
+-- Nipel-Crumple 12.03.2015
+insert into `challenger`.`images` values ("123123","Image1","2015-03-12", "S", LOAD_FILE('D:\#1.png')); 
+insert into challenger.challengegroups values ("5d2c117e674b39de", "Challenge group 1 name", "123123");
+insert into challenger.challengegroups values ("ee637271e976b5e9", "Challenge group 2 name", "Challenge group 2 icon id");
 insert into challenger.challenges values ("876aee6e27926e59", "Challenge 1 title", "Challenge 1  decription", 0, "Challenge 1 hash tag", "5d2c117e674b39de");
 insert into challenger.challenges values ("dc37881d79d5be60", "Challenge 2 title", "Challenge 2  decription", 1, "Challenge 2 hash tag", "5d2c117e674b39de");
 insert into challenger.challenges values ("8de11b5cf5d6161d", "Challenge 3 title", "Challenge 3  decription", 2, "Challenge 3 hash tag", "ee637271e976b5e9");
@@ -18,5 +21,7 @@ insert into challenger.challenges values ("84b42c09142445f6", "Challenge 6 title
 
 insert into challenger.subscriptions values ("11", "d6fbf948694caf35", "876aee6e27926e59", CURDATE());
 
+/* By Andrey */
+insert into challenger.posts values ("42", "twit_id", "11", CURDATE(),"https://twitter.com/vgdunkey/status/551441733331202049");
 
 commit;

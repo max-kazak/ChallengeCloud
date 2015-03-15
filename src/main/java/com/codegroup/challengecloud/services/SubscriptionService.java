@@ -25,6 +25,7 @@ public class SubscriptionService {
         this.subscriptionDao = subscriptionDao;
     }
 
+    @Transactional
     public Subscription createSubscription(User user, Challenge challenge, Date date, Set<Post> posts) {
         Subscription subscription = new Subscription();
 
