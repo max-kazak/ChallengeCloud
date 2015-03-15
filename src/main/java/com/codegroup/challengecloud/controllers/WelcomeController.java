@@ -28,11 +28,10 @@ public class WelcomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showDefault(ModelMap model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if(auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
+        if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
             log.debug("user " + SecurityContextHolder.getContext().getAuthentication().getPrincipal() + " is signed in: redirecting to home page");
             return "redirect:/home";
-        }
-        else
+        } else
             return "welcome";
     }
 }
