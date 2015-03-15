@@ -77,19 +77,24 @@ public class ChallengesController {
     		) throws Exception {
 		log.info("getAllChallenges().");
     	String code = "<p> Internal Error! </p>";
+    	int numi = Integer.parseInt(num);
     	
     	Configuration cfg = new Configuration();
         cfg.setClassForTemplateLoading(ChallengesController.class, "/");// TODO /templates
         
         Map<String, Object> input = new HashMap<String, Object>();
-        input.put("challengeName", "Challenge " + new String(num));
 
         StringWriter stringWriter;
         try {
-			Template template = cfg.getTemplate("challenge.ftl");
+			Template template = cfg.getTemplate("challenge-view.ftl");
 	        stringWriter = new StringWriter();
 	        try {
-	        	template.process(input, stringWriter);
+	        	for (int i = 0; i < 5; i++) {
+	        		input.clear();
+	        		input.put("challengeName", "Challenge " + Integer.toString(numi + i));
+	        		input.put("challengeDescription", "Challenge Description " + Integer.toString(numi + i));
+		        	template.process(input, stringWriter);
+	        	}
 	        } catch (TemplateException e2) {
 	    		log.error("Template Exception.");
 				//throw new Exception("ChallengesController.getAllChallenges: TemplateExcepon: "+e2.toString());
