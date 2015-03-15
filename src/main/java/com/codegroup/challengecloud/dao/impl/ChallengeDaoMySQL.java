@@ -2,6 +2,7 @@ package com.codegroup.challengecloud.dao.impl;
 
 import com.codegroup.challengecloud.dao.ChallengeDao;
 import com.codegroup.challengecloud.model.Challenge;
+import com.codegroup.challengecloud.model.ChallengeGroup;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
@@ -40,6 +41,13 @@ public class ChallengeDaoMySQL extends HibernateDao implements ChallengeDao {
     	log.debug("looking for challenge by id = " + id);
         List list = find("from Challenge where challenge_id = ?", id);
         return (Challenge) list.get(0);
+    }
+    
+    @Override
+    public List<Challenge> findAll() {
+    	log.debug("looking for all challenges");
+        List list = find("from Challenge");
+        return (List<Challenge>) list;
     }
 
 

@@ -1,5 +1,7 @@
 package com.codegroup.challengecloud.services;
 
+import java.util.List;
+
 import com.codegroup.challengecloud.dao.ChallengeDao;
 import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.utils.Generator;
@@ -50,5 +52,10 @@ public class ChallengeService {
     @Transactional
     public Challenge findById(String id) {
     	return challengeDao.findById(id);
+    }
+
+    @Transactional
+    public List<Challenge> findAll() {
+    	return challengeDao.findAll();
     }
 }
