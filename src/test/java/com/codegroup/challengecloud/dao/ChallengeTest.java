@@ -31,6 +31,12 @@ public class ChallengeTest{
         Assert.assertNotNull(challengeService.findById("876aee6e27926e59"));
         System.out.println(challengeService.findById("876aee6e27926e59").getTitle());
     }
+
+    @Test
+    public void testFindAll() {
+        Assert.assertTrue(challengeService.findAll().size() > 0);
+        System.out.println("There are " + challengeService.findAll().size() + " Challenges");
+    }
 }
 
 

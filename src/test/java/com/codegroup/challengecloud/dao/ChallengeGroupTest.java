@@ -35,7 +35,7 @@ public class ChallengeGroupTest{
     @Test
     public void testFindAll() {
         Assert.assertTrue(challengeGroupService.findAll().size() > 0);
-        System.out.println("There are " + challengeGroupService.findAll().size() + "ChallengeGroups");
+        System.out.println("There are " + challengeGroupService.findAll().size() + " ChallengeGroups");
     }
 }
 

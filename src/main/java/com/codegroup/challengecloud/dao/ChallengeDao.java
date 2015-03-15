@@ -1,5 +1,7 @@
 package com.codegroup.challengecloud.dao;
 
+import java.util.List;
+
 import com.codegroup.challengecloud.model.Challenge;
 
 /**
@@ -12,6 +14,7 @@ public interface ChallengeDao {
     public void delete(Challenge challenge);
 
     public Challenge findById(String id);
+    public List<Challenge> findAll();
     //TODO: implement this
     //public Challenge findByTitle(String title);
     //TODO: implement this
