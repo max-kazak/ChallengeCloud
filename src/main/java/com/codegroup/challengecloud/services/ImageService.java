@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 
+
 /**
  * Created by Nipel-Crumple on 12.03.2015.
  */
@@ -21,11 +22,11 @@ public class ImageService {
     ImageDao imageDao;
 
     @Transactional
-    public Image createImage(String name, Date date, char size, byte[] data) {
+    public Image createImage(String name,char size, byte[] data) {
         Image imageEntity = new Image();
         imageEntity.setId(Generator.generateId());
         imageEntity.setName(name);
-        imageEntity.setDate(date);
+        imageEntity.setDate(new Date((new java.util.Date()).getTime()));
         imageEntity.setSize(size);
         imageEntity.setData(data);
         log.debug("Saving new Image to DB" + imageEntity.getId());

@@ -22,9 +22,9 @@ public class ImageController {
 
     @RequestMapping(value = "/images/{imageId}", method = RequestMethod.GET, produces = MediaType.IMAGE_PNG_VALUE)
     @ResponseBody
-    public byte[] returnImage(@PathVariable int imageId) {
-        /*Image image = imageService.getImage(imageId);*/
-        return null /*image.getData()*/;
+    public byte[] returnImage(@PathVariable String imageId) {
+        Image image = imageService.getImage(imageId);
+        return image.getData();
     }
     /**
     * If you want to check downloading pictures from DB just add this line
