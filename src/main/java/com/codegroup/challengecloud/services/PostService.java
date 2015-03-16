@@ -11,13 +11,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by Andrey on 15.03.2015.
  */
 @Service("postService")
 public class PostService {
-	@Autowired
+    @Autowired
     PostDao postDao;
 
     public void setSubscriptionDao(PostDao postDao) {
@@ -33,7 +34,7 @@ public class PostService {
         post.setDate(date);
         post.setUrl(url);
         post.setOrigin(origin);
-        
+
         postDao.save(post);
 
         return post;
@@ -42,5 +43,10 @@ public class PostService {
     @Transactional
     public Post findById(String postId) {
         return postDao.findById(postId);
+    }
+
+    @Transactional
+    public List<Post> findBySubscriptionId(String subscriptionId) {
+        return postDao.findBySubscriptionId(subscriptionId);
     }
 }
