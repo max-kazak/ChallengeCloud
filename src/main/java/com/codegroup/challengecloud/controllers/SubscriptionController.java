@@ -65,7 +65,7 @@ public class SubscriptionController {
                 for (int i = 0; i < 5; i++) {
                     input.clear();
                     input.put("subscriptionName", "Subs " + Integer.toString(numi + i));
-                    input.put("subscriptionDescription", "Subs Description " + Integer.toString(numi + i));
+                    input.put("subscriptionDescription", "Subs   Description " + Integer.toString(numi + i));
                     template.process(input, stringWriter);
                 }
             } catch (TemplateException e2) {

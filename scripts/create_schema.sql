@@ -1,6 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS challenger;
 
-/* Firstly drop all tebles. By Vladimir Zhdanov */
+/* Firstly drop all tables. By Vladimir Zhdanov */
 DROP TABLE IF EXISTS `challenger`.`posts`;
 DROP TABLE IF EXISTS `challenger`.`subscriptions`;
 DROP TABLE IF EXISTS `challenger`.`challenges`;

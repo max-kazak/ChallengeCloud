@@ -124,6 +124,15 @@
 				</div>
 			</div>
 		</div>
+<%--Attempt to auth vie Twitter--%>
+        <%--TODO correct button--%>
+        <div>
+            <form action="<c:url value="/signin/twitter" />" method="POST">
+                <button type="submit">Sign in with Twitter</button>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            </form>
+        </div>
+
 	</div>
 </body>
 </html>
