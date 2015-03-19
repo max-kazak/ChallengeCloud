@@ -15,4 +15,5 @@ public interface SubscriptionDao {
     public void delete(Subscription subscription);
 
     public Subscription findById(String subscriptionId);
+    public List<Subscription> findByUserId(String UserId);
 }

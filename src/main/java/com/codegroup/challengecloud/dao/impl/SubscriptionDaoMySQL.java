@@ -1,7 +1,9 @@
 package com.codegroup.challengecloud.dao.impl;
 
 import com.codegroup.challengecloud.dao.SubscriptionDao;
+import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.model.Subscription;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
@@ -42,5 +44,14 @@ public class SubscriptionDaoMySQL extends HibernateDao implements SubscriptionDa
                 "SUBSCRIPTION_ID = ?", subscriptionId);
         return (Subscription) list.get(0);
     }
-
+    
+    /**
+     * @author Andrey
+     */
+    @Override
+    public List<Subscription> findByUserId(String userId) {
+        log.debug("Find all subscriptions from user id " + userId);
+        List<Subscription> list = (List<Subscription>) (List<?>) find("from Subscription where user_id = ?", userId);
+        return list;
+    }
 }

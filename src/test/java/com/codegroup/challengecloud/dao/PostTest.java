@@ -3,7 +3,7 @@ package com.codegroup.challengecloud.dao;
 import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.services.PostService;
 
-import javafx.geometry.Pos;
+//import javafx.geometry.Pos;
 import junit.framework.Assert;
 
 import org.hibernate.SessionFactory;

@@ -8,6 +8,40 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />">
+
+    <script type="text/javascript"
+            src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <%--Script was created by Vova, rearrnaged by Yefim--%>
+    <script type="text/javascript">
+        var num = -4;// for numeration from 1
+        function appendChallenges() {
+            num = num + 5;
+            $.ajax({
+                url: 'home-subscriptions.html?subscriptionId=' + num.toString(),
+                success: function (data) {
+                    $('#home-subscriptions').append(data);
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        var loading = false;
+        $(window).scroll(function () {
+            if ($(document).height() <= $(window).scrollTop() + 1920) {
+                if (loading == false) {
+                    loading = true;
+                    appendChallenges();
+                    loading = false;
+                }
+            }
+        });
+        $(document).ready(function () { //Doesn't work
+            //alert("ready")
+            appendChallenges();
+            $(window).scrollTo(0);
+        });
+    </script>
 </head>
 
 
@@ -68,43 +102,8 @@
 				</div>
                 <br/>
 				<!-- Challenges -->
-				<div>
-					<!-- first challenge -->
-					<div class="row challenge">
-						<div class="challenge-img">
-							<img src="./../../resources/img/ch1.PNG"
-								alt="Image For Challenge">
-						</div>
-						<!-- Challenge Info -->
-						<div class="challenge-info">
-							<div>
-								<div style="float: left;">
-									<p>Challenge Name</p>
-								</div>
-								<div style="float: right;">
-									<p>1 jan, 2015</p>
-								</div>
-							</div>
-							<br /> <br />
-							<div class="progress">
-								<div
-									class="progress-bar progress-bar-success progress-bar-striped"
-									role="progressbar" aria-valuenow="40" aria-valuemin="0"
-									aria-valuemax="100" style="width: 40%">
-									<span class="sr-only">40% Complete (success)</span>
-								</div>
-							</div>
-							<div style="float: left;">
-								<p class="pull-left">5/20 posts</p>
-							</div>
-							<div style="float: right;">
-								<a href="#" class="btn btn-primary pull-right" role="button">Details</a>
-							</div>
-						</div>
-						<!-- End of Challenge Info -->
-					</div>
-					<!-- end of 2 Challenge -->
-
+				<div id="home-subscriptions">
+				<!--HERE -->
 				</div>
 				<!-- End of Challenges -->
 

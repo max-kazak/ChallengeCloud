@@ -6,11 +6,13 @@ import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.model.Subscription;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -43,5 +45,10 @@ public class SubscriptionService {
     @Transactional
     public Subscription findById(String subscriptionId) {
         return subscriptionDao.findById(subscriptionId);
+    }
+    
+    @Transactional
+    public List<Subscription> findByUserId(String userId) {
+        return subscriptionDao.findByUserId(userId);
     }
 }
