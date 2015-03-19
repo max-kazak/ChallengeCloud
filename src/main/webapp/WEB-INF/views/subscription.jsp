@@ -11,8 +11,37 @@
 
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <%--Script was created by Vova, rearrnaged by Yefim--%>
     <script type="text/javascript">
+        var num = -4;// for numeration from 1
+        function appendChallenges() {
+            num = num + 5;
+            $.ajax({
+                url: 'subscription-send.html?subscriptionId=' + num.toString(),
+                success: function (data) {
+                    $('#subscription-send').append(data);
+                }
+            });
+        }
+    </script>
 
+    <script type="text/javascript">
+        var loading = false;
+        $(window).scroll(function () {
+            if ($(document).height() <= $(window).scrollTop() + 1920) {
+                if (loading == false) {
+                    loading = true;
+                    appendChallenges();
+                    loading = false;
+                }
+
+            }
+        });
+        $(document).ready(function () { //Doesn't work
+            //alert("ready")
+            appendChallenges();
+            $(window).scrollTo(0);
+        });
     </script>
 
 </head>
@@ -44,14 +73,13 @@
         <div class="col-md-10 text-left left-block">
             <h2> Posts </h2>
 
-            <ul class="pull-left">
-                <li>
-                    <div class="container th." id="image-holder">
+            <%-- <ul class="pull-left">
+                 <li>
+                     <div id="subscription-send">
+                     </div>
 
-                    </div>
-
-                </li>
-            </ul>
+                 </li>
+             </ul>--%>
         </div>
 
         <div class="col-md-2 text-left right-block">
@@ -70,6 +98,20 @@
             </div>
         </div>
     </div>
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div>
+                <div id="subscription-send">
+                </div>
+            </div>
+
+        </div>
+        <div></div>
+    </div>
+
 </div>
 </body>
 </html>

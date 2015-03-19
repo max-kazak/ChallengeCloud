@@ -1,6 +1,9 @@
 /* Insert test data */
 insert into challenger.users
 values ("d6fbf948694caf35", "volterr", "max kazakov", "$2a$10$rdHCgQDkMqQSk9IK8rhsVu1XhC/Y/VA5ohsMgGtjasABH7b.WAWzi", "volterr@gmail.com", 7);
+insert into challenger.users
+values ("d8fbf948694caf35", "Yefim_ka", "yefim krokhin", "$2a$10$rdHCgQDkMqQSk9IK8rhsVu1XhC/Y/VA5ohsMgGtjasABH7b.WAWzi", "cococo@gmail.com", 8);
+
 
 /* By Vladimir Zhdanov 01.03.2015 */
 -- just to insert some picture try to change path depending on your own PC
