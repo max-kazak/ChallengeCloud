@@ -1,12 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <!--Created by Vladimir Zhdanov on 15.03.2015-->
 <head>
 <TITLE>Challenges</TITLE>
-    <link rel="stylesheet" href="./resources/css/bootstrap.css">
-    <link rel="stylesheet" href="./resources/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./resources/css/main.css">
-    <link rel="stylesheet" href="./resources/css/settings.css"> 
- 
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />"> 
 <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
@@ -20,16 +21,6 @@
         	}
         });
 	}
-    function crunchifyAjax() {
-    	//num = num + 1;
-        $.ajax({
-            url : 'challengestest.html',
-            success : function(data) {
-                $('#result').html(data);
-            }
-        });
-        appendChallenges();
-    }
 </script>
 
 <script type="text/javascript">
@@ -45,44 +36,12 @@
 		  
 	}
 	});
-	$(document).ready(function() { //Doesn't work
+	$(document).ready(function() { //Works
 		//alert("ready") 
 		appendChallenges();
 		$(window).scrollTo(0);
 	});
 </script> 
- 
-<!--script type="text/javascript">
-    var intervalId = 0;
-    intervalId = setInterval(crunchifyAjax, 3000);
-</script>-->
-
-<!--  <script type="text/javascript">
-	var loadedRows = 0;
-
-	$(window).bind('scrollstop', function() {
-		scroll_top = $(document).scrollTop();
-		var page_height = $(document).height();
-		wind_height = $(window).height();
-		if ((page_height - scroll_top) < wind_height * 2) {
-			var iLoad = 0;
-			while (iLoad++ < 5)
-				if (loadedRows <= tableData.length)
-					addRow(tableData[loadedRows++]);
-		}
-	});
-	
-	function addRow(row){
-		        var newRow = $("#dataTable").find('tbody').append($('<tr>'));     
-		        for(var td in row){
-		            $(newRow).append($('<td>').append($('<a>', {
-		                href: "/images/" + row[td].f + ".jpg"
-		            }).click(function(){viewgallery(row[td].i );return false;})
-		            .append($('<img>',{src: "/images/small/" + row[td].f + ".jpg",alt: "..."}))));
-		        }
-		     }
-</script>    -->
-
 </head>
  
 <body>
@@ -141,13 +100,13 @@
 					<!-- Pills -->
 				</div>
                 <br/>
+                
 				<!-- Challenges -->
 				<div>
         			<div id="challenges-all"> <!-- Ajax requested. Created by Vova on 15.03.2015 -->
         			</div>
 				</div>
 				<!-- End of Challenges -->
-
 			</div>
 			<!-- End of Central col -->
 			<div></div>
