@@ -52,7 +52,7 @@ public class ChallengesController {
         return new ModelAndView("challenges", "message", "Challenges");
     }
 
-   /* *//*TODO delete unused test*//*
+    /*TODO delete unused test*/
     @RequestMapping(value = "/challengestest", method = RequestMethod.GET)
     public
     @ResponseBody
@@ -63,7 +63,7 @@ public class ChallengesController {
         String result = "<br>Next Random # is <b>" + r + "</b>. <br> Generated on <b>" + new Date().toString() + "</b>";
         System.out.println("Debug Message from CrunchifySpringAjaxJQuery Controller.." + new Date().toString());
         return result;
-    }*/
+    }
 
     @RequestMapping(value = "/challenges-all", method = RequestMethod.GET)
     public
@@ -87,8 +87,8 @@ public class ChallengesController {
             try {
                 for (int i = 0; i < 5; i++) {
                     input.clear();
-                    input.put("subscriptionName", "Challenge " + Integer.toString(numi + i));
-                    input.put("subscriptionDescription", "Challenge Description " + Integer.toString(numi + i));
+                    input.put("challengeName", "Challenge " + Integer.toString(numi + i));
+                    input.put("challengeDescription", "Challenge Description " + Integer.toString(numi + i));
                     template.process(input, stringWriter);
                 }
             } catch (TemplateException e2) {

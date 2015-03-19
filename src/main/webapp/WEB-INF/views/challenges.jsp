@@ -1,12 +1,22 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <!--Created by Vladimir Zhdanov on 15.03.2015-->
 <head>
+<<<<<<< HEAD
 <TITLE>CCloud|Challenges</TITLE>
     <link rel="stylesheet" href="./resources/css/bootstrap.css">
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css">
     <link rel="stylesheet" href="./resources/css/main.css">
     <link rel="stylesheet" href="./resources/css/settings.css"> 
  
+=======
+<TITLE>Challenges</TITLE>
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />"> 
+>>>>>>> origin/master
 <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
@@ -35,44 +45,12 @@
 		  
 	}
 	});
-	$(document).ready(function() { //Doesn't work
+	$(document).ready(function() { //Works
 		//alert("ready") 
 		appendChallenges();
 		$(window).scrollTo(0);
 	});
 </script> 
- 
-<!--script type="text/javascript">
-    var intervalId = 0;
-    intervalId = setInterval(crunchifyAjax, 3000);
-</script>-->
-
-<!--  <script type="text/javascript">
-	var loadedRows = 0;
-
-	$(window).bind('scrollstop', function() {
-		scroll_top = $(document).scrollTop();
-		var page_height = $(document).height();
-		wind_height = $(window).height();
-		if ((page_height - scroll_top) < wind_height * 2) {
-			var iLoad = 0;
-			while (iLoad++ < 5)
-				if (loadedRows <= tableData.length)
-					addRow(tableData[loadedRows++]);
-		}
-	});
-	
-	function addRow(row){
-		        var newRow = $("#dataTable").find('tbody').append($('<tr>'));     
-		        for(var td in row){
-		            $(newRow).append($('<td>').append($('<a>', {
-		                href: "/images/" + row[td].f + ".jpg"
-		            }).click(function(){viewgallery(row[td].i );return false;})
-		            .append($('<img>',{src: "/images/small/" + row[td].f + ".jpg",alt: "..."}))));
-		        }
-		     }
-</script>    -->
-
 </head>
  
 <body>
@@ -115,6 +93,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="col-md-6">
             <!-- Central col -->
             <div class="row">
@@ -142,6 +121,35 @@
         <!-- End of Central col -->
         <div></div>
     </div>
+=======
+			<div class="col-md-6">
+				<!-- Central col -->
+				<div class="row">
+					<div class="heading">
+						<h1>Challenges</h1>
+					</div>
+					<div class="menu2">
+						<ul class="nav nav-pills">
+							<li role="presentation" class="active"><a href="#">All</a></li>
+							<li role="presentation"><a href="#">Recommendations</a></li>
+							<li role="presentation"><a href="#">Random</a></li>
+						</ul>
+					</div>
+					<!-- Pills -->
+				</div>
+                <br/>
+                
+				<!-- Challenges -->
+				<div>
+        			<div id="challenges-all"> <!-- Ajax requested. Created by Vova on 15.03.2015 -->
+        			</div>
+				</div>
+				<!-- End of Challenges -->
+			</div>
+			<!-- End of Central col -->
+			<div></div>
+		</div>
+>>>>>>> origin/master
 	</div>
 </body>
 </html>
