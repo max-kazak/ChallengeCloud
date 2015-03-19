@@ -1,7 +1,7 @@
 <html>
 <!--Created by Vladimir Zhdanov on 15.03.2015-->
 <head>
-<TITLE>Challenges</TITLE>
+<TITLE>CCloud|Challenges</TITLE>
     <link rel="stylesheet" href="./resources/css/bootstrap.css">
     <link rel="stylesheet" href="./resources/css/font-awesome.min.css">
     <link rel="stylesheet" href="./resources/css/main.css">
@@ -20,16 +20,6 @@
         	}
         });
 	}
-    function crunchifyAjax() {
-    	//num = num + 1;
-        $.ajax({
-            url : 'challengestest.html',
-            success : function(data) {
-                $('#result').html(data);
-            }
-        });
-        appendChallenges();
-    }
 </script>
 
 <script type="text/javascript">
@@ -112,46 +102,46 @@
 		<br />
 		<!-- For Horizontal and Vertical lines not contact -->
 
-		<div class="row">
-			<div class="col-md-3">
-				<div class="menu">
-					<!-- <ul class="nav nav-pills nav-stacked"> -->
-					<ul class="menu">
-						<li role="presentation" class="active"><a href="#">Challenges</a></li>
-						<li role="presentation"><a href="#">Trend</a></li>
-						<li role="presentation"><a href="#">Trophy Room</a></li>
-						<li role="presentation"><a href="./settings.jsp">Settings</a></li>
-					</ul>
-				</div>
-			</div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="menu">
+                <!-- <ul class="nav nav-pills nav-stacked"> -->
+                <ul class="menu">
+                    <li role="presentation" class="active"><a href="#">Challenges</a></li>
+                    <li role="presentation"><a href="#">Trend</a></li>
+                    <li role="presentation"><a href="#">Trophy Room</a></li>
+                    <li role="presentation"><a href="./settings.jsp">Settings</a></li>
+                </ul>
+            </div>
+        </div>
 
-			<div class="col-md-6">
-				<!-- Central col -->
-				<div class="row">
-					<div class="heading">
-						<h1>Challenges</h1>
-					</div>
-					<div class="menu2">
-						<ul class="nav nav-pills">
-							<li role="presentation" class="active"><a href="#">All</a></li>
-							<li role="presentation"><a href="#">Recommendations</a></li>
-							<li role="presentation"><a href="#">Random</a></li>
-						</ul>
-					</div>
-					<!-- Pills -->
-				</div>
-                <br/>
-				<!-- Challenges -->
-				<div>
-        			<div id="challenges-all"> <!-- Ajax requested. Created by Vova on 15.03.2015 -->
-        			</div>
-				</div>
-				<!-- End of Challenges -->
+        <div class="col-md-6">
+            <!-- Central col -->
+            <div class="row">
+                <div class="heading">
+                    <h1>Challenges</h1>
+                </div>
+                <div class="menu2">
+                    <ul class="nav nav-pills">
+                        <li role="presentation" class="active"><a href="#">All</a></li>
+                        <li role="presentation"><a href="#">Recommendations</a></li>
+                        <li role="presentation"><a href="#">Random</a></li>
+                    </ul>
+                </div>
+                <!-- Pills -->
+            </div>
+            <br/>
+            <!-- Challenges -->
+            <div>
+                <div id="challenges-all"> <!-- Ajax requested. Created by Vova on 15.03.2015 -->
+                </div>
+            </div>
+            <!-- End of Challenges -->
 
-			</div>
-			<!-- End of Central col -->
-			<div></div>
-		</div>
+        </div>
+        <!-- End of Central col -->
+        <div></div>
+    </div>
 	</div>
 </body>
 </html>
