@@ -3,32 +3,32 @@
 <html>
 <!--Created by Vladimir Zhdanov on 15.03.2015-->
 <head>
-<<<<<<< HEAD
-<TITLE>CCloud|Challenges</TITLE>
-    <link rel="stylesheet" href="./resources/css/bootstrap.css">
-    <link rel="stylesheet" href="./resources/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./resources/css/main.css">
-    <link rel="stylesheet" href="./resources/css/settings.css"> 
- 
-=======
 <TITLE>Challenges</TITLE>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />"> 
->>>>>>> origin/master
 <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
-	var num = -4;// for numeration from 1
+    var count = 5;// how many challenges to request
+    var num = 0;// Already recieved challenges
+    var from;// Request "count" (5) challenges from number "from" (1)
+	max_count = ${max_count_html};// Number of challenges in database comes from jsp
 	function appendChallenges() {
-    	num = num + 5;
-        $.ajax({
-            url : 'challenges-all.html?num=' + num.toString(),
-            success : function(data) {
-                $('#challenges-all').append(data);
-        	}
-        });
+		if (num < max_count) {
+    		if (num + count > max_count) {
+    			count = max_count - num;
+    		}
+    		from = num + 1;// for numeration from 1
+    		num = num + count;
+	        $.ajax({
+	            url : 'challenges-all.html?num=' + from.toString() + '&count=' + count.toString(),
+	            success : function(data) {
+	                $('#challenges-all').append(data);
+	        	}
+	        });
+		}
 	}
 </script>
 
@@ -46,7 +46,7 @@
 	}
 	});
 	$(document).ready(function() { //Works
-		//alert("ready") 
+    	//alert(max_count.toString());
 		appendChallenges();
 		$(window).scrollTo(0);
 	});
@@ -93,35 +93,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-        <div class="col-md-6">
-            <!-- Central col -->
-            <div class="row">
-                <div class="heading">
-                    <h1>Challenges</h1>
-                </div>
-                <div class="menu2">
-                    <ul class="nav nav-pills">
-                        <li role="presentation" class="active"><a href="#">All</a></li>
-                        <li role="presentation"><a href="#">Recommendations</a></li>
-                        <li role="presentation"><a href="#">Random</a></li>
-                    </ul>
-                </div>
-                <!-- Pills -->
-            </div>
-            <br/>
-            <!-- Challenges -->
-            <div>
-                <div id="challenges-all"> <!-- Ajax requested. Created by Vova on 15.03.2015 -->
-                </div>
-            </div>
-            <!-- End of Challenges -->
-
-        </div>
-        <!-- End of Central col -->
-        <div></div>
-    </div>
-=======
 			<div class="col-md-6">
 				<!-- Central col -->
 				<div class="row">
@@ -149,7 +120,6 @@
 			<!-- End of Central col -->
 			<div></div>
 		</div>
->>>>>>> origin/master
 	</div>
 </body>
 </html>
