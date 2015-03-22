@@ -23,7 +23,7 @@ public class TwitterDownloadService {
     }
 
     public SearchResults downloadPosts() {
-
-        return null;
+    	SearchResults results = twitter.searchOperations().search("#spring");
+        return results;
     }
 }
