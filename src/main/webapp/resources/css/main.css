@@ -11,17 +11,6 @@ body {
 	border-bottom: 2px solid grey;
 	/*	width:60%;*/
 }
-/*
-.list-item {
-	font-size: 28px;
-	margin: 0px;
-	height: 100%;
-	border-right: 1px solid grey;
-}
-
-.last-list-item {
-	border-right: 0px;
-}*/
 
 .header {
 	font-size: 34px;
@@ -116,4 +105,18 @@ body {
 .nav li {
   display: inline;
   margin: 10px;
+}
+
+.submitForm {
+	display: inline-block;
+}
+
+.submitForm button,
+.submitForm button:focus{
+	background: inherit;
+	border: none;
+	outline: none;
+}
+.submitForm button:hover {
+	color: #23527c;
 }

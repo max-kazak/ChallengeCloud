@@ -40,15 +40,27 @@
 					<h2> Sign In using existing account </h2>
 					<h3 > In Social Networks </h3>
 					<div class="">
-						<a href="#" class="soc-net"><i class="fa fa-vk fa-3x"></i></a>
-						<a href="#" class="soc-net"><i class="fa fa-facebook-official fa-3x"></i></a>
-						<a href="#" class="soc-net"><i class="fa fa-twitter fa-3x"></i></a>
-						<a href="#" class="soc-net"><i class="fa fa-instagram fa-3x"></i></a>
+						<form action="<c:url value="/signin/twitter" />" method="POST" class="submitForm">
+							<button type="submit"><i class="fa fa-twitter fa-3x"></i></button>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						</form>
+						<form action="#" method="POST" class="submitForm">
+							<button type="submit"><i class="fa fa-vk fa-3x"></i></button>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						</form>
+						<form action="#" method="POST" class="submitForm">
+							<button type="submit"><i class="fa fa-facebook-official fa-3x"></i></button>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						</form>
+						<form action="#" method="POST" class="submitForm">
+							<button type="submit"><i class="fa fa-instagram fa-3x"></i></button>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						</form>
 					</div>
 					<h3> In ChallengeCloud </h3>
 				</div>
 				<div class="col-md-8">
-					<form class="form-horizontal" name="loginForm" action="<c:url value='j_spring_security_check'/>" method='POST'>
+					<form class="form-horizontal" name="loginForm" action="<c:url value='/j_spring_security_check'/>" method='POST'>
 						<div class="form-group">
 							<label for="inputEmailExisting" class="control-label col-md-2"></label>
 							<div>
@@ -124,14 +136,6 @@
 				</div>
 			</div>
 		</div>
-<%--Attempt to auth vie Twitter--%>
-        <%--TODO correct button--%>
-        <div>
-            <form action="<c:url value="/signin/twitter" />" method="POST">
-                <button type="submit">Sign in with Twitter</button>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            </form>
-        </div>
 
 	</div>
 </body>
