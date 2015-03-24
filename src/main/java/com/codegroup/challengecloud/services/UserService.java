@@ -42,11 +42,11 @@ public class UserService {
     }
 
     @Transactional
-    public User createProfile(String login, String email, String pass, String name) {
+    public User createProfile(String login, String email, String password, String name) {
         User user = new User();
         user.setId(Generator.generateId());
         user.setLogin(login);
-        user.setPass(pass);
+        user.setPassword(password);
         user.setEmail(email);
         user.setName(name);
         user.setRole(UserRoles.ROLE_USER_ID);
@@ -54,6 +54,14 @@ public class UserService {
         userDao.save(user);
 
         return user;
+    }
+
+    @Transactional
+    public void createProfile(User user) {
+        user.setId(Generator.generateId());
+        user.setRole(UserRoles.ROLE_USER_ID);
+
+        userDao.save(user);
     }
 
     @Transactional

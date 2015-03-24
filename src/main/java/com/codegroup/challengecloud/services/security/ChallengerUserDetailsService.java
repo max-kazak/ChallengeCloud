@@ -2,7 +2,6 @@ package com.codegroup.challengecloud.services.security;
 
 import com.codegroup.challengecloud.constants.UserRoles;
 import com.codegroup.challengecloud.services.UserService;
-import com.codegroup.challengecloud.utils.Generator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -43,7 +42,7 @@ public class ChallengerUserDetailsService implements UserDetailsService {
     // Converts User user to org.springframework.security.core.userdetails.User
     private User buildUserForAuthentication(com.codegroup.challengecloud.model.User user, List<GrantedAuthority> authorities) {
         return new User(user.getId(),
-                user.getPass(),
+                user.getPassword(),
                 true, true, true, true, authorities);
     }
 

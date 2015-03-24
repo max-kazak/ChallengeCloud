@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,14 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
+	<script type="text/javascript"
+			src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<%--<script type="text/javascript">--%>
+		<%--$(document).ready(function passwordValidation() {--%>
+			<%--$--%>
+		<%--})--%>
+	<%--</script>--%>
+
 	<title>CCloud | Login</title>
 </head>
 <body>
@@ -32,10 +41,9 @@
 	          </div>
 	        </div>
 	      </div>
-
 		<div class="container body">
 			<div class="col-md-6 text-left left-block">
-				
+
 				<div class="col-md-12">
 					<h2> Sign In using existing account </h2>
 					<h3 > In Social Networks </h3>
@@ -96,35 +104,48 @@
 					</c:if>
 				</div>
 			</div>
-			<!-- 
+			<!--
 			<div class="vertical-divider"></div> -->
 
 			<div class="col-md-6 text-left right-block">
 				<div class="col-md-8">
 					<h2> Create new account </h2>
-					<form action="form-horizontal" class>
+					<c:if test="${not empty emailExists}">
+						<div class="msg">${emailExists}</div>
+					</c:if>
+                    <c:url var="register"  value="/signinup/registration" />
+					<form:form commandName="user" class="form-horizontal" name="registerForm" action="${register}" method='POST'>
+                        <div class="form-group">
+                            <label for="inputName" class="control-label col-md-2"></label>
+                            <div>
+                                <form:input path="name" type="login" class="form-control" id="inputName" placeholder="Name" style="font-size: 20px;"/>
+                                <%--<form:errors path="name" element="div" />--%>
+                            </div>
+                        </div>
 						<div class="form-group">
 							<label for="inputLogin" class="control-label col-md-2"></label>
 							<div>
-								<input type="login" class="form-control" id="inputLogin" placeholder="Login" style="font-size: 20px;">
-							</div>
+								<form:input path="login" type="login" class="form-control" id="inputLogin" placeholder="Login" style="font-size: 20px;"/>
+                                <%--<form:errors path="login" element="div" />--%>
+                            </div>
 						</div>
 						<div class="form-group">
 							<label for="inputPassword" class="control-label col-md-2"></label>
 							<div>
-								<input type="password" class="form-control" id="inputPassword" placeholder="Password" style="font-size: 20px;">
-							</div>
+								<form:password path="password" class="form-control" id="inputPassword" placeholder="Password" style="font-size: 20px;"/>
+                                <%--<form:errors path="password" element="div" />--%>
+                            </div>
 						</div>
-						<div class="form-group">
-							<label for="repeatPassword" class="control-label col-md-2"></label>
-							<div>
-								<input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password" style="font-size: 20px;">
-							</div>
-						</div>
+						<%--<div class="form-group">--%>
+							<%--<label for="repeatPassword" class="control-label col-md-2"></label>--%>
+							<%--<div>--%>
+								<%--<form:password path="confirmPassword" class="form-control" id="repeatPassword" placeholder="Repeat Password" style="font-size: 20px;"/>--%>
+							<%--</div>--%>
+						<%--</div>--%>
 						<div class="form-group">
 							<label for="inputEmail" class="control-label col-md-2"></label>
 							<div>
-								<input type="email" class="form-control" id="inputEmail" placeholder="Email" style="font-size: 20px;">
+								<form:input path="email" type="email" class="form-control" id="inputEmail" placeholder="Email" style="font-size: 20px;"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -132,7 +153,7 @@
 								<button type="submit" class="btn btn-default"> Sign Up </button>
 							</div>
 						</div>
-					</form>
+					</form:form>
 				</div>
 			</div>
 		</div>

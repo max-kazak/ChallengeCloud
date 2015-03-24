@@ -1,6 +1,9 @@
 package com.codegroup.challengecloud.model;
 
+import javax.validation.*;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -20,7 +23,7 @@ public class User implements Serializable {
 
     String id;
     String login;
-    String pass;
+    String password;
     String email;
     String name;
     /**
@@ -57,12 +60,12 @@ public class User implements Serializable {
     }
 
     @Column(name = "PASS")
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Column(name = "EMAIL", nullable = false, unique = true)
@@ -112,7 +115,7 @@ public class User implements Serializable {
         return "User{" +
                 "id='" + id + '\'' +
                 ", login='" + login + '\'' +
-                ", pass='" + pass + '\'' +
+                ", pass='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", role=" + role +
