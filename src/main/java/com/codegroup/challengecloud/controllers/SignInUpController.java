@@ -46,29 +46,38 @@ public class SignInUpController {
 	/**
 	* created by Nipel-Crumple 24.03.2015
 	 */
-	@RequestMapping(value="/signinup/registration", method = RequestMethod.POST)
+	@RequestMapping(value="/signinup", method = RequestMethod.POST)
 	public ModelAndView registerUser(@ModelAttribute("user") User user) {
-//		logger.debug("The email of user to add: " + user.getEmail());
-//		//checking in user already exists
-//		User registered = createUserAccount(user);
-//		if (registered == null) {
+		logger.debug("The email of user to add: " + user.getEmail());
+
+		//checking in user already exists
+		User registered = checkIfExistsUser(user);
+		if (registered == null) {
+
 			//creating new User and saving it to Database
 			userService.createProfile(user);
+			logger.debug("The email of profile to create: " + user.getEmail());
 			return new ModelAndView("home");
-//			logger.debug("The email of createProfile: " + user.getEmail());
-//			return new ModelAndView("home");
-//		} else {
-//			logger.debug("The email of existing User: " + user.getEmail());
-//			ModelAndView model = new ModelAndView();
-//			model.addObject("emailExists", "The profile already exists");
-//			model.setViewName("signinup");
-//			return model;
-//		}
+		} else {
+			logger.debug("The email of existing User: " + user.getEmail());
+			ModelAndView model = new ModelAndView();
+			model.addObject("emailExists", "The profile already exists");
+			model.setViewName("signinup");
+			return model;
+		}
 	}
 
-	private User createUserAccount(User user){
-		User registered = null;
-		registered = userService.findByEmail(user.getEmail());
-		return registered;
+	private User checkIfExistsUser(User user){
+		logger.debug("Finding User with email in SignInUpController: " + user.getEmail());
+		try {
+			User registered = userService.findByEmail(user.getEmail());
+			if (registered != null) {
+				logger.debug("The user has already exists with email: " + registered.getEmail());
+			}
+			return registered;
+		} catch (IndexOutOfBoundsException e) {
+			logger.debug("There is no user in database with email: " + user.getEmail());
+			return null;
+		}
 	}
 }

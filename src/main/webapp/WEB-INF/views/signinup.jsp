@@ -113,7 +113,7 @@
 					<c:if test="${not empty emailExists}">
 						<div class="msg">${emailExists}</div>
 					</c:if>
-                    <c:url var="register"  value="/signinup/registration" />
+                    <c:url var="register"  value="/signinup" />
 					<form:form commandName="user" class="form-horizontal" name="registerForm" action="${register}" method='POST'>
                         <div class="form-group">
                             <label for="inputName" class="control-label col-md-2"></label>

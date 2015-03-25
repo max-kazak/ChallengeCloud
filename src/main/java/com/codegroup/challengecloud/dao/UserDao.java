@@ -13,6 +13,6 @@ public interface UserDao {
 
     public User findById(String id);
     public User findByLogin(String login);
-    public User findByEmail(String email);
+    public User findByEmail(String email) throws IndexOutOfBoundsException;
 
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -61,11 +62,19 @@ public class UserService {
         user.setId(Generator.generateId());
         user.setRole(UserRoles.ROLE_USER_ID);
 
+        log.debug("createProfile user params:\n" +
+                user.getId() + "\n" +
+                user.getLogin() + "\n" +
+                user.getEmail() + "\n" +
+                user.getName() + "\n" +
+                user.getPassword() + "\n" +
+                user.getRole());
+
         userDao.save(user);
     }
 
     @Transactional
-    public User findByEmail(String email) {
+    public User findByEmail(String email) throws IndexOutOfBoundsException {
         return userDao.findByEmail(email);
     }
 

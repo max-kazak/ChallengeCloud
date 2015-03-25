@@ -49,8 +49,8 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
     }
 
     @Override
-    public User findByEmail(String email) {
-    	log.debug("looking for user by email = " + email);
+    public User findByEmail(String email) throws IndexOutOfBoundsException {
+        log.debug("looking for user by email = " + email);
         /**
          * In this query from ... there should be name of the Class which
          * maps given table.
@@ -59,6 +59,10 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
          * @author Nipel-Crumple
          */
         List list = find("from User where email = ?", email);
-        return (User) list.get(0);
+        if (list.size() != 0){
+            return (User) list.get(0);
+        } else {
+            return null;
+        }
     }
 }
