@@ -133,6 +133,7 @@
 							<label for="inputPassword" class="control-label col-md-2"></label>
 							<div>
 								<form:password path="password" class="form-control" id="inputPassword" placeholder="Password" style="font-size: 20px;"/>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                 <%--<form:errors path="password" element="div" />--%>
                             </div>
 						</div>

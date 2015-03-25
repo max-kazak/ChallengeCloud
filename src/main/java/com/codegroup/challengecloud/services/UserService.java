@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -57,7 +58,7 @@ public class UserService {
         return user;
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void createProfile(User user) {
         user.setId(Generator.generateId());
         user.setRole(UserRoles.ROLE_USER_ID);
@@ -73,17 +74,17 @@ public class UserService {
         userDao.save(user);
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
     public User findByEmail(String email) throws IndexOutOfBoundsException {
         return userDao.findByEmail(email);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public User findByLogin(String login) {
         return userDao.findByLogin(login);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public User findById(String id) {
         return userDao.findById(id);
     }
