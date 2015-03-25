@@ -8,6 +8,7 @@ import com.codegroup.challengecloud.services.UserService;
 
 import org.apache.log4j.Logger;
 import org.springframework.social.twitter.api.SearchResults;
+import org.springframework.social.twitter.api.Twitter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 
 /**
  * @author Vladimir Zhdanov
@@ -24,15 +26,24 @@ import javax.annotation.Resource;
 
 @Controller
 public class TwitterPostsController {
-    private static final Logger log = Logger.getLogger(ChallengesController.class);
+    private static final Logger log = Logger.getLogger(TwitterPostsController.class);
     @Resource
     private UserService userService;
+
+//    @Resource
+    private Twitter twitter;
     
     @Resource
     private TwitterDownloadService twitterDownloadService;
 
+    @Inject
+    public TwitterPostsController (Twitter twitter) {
+    	this.twitter = twitter;
+    	log.info("TwitterPostsController created");
+    }
+    
     @RequestMapping("/twitter-posts")
-    public ModelAndView ctwitterPostsText() {
+    public ModelAndView twitterPostsText() {
     	Map <String,String> map = new HashMap();
     	map.put("message", "Friends"); 
         return new ModelAndView("twitter-posts", map);
@@ -50,19 +61,22 @@ public class TwitterPostsController {
     @RequestMapping(value = "/twitter", method = RequestMethod.GET)
     public
     @ResponseBody
-    String getTwitterPostsPage(
+    String getTwitterPostsResults(
     		@RequestParam(value = "id", required = false) String id,//user id
             @RequestParam(value = "get", required = false) String get,// whether to get user friends of=r posts
             @RequestParam(value = "hash", required = false) String hash) {
-        log.info("getTwitterPostsPage()");
+        log.info("getTwitterPostsResults()");
         String code = "<p> Internal Error! </p>";
         if (id != null) {
         	if (get.equals("friends")) {
         		return "<p> First friend </p>";
         	} else if (get.equals("posts")) {
-        		SearchResults searchResuts = twitterDownloadService.downloadPosts();
+        		//SearchResults searchResuts = twitterDownloadService.downloadPosts();
         		//return ":-)";
-        		return searchResuts.toString() + ":)";
+                log.info("getTwitterPostsResults() search");
+        		SearchResults results = twitter.searchOperations().search("#spring");
+                log.info("getTwitterPostsResults() found");
+        		return results.toString() + ":)";
         		/*if (hash != null) {
         			return "22";
         		} else {
