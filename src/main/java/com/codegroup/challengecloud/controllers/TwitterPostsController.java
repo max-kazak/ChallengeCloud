@@ -76,7 +76,7 @@ public class TwitterPostsController {
                 log.info("getTwitterPostsResults() search");
         		SearchResults results = twitter.searchOperations().search("#spring");
                 log.info("getTwitterPostsResults() found");
-        		return results.toString() + ":)";
+        		return results.getTweets().get(0).getText() + ":)";
         		/*if (hash != null) {
         			return "22";
         		} else {
