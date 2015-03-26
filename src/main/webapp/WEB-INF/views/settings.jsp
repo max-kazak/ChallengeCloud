@@ -22,7 +22,7 @@
 
           <div class="col-md-9">
             <ul class="pull-left">
-              <li><a href="#">Home</a></li>
+              <li><a href="<c:url value="/home" />">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Our Team</a></li>
             </ul>
