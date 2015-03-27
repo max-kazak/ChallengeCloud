@@ -14,11 +14,11 @@ public class Generator {
         String[] idFields = strId.split("-");
         return idFields[1]+idFields[4];
     }
-    
+
     public static String generateHashedPass(String password) {
-    	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String hashedPassword = passwordEncoder.encode(password);
-		return hashedPassword;
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(password);
+        return hashedPassword;
     }
 
     public static void main(String[] args) {

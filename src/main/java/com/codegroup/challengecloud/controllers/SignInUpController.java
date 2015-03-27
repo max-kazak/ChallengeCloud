@@ -64,13 +64,13 @@ public class SignInUpController {
 		logger.debug("The email of user to add: " + user.getEmail());
 
 		//checking in user already exists
-		User registered = checkIfExistsUser(user);
+		User registered = checkIfUserExists(user);
 		if (registered == null) {
 
 			//creating new User and saving it to Database
 			userService.createProfile(user);
 			logger.debug("The email of profile to create: " + user.getEmail());
-			
+
 			return "redirect:/home";
 		} else {
 			logger.debug("The email of existing User: " + user.getEmail());
@@ -79,7 +79,7 @@ public class SignInUpController {
 		}
 	}
 
-	private User checkIfExistsUser(User user){
+	private User checkIfUserExists(User user){
 		logger.debug("Finding User with email in SignInUpController: " + user.getEmail());
 		try {
 			User registered = userService.findByEmail(user.getEmail());

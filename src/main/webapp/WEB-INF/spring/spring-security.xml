@@ -21,7 +21,7 @@
 			password-parameter="password" />
 		<logout logout-success-url="/signinup?logout" />
 		<!-- enable csrf protection -->
-		<!--<csrf/>-->
+		<csrf/>
 	</http>
 
 	<authentication-manager>

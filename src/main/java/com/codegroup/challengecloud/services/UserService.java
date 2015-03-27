@@ -62,6 +62,7 @@ public class UserService {
     public void createProfile(User user) {
         user.setId(Generator.generateId());
         user.setRole(UserRoles.ROLE_USER_ID);
+        encodePassword(user);
 
         log.debug("createProfile user params:\n" +
                 user.getId() + "\n" +
@@ -95,5 +96,10 @@ public class UserService {
         String id = authentication.getName();
         log.debug("returning current user " + id);
         return findById(id);
+    }
+
+    private void encodePassword(User user) {
+        String passwordToEncode = user.getPassword();
+        user.setPassword(Generator.generateHashedPass(passwordToEncode));
     }
 }

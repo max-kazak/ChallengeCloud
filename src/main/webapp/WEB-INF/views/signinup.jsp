@@ -68,7 +68,8 @@
 					<h3> In ChallengeCloud </h3>
 				</div>
 				<div class="col-md-8">
-					<form class="form-horizontal" name="loginForm" action="<c:url value='/j_spring_security_check'/>" method='POST'>
+					<c:url value='/j_spring_security_check' var="check"/>
+					<form:form class="form-horizontal" name="loginForm" action="${check}" method='POST'>
 						<div class="form-group">
 							<label for="inputEmailExisting" class="control-label col-md-2"></label>
 							<div>
@@ -93,9 +94,9 @@
 								<button name="submit" type="submit" class="btn btn-default"> Sign In </button>
 							</div>
 						</div>
+						<%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+					</form:form>
 
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-					</form>
 					<c:if test="${not empty error}">
 						<div class="error">${error}</div>
 					</c:if>
@@ -154,6 +155,7 @@
 								<button type="submit" class="btn btn-default"> Sign Up </button>
 							</div>
 						</div>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					</form:form>
 				</div>
 			</div>
