@@ -42,6 +42,7 @@
     <c:url var="welcome" value="/welcome" />
     <c:url var="about" value="" />
     <c:url var="ourteam" value="" />
+    <c:url value="/j_spring_security_logout" var="logoutUrl" />
     <div class="nav">
         <div class="container">
             <div class="row">
@@ -57,7 +58,7 @@
                         <li><a href="${ourteam}">Our Team</a></li>
                     </ul>
                     <ul class="pull-right">
-                        <li><a href="#">Log out</a></li>
+                        <li><a href="${logoutUrl}">Log out</a></li>
                     </ul>
                 </div>
             </div>

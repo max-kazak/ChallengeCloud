@@ -28,10 +28,11 @@ import javax.validation.constraints.Null;
 
 public class SignInUpController {
 
+	private static Logger logger = Logger.getLogger(SignInUpController.class);
+
 	@Autowired
 	ConnectionSignUpAdapter signUpAdapter;
 
-	private static Logger logger = Logger.getLogger(SignInUpController.class);
 	@Autowired
 	UserService userService;
 
