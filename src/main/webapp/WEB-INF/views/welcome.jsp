@@ -12,23 +12,28 @@
 
 <body>
 <div class="main">
+    <c:url var="signinup" value="/signinup" />
+    <c:url var="home" value="/home" />
+    <c:url var="welcome" value="/welcome" />
+    <c:url var="about" value="#" />
+    <c:url var="ourteam" value="#" />
     <div class="nav">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="#">
+                    <a href="${welcome}">
                         <i class="fa fa-cloud"></i>ChallengeCloud
                     </a>
                 </div>
                 <div class="col-md-9">
                     <ul class="pull-left">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Our Team</a></li>
+                        <li><a href="${home}">Home</a></li>
+                        <li><a href="${about}">About</a></li>
+                        <li><a href="${ourteam}">Our Team</a></li>
                     </ul>
                     <ul class="pull-right">
-                        <li><a href="#">Sign UP</a></li>
-                        <li><a href="#">Sign IN</a></li>
+                        <li><a href="${signinup}">Sign UP</a></li>
+                        <li><a href="${signinup}">Sign IN</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,10 +45,10 @@
             <h1>Change your life through Challenge!</h1>
             <ul>
                 <li>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Sign In</a>
+                    <a class="btn btn-primary btn-lg" href="${signinup}" role="button">Sign In</a>
                 </li>
                 <li>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">About</a>
+                    <a class="btn btn-primary btn-lg" href="${about}" role="button">About</a>
                 </li>
             </ul>
         </div>
@@ -74,10 +79,22 @@
 </div>
 
 <div class="footer">
-    <a href="#"><i class="fa fa-vk fa-3x"></i></a>
-    <a href="#"><i class="fa fa-facebook-official fa-3x"></i></a>
-    <a href="#"><i class="fa fa-twitter fa-3x"></i></a>
-    <a href="#"><i class="fa fa-instagram fa-3x"></i></a>
+    <form action="<c:url value="/signin/twitter" />" method="POST" class="submitForm">
+        <button type="submit"><i class="fa fa-twitter fa-3x"></i></button>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    </form>
+    <form action="#" method="POST" class="submitForm">
+        <button type="submit"><i class="fa fa-vk fa-3x"></i></button>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    </form>
+    <form action="#" method="POST" class="submitForm">
+        <button type="submit"><i class="fa fa-facebook-official fa-3x"></i></button>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    </form>
+    <form action="#" method="POST" class="submitForm">
+        <button type="submit"><i class="fa fa-instagram fa-3x"></i></button>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    </form>
 </div>
 </body>
 </html>

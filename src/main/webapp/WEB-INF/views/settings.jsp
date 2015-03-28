@@ -12,19 +12,27 @@
 
   <body>
     <div class="nav">
+      <c:url var="home" value="/home" />
+      <c:url var="welcome" value="/welcome" />
+      <c:url var="about" value="#" />
+      <c:url var="ourteam" value="#" />
+      <c:url var="user" value="#" />
+      <c:url var="general" value="#" />
+      <c:url var="socialnetworks" value="#" />
+      <c:url var="security" value="#" />
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <a href="#">
+            <a href="${welcome}">
               <i class="fa fa-cloud"></i>ChallengeCloud
             </a>
           </div>
 
           <div class="col-md-9">
             <ul class="pull-left">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Our Team</a></li>
+              <li><a href="${home}">Home</a></li>
+              <li><a href="${about}">About</a></li>
+              <li><a href="${ourteam}">Our Team</a></li>
             </ul>
           </div>
         </div>
@@ -39,10 +47,10 @@
       <div class="col-md-3">
         <div class="menu">
           <ul>
-            <li role="presentation"><a href="#">User</a></li>
-            <li role="presentation"><a href="#">General</a></li>
-            <li role="presentation"><a href="#">Social Networks</a></li>
-            <li role="presentation" class="active"><a href="#">Security</a></li>
+            <li role="presentation"><a href="${user}">User</a></li>
+            <li role="presentation"><a href="${general}">General</a></li>
+            <li role="presentation"><a href="${socialnetworks}">Social Networks</a></li>
+            <li role="presentation" class="active"><a href="${security}">Security</a></li>
           </ul>
         </div>
       </div>

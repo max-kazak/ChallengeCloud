@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,9 +37,9 @@ public class SignInUpController {
 
 	@Autowired
 	ChallengerUserDetailsService userDetailsService;
-
+//
 	@ModelAttribute("user")
-	public User createUser() {
+	public User getUser() {
 		return new User();
 	}
 	
@@ -64,28 +65,30 @@ public class SignInUpController {
 	* created by Nipel-Crumple 24.03.2015
 	 */
 	@RequestMapping(value="/signinup", method = RequestMethod.POST)
-	public String registerUser(@ModelAttribute("user") User user, Model model) {
-		logger.debug("The email of user to add: " + user.getEmail());
+	public String registerUser(@ModelAttribute("user") User user, BindingResult result, Model model) {
+		if (!result.hasErrors()) {
+			logger.debug("The email of user to add: " + user.getEmail());
 
-		//checking in user already exists
-		UserDetails registered = checkIfUserExists(user);
-		if (registered == null) {
+			//checking in user already exists
+			UserDetails registered = checkIfUserExists(user);
+			if (registered == null) {
 
-			//creating new User and saving it to Database
-			userService.createProfile(user);
-			UserDetails userDetails = userDetailsService.loadUserByEmail(user.getEmail());
-			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, user.getPassword(), userDetails.getAuthorities());
+				//creating new User and saving it to Database
+				userService.createProfile(user);
+				UserDetails userDetails = userDetailsService.loadUserByEmail(user.getEmail());
+				UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, user.getPassword(), userDetails.getAuthorities());
 
-			if (auth.isAuthenticated()) {
 				SecurityContextHolder.getContext().setAuthentication(auth);
 				logger.debug("Registration and authentication was successful, user with email: " + user.getEmail());
+
+				return "redirect:/home";
 			} else {
-				logger.debug("Unsuccessful registration, no rights for user with email: " + user.getEmail());
+				logger.debug("The email of existing User: " + user.getEmail());
+				model.addAttribute("emailExists", "The profile already exists with such email: " + user.getEmail());
+				return "signinup";
 			}
-			return "redirect:/home";
 		} else {
-			logger.debug("The email of existing User: " + user.getEmail());
-			model.addAttribute("emailExists", "The profile already exists with such email: " + user.getEmail());
+			logger.debug("Incorrect binding @ModelAttribute('user')");
 			return "signinup";
 		}
 	}
