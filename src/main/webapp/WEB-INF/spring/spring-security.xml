@@ -19,7 +19,8 @@
 			authentication-failure-url="/signinup?error"
 			username-parameter="username"
 			password-parameter="password" />
-		<logout logout-success-url="/signinup?logout" />
+		<logout logout-success-url="/signinup"
+				logout-url="/j_spring_security_logout"/>
 		 <!--enable csrf protection -->
 		<csrf/>
 	</http>

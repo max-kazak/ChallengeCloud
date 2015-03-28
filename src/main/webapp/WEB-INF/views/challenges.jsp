@@ -66,6 +66,7 @@
 	<c:url var="all" value="#" />
 	<c:url var="recommendations" value="#" />
 	<c:url var="random" value="#" />
+	<c:url value="/j_spring_security_logout" var="logoutUrl" />
 		<div class="nav navigator">
 			<div class="container">
 				<div class="row">
@@ -81,7 +82,11 @@
 							<li><a href="${ourteam}">Our Team</a></li>
 						</ul>
 						<ul class="pull-right">
-							<li><a href="#">Log out</a></li>
+							<li>
+								<form:form action="${logoutUrl}">
+									<button class="btn btn-default" type="submit" > Log out </button>
+								</form:form>
+							</li>
 						</ul>
 					</div>
 				</div>

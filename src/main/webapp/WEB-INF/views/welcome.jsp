@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <!--Created by Andrey on 01.03.2015-->
@@ -12,7 +13,8 @@
 
 <body>
 <div class="main">
-    <c:url var="signinup" value="/signinup" />
+    <c:url var="signin" value="/signinup" />
+    <c:url var="signup" value="/signin/twitter" />
     <c:url var="home" value="/home" />
     <c:url var="welcome" value="/welcome" />
     <c:url var="about" value="#" />
@@ -31,10 +33,12 @@
                         <li><a href="${about}">About</a></li>
                         <li><a href="${ourteam}">Our Team</a></li>
                     </ul>
-                    <ul class="pull-right">
-                        <li><a href="${signinup}">Sign UP</a></li>
-                        <li><a href="${signinup}">Sign IN</a></li>
-                    </ul>
+                    <form:form name="signinupForm" action="${signin}" method="GET" cssClass="signinupForm pull-right">
+                        <button class="btn btn-default btn-lg" type="submit">Sign In</button>
+                    </form:form>
+                    <form:form name="signinupForm" action="${signup}" method="POST" class="signinupForm pull-right">
+                        <button class="btn btn-default btn-lg" type="submit">Sign Up</button>
+                    </form:form>
                 </div>
             </div>
         </div>
@@ -43,14 +47,23 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Change your life through Challenge!</h1>
-            <ul>
-                <li>
-                    <a class="btn btn-primary btn-lg" href="${signinup}" role="button">Sign In</a>
-                </li>
-                <li>
-                    <a class="btn btn-primary btn-lg" href="${about}" role="button">About</a>
-                </li>
-            </ul>
+            <%--<ul>--%>
+                <%--<li>--%>
+                    <%--<a class="btn btn-primary btn-lg" href="${signinup}" role="button">Sign In</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                    <%--<a class="btn btn-primary btn-lg" href="${about}" role="button">About</a>--%>
+                <%--</li>--%>
+            <%--</ul>--%>
+
+            <form:form name="signinupForm" action="${about}" method="GET" cssClass="pull-right">
+                <button class="btn btn-primary btn-lg" type="submit">About</button>
+            </form:form>
+
+            <form:form name="signinupForm" action="${signin}" method="GET" cssClass="pull-right">
+                <button class="btn btn-primary btn-lg" type="submit">Sign In</button>
+            </form:form>
+
         </div>
     </div>
 
