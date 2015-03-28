@@ -3,6 +3,7 @@ package com.codegroup.challengecloud.services.security;
 import com.codegroup.challengecloud.constants.UserRoles;
 import com.codegroup.challengecloud.services.UserService;
 
+import com.codegroup.challengecloud.utils.Generator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -46,9 +47,9 @@ public class ChallengerUserDetailsService implements UserDetailsService {
     // Converts User user to org.springframework.security.core.userdetails.User
     private User buildUserForAuthentication(com.codegroup.challengecloud.model.User user, List<GrantedAuthority> authorities) {
 
-        //TODO Fix this bug... 
+        //By Yefim
     	if (user.getPassword() == null) {
-        	user.setPassword("$2a$10$rdHCgQDkMqQSk9IK8rhsVu1XhC/Y/VA5ohsMgGtjasABH7b.WAWzi");
+        	user.setPassword(Generator.generateRandomPass());
         }
     	return new User(user.getId(),
                 user.getPassword(),
