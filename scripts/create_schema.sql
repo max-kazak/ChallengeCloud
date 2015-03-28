@@ -81,6 +81,7 @@ CREATE TABLE `challenger`.`challenges` (
   `DIFFICULTY`   TINYINT(2)   NOT NULL, #10 of 10, f.e.
   `HASHTAG`      VARCHAR(100),
   `GROUP_ID`     VARCHAR(16)  NOT NULL,
+  `IMAGE_ID`     VARCHAR(16) NOT NULL, /* By Vladimir Zhdanov on 28.03.2015 */
   PRIMARY KEY (`CHALLENGE_ID`) USING BTREE,
   FOREIGN KEY (`GROUP_ID`) REFERENCES `challenger`.`challengegroups` (`GROUP_ID`)
 );

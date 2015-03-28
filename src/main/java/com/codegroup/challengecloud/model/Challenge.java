@@ -1,6 +1,7 @@
 package com.codegroup.challengecloud.model;
 
 import javax.persistence.*;
+
 import java.io.Serializable;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ public class Challenge implements Serializable {
     Integer difficulty;
     String hashtag;
     ChallengeGroup challengeGroup;
+    String imageId;
 
 
     public Challenge() {
@@ -92,6 +94,19 @@ public class Challenge implements Serializable {
 
     public void setChallengeGroup(ChallengeGroup challengeGroup) {
         this.challengeGroup = challengeGroup;
+    }
+
+    /**
+     * This method returns Image ID.
+     * @return image ID
+     * @author Vladimir Zhdanov
+     */
+    @Column(name = "IMAGE_ID", nullable = false)
+    public String getImageId() {
+        return imageId;
+    }
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 
     

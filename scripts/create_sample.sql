@@ -9,8 +9,9 @@ values ("d8fbf948694caf35", "Yefim_ka", "yefim krokhin", "$2a$10$rdHCgQDkMqQSk9I
 -- just to insert some picture try to change path depending on your own PC
 -- Nipel-Crumple 12.03.2015
 insert into `challenger`.`images` values ("123123","Image1","2015-03-12", "S", LOAD_FILE('D:\#1.png'));
+insert into `challenger`.`images` values ("5f7f505e8099a263","Image2","2015-03-28", "S", LOAD_FILE('D:\#2.png')); /* By Vladimir Zhdanov on 28.03.2015 */
 insert into challenger.challengegroups values ("5d2c117e674b39de", "Challenge group 1 name", "123123");
-insert into challenger.challenges values ("876aee6e27926e59", "Challenge 1 title", "Challenge 1  decription", 0, "Challenge 1 hash tag", "5d2c117e674b39de");
+insert into challenger.challenges values ("876aee6e27926e59", "Challenge 1 title", "Challenge 1  decription", 0, "Challenge 1 hash tag", "5d2c117e674b39de", "5f7f505e8099a263"); /* Added ImageID by Vladimir Zhdanov on 18.03.2015 */
 insert into challenger.subscriptions values ("11", "d6fbf948694caf35", "876aee6e27926e59", CURDATE());
 
 /*By Yefim*/
