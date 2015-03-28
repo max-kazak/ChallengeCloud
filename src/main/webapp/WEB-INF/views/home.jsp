@@ -47,19 +47,30 @@
 
 <body>
 	<div class="main">
+		<c:url var="welcome" value="/welcome" />
+		<c:url var="home" value="/home" />
+		<c:url var="settings" value="/settings" />
+		<c:url var="about" value="#" />
+		<c:url var="ourteam" value="#" />
+		<c:url var="challenges" value="#" />
+		<c:url var="trend" value="#" />
+		<c:url var="trophyroom" value="#" />
+		<c:url var="active" value="#" />
+		<c:url var="archive" value="#" />
+		<c:url var="upcoming" value="#" />
 		<div class="nav navigator">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<a href="#"> <i class="fa fa-cloud"></i>ChallengeCloud
+						<a href="${welcome}"> <i class="fa fa-cloud"></i>ChallengeCloud
 						</a>
 					</div>
 
 					<div class="col-md-9">
 						<ul class="pull-left">
-							<li><a href="<c:url value="/home" />">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Our Team</a></li>
+							<li><a href="${home}">Home</a></li>
+							<li><a href="${about}">About</a></li>
+							<li><a href="${ourteam}">Our Team</a></li>
 						</ul>
 						<ul class="pull-right">
 							<li><a href="#">Log out</a></li>
@@ -77,10 +88,10 @@
 				<div class="menu">
 					<!-- <ul class="nav nav-pills nav-stacked"> -->
 					<ul class="menu">
-						<li role="presentation" class="active"><a href="<c:url value="/challenges" />">Challenges</a></li>
-						<li role="presentation"><a href="#">Trend</a></li>
-						<li role="presentation"><a href="#">Trophy Room</a></li>
-						<li role="presentation"><a href="<c:url value="/settings" />">Settings</a></li>
+						<li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
+						<li role="presentation"><a href="${trend}">Trend</a></li>
+						<li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+						<li role="presentation"><a href="${settings}">Settings</a></li>
 					</ul>
 				</div>
 			</div>
@@ -93,9 +104,9 @@
 					</div>
 					<div class="menu2">
 						<ul class="nav nav-pills">
-							<li role="presentation" class="active"><a href="#">Active</a></li>
-							<li role="presentation"><a href="#">Archive</a></li>
-							<li role="presentation"><a href="#">Upcoming</a></li>
+							<li role="presentation" class="active"><a href="${active}">Active</a></li>
+							<li role="presentation"><a href="${archive}">Archive</a></li>
+							<li role="presentation"><a href="${upcoming}">Upcoming</a></li>
 						</ul>
 					</div>
 					<!-- Pills -->
