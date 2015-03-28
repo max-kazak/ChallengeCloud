@@ -65,7 +65,7 @@
 
 					<div class="col-md-9">
 						<ul class="pull-left">
-							<li><a href="./home.jsp">Home</a></li>
+							<li><a href="<c:url value="/home" />">Home</a></li>
 							<li><a href="#">About</a></li>
 							<li><a href="#">Our Team</a></li>
 						</ul>
@@ -88,7 +88,7 @@
                     <li role="presentation" class="active"><a href="#">Challenges</a></li>
                     <li role="presentation"><a href="#">Trend</a></li>
                     <li role="presentation"><a href="#">Trophy Room</a></li>
-                    <li role="presentation"><a href="./settings.jsp">Settings</a></li>
+                    <li role="presentation"><a href="<c:url value="/settings" />">Settings</a></li>
                 </ul>
             </div>
         </div>

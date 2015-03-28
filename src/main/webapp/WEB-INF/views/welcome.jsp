@@ -22,13 +22,13 @@
                 </div>
                 <div class="col-md-9">
                     <ul class="pull-left">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="<c:url value="/home" />">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Our Team</a></li>
                     </ul>
                     <ul class="pull-right">
-                        <li><a href="#">Sign UP</a></li>
-                        <li><a href="#">Sign IN</a></li>
+                        <li><a href="<c:url value="/signinup" />">Sign UP</a></li>
+                        <li><a href="<c:url value="/signinup" />">Sign IN</a></li>
                     </ul>
                 </div>
             </div>

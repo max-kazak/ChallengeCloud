@@ -19,13 +19,13 @@
 			<div class="progress">
 				<div
 					class="progress-bar progress-bar-success progress-bar-striped"
-					role="progressbar" aria-valuenow="40" aria-valuemin="0"
+					role="progressbar" aria-valuenow=40 aria-valuemin="0"
 					aria-valuemax="100" style="width: 40%">
-					<span class="sr-only">${completion}% Complete (success)</span>
+					40% Complete
 				</div>
 			</div>
 			<div style="float: left;">
-				<p class="pull-left">5/20 posts</p>
+				<p class="pull-left">${completion}/20 posts</p>
 			</div>
 			<div style="float: right;">
 				<a href="#" class="btn btn-primary pull-right" role="button">Details</a>
