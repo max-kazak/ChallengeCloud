@@ -3,7 +3,7 @@
 <html>
 <!--Created by Vladimir Zhdanov on 05.03.2015-->
 <head>
-<title>Settings</title>
+<title>Home</title>
 	<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">

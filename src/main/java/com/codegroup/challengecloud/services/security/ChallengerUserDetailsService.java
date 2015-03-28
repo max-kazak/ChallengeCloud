@@ -28,7 +28,11 @@ public class ChallengerUserDetailsService implements UserDetailsService {
         com.codegroup.challengecloud.model.User user = userService.findByLogin(username);
         return convertUserToUserDetails(user);
     }
-    
+
+    public UserDetails loadUserByEmail(final String email) {
+        com.codegroup.challengecloud.model.User user = userService.findByEmail(email);
+        return convertUserToUserDetails(user);
+    }
     public UserDetails loadUserById(final String id){
         com.codegroup.challengecloud.model.User user = userService.findById(id);
         return convertUserToUserDetails(user);

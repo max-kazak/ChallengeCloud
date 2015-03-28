@@ -94,7 +94,6 @@
 								<button name="submit" type="submit" class="btn btn-default"> Sign In </button>
 							</div>
 						</div>
-						<%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
 					</form:form>
 
 					<c:if test="${not empty error}">

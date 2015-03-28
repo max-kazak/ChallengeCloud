@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.Null;
 
 @Controller
 
@@ -32,6 +33,9 @@ public class SignInUpController {
 	private static Logger logger = Logger.getLogger(SignInUpController.class);
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	ChallengerUserDetailsService userDetailsService;
 
 	@ModelAttribute("user")
 	public User createUser() {
@@ -64,13 +68,20 @@ public class SignInUpController {
 		logger.debug("The email of user to add: " + user.getEmail());
 
 		//checking in user already exists
-		User registered = checkIfUserExists(user);
+		UserDetails registered = checkIfUserExists(user);
 		if (registered == null) {
 
 			//creating new User and saving it to Database
 			userService.createProfile(user);
-			logger.debug("The email of profile to create: " + user.getEmail());
+			UserDetails userDetails = userDetailsService.loadUserByEmail(user.getEmail());
+			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, user.getPassword(), userDetails.getAuthorities());
 
+			if (auth.isAuthenticated()) {
+				SecurityContextHolder.getContext().setAuthentication(auth);
+				logger.debug("Registration and authentication was successful, user with email: " + user.getEmail());
+			} else {
+				logger.debug("Unsuccessful registration, no rights for user with email: " + user.getEmail());
+			}
 			return "redirect:/home";
 		} else {
 			logger.debug("The email of existing User: " + user.getEmail());
@@ -79,16 +90,20 @@ public class SignInUpController {
 		}
 	}
 
-	private User checkIfUserExists(User user){
+	private UserDetails checkIfUserExists(User user){
 		logger.debug("Finding User with email in SignInUpController: " + user.getEmail());
 		try {
-			User registered = userService.findByEmail(user.getEmail());
+			UserDetails registered = userDetailsService.loadUserByEmail(user.getEmail());
 			if (registered != null) {
-				logger.debug("The user has already exists with email: " + registered.getEmail());
+				logger.debug("The user has already exists with username: " + registered.getUsername());
 			}
+
 			return registered;
 		} catch (IndexOutOfBoundsException e) {
 			logger.debug("There is no user in database with email: " + user.getEmail());
+			return null;
+		} catch (NullPointerException e1) {
+			logger.debug("No user with email: " + user.getEmail());
 			return null;
 		}
 	}

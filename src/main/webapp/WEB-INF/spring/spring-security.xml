@@ -20,7 +20,7 @@
 			username-parameter="username"
 			password-parameter="password" />
 		<logout logout-success-url="/signinup?logout" />
-		<!-- enable csrf protection -->
+		 <!--enable csrf protection -->
 		<csrf/>
 	</http>
 
