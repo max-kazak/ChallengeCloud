@@ -17,8 +17,8 @@ import java.util.Set;
  */
 @Service("twitterDownloadService")
 public class TwitterDownloadService {
+    private static final int AMOUNT_OF_POSTS=255;
     private Twitter twitter;
-
     private ConnectionRepository connectionRepository;
 
     @Inject
@@ -35,7 +35,7 @@ public class TwitterDownloadService {
      */
     public Set<Tweet> downloadUserHashedPosts(long userId, String hash) {
     	//TODO try catch
-		List<Tweet> userTweets = twitter.timelineOperations().getUserTimeline( userId , 255);
+		List<Tweet> userTweets = twitter.timelineOperations().getUserTimeline( userId , AMOUNT_OF_POSTS);
     	Set<Tweet> suitableTweets = new HashSet<Tweet>();
         for (Tweet currentTweet : userTweets) {
         	//if (!currentTweet.getText().contains(hash.subSequence(0, hash.length())) ) {
