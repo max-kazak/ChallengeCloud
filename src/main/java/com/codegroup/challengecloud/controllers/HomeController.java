@@ -2,10 +2,13 @@ package com.codegroup.challengecloud.controllers;
 
 import org.apache.log4j.Logger;
 
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.model.Subscription;
+import com.codegroup.challengecloud.services.ChallengeService;
 import com.codegroup.challengecloud.services.PostService;
 import com.codegroup.challengecloud.services.SubscriptionService;
+import com.codegroup.challengecloud.services.UserService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -34,17 +37,33 @@ public class HomeController {
 	private static final Logger log = Logger.getLogger(HomeController.class);
 	private static final String TEMPLATE_NAME = "challenge-progress.ftl";
 	private List<Subscription> subscriptionList;
+	private SubscriptionService subscriptionService;
+
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
-        return new ModelAndView("home");
+		log.info("Getting a default home page");
+		Map <String,String> modelMap = new HashMap();
+		modelMap.put("total_num", Integer.toString(subscriptionService.findForCurrentUser().size()));
+        return new ModelAndView("home", modelMap);
     }
-	 
+	
+	private void putSubscriptionIntoMap(Map<String, Object> input, Subscription subscription) {
+		String subscriptionName = subscription.getChallenge().getTitle();
+		String date = subscription.getDate().toString();
+		input.put("subscriptionName", "Subs " + subscriptionName);
+        input.put("date", date);
+	}
+	
 	@RequestMapping(value = "/home-subscriptions", method = RequestMethod.GET)
     public
     @ResponseBody
-    String sendAllSubscriptionsToPage(@RequestParam(value = "subscriptionId", required = false) String subscriptionId) {
-        log.info("getAllSubscriptions() started");
+    String sendAllSubscriptionsToPage(@RequestParam(value = "numToShow", required = true) String numToShow,
+    		@RequestParam(value = "numShown", required = true) String numShown) {
+		
+		log.info("Getting list of subscriptions for current user");
+		List<Subscription> subscriptions = subscriptionService.findForCurrentUser();
+		
         /*Default value to report user about server problems*/
         String templateResponse = "<p> Internal Error! </p>";
 
@@ -52,17 +71,19 @@ public class HomeController {
         configuration.setClassForTemplateLoading(HomeController.class, "/");
 
         Map<String, Object> input = new HashMap<>();
-        int numi = Integer.parseInt(subscriptionId);
+        int numToShowInt = Integer.parseInt(numToShow);
+        int numShownInt = Integer.parseInt(numToShow);
 
         StringWriter stringWriter;
+        
+        log.info("Trying to get"+numToShow+"challenges for current user on home page");
         try {
             Template template = configuration.getTemplate(TEMPLATE_NAME);
             stringWriter = new StringWriter();
             try {
-                for (int i = 0; i < 5; i++) {
+                for (int i = numShownInt; (i < numShownInt + numToShowInt)&&(i < subscriptions.size()); i++) {
                     input.clear();
-                    input.put("subscriptionName", "Subs " + Integer.toString(numi + i));
-                    input.put("completion", String.valueOf(i));
+                    putSubscriptionIntoMap(input,subscriptions.get(i));
                     template.process(input, stringWriter);
                 }
             } catch (TemplateException e2) {

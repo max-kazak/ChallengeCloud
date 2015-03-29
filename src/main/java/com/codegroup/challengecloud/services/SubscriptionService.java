@@ -51,4 +51,15 @@ public class SubscriptionService {
     public List<Subscription> findByUserId(String userId) {
         return subscriptionDao.findByUserId(userId);
     }
+    
+    /**
+     * @return List of subscriptions of the user, that is currently logged in
+     * @author Created by Andrey on 29.03 2015
+     */
+    @Transactional
+    public List<Subscription> findForCurrentUser() {
+    	UserService userService = new UserService();
+    	String curUserId = userService.getCurrentUser().getId();
+    	return findByUserId(curUserId);
+    }
 }

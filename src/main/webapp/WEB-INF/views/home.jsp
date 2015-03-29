@@ -14,15 +14,24 @@
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <%--Script was created by Vova, rearrnaged by Yefim--%>
     <script type="text/javascript">
-        var num = -4;// for numeration from 1
+        var numToShow = 5;// how many subscriptions to request
+        var numShown = 0;// Already recieved subscriptions
+        var from;// Request "numToShow" (5) subscriptions starting from number "from" (1)
+        max_num = ${total_num};// Number of subscriptions in database comes from jsp
         function appendChallenges() {
-            num = num + 5;
-            $.ajax({
-                url: 'home-subscriptions.html?subscriptionId=' + num.toString(),
-                success: function (data) {
-                    $('#home-subscriptions').append(data);
+            if(numShown<max_num) {
+                if(numShown+numToShow>total_num) {
+                    numToShow = total_num-numShown;
                 }
-            });
+
+                $.ajax({
+                    url: 'home-subscriptions.html?numToShow=' + numToShow.toString()+ '&numShown'+numShown.toString(),
+                    success: function (data) {
+                        $('#home-subscriptions').append(data);
+                    }
+                });
+                numShown += numToShow;
+            }   
         }
     </script>
 
@@ -115,8 +124,10 @@
             </div>
             <br/>
             <!-- Challenges -->
-            <div id="home-subscriptions">
+            <div>
+                <div id="home-subscriptions">
                 <!--HERE -->
+                </div>
             </div>
             <!-- End of Challenges -->
 
