@@ -1,5 +1,6 @@
 package com.codegroup.challengecloud.services;
 
+import org.apache.log4j.Logger;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.twitter.api.HashTagEntity;
 import org.springframework.social.twitter.api.Tweet;
@@ -17,6 +18,7 @@ import java.util.Set;
  */
 @Service("twitterDownloadService")
 public class TwitterDownloadService {
+    private static final Logger log = Logger.getLogger(TwitterDownloadService.class);
     private static final int AMOUNT_OF_POSTS=255;
     private Twitter twitter;
     private ConnectionRepository connectionRepository;
@@ -35,6 +37,7 @@ public class TwitterDownloadService {
      */
     public Set<Tweet> downloadUserHashedPosts(long userId, String hash) {
     	//TODO try catch
+    	log.info("downloadUserHashedPosts() start");
 		List<Tweet> userTweets = twitter.timelineOperations().getUserTimeline( userId , AMOUNT_OF_POSTS);
     	Set<Tweet> suitableTweets = new HashSet<Tweet>();
         for (Tweet currentTweet : userTweets) {
@@ -46,6 +49,7 @@ public class TwitterDownloadService {
         		}
         	}
         }
+    	log.info("downloadUserHashedPosts() stop");
         return suitableTweets;
     }
 }
