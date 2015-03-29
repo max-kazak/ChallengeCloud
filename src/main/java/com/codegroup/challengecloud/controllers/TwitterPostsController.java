@@ -63,7 +63,7 @@ public class TwitterPostsController {
     @ResponseBody
     String getTwitterPostsResults(
     		@RequestParam(value = "id", required = false) String id,//user id
-            @RequestParam(value = "get", required = false) String get,// whether to get user friends of=r posts
+            @RequestParam(value = "get", required = false) String get,// whether to get user friends or posts
             @RequestParam(value = "hash", required = false) String hash) {
         log.info("getTwitterPostsResults()");
         String code = "<p> Internal Error! </p>";
@@ -71,21 +71,13 @@ public class TwitterPostsController {
         	if (get.equals("friends")) {
         		return "<p> First friend </p>";
         	} else if (get.equals("posts")) {
-        		//SearchResults searchResuts = twitterDownloadService.downloadPosts();
-        		//return ":-)";
                 log.info("getTwitterPostsResults() search");
         		SearchResults results = twitter.searchOperations().search("#spring");
                 log.info("getTwitterPostsResults() found");
         		return results.getTweets().get(0).getText() + ":)";
-        		/*if (hash != null) {
-        			return "22";
-        		} else {
-        			return "12";
-        		}*/
         	} else {
         		return "Strange";
         	}
-        	
         } else {
         	return "Null";
         }

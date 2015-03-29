@@ -42,17 +42,26 @@
             appendChallenges();
             $(window).scrollTo(0);
         });
-    </script>
 
+        var id = 3092168691;
+        function getUserCCPosts() {
+            $ajax({
+                url: 'twitter.html?id=' + id.toString() + '&get=posts',
+                success: function (data) {
+                    $('#posts').html(data);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 
 <div class="main">
-    <c:url var="home" value="/home" />
-    <c:url var="welcome" value="/welcome" />
-    <c:url var="about" value="#" />
-    <c:url var="ourteam" value="#" />
-    <c:url value="/j_spring_security_logout" var="logoutUrl" />
+    <c:url var="home" value="/home"/>
+    <c:url var="welcome" value="/welcome"/>
+    <c:url var="about" value="#"/>
+    <c:url var="ourteam" value="#"/>
+    <c:url value="/j_spring_security_logout" var="logoutUrl"/>
     <div class="nav">
         <div class="container">
             <div class="row">
@@ -77,14 +86,6 @@
     <div class="container body">
         <div class="col-md-10 text-left left-block">
             <h2> Posts </h2>
-
-            <%-- <ul class="pull-left">
-                 <li>
-                     <div id="subscription-send">
-                     </div>
-
-                 </li>
-             </ul>--%>
         </div>
 
         <div class="col-md-2 text-left right-block">
@@ -105,6 +106,12 @@
     </div>
 
 
+    <button onclick="getUserCCPosts()">getPosts</button>
+    <h1>Posts</h1>
+    <div id="posts">
+
+    </div>
+
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
@@ -114,7 +121,6 @@
             </div>
 
         </div>
-        <div></div>
     </div>
 
 </div>

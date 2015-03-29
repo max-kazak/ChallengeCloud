@@ -41,8 +41,10 @@ public class SubscriptionController {
     TwitterDownloadService twitterDownloadService;
 
     @RequestMapping("/subscription")
-    public ModelAndView subscriptionText() {
-        return new ModelAndView("subscription", "message", "Subscriptions");
+    public ModelAndView subscriptionPostsText() {
+        Map <String,String> map = new HashMap();
+        map.put("message", "Friends");
+        return new ModelAndView("subscription", map);
     }
 
     private void getAllPostsFromDB(String subscriptionId) {
@@ -57,12 +59,8 @@ public class SubscriptionController {
         log.info("getAllSubscriptions() started");
         /*Default value to report user about server problems*/
         String templateResponse = "<p> Internal Error! </p>";
-
-        List<Tweet> tweets = twitterDownloadService.downloadPosts();
-
         Configuration configuration = new Configuration();
         configuration.setClassForTemplateLoading(SubscriptionController.class, "/");
-
         Map<String, Object> input = new HashMap<>();
         int numi = Integer.parseInt(subscriptionId);
 
@@ -74,8 +72,8 @@ public class SubscriptionController {
             try {
                 for (int i = 0; i < 5; i++) {
                     input.clear();
-                    input.put("subscriptionName", "Subs " + tweets.get(1).getId());
-                    input.put("subscriptionDescription", "Subs   Description "  + "LOL");
+                    input.put("subscriptionName", "Subs " + "LAL");
+                    input.put("subscriptionDescription", "Subs   Description " + "LOL");
                     template.process(input, stringWriter);
                 }
             } catch (TemplateException e2) {
