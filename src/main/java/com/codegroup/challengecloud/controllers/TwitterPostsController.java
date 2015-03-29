@@ -30,31 +30,32 @@ public class TwitterPostsController {
     @Resource
     private UserService userService;
 
-//    @Resource
+    //    @Resource
     private Twitter twitter;
-    
+
     @Resource
     private TwitterDownloadService twitterDownloadService;
 
     @Inject
-    public TwitterPostsController (Twitter twitter) {
-    	this.twitter = twitter;
-    	log.info("TwitterPostsController created");
+    public TwitterPostsController(Twitter twitter) {
+        this.twitter = twitter;
+        log.info("TwitterPostsController created");
     }
-    
+
     @RequestMapping("/twitter-posts")
     public ModelAndView twitterPostsText() {
-    	Map <String,String> map = new HashMap();
-    	map.put("message", "Friends"); 
+        Map<String, String> map = new HashMap();
+        map.put("message", "Friends");
         return new ModelAndView("twitter-posts", map);
     }
 
     /**
      * If not params given - returns page with several fields and buttons.
-     * If specified id and get=='posts' - returns String with posts of that user, fileterd by hash, if given.
-     * If specified id and get=='friends' - returns String with friend of that user. 
-     * @param id TwitterUserID
-     * @param get What to get friends of posts
+     * If specified id and get=='posts' - returns String with posts of that user, fiteted by hash, if given.
+     * If specified id and get=='friends' - returns String with friend of that user.
+     *
+     * @param id   TwitterUserID
+     * @param get  What to get friends of posts
      * @param hash hashtag (optionally)
      * @return Page
      */
@@ -62,24 +63,24 @@ public class TwitterPostsController {
     public
     @ResponseBody
     String getTwitterPostsResults(
-    		@RequestParam(value = "id", required = false) String id,//user id
+            @RequestParam(value = "id", required = false) String id,//user id
             @RequestParam(value = "get", required = false) String get,// whether to get user friends or posts
             @RequestParam(value = "hash", required = false) String hash) {
         log.info("getTwitterPostsResults()");
         String code = "<p> Internal Error! </p>";
         if (id != null) {
-        	if (get.equals("friends")) {
-        		return "<p> First friend </p>";
-        	} else if (get.equals("posts")) {
+            if (get.equals("friends")) {
+                return "<p> First friend </p>";
+            } else if (get.equals("posts")) {
                 log.info("getTwitterPostsResults() search");
-        		SearchResults results = twitter.searchOperations().search("#spring");
+                SearchResults results = twitter.searchOperations().search("#" + hash);
                 log.info("getTwitterPostsResults() found");
-        		return results.getTweets().get(0).getText() + ":)";
-        	} else {
-        		return "Strange";
-        	}
+                return results.getTweets().get(0).getText() + ":)";
+            } else {
+                return "Strange";
+            }
         } else {
-        	return "Null";
+            return "Null";
         }
     }
 }

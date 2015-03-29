@@ -38,7 +38,7 @@ public class SubscriptionController {
 
 
     @Autowired
-    TwitterDownloadService twitterDownloadService;
+    TwitterPostsController twitterPostsController;
 
     @RequestMapping("/subscription")
     public ModelAndView subscriptionPostsText() {
@@ -52,12 +52,12 @@ public class SubscriptionController {
         postList = postService.findBySubscriptionId(subscriptionId);
     }
 
-    @RequestMapping(value = "/subscription-send", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/subscription-send", method = RequestMethod.GET)
     public
     @ResponseBody
     String sendAllPostsToPage(@RequestParam(value = "subscriptionId", required = false) String subscriptionId) {
         log.info("getAllSubscriptions() started");
-        /*Default value to report user about server problems*/
+        *//*Default value to report user about server problems*//*
         String templateResponse = "<p> Internal Error! </p>";
         Configuration configuration = new Configuration();
         configuration.setClassForTemplateLoading(SubscriptionController.class, "/");
@@ -87,5 +87,5 @@ public class SubscriptionController {
         }
         log.info("sendAllPostsToPage() returns [" + templateResponse + "].");
         return templateResponse;
-    }
+    }*/
 }
