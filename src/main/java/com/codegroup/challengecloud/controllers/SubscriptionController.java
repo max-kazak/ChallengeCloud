@@ -5,6 +5,7 @@ import com.codegroup.challengecloud.model.Subscription;
 import com.codegroup.challengecloud.services.PostService;
 import com.codegroup.challengecloud.services.SubscriptionService;
 import com.codegroup.challengecloud.services.TwitterDownloadService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.TweetData;
@@ -13,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.log4j.Logger;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -23,6 +25,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +61,7 @@ public class SubscriptionController {
         /*Default value to report user about server problems*/
         String templateResponse = "<p> Internal Error! </p>";
 
-        List<Tweet> tweets = twitterDownloadService.downloadPosts();
+        List<Tweet> tweets = new LinkedList<Tweet>();//twitterDownloadService.downloadPosts(); // by Vova on 29.03.2015
 
         Configuration configuration = new Configuration();
         configuration.setClassForTemplateLoading(SubscriptionController.class, "/");
