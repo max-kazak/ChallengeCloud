@@ -17,8 +17,7 @@
         var numToShow = 5;// how many subscriptions to request
         var numShown = 0;// Already recieved subscriptions
         var from;// Request "numToShow" (5) subscriptions starting from number "from" (1)
-        //max_num = ${total_num};// Number of subscriptions in database comes from jsp
-        max_num = 1;
+        max_num = ${total_num};// Number of subscriptions in database comes from jsp
         function appendChallenges() {
             if(numShown<max_num) {
                 if(numShown+numToShow>total_num) {
