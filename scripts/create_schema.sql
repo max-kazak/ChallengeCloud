@@ -98,8 +98,9 @@ CREATE TABLE `challenger`.`subscriptions` (
 );
 
 /*Creating table of posts. By Andrey */
+/*Remake by Yefim*/
 CREATE TABLE `challenger`.`posts` (
-  `POST_ID`         VARCHAR(16)  NOT NULL,
+  `POST_ID`         VARCHAR(50)  NOT NULL,
   `ORIGIN_ID`       VARCHAR(16)  NOT NULL,
   `SUBSCRIPTION_ID` VARCHAR(16)  NOT NULL,
   `DATE`            DATE    NOT NULL,

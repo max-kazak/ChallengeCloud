@@ -48,4 +48,10 @@ public class TwitterDownloadService {
         }
         return suitableTweets;
     }
+
+    private
+
+    public Set<Tweet> downloadTweetsForSubscriptionPage() {
+        return null;
+    }
 }
