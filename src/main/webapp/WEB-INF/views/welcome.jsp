@@ -13,8 +13,7 @@
 
 <body>
 <div class="main">
-    <c:url var="signin" value="/signinup" />
-    <c:url var="signup" value="/signin/twitter" />
+    <c:url var="signinup" value="/signinup" />
     <c:url var="home" value="/home" />
     <c:url var="welcome" value="/welcome" />
     <c:url var="about" value="#" />
@@ -33,12 +32,13 @@
                         <li><a href="${about}">About</a></li>
                         <li><a href="${ourteam}">Our Team</a></li>
                     </ul>
-                    <form:form name="signinupForm" action="${signin}" method="GET" cssClass="signinupForm pull-right">
+                    <%--<form:form name="signinupForm" action="${signin}" method="GET" cssClass="signinupForm pull-right">
                         <button class="btn btn-default btn-lg" type="submit">Sign In</button>
-                    </form:form>
-                    <form:form name="signinupForm" action="${signup}" method="POST" class="signinupForm pull-right">
-                        <button class="btn btn-default btn-lg" type="submit">Sign Up</button>
-                    </form:form>
+                    </form:form>--%>
+                    <ul class="pull-right">
+                        <li><a href="${signinup}">Sign In</a></li>
+                        <li><a href="${signinup}">Sign Up</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
