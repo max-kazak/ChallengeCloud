@@ -24,6 +24,9 @@ import java.util.Set;
 public class SubscriptionService {
     @Autowired
     SubscriptionDao subscriptionDao;
+
+    @Autowired
+    UserService userService;
     
     private static final Logger log = Logger.getLogger(SubscriptionService.class);
     
@@ -62,7 +65,6 @@ public class SubscriptionService {
      */
     @Transactional
     public List<Subscription> findForCurrentUser() {
-    	UserService userService = new UserService();
     	String userId = userService.getCurrentUser().getId();
     	log.debug("Got userId: "+userId+". About to get subscriptions");
     	return subscriptionDao.findByUserId(userId);

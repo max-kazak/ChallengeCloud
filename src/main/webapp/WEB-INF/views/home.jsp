@@ -20,12 +20,12 @@
         max_num = ${total_num};// Number of subscriptions in database comes from jsp
         function appendChallenges() {
             if(numShown<max_num) {
-                if(numShown+numToShow>total_num) {
-                    numToShow = total_num-numShown;
+                if(numShown+numToShow>max_num) {
+                    numToShow = max_num-numShown;
                 }
 
                 $.ajax({
-                    url: 'home-subscriptions.html?numToShow=' + numToShow.toString()+ '&numShown'+numShown.toString(),
+                    url: 'home-subscriptions.html?numToShow=' + numToShow.toString()+ '&numShown='+numShown.toString(),
                     success: function (data) {
                         $('#home-subscriptions').append(data);
                     }
