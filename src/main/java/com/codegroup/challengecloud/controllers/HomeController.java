@@ -43,9 +43,10 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
 		log.info("Getting a default home page");
-		Map <String,String> modelMap = new HashMap();
-		modelMap.put("total_num", Integer.toString(subscriptionService.findForCurrentUser().size()));
-        return new ModelAndView("home", modelMap);
+//		Map <String,String> modelMap = new HashMap();
+//		modelMap.put("total_num", Integer.toString(subscriptionService.findForCurrentUser().size()));
+//      return new ModelAndView("home", modelMap);
+		return new ModelAndView("home");
     }
 	
 	private void putSubscriptionIntoMap(Map<String, Object> input, Subscription subscription) {
