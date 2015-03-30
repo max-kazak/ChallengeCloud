@@ -26,13 +26,12 @@ public class PostService {
     }
 
     @Transactional
-    public Post createPost(Subscription subscription, Date date, String url, Origin origin) {
+    public Post createPost(Subscription subscription, Date date, Origin origin) {
         Post post = new Post();
 
         post.setId(Generator.generateId());
         post.setSubscription(subscription);
         post.setDate(date);
-        post.setUrl(url);
         post.setOrigin(origin);
 
         postDao.save(post);

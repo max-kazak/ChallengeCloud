@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 @Repository("postDao")
 public class PostDaoMySQL extends HibernateDao implements PostDao {
 
-    private static final Logger log = Logger.getLogger(UserDaoMySQL.class);
+    private static final Logger log = Logger.getLogger(PostDaoMySQL.class);
 
     @Override
     public void save(Post post) {

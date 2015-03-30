@@ -18,8 +18,8 @@ insert into challenger.subscriptions values ("12", "d6fbf948694caf35", "876aee6e
 /*By Yefim*/
 insert into challenger.usersettings values ("d6fbf948694caf35",   "English");
 insert into challenger.origins values ("twit_id", "Twitter");
-insert into challenger.posts values("1", "twit_id", "11", CURDATE(), "https://twitter.com/Yefim_ka/status/577231985401290754");
-insert into challenger.posts values("2", "twit_id", "11", CURDATE(), "https://twitter.com/Yefim_ka/status/577232167299858433");
+insert into challenger.posts values("577231985401290754", "twit_id", "11", CURDATE());
+insert into challenger.posts values("577232167299858433", "twit_id", "11", CURDATE());
 
 
 

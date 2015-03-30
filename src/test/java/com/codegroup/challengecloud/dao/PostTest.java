@@ -27,9 +27,8 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class PostTest {
-    private static final String FIRST_URL = "https://twitter.com/Yefim_ka/status/577231985401290754";
-    private static final String SECOND_URL = "https://twitter.com/Yefim_ka/status/577232167299858433";
-    private static final String POST_ID = "1";
+    private static final String POST_ID_FIRST = "577231985401290754";
+    private static final String POST_ID_SECOND = "577232167299858433";
     private static final String SUBSCRIPTION_ID = "11";
 
     @Autowired
@@ -39,9 +38,9 @@ public class PostTest {
 
     @Test
     public void testFindById() {
-        Assert.assertNotNull(postService.findById(POST_ID));
+        Assert.assertNotNull(postService.findById(POST_ID_FIRST));
         /*change by Yefim*/
-        Assert.assertEquals(postService.findById(POST_ID).getUrl(), FIRST_URL);
+        Assert.assertEquals(postService.findById(POST_ID_FIRST).getId(), POST_ID_FIRST);
     }
 
     /**
@@ -51,7 +50,7 @@ public class PostTest {
     public void testFindBySubscriptionId() {
         List<Post> postList = postService.findBySubscriptionId(SUBSCRIPTION_ID);
         Assert.assertNotNull(postList);
-        Assert.assertEquals(postList.get(0).getUrl(), FIRST_URL);
-        Assert.assertEquals(postList.get(1).getUrl(), SECOND_URL);
+        Assert.assertEquals(postList.get(0).getId(), POST_ID_FIRST);
+        Assert.assertEquals(postList.get(1).getId(), POST_ID_SECOND);
     }
 }
