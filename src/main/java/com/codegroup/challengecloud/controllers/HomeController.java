@@ -67,7 +67,7 @@ public class HomeController {
 	private void putSubscriptionIntoMap(Map<String, Object> input, Subscription subscription) {
 		String subscriptionName = subscription.getChallenge().getTitle();
 		String date = subscription.getDate().toString();
-		input.put("subscriptionName", "Subs " + subscriptionName);
+		input.put("subscriptionName", "Challenge - " + subscriptionName);
         input.put("date", date);
 	}
 	
@@ -76,7 +76,7 @@ public class HomeController {
     @ResponseBody
     String sendAllSubscriptionsToPage(@RequestParam(value = "numToShow", required = true) String numToShow,
     		@RequestParam(value = "numShown", required = true) String numShown) {
-		
+		log.info("Getting subscriptions for home page. numToShow="+numToShow+", numShown="+numShown);
 		log.debug("Getting list of subscriptions for current user");
 		List<Subscription> subscriptions = subscriptionService.findForCurrentUser();
 		
@@ -88,18 +88,20 @@ public class HomeController {
 
         Map<String, Object> input = new HashMap<>();
         int numToShowInt = Integer.parseInt(numToShow);
-        int numShownInt = Integer.parseInt(numToShow);
+        int numShownInt = Integer.parseInt(numShown);
 
         StringWriter stringWriter;
         
-        log.debug("Trying to get"+numToShow+"challenges for current user on home page");
+        log.debug("Trying to get numToShowInt="+numToShowInt+" challenges for current user on home page. Starting from"
+        		+ "numShownInt="+numShownInt);
         try {
             Template template = configuration.getTemplate(TEMPLATE_NAME);
             stringWriter = new StringWriter();
             try {
-                for (int i = numShownInt; (i < numShownInt + numToShowInt)&&(i <= subscriptions.size()); i++) {
+                for (int i = numShownInt; (i < numShownInt + numToShowInt)&&(i < subscriptions.size()); i++) {
+                	log.debug("Adding subscription No."+i+" to map");
                     input.clear();
-                    putSubscriptionIntoMap(input,subscriptions.get(i-1));
+                    putSubscriptionIntoMap(input,subscriptions.get(i));
                     template.process(input, stringWriter);
                 }
             } catch (TemplateException e2) {
