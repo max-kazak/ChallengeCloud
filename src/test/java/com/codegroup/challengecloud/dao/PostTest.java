@@ -29,7 +29,7 @@ import java.util.List;
 public class PostTest {
     private static final String POST_ID_FIRST = "577231985401290754";
     private static final String POST_ID_SECOND = "577232167299858433";
-    private static final String SUBSCRIPTION_ID = "11";
+    private static final String SUBSCRIPTION_ID_FIRST = "13";
 
     @Autowired
     public SessionFactory sessionFactory;
@@ -48,9 +48,8 @@ public class PostTest {
      */
     @Test
     public void testFindBySubscriptionId() {
-        List<Post> postList = postService.findBySubscriptionId(SUBSCRIPTION_ID);
+        List<Post> postList = postService.findBySubscriptionId(SUBSCRIPTION_ID_FIRST);
         Assert.assertNotNull(postList);
         Assert.assertEquals(postList.get(0).getId(), POST_ID_FIRST);
-        Assert.assertEquals(postList.get(1).getId(), POST_ID_SECOND);
     }
 }
