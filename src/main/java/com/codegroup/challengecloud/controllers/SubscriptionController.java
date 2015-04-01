@@ -48,7 +48,7 @@ public class SubscriptionController {
     public
     @ResponseBody
     String sendAllPostsToPage(@RequestParam(value = "subscriptionId", required = false) String subscriptionId) {
-        log.info("getAllSubscriptions() started");
+        log.info("sendAllPostsToPage() started");
         /*Default value to report user about server problems*/
         String templateResponse = "<p> Internal Error! </p>";
 
@@ -66,6 +66,10 @@ public class SubscriptionController {
             Template template = configuration.getTemplate(TEMPLATE_NAME);
             for(Iterator<Tweet> iterator = tweets.iterator(); iterator.hasNext();) {
                 Tweet nextTweet = iterator.next();
+                if(nextTweet.hasMedia()) {
+                    input.put("postImage", nextTweet.getEntities().getMedia().get(0));
+                    log.debug("Tweet media to add " + nextTweet.getEntities().getMedia().get(0));
+                }
                 input.put("postText", nextTweet.getText());
                 input.put("postDate", nextTweet.getCreatedAt().toString());
                 template.process(input, stringWriter);

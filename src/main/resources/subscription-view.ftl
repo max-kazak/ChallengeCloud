@@ -3,7 +3,7 @@
 <!-- first challenge -->
 <div class="row challenge">
     <div class="challenge-img">
-        <img src="./resources/img/ch1.PNG"
+        <img src=${postImage}
              alt="Image">
     </div>
     <!-- Challenge Info -->
