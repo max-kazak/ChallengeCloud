@@ -1,6 +1,7 @@
 package com.codegroup.challengecloud.dao;
 
 import com.codegroup.challengecloud.model.Post;
+import com.codegroup.challengecloud.model.Subscription;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface PostDao {
     public void delete(Post post);
 
     public Post findById(String id);
-    public List<Post> findPostsByUserSubscriptions() ;
+    public List<Post> findPostsByUserSubscriptions(List<Subscription> userSubscriptions)  ;
 }

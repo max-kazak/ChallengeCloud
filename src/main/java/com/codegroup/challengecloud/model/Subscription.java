@@ -82,7 +82,7 @@ public class Subscription implements Serializable{
      * Some corrections in 'mappedBy' attribute (see comment above User.getSubscriptions())
      * @author Nipel-Crumple
      */
-    @OneToMany(mappedBy = "subscription", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "subscription", cascade = CascadeType.ALL)
     public Set<Post> getPosts() {
         return posts;
     }

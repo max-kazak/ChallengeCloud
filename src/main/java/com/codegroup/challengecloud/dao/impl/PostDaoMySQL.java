@@ -25,13 +25,6 @@ import javax.annotation.Resource;
 @Repository("postDao")
 public class PostDaoMySQL extends HibernateDao implements PostDao {
 
-    @Autowired
-    public SessionFactory sessionFactory;
-    @Resource
-    private UserService userService;
-    @Resource
-    private SubscriptionService subscriptionService;
-
     private static final Logger log = Logger.getLogger(PostDaoMySQL.class);
 
     @Override
@@ -63,10 +56,9 @@ public class PostDaoMySQL extends HibernateDao implements PostDao {
      * @author Yefim
      */
     @Override
-    public List<Post> findPostsByUserSubscriptions() {
-        log.debug("Find all posts for user with id= " + userService.getCurrentUser().getId());
+    public List<Post> findPostsByUserSubscriptions(List<Subscription> userSubscriptions) {
+        log.debug("Find all posts fo user");
         List<String> parameters = new ArrayList<>();
-        List<Subscription> userSubscriptions = subscriptionService.findByUserId(userService.getCurrentUser().getId());
         log.debug("Find subs? " + !userSubscriptions.isEmpty());
         if (!userSubscriptions.isEmpty()) {
             for (Subscription tempSubscription : userSubscriptions) {

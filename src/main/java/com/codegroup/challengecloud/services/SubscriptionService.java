@@ -27,9 +27,9 @@ public class SubscriptionService {
 
     @Autowired
     UserService userService;
-    
+
     private static final Logger log = Logger.getLogger(SubscriptionService.class);
-    
+
     public void setSubscriptionDao(SubscriptionDao subscriptionDao) {
         this.subscriptionDao = subscriptionDao;
     }
@@ -53,20 +53,20 @@ public class SubscriptionService {
     public Subscription findById(String subscriptionId) {
         return subscriptionDao.findById(subscriptionId);
     }
-    
+
     @Transactional
     public List<Subscription> findByUserId(String userId) {
         return subscriptionDao.findByUserId(userId);
     }
-    
+
     /**
      * @return List of subscriptions of the user, that is currently logged in
      * @author Created by Andrey on 29.03 2015
      */
     @Transactional
     public List<Subscription> findForCurrentUser() {
-    	String userId = userService.getCurrentUser().getId();
-    	log.debug("Got userId: "+userId+". About to get subscriptions");
-    	return subscriptionDao.findByUserId(userId);
+        String userId = userService.getCurrentUser().getId();
+        log.debug("Got userId: " + userId + ". About to get subscriptions");
+        return subscriptionDao.findByUserId(userId);
     }
 }

@@ -21,13 +21,10 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
 import freemarker.template.Version;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -35,12 +32,11 @@ import java.util.Map;
  */
 @Controller
 public class SubscriptionController {
-    private static final Logger log = Logger.getLogger(Subscription.class);
+    private static final Logger log = Logger.getLogger(SubscriptionController.class);
     private static final String TEMPLATE_NAME = "subscription-view.ftl";
     private List<Post> postList;
 
-
-    @Autowired
+    @Resource
     TwitterDownloadService twitterDownloadService;
 
     @RequestMapping("/subscription")
@@ -56,7 +52,7 @@ public class SubscriptionController {
         /*Default value to report user about server problems*/
         String templateResponse = "<p> Internal Error! </p>";
 
-        List<Tweet> tweets = new LinkedList<Tweet>();//twitterDownloadService.downloadPosts(); // by Vova on 29.03.2015
+        Set<Tweet> tweets = twitterDownloadService.downloadTweetsForSubscriptionPage();
 
         Configuration configuration = new Configuration();
         configuration.setClassForTemplateLoading(SubscriptionController.class, "/");
@@ -65,8 +61,31 @@ public class SubscriptionController {
         int numi = Integer.parseInt(subscriptionId);
 
 
-        StringWriter stringWriter;
+        StringWriter stringWriter = new StringWriter();
         try {
+            Template template = configuration.getTemplate(TEMPLATE_NAME);
+            for(Iterator<Tweet> iterator = tweets.iterator(); iterator.hasNext();) {
+                Tweet nextTweet = iterator.next();
+                input.put("subscriptionName", nextTweet.getUser().getDescription());
+                input.put("subscriptionDescription", nextTweet.getText());
+                template.process(input, stringWriter);
+            }
+        } catch (IOException e) {
+            log.error("Can't create a template");
+        } catch (TemplateException e) {
+            log.error("Can't create a template");
+        } finally {
+            try {
+                stringWriter.close();
+            } catch (IOException e) {
+                log.debug("can't close stringWriter");
+            }
+            templateResponse = stringWriter.toString();
+        }
+
+
+
+       /* try {
             Template template = configuration.getTemplate(TEMPLATE_NAME);
             stringWriter = new StringWriter();
             try {
@@ -84,7 +103,7 @@ public class SubscriptionController {
             }
         } catch (IOException e) {
             log.error("Can't load template.");
-        }
+        }*/
         log.info("sendAllPostsToPage() returns [" + templateResponse + "].");
         return templateResponse;
     }
