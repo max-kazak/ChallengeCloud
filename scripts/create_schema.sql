@@ -29,7 +29,7 @@ CREATE TABLE `challenger`.`users` (
   `ROLES`   INT(3)      NOT NULL,
   PRIMARY KEY (`USER_ID`) USING BTREE,
   UNIQUE KEY `UNI_USER_EMAIL` (`EMAIL`) USING BTREE,
-  UNIQUE KEY `UNI_USER_LOGIN` (`NAME`) USING BTREE
+  UNIQUE KEY `UNI_USER_LOGIN` (`LOGIN`) USING BTREE
 );
 
 CREATE TABLE `challenger`.`usersettings` (
@@ -98,13 +98,13 @@ CREATE TABLE `challenger`.`subscriptions` (
 );
 
 /*Creating table of posts. By Andrey */
+/*Remake by Yefim*/
 CREATE TABLE `challenger`.`posts` (
-  `POST_ID`         VARCHAR(16)  NOT NULL,
+  `POST_ID`         VARCHAR(50)  NOT NULL,
   `ORIGIN_ID`       VARCHAR(16)  NOT NULL,
   `SUBSCRIPTION_ID` VARCHAR(16)  NOT NULL,
   `DATE`            DATE    NOT NULL,
-  `POST_URL`        VARCHAR(512) NOT NULL,
-  PRIMARY KEY (`POST_ID`) USING BTREE,
+  PRIMARY KEY (`POST_ID`, `ORIGIN_ID`) USING BTREE,
   FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins (`ORIGIN_ID`),
   FOREIGN KEY (`SUBSCRIPTION_ID`) REFERENCES challenger.subscriptions (`SUBSCRIPTION_ID`)
 );

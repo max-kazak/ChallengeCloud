@@ -12,7 +12,7 @@
 					<p>${subscriptionName}</p>
 				</div>
 				<div style="float: right;">
-					<p>1 jan, 2015</p>
+					<p>${date}</p>
 				</div>
 			</div>
 			<br /> <br />
@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div style="float: left;">
-				<p class="pull-left">${completion}/20 posts</p>
+				<p class="pull-left">8/20 posts</p>
 			</div>
 			<div style="float: right;">
 				<a href="#" class="btn btn-primary pull-right" role="button">Details</a>

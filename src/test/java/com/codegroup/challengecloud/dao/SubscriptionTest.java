@@ -31,4 +31,12 @@ public class SubscriptionTest{
         Assert.assertNotNull(subscriptionService.findById("11"));
         System.out.println(subscriptionService.findById("11").getDate());
     }
+    /**
+     * @author Andrey
+     */
+    @Test
+    public void testFindByUserId() {
+        Assert.assertTrue(subscriptionService.findByUserId("d6fbf948694caf35").size() > 0);
+        System.out.println("Found " + subscriptionService.findByUserId("d6fbf948694caf35").size()+"subscriptions");
+    }
 }

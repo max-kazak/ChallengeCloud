@@ -120,3 +120,23 @@ body {
 .submitForm button:hover {
 	color: #23527c;
 }
+
+.logoutForm {
+	margin: 3px 0;
+}
+
+.logoutForm button,
+.logoutForm button:focus{
+	background: inherit;
+	border: none;
+	outline: none;
+}
+.signinupForm button,
+.signinupForm button:focus{
+	background: inherit;
+	border: none;
+	outline: none;
+}
+.signinupForm {
+	margin: 3px 0;
+}

@@ -49,45 +49,4 @@ public class TwitterPostsController {
         return new ModelAndView("twitter-posts", map);
     }
 
-    /**
-     * If not params given - returns page with several fields and buttons.
-     * If specified id and get=='posts' - returns String with posts of that user, fileterd by hash, if given.
-     * If specified id and get=='friends' - returns String with friend of that user. 
-     * @param id TwitterUserID
-     * @param get What to get friends of posts
-     * @param hash hashtag (optionally)
-     * @return Page
-     */
-    @RequestMapping(value = "/twitter", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    String getTwitterPostsResults(
-    		@RequestParam(value = "id", required = false) String id,//user id
-            @RequestParam(value = "get", required = false) String get,// whether to get user friends of=r posts
-            @RequestParam(value = "hash", required = false) String hash) {
-        log.info("getTwitterPostsResults()");
-        String code = "<p> Internal Error! </p>";
-        if (id != null) {
-        	if (get.equals("friends")) {
-        		return "<p> First friend </p>";
-        	} else if (get.equals("posts")) {
-        		//SearchResults searchResuts = twitterDownloadService.downloadPosts();
-        		//return ":-)";
-                log.info("getTwitterPostsResults() search");
-        		SearchResults results = twitter.searchOperations().search("#spring");
-                log.info("getTwitterPostsResults() found");
-        		return results.getTweets().get(0).getText() + ":)";
-        		/*if (hash != null) {
-        			return "22";
-        		} else {
-        			return "12";
-        		}*/
-        	} else {
-        		return "Strange";
-        	}
-        	
-        } else {
-        	return "Null";
-        }
-    }
 }
