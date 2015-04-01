@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <!--Created by Yefim on 02.03.2015-->
 <head>
@@ -57,9 +58,9 @@
                         <li><a href="${about}">About</a></li>
                         <li><a href="${ourteam}">Our Team</a></li>
                     </ul>
-                    <ul class="pull-right">
-                        <li><a href="${logoutUrl}">Log out</a></li>
-                    </ul>
+                    <form:form name="logoutForm" action="${logoutUrl}" method="POST" cssClass="logoutForm pull-right">
+                        <button class="btn btn-default btn-lg" type="submit"> Log out</button>
+                    </form:form>
                 </div>
             </div>
         </div>

@@ -7,8 +7,10 @@ import com.codegroup.challengecloud.model.Subscription;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
@@ -23,6 +25,11 @@ public class SubscriptionService {
     @Autowired
     SubscriptionDao subscriptionDao;
 
+    @Autowired
+    UserService userService;
+    
+    private static final Logger log = Logger.getLogger(SubscriptionService.class);
+    
     public void setSubscriptionDao(SubscriptionDao subscriptionDao) {
         this.subscriptionDao = subscriptionDao;
     }
@@ -58,8 +65,8 @@ public class SubscriptionService {
      */
     @Transactional
     public List<Subscription> findForCurrentUser() {
-    	UserService userService = new UserService();
-    	String curUserId = userService.getCurrentUser().getId();
-    	return findByUserId(curUserId);
+    	String userId = userService.getCurrentUser().getId();
+    	log.debug("Got userId: "+userId+". About to get subscriptions");
+    	return subscriptionDao.findByUserId(userId);
     }
 }

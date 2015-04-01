@@ -34,8 +34,7 @@ public class TwitterController {
      * If specified id and get=='posts' - returns String with posts of that user, fileterd by hash, if given.
      * If specified id and get=='friends' - returns String with friend of that user. 
      * @param id TwitterUserID
-     * @param get What to get friends of posts
-     * @param hash hashtag (optionally)
+     * @param hash hash tag (optionally)
      * @return Page
      */
     @RequestMapping(value = "/twitter", method = RequestMethod.GET)

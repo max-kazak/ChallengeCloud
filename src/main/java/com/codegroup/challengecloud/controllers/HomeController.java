@@ -28,6 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 /**
  * Created by Andrey on 19.03.2015.
  */
@@ -36,22 +38,36 @@ public class HomeController {
 	
 	private static final Logger log = Logger.getLogger(HomeController.class);
 	private static final String TEMPLATE_NAME = "challenge-progress.ftl";
-	private List<Subscription> subscriptionList;
+	
+	@Resource
 	private SubscriptionService subscriptionService;
-
+	
+	private List<Subscription> subscriptions;
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
 		log.info("Getting a default home page");
-		Map <String,String> modelMap = new HashMap();
-		modelMap.put("total_num", Integer.toString(subscriptionService.findForCurrentUser().size()));
-        return new ModelAndView("home", modelMap);
+		Map <String,String> modelMap = new HashMap<String, String>();
+		String total_num;
+		try {
+			log.debug("Trying to get number of subscriptions");
+			subscriptions = subscriptionService.findForCurrentUser();
+			total_num = Integer.toString(subscriptions.size());
+			log.debug("Success! Got:"+total_num+" subscriptions");
+		} catch(NullPointerException e) {
+			log.error("Couldn't get any subscriptions", e);
+			total_num = Integer.toString(0);
+		}
+		modelMap.put("total_num", total_num);
+		log.debug("Number of subscriptions is set to: "+total_num);
+		
+		return new ModelAndView("home", modelMap);
     }
 	
 	private void putSubscriptionIntoMap(Map<String, Object> input, Subscription subscription) {
 		String subscriptionName = subscription.getChallenge().getTitle();
 		String date = subscription.getDate().toString();
-		input.put("subscriptionName", "Subs " + subscriptionName);
+		input.put("subscriptionName", "Challenge - " + subscriptionName);
         input.put("date", date);
 	}
 	
@@ -60,8 +76,8 @@ public class HomeController {
     @ResponseBody
     String sendAllSubscriptionsToPage(@RequestParam(value = "numToShow", required = true) String numToShow,
     		@RequestParam(value = "numShown", required = true) String numShown) {
-		
-		log.info("Getting list of subscriptions for current user");
+		log.info("Getting subscriptions for home page. numToShow="+numToShow+", numShown="+numShown);
+		log.debug("Getting list of subscriptions for current user");
 		List<Subscription> subscriptions = subscriptionService.findForCurrentUser();
 		
         /*Default value to report user about server problems*/
@@ -72,16 +88,18 @@ public class HomeController {
 
         Map<String, Object> input = new HashMap<>();
         int numToShowInt = Integer.parseInt(numToShow);
-        int numShownInt = Integer.parseInt(numToShow);
+        int numShownInt = Integer.parseInt(numShown);
 
         StringWriter stringWriter;
         
-        log.info("Trying to get"+numToShow+"challenges for current user on home page");
+        log.debug("Trying to get numToShowInt="+numToShowInt+" challenges for current user on home page. Starting from"
+        		+ "numShownInt="+numShownInt);
         try {
             Template template = configuration.getTemplate(TEMPLATE_NAME);
             stringWriter = new StringWriter();
             try {
                 for (int i = numShownInt; (i < numShownInt + numToShowInt)&&(i < subscriptions.size()); i++) {
+                	log.debug("Adding subscription No."+i+" to map");
                     input.clear();
                     putSubscriptionIntoMap(input,subscriptions.get(i));
                     template.process(input, stringWriter);

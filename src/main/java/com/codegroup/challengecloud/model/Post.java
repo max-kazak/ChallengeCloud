@@ -11,14 +11,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "posts",
         schema = "challenger",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "POST_ID")})
+        uniqueConstraints =
+                @UniqueConstraint(columnNames = {"POST_ID", "ORIGIN_ID"}))
 public class Post {
 
     String id;
     Subscription subscription;
     Date date;
-    String url;
     Origin origin;
 
     public Post() {
@@ -51,15 +50,6 @@ public class Post {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    @Column(name = "POST_URL", unique = true, nullable = false)
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
 //  TODO

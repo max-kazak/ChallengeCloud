@@ -89,13 +89,15 @@ public class UserService {
     public User findById(String id) {
         return userDao.findById(id);
     }
-
+    
+    @Transactional
     public User getCurrentUser() {
+    	log.debug("Trying to get current user id");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         /*Spring User has our User Id as Name (see in  ChallengerUserDetailsService.buildUserForAuthentication) */
         String id = authentication.getName();
         log.debug("returning current user " + id);
-        return findById(id);
+        return userDao.findById(id);
     }
 
     private void encodePassword(User user) {
