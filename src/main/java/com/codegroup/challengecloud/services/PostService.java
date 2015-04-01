@@ -45,7 +45,7 @@ public class PostService {
     }
 
     @Transactional
-    public List<Post> findBySubscriptionId(String subscriptionId) {
-        return postDao.findBySubscriptionId(subscriptionId);
+    public List<Post> findPostsByUserSubscriptions() {
+        return postDao.findPostsByUserSubscriptions();
     }
 }

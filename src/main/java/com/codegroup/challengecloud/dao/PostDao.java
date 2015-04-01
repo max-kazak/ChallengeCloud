@@ -15,5 +15,5 @@ public interface PostDao {
     public void delete(Post post);
 
     public Post findById(String id);
-    public List<Post> findBySubscriptionId(String subscriptionId);
+    public List<Post> findPostsByUserSubscriptions() ;
 }

@@ -48,7 +48,10 @@ public class TwitterDownloadService {
         }
         return suitableTweets;
     }
-
+/**
+ * @author Yefim Krokhin on 31.03.2015
+ * @return Set of IDs to download post from origin
+ */
 /*    private
 
     public Set<Tweet> downloadTweetsForSubscriptionPage() {

@@ -48,11 +48,6 @@ public class SubscriptionController {
         return new ModelAndView("subscription", "message", "Subscriptions");
     }
 
-    private void getAllPostsFromDB(String subscriptionId) {
-        PostService postService = new PostService();
-        postList = postService.findBySubscriptionId(subscriptionId);
-    }
-
     @RequestMapping(value = "/subscription-send", method = RequestMethod.GET)
     public
     @ResponseBody
