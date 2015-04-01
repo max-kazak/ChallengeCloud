@@ -1,9 +1,12 @@
 package com.codegroup.challengecloud.dao.impl;
 
 import com.codegroup.challengecloud.dao.ImageDao;
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.Image;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -38,5 +41,16 @@ public class ImageDaoMySQL extends HibernateDao implements ImageDao {
         log.debug("Looking for image with id=" + imageId);
         List list = find("from Image where IMAGE_ID = ?", imageId);
         return (Image) list.get(0);
+    }
+
+    /**
+     * Added on 01.04.2015 by Vladimir Zhdanov
+     * @return List of all images
+     */
+    @Override
+    public List<Image> findAll() {
+        log.debug("Looking for all images");
+        List list = find("from Image");
+        return (List<Image>) list;
     }
 }

@@ -3,14 +3,15 @@
 <!-- first challenge -->
 <div class="row challenge">
   <div class="challenge-img">
-    <img src="./resources/img/ch1.PNG"
+  <!-- c:url doesn't work!!! -->
+    <img src="./images/${imageId}.png"
 	 alt="Image For Challenge">
       </div>
       <!-- Challenge Info -->
       <div class="challenge-info">
 	<div>
 	  <div style="float: left;">
-	    <p> ${challengeName} </p>
+	    <p> ${imageName} </p>
 	  </div>
 	  <div style="float: right;">
 	    <p>1 jan, 2015</p>
@@ -19,7 +20,7 @@
 	<br /> <br />
 	<div>
 	  <div>
-	    <p> ${challengeDescription} </p>
+	    <p> challengeDescription </p>
 	  </div>
 	</div>
 	<div style="float: right;">
