@@ -66,8 +66,8 @@ public class SubscriptionController {
             Template template = configuration.getTemplate(TEMPLATE_NAME);
             for(Iterator<Tweet> iterator = tweets.iterator(); iterator.hasNext();) {
                 Tweet nextTweet = iterator.next();
-                input.put("subscriptionName", nextTweet.getUser().getDescription());
-                input.put("subscriptionDescription", nextTweet.getText());
+                input.put("postText", nextTweet.getText());
+                input.put("postDate", nextTweet.getCreatedAt().toString());
                 template.process(input, stringWriter);
             }
         } catch (IOException e) {
