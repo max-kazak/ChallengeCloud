@@ -22,18 +22,31 @@ public class ConnectionSignUpAdapter implements ConnectionSignUp{
 	public String execute(Connection<?> connection) {
 		
 		UserProfile userProfile = connection.fetchUserProfile();
-		
 		if(userProfile == null) {
 			log.error("can't fetch user profile from connection");
 			return null;
 		}
+
+		//TODO::here it is absence of email merging profiles
+		User userExistsLogin = userService.findByLogin(userProfile.getUsername());
+		User newUser;
+		if (userExistsLogin == null) {
+			log.debug("UserProfile email: " + userProfile.getEmail());
+			newUser = userService.createProfile(userProfile.getUsername(),
+					userProfile.getEmail(),
+					null,
+					userProfile.getName());
+			log.debug("from SignUpAdapter: created user from Provider: " +
+					connection.getApi().toString() +
+					" with email = " + newUser.getEmail());
+		} else {
+			log.debug("from SignUpAdapter: user already exists, try to unite profiles, id = " +
+					userExistsLogin.getId() +
+					"provider: " + connection.getApi().toString());
+			return userExistsLogin.getId();
+		}
 		
-		User user = userService.createProfile(	userProfile.getUsername(), 
-									userProfile.getEmail(), 
-									null, 
-									userProfile.getName());		
-		
-		return user.getId();
+		return newUser.getId();
 	}
 
 }

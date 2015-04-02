@@ -48,13 +48,16 @@ public class UserService {
         User user = new User();
         user.setId(Generator.generateId());
         user.setLogin(login);
-        user.setPassword(password);
+        if (password == null) {
+            user.setPassword(password);
+        } else {
+            user.setPassword(Generator.generateHashedPass(password));
+        }
         user.setEmail(email);
         user.setName(name);
         user.setRole(UserRoles.ROLE_USER_ID);
 
         userDao.save(user);
-
         return user;
     }
 
@@ -80,7 +83,7 @@ public class UserService {
         return userDao.findByEmail(email);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
     public User findByLogin(String login) {
         return userDao.findByLogin(login);
     }
@@ -104,4 +107,5 @@ public class UserService {
         String passwordToEncode = user.getPassword();
         user.setPassword(Generator.generateHashedPass(passwordToEncode));
     }
+
 }
