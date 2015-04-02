@@ -73,18 +73,14 @@ public class TwitterDownloadService {
                 return o1.getCreatedAt().compareTo(o2.getCreatedAt());
             }
         });
-        if (postsFromSubscription != null) {
-            for (Post tempPost : postsFromSubscription) {
+        for (Post tempPost : postsFromSubscription) {
                 /*TODO if will be more providers, add there here*/
-                if (tempPost.getOrigin().getId().equals(TWITTER_ORIGIN_ID)) {
+            if (tempPost.getOrigin().getId().equals(TWITTER_ORIGIN_ID)) {
 
-                    log.debug("Origin name and id are " + tempPost.getOrigin().getName() + " " + tempPost.getOrigin().getId());
-                    tweetsFromSubscription.add(twitter.timelineOperations().getStatus(Long.parseLong(tempPost.getId())));
-                }
+                log.debug("Origin name and id are " + tempPost.getOrigin().getName() + " " + tempPost.getOrigin().getId());
+                tweetsFromSubscription.add(twitter.timelineOperations().getStatus(Long.parseLong(tempPost.getId())));
             }
-            return tweetsFromSubscription;
-        } else {
-            return null;
         }
+        return tweetsFromSubscription;
     }
 }
