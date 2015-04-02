@@ -21,6 +21,7 @@ import java.util.*;
 public class TwitterDownloadService {
     private static final Logger log = Logger.getLogger(TwitterDownloadService.class);
     private static final int AMOUNT_OF_POSTS = 255;
+    private static final String TWITTER_ORIGIN_ID = "twit_id";
     private Twitter twitter;
     private ConnectionRepository connectionRepository;
 
@@ -64,7 +65,6 @@ public class TwitterDownloadService {
      */
 
     public Set<Tweet> downloadTweetsForSubscriptionPage(String subscriptionId) {
-//        TODO send here correct subscription id
         Subscription subscription = subscriptionService.findById(subscriptionId);
         Set<Post> postsFromSubscription = subscription.getPosts();
         Set<Tweet> tweetsFromSubscription = new TreeSet<>(new Comparator<Tweet>() {
@@ -75,8 +75,12 @@ public class TwitterDownloadService {
         });
         if (postsFromSubscription != null) {
             for (Post tempPost : postsFromSubscription) {
-                log.debug("ID IS " + Long.parseLong(tempPost.getId()));
-                tweetsFromSubscription.add(twitter.timelineOperations().getStatus(Long.parseLong(tempPost.getId())));
+                /*TODO if will be more providers, add there here*/
+                if (tempPost.getOrigin().getId().equals(TWITTER_ORIGIN_ID)) {
+
+                    log.debug("Origin name and id are " + tempPost.getOrigin().getName() + " " + tempPost.getOrigin().getId());
+                    tweetsFromSubscription.add(twitter.timelineOperations().getStatus(Long.parseLong(tempPost.getId())));
+                }
             }
             return tweetsFromSubscription;
         } else {
