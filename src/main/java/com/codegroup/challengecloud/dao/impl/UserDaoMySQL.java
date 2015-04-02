@@ -45,7 +45,11 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
     public User findByLogin(String login) {
     	log.debug("looking for user by login = " + login);
         List list = find("from User where login = ?", login);
-        return (User) list.get(0);
+        if (list.size() > 0) {
+            return (User) list.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Override

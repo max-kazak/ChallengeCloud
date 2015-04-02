@@ -43,6 +43,7 @@ public class UserTest {
 
     @Test
     public void testFindByEmail() {
+        Assert.assertNull(userService.findByEmail(null));
         Assert.assertNotNull(userService.findByEmail(EMAIL));
         Assert.assertEquals(userService.findByEmail(EMAIL).getEmail(), EMAIL);
     }

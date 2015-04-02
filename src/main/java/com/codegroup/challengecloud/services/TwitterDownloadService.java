@@ -49,7 +49,7 @@ public class TwitterDownloadService {
         return suitableTweets;
     }
 
-    private
+//    private
 
     public Set<Tweet> downloadTweetsForSubscriptionPage() {
         return null;
