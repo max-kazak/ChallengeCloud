@@ -1,13 +1,21 @@
 package com.codegroup.challengecloud.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.codegroup.challengecloud.dao.PostDao;
 import com.codegroup.challengecloud.model.Post;
+import com.codegroup.challengecloud.model.Subscription;
 import com.codegroup.challengecloud.model.User;
 
+import com.codegroup.challengecloud.services.SubscriptionService;
+import com.codegroup.challengecloud.services.UserService;
 import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import javax.annotation.Resource;
 
 /**
  * Created on 24.02.2015.
@@ -48,9 +56,17 @@ public class PostDaoMySQL extends HibernateDao implements PostDao {
      * @author Yefim
      */
     @Override
-    public List<Post> findBySubscriptionId(String subscriptionId) {
-        log.debug("Find all posts with subscription id " + subscriptionId);
-        List<Post> list = (List<Post>) (List<?>) find("from Post where subscription_id = ?", subscriptionId);
-        return list;
+    public List<Post> findPostsByUserSubscriptions(List<Subscription> userSubscriptions) {
+        log.debug("Find all posts fo user");
+        List<String> parameters = new ArrayList<>();
+        log.debug("Find subs? " + !userSubscriptions.isEmpty());
+        if (!userSubscriptions.isEmpty()) {
+            for (Subscription tempSubscription : userSubscriptions) {
+                parameters.add(tempSubscription.getId());
+            }
+
+            return (List<Post>) (List<?>) find("from Post where subscription_id in (:param)", parameters);
+        }
+        return null;
     }
 }

@@ -78,15 +78,6 @@
         <div class="col-md-10 text-left left-block">
             <h2> Posts </h2>
 
-            <%-- <ul class="pull-left">
-                 <li>
-                     <div id="subscription-send">
-                     </div>
-
-                 </li>
-             </ul>--%>
-        </div>
-
         <div class="col-md-2 text-left right-block">
             <h2> Options </h2>
 

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.sql.Date;
 import java.util.List;
 
@@ -20,6 +21,11 @@ import java.util.List;
 public class PostService {
     @Autowired
     PostDao postDao;
+
+    @Resource
+    private UserService userService;
+    @Resource
+    private SubscriptionService subscriptionService;
 
     public void setSubscriptionDao(PostDao postDao) {
         this.postDao = postDao;
@@ -45,7 +51,11 @@ public class PostService {
     }
 
     @Transactional
-    public List<Post> findBySubscriptionId(String subscriptionId) {
-        return postDao.findBySubscriptionId(subscriptionId);
+    public List<Post> findPostsByUserSubscriptions() {
+        return postDao.findPostsByUserSubscriptions(getUserSubscriptions());
+    }
+
+    private List<Subscription> getUserSubscriptions() {
+        return subscriptionService.findByUserId(userService.getCurrentUser().getId());
     }
 }
