@@ -32,6 +32,9 @@
     <div>
         <a href="testpage_postcomment">Press me to post a comment</a>
     </div>
+        <div>
+        <a href="testpage_getcomment">Press me to get a tweet</a>
+    </div>
 </div>
 </body>
 </html>

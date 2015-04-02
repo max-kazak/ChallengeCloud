@@ -50,8 +50,8 @@ public class SocialConfig implements SocialConfigurer{
 	@Override
 	public void addConnectionFactories(	ConnectionFactoryConfigurer cfConfig, Environment environment) {
 		cfConfig.addConnectionFactory(new TwitterConnectionFactory(
-				environment.getProperty("twitter.appKey"),
-		        environment.getProperty("twitter.appSecret")));		
+				environment.getProperty("twitter.consumerKey"),
+				environment.getProperty("twitter.consumerSecret")));		
 	}
 
 	@Override

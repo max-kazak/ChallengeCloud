@@ -26,13 +26,40 @@ public class TwitterTestController {
     public
     @ResponseBody
     ModelAndView testpage() {
+    	log.debug("Test controller has been found");
     	return new ModelAndView("testpage");
     }
     
     @RequestMapping(value = "/testpage_postcomment", method = RequestMethod.GET)
     public
     @ResponseBody
-    void postComment() {
-    	twitterCommentService.postComment(582855924873883648L, "Posting testing");
+    String postComment() {
+    	log.debug("Trying to call posting method");
+    	String res;
+	    try{
+    		twitterCommentService.postComment(582859494604050432L, "Testing posting");
+	    	res = "Succesfully posted";
+	    	log.debug("Success!");
+	    } catch(Exception e) {
+	    	res = "Error";
+	    	log.debug("No success...",e);
+	    }
+    	return res;
+    }
+    
+    @RequestMapping(value = "/testpage_getcomment", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String getTweet() {
+    	log.debug("Trying to call getting method");
+    	String res;
+	    try{
+    		res = twitterCommentService.getTweet(582859494604050432L).getText();
+	    	log.debug("Success!");
+	    } catch(Exception e) {
+	    	res = "Error";
+	    	log.debug("No success...",e);
+	    }
+    	return res;
     }
 }
