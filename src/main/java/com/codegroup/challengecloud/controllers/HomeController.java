@@ -35,51 +35,54 @@ import javax.annotation.Resource;
  */
 @Controller
 public class HomeController {
-	
-	private static final Logger log = Logger.getLogger(HomeController.class);
-	private static final String TEMPLATE_NAME = "challenge-progress.ftl";
-	
-	@Resource
-	private SubscriptionService subscriptionService;
-	
-	private List<Subscription> subscriptions;
-	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+
+    private static final Logger log = Logger.getLogger(HomeController.class);
+    private static final String TEMPLATE_NAME = "challenge-progress.ftl";
+
+    @Resource
+    private SubscriptionService subscriptionService;
+
+    private List<Subscription> subscriptions;
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
-		log.info("Getting a default home page");
-		Map <String,String> modelMap = new HashMap<String, String>();
-		String total_num;
-		try {
-			log.debug("Trying to get number of subscriptions");
-			subscriptions = subscriptionService.findForCurrentUser();
-			total_num = Integer.toString(subscriptions.size());
-			log.debug("Success! Got:"+total_num+" subscriptions");
-		} catch(NullPointerException e) {
-			log.error("Couldn't get any subscriptions", e);
-			total_num = Integer.toString(0);
-		}
-		modelMap.put("total_num", total_num);
-		log.debug("Number of subscriptions is set to: "+total_num);
-		
-		return new ModelAndView("home", modelMap);
+        log.info("Getting a default home page");
+        Map<String, String> modelMap = new HashMap<String, String>();
+        String total_num;
+        try {
+            log.debug("Trying to get number of subscriptions");
+            subscriptions = subscriptionService.findForCurrentUser();
+            total_num = Integer.toString(subscriptions.size());
+            log.debug("Success! Got:" + total_num + " subscriptions");
+        } catch (NullPointerException e) {
+            log.error("Couldn't get any subscriptions", e);
+            total_num = Integer.toString(0);
+        }
+        modelMap.put("total_num", total_num);
+        log.debug("Number of subscriptions is set to: " + total_num);
+
+        return new ModelAndView("home", modelMap);
     }
-	
-	private void putSubscriptionIntoMap(Map<String, Object> input, Subscription subscription) {
-		String subscriptionName = subscription.getChallenge().getTitle();
-		String date = subscription.getDate().toString();
-		input.put("subscriptionName", "Challenge - " + subscriptionName);
+
+    private void putSubscriptionIntoMap(Map<String, Object> input, Subscription subscription) {
+        String subscriptionName = subscription.getChallenge().getTitle();
+        String date = subscription.getDate().toString();
+        String subscriptionId = subscription.getId();
+        input.put("subscriptionName", "Challenge - " + subscriptionName);
         input.put("date", date);
-	}
-	
-	@RequestMapping(value = "/home-subscriptions", method = RequestMethod.GET)
+        /*Added by Yefim Krokhin on 02.04.2015*/
+        input.put("subscriptionId", subscriptionId);
+    }
+
+    @RequestMapping(value = "/home-subscriptions", method = RequestMethod.GET)
     public
     @ResponseBody
     String sendAllSubscriptionsToPage(@RequestParam(value = "numToShow", required = true) String numToShow,
-    		@RequestParam(value = "numShown", required = true) String numShown) {
-		log.info("Getting subscriptions for home page. numToShow="+numToShow+", numShown="+numShown);
-		log.debug("Getting list of subscriptions for current user");
-		List<Subscription> subscriptions = subscriptionService.findForCurrentUser();
-		
+                                      @RequestParam(value = "numShown", required = true) String numShown) {
+        log.info("Getting subscriptions for home page. numToShow=" + numToShow + ", numShown=" + numShown);
+        log.debug("Getting list of subscriptions for current user");
+        List<Subscription> subscriptions = subscriptionService.findForCurrentUser();
+
         /*Default value to report user about server problems*/
         String templateResponse = "<p> Internal Error! </p>";
 
@@ -91,17 +94,17 @@ public class HomeController {
         int numShownInt = Integer.parseInt(numShown);
 
         StringWriter stringWriter;
-        
-        log.debug("Trying to get numToShowInt="+numToShowInt+" challenges for current user on home page. Starting from"
-        		+ "numShownInt="+numShownInt);
+
+        log.debug("Trying to get numToShowInt=" + numToShowInt + " challenges for current user on home page. Starting from"
+                + "numShownInt=" + numShownInt);
         try {
             Template template = configuration.getTemplate(TEMPLATE_NAME);
             stringWriter = new StringWriter();
             try {
-                for (int i = numShownInt; (i < numShownInt + numToShowInt)&&(i < subscriptions.size()); i++) {
-                	log.debug("Adding subscription No."+i+" to map");
+                for (int i = numShownInt; (i < numShownInt + numToShowInt) && (i < subscriptions.size()); i++) {
+                    log.debug("Adding subscription No." + i + " to map");
                     input.clear();
-                    putSubscriptionIntoMap(input,subscriptions.get(i));
+                    putSubscriptionIntoMap(input, subscriptions.get(i));
                     template.process(input, stringWriter);
                 }
             } catch (TemplateException e2) {

@@ -60,6 +60,7 @@
     <c:url var="welcome" value="/welcome"/>
     <c:url var="home" value="/home"/>
     <c:url var="settings" value="/settings"/>
+    <c:url var="subscription" value="/subscription" />
     <c:url var="about" value="#"/>
     <c:url var="ourteam" value="#"/>
     <c:url var="challenges" value="#"/>

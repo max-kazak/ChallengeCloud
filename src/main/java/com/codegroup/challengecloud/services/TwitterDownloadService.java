@@ -63,9 +63,9 @@ public class TwitterDownloadService {
      * @author Yefim Krokhin on 31.03.2015
      */
 
-    public Set<Tweet> downloadTweetsForSubscriptionPage() {
+    public Set<Tweet> downloadTweetsForSubscriptionPage(String subscriptionId) {
 //        TODO send here correct subscription id
-        Subscription subscription = subscriptionService.findById("13");
+        Subscription subscription = subscriptionService.findById(subscriptionId);
         Set<Post> postsFromSubscription = subscription.getPosts();
         Set<Tweet> tweetsFromSubscription = new TreeSet<>(new Comparator<Tweet>() {
             @Override
