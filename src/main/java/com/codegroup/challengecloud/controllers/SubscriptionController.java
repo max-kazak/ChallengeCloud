@@ -29,6 +29,7 @@ import java.util.Set;
 public class SubscriptionController {
     private static final Logger log = Logger.getLogger(SubscriptionController.class);
     private static final String TEMPLATE_NAME = "subscription-view.ftl";
+    private static  final String DELIMITER = "http";
     private String subscriptionId;
     @Resource
     TwitterDownloadService twitterDownloadService;
@@ -63,7 +64,11 @@ public class SubscriptionController {
                     input.put("postImage", nextTweet.getEntities().getMedia().get(0).getMediaUrl());
                     log.debug("Tweet media to add " + nextTweet.getEntities().getMedia().get(0).getMediaUrl());
                 }
-                input.put("postText", nextTweet.getText());
+
+                input.put("postOriginUrl", nextTweet.getUnmodifiedText().substring(nextTweet.getUnmodifiedText().
+                        lastIndexOf(DELIMITER)));
+                input.put("postText", nextTweet.getUnmodifiedText().substring(0, nextTweet.
+                        getUnmodifiedText().lastIndexOf(DELIMITER)));
                 input.put("postDate", nextTweet.getCreatedAt().toString());
                 template.process(input, stringWriter);
             }

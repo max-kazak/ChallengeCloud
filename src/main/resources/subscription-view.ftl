@@ -5,7 +5,7 @@
 <div class="row challenge">
     <div class="challenge-img">
         <img src=${postImage}
-             alt="Image">
+                     alt="Image">
     </div>
     <!-- Challenge Info -->
     <div class="challenge-info">
@@ -13,10 +13,13 @@
             <div style="float: left;">
                 <p>${postDate}</p>
             </div>
-            <div style="float: left;">
+            <div style="float: right;">
                 <p> ${postText} </p>
+                <div style="float: right;">
+                    <a href="${postOriginUrl}" class="btn btn-primary pull-right" role="button">Open original posts</a>
+                </div>
             </div>
         </div>
-</div>
+    </div>
 </body>
 </html>
