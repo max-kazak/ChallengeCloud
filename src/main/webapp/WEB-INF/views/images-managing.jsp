@@ -6,8 +6,43 @@
 <TITLE>Images</TITLE>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
+	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />"> 
+    
+<!-- On 01.04.2015 by Vladimir Zhdanov. I took it from http://sergey-oganesyan.ru/javascript-s-primerami/kak-sdelat-vsplyvayushee-okno.html
+and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
+<style type="text/css">
+	#transp{
+		display: none;
+		opacity: 0.8;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		padding: 16px;
+		background-color: rgba(1, 1, 1, 0.725);
+		z-index: 100;
+		overflow: auto;
+	}
+	#window{
+		margin: 50px auto;
+		display: none;
+		background: #fff;
+		z-index: 200;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		padding: 16px;
+	}
+	.close{
+		cursor: pointer;
+	}
+	
+</style>
 <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
@@ -54,7 +89,62 @@
 </head>
  
 <body>
-<div class="main">
+<!-- This div is hidden by default. Press Upload to show it!!! -->
+
+<!-- On 01.04.2015 by Vladimir Zhdanov. I took it from http://sergey-oganesyan.ru/javascript-s-primerami/kak-sdelat-vsplyvayushee-okno.html
+and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
+	<script type="text/javascript">
+		function showUpload() {
+			document.getElementById('window-upload').style.display='block';
+			document.getElementById('window').style.display='block';
+			document.getElementById('transp').style.display='block';
+		}
+		function hide() {
+			document.getElementById('window-upload').style.display='none';
+			document.getElementById('window').style.display='none';
+			document.getElementById('transp').style.display='none';
+		}
+	</script>
+	<!-- Transparant background-->
+	<div id="transp" onclick="hide()"></div>
+	<!-- Window -->
+	<div id="window">
+		<!-- Close -->
+		<img class="pull-right close" onclick="hide()" src="./resources/img/close.png" alt="Close">
+		<br/>
+		<!-- Content -->
+		<div id="window-upload">
+			<div class="col-lg-12">
+				<div class="input-group">
+					<input type="text" class="form-control" style=" id="upload_path" placeholder="Path ...">
+					<span class="input-group-btn">
+						<button class="btn" type="button" onclick="getPosts()">Browse</button>
+					</span>
+				</div>
+				<br />
+				<div class="input-group">
+					<input type="text" class="form-control" id="upload_id" placeholder="ImageId">
+					<span class="input-group-btn">
+						<button class="btn" type="button" onclick="getPosts()">Generate</button>
+					</span>
+				</div>
+				<br />
+				<div class="input-group">
+					<input type="text" class="form-control" id="upload_name" placeholder="Name ...">
+				</div>
+				<br />
+				<div class="input-group">
+					<input type="text" class="form-control" id="upload_description" placeholder="Description ...">
+				</div>
+				<!-- /input-group -->
+				<!-- <img style="margin: 20px 0 0 50px;" src="./images/123123.png" alt="Content">  -->	
+				<li role="presentation" class="pull-right"><button class="btn btn-default" onclick="upload()">Upload</button></li>
+			</div> <!-- col-lg-12 -->
+		</div>
+	</div>
+
+
+	<div class="main">
 	<c:url var="home" value="/home" />
 	<c:url var="settings" value="/settings" />
 	<c:url var="welcome" value="/welcome" />
@@ -120,6 +210,7 @@
 							<li role="presentation" class="active"><a href="#">All</a></li>
 							<li role="presentation"><a href="#">Recent</a></li>
 							<li role="presentation"><a href="#">Random</a></li>
+							<li role="presentation" class="pull-right"><button class="btn btn-default" onclick="showUpload()">Upload</button></li>
 						</ul>
 					</div>
 					<!-- Pills -->
