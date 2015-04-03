@@ -60,8 +60,8 @@ public class SubscriptionController {
             for (Iterator<Tweet> iterator = tweets.iterator(); iterator.hasNext(); ) {
                 Tweet nextTweet = iterator.next();
                 if (nextTweet.hasMedia()) {
-                    input.put("postImage", nextTweet.getEntities().getMedia().get(0));
-                    log.debug("Tweet media to add " + nextTweet.getEntities().getMedia().get(0));
+                    input.put("postImage", nextTweet.getEntities().getMedia().get(0).getMediaUrl());
+                    log.debug("Tweet media to add " + nextTweet.getEntities().getMedia().get(0).getMediaUrl());
                 }
                 input.put("postText", nextTweet.getText());
                 input.put("postDate", nextTweet.getCreatedAt().toString());
