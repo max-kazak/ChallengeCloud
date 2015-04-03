@@ -45,7 +45,6 @@ public class SocialConfig implements SocialConfigurer{
 
 	@Autowired
 	private DataSource dataSource;
-	
 
 	@Override
 	public void addConnectionFactories(	ConnectionFactoryConfigurer cfConfig, Environment environment) {
@@ -66,17 +65,17 @@ public class SocialConfig implements SocialConfigurer{
 
 	@Autowired
 	ConnectionSignUpAdapter connectionSignUpAdapter;
-	
+
 	@Override
 	public UsersConnectionRepository getUsersConnectionRepository(ConnectionFactoryLocator connectionFactoryLocator) {
 		JdbcUsersConnectionRepository repository = new JdbcUsersConnectionRepository(
-				dataSource, 
-				connectionFactoryLocator, 
+				dataSource,
+				connectionFactoryLocator,
 				Encryptors.noOpText());
 	    repository.setConnectionSignUp(connectionSignUpAdapter);
 		return repository;
 	}
-	
+
 	/**
 	 * Updated on 28.03.2015 by Vladimir Zhdanov
 	 * @param environment - application.properties resource with keys
@@ -100,16 +99,17 @@ public class SocialConfig implements SocialConfigurer{
 	}
 
 	@Bean
-	public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator, 
+	public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator,
 			UsersConnectionRepository usersConnectionRepository,
 			UserSignInAdapter userSignInAdapter) {
 		return new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository, userSignInAdapter);
 	}
-	
+
 	@Bean
-    public ConnectController connectController(ConnectionFactoryLocator connectionFactoryLocator, ConnectionRepository connectionRepository) {
+    public ConnectController connectController(ConnectionFactoryLocator connectionFactoryLocator,
+											   ConnectionRepository connectionRepository) {
         return new ConnectController(connectionFactoryLocator, connectionRepository);
     }
 
-	
+
 }

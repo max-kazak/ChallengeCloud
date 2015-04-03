@@ -56,10 +56,10 @@
       </div>
       <div class="col-md-9">
         <div class="settings">
-          <ul>
-            <li>Change nickname</li>
-            <li>Change password</li>
-          </ul>
+          <form action="<c:url value="/connect/twitter" />" method="POST" class="submitForm">
+            <button type="submit"><i class="fa fa-twitter fa-3x"></i></button>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+          </form>
         </div>
       </div>
     <div>
