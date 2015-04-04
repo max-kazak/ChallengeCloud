@@ -111,6 +111,4 @@ public class SocialConfig implements SocialConfigurer{
 											   ConnectionRepository connectionRepository) {
         return new CCloudConnectController(connectionFactoryLocator, connectionRepository);
     }
-
-
 }
