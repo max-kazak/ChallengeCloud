@@ -17,10 +17,7 @@ import org.springframework.social.UserIdSource;
 import org.springframework.social.config.annotation.ConnectionFactoryConfigurer;
 import org.springframework.social.config.annotation.EnableSocial;
 import org.springframework.social.config.annotation.SocialConfigurer;
-import org.springframework.social.connect.Connection;
-import org.springframework.social.connect.ConnectionFactoryLocator;
-import org.springframework.social.connect.ConnectionRepository;
-import org.springframework.social.connect.UsersConnectionRepository;
+import org.springframework.social.connect.*;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
 import org.springframework.social.connect.web.ConnectController;
 import org.springframework.social.connect.web.ProviderSignInController;
@@ -76,20 +73,30 @@ public class SocialConfig implements SocialConfigurer{
 	    repository.setConnectionSignUp(connectionSignUpAdapter);
 		return repository;
 	}
-	
-	/**
-	 * Updated on 28.03.2015 by Vladimir Zhdanov
-	 * @param environment - application.properties resource with keys
-	 * @return twitter API
-	 */
+
+
+    @Bean
+    public Connection<Twitter> twitterConnection(Environment environment, ConnectionFactoryLocator connectionFactoryLocator){
+        ConnectionFactory<Twitter> connectionFactory = connectionFactoryLocator.getConnectionFactory(Twitter.class);
+        String accessToken = environment.getProperty("twitter.accessToken");
+        String accessTokenSecret = environment.getProperty("twitter.accessTokenSecret");
+        ConnectionData connectionData = new ConnectionData(
+                "twitter",
+                "330366284",
+                "@DreamingScorpio",
+                "http://twitter.com/DreamingScorpio",
+                "http://pbs.twimg.com/profile_images/485953230891778048/js3JTWN2_normal.png",
+                accessToken, accessTokenSecret, null, null
+                );
+        Connection<Twitter> connection = connectionFactory.createConnection(connectionData);
+        return connection;
+    }
+
+
 	@Bean
 	@Scope(value="request", proxyMode=ScopedProxyMode.INTERFACES)
-	public Twitter twitter(Environment environment) {
-		return new TwitterTemplate(
-				environment.getProperty("twitter.consumerKey"),
-				environment.getProperty("twitter.consumerSecret"),
-                environment.getProperty("twitter.accessToken"),
-                environment.getProperty("twitter.accessTokenSecret"));
+	public Twitter twitter(Connection<Twitter> twitterConnection) {
+		return twitterConnection.getApi();
 	/* NOTE before 29.03.2015 were
        @Bean
        @Scope(value="request", proxyMode=ScopedProxyMode.INTERFACES)
