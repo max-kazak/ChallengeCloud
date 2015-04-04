@@ -2,6 +2,7 @@ package com.codegroup.challengecloud.config;
 
 import javax.sql.DataSource;
 
+import com.codegroup.challengecloud.controllers.CCloudConnectController;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -106,9 +107,9 @@ public class SocialConfig implements SocialConfigurer{
 	}
 
 	@Bean
-    public ConnectController connectController(ConnectionFactoryLocator connectionFactoryLocator,
+    public CCloudConnectController connectController(ConnectionFactoryLocator connectionFactoryLocator,
 											   ConnectionRepository connectionRepository) {
-        return new ConnectController(connectionFactoryLocator, connectionRepository);
+        return new CCloudConnectController(connectionFactoryLocator, connectionRepository);
     }
 
 

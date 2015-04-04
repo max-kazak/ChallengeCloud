@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
   <!--Created by Andrey on 01.03.20115-->
@@ -55,13 +56,19 @@
         </div>
       </div>
       <div class="col-md-9">
-        <div class="settings">
-          <form action="<c:url value="/connect/twitter" />" method="POST" class="submitForm">
-            <button type="submit"><i class="fa fa-twitter fa-3x"></i></button>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-          </form>
+        <div class="settings row">
+            <i class="fa fa-twitter fa-3x"></i>
+          <c:url value="/connect/twitter" var="connect"/>
+
+          <form:form action="${connect}" method="POST" cssClass="submitForm">
+            <button type="submit">Connect</button>
+          </form:form>
+
+          <form:form action="${connect}" method="DELETE" cssClass="submitForm">
+            <button type="submit">Disconnect</button>
+          </form:form>
         </div>
       </div>
-    <div>
+    </div>
   </body>
 </html>
