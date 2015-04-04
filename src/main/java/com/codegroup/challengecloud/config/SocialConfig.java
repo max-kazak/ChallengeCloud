@@ -87,9 +87,9 @@ public class SocialConfig implements SocialConfigurer{
 	public Twitter twitter(Environment environment) {
 		return new TwitterTemplate(
 				environment.getProperty("twitter.consumerKey"),
-				environment.getProperty("twitter.consumerSecret"),
+				environment.getProperty("twitter.consumerSecret")/*,
                 environment.getProperty("twitter.accessToken"),
-                environment.getProperty("twitter.accessTokenSecret"));
+                environment.getProperty("twitter.accessTokenSecret")*/);
 	/* NOTE before 29.03.2015 were
        @Bean
        @Scope(value="request", proxyMode=ScopedProxyMode.INTERFACES)
