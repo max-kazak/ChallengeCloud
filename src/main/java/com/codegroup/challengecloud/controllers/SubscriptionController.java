@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -47,6 +48,7 @@ public class SubscriptionController {
         log.info("sendAllPostsToPage() started");
         /*Default value to report user about server problems*/
         String templateResponse = "<p> Internal Error! </p>";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         Set<Tweet> tweets = twitterDownloadService.downloadTweetsForSubscriptionPage(getSubscriptionId());
 
@@ -69,7 +71,7 @@ public class SubscriptionController {
                         lastIndexOf(DELIMITER)));
                 input.put("postText", nextTweet.getUnmodifiedText().substring(0, nextTweet.
                         getUnmodifiedText().lastIndexOf(DELIMITER)));
-                input.put("postDate", nextTweet.getCreatedAt().toString());
+                input.put("postDate", simpleDateFormat.format(nextTweet.getCreatedAt()));
                 template.process(input, stringWriter);
             }
         } catch (IOException e) {
