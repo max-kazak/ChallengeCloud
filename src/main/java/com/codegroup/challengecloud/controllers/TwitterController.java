@@ -42,17 +42,22 @@ public class TwitterController {
     @ResponseBody
     String getTwitterPosts(
     		@RequestParam(value = "id", required = false) String id,//user id
-            @RequestParam(value = "hash", required = false) String hash) {
+            @RequestParam(value = "hash", required = false) String hash,
+            @RequestParam(value = "add", required = false) Boolean add) {
         if ((id != null) && (hash != null)) {
         	/* Get tweets from user and filter them by hashtag */
         	log.info("getTwitterPosts() id = "+id+" hash = "+hash);
-        	Set<Tweet> userTweets = twitterDownloadService.downloadUserHashedPosts(Long.parseLong(id), hash);
-            log.info("getTwitterPosts() success");
-            /* Show tweets on page */
             String res = "";
-            for (Tweet currentTweet : userTweets) {
-            		res += currentTweet.getText() + "<br/>";
-            }
+        	if (add!=null && add.booleanValue()) {
+        		return twitterDownloadService.addUserHashedPosts(id);
+        	} else {
+	        	Set<Tweet> userTweets = twitterDownloadService.downloadUserHashedPosts(Long.parseLong(id), hash);
+	            log.info("getTwitterPosts() success");
+	            /* Show tweets on page */
+	            for (Tweet currentTweet : userTweets) {
+	            		res += currentTweet.getText() + "<br/>";
+	            }
+        	}
     		return res;
         } else {
             log.info("getTwitterPosts() incorrect input");

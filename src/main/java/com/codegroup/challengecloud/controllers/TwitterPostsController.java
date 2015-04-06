@@ -45,7 +45,6 @@ public class TwitterPostsController {
     @RequestMapping("/twitter-posts")
     public ModelAndView twitterPostsText() {
     	Map <String,String> map = new HashMap();
-    	map.put("message", "Friends"); 
         return new ModelAndView("twitter-posts", map);
     }
 

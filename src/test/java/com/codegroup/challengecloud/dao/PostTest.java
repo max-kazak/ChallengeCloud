@@ -38,7 +38,7 @@ public class PostTest {
     @Resource
     private TwitterDownloadService twitterDownloadService;
 
-    /*@Test*/
+    @Test
     public void testFindById() {
         Assert.assertNotNull(postService.findById(POST_ID_FIRST));
         /*change by Yefim*/

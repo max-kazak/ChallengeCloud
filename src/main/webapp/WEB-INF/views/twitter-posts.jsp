@@ -13,10 +13,20 @@
 	var id = 2;
 	var hash = 'CCloud';
 	function getPosts() {
-    	id = parseInt(document.getElementById("t_id").value);
+    	t_id = document.getElementById("t_id").value;
     	hash = document.getElementById("t_hash").value;
         $.ajax({
-            url : 'twitter.html?id=' + id.toString() + '&hash=' + hash,
+            url : 'twitter.html?id=' + t_id + '&hash=' + hash,
+            success : function(data) {
+                $('#posts').html(data);
+        	}
+        });
+	}
+	function addPosts() {
+    	user_id = document.getElementById("user_id").value;
+    	hash = document.getElementById("t_hash").value;
+        $.ajax({
+            url : 'twitter.html?id=' + user_id + '&hash=' + hash + '&add=1',
             success : function(data) {
                 $('#posts').html(data);
         	}
@@ -34,8 +44,9 @@
     <!--  <button onclick="getPosts()">getPosts</button>
     <h1>Posts</h1> -->
     <div>
-    	<p> CCloudTest  556989981  </p>
-    	<p> CCloudTest2 3105816243 </p>
+    	<p> Twitter CCloudTest  556989981  </p>
+    	<p> Twitter CCloudTest2 3105816243 </p>
+    	<p> ChallengeCloud CCloudTest2 19eda4a69b254c61 </p>
     	
     </div>
 		<div class="col-lg-6">
@@ -43,7 +54,7 @@
 				<span class="input-group-addon" id="basic-addon1">#</span>
 				<input type="text"
 					class="form-control" id="t_hash" placeholder="HashTag">
-				</div>
+			</div>
 			<br />
 			<div class="input-group">
 				<input type="text" class="form-control" id="t_id"
@@ -52,7 +63,19 @@
 					<button class="btn btn-default" type="button" onclick="getPosts()">Search Tweets</button>
 				</span>
 			</div>
+			<br />
+			<!--  <div class="input-group pull-right">
+					<button class="btn btn-default pull-rght" type="button" onclick="addPosts()">Add Tweets</button>
+			</div>  -->
+			<div class="input-group">
+				<input type="text" class="form-control" id="user_id"
+					placeholder="User ID ..."> <span
+					class="input-group-btn">
+					<button class="btn btn-default" type="button" onclick="addPosts()">Add Tweets</button>
+				</span>
+			</div>
 			<!-- /input-group -->
+			<br/>
 		</div>
 	<div id="posts"></div>
 	</div></body>
