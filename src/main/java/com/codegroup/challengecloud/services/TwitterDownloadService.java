@@ -73,6 +73,7 @@ public class TwitterDownloadService {
         return suitableTweets;
     }
     
+    /* Created on 04.04.2015 by Vladimr Zhdanov */
     public Set<Tweet> downloadUserTweets(String providerUserId) {
         log.info("downloadUserTweets(" + providerUserId + ") start");
         // BE VERY_VERY CAREFULL WITH getUserTimeline(long, AMOUNT_OF_POSTS);
@@ -81,14 +82,18 @@ public class TwitterDownloadService {
         log.info("downloadUserTweets(" + providerUserId + ") stop");
         return setUserTweets;
     }
-    
-    public String addUserHashedPosts(String userId) {
+
+    /* Created on 04.04.2015 by Vladimr Zhdanov */
+    public int addUserHashedPosts(String userId) {
     	// Get ProviderUserId
     	log.debug("addUserHashedPosts");
     	ConnectionRepository userConnectionRepository = usersConnectionRepository.createConnectionRepository(userId);
     	log.debug("userConnectionRepository - success");
     	List<Connection<?>> possibleUserConnections = userConnectionRepository.findConnections("twitter");
     	log.debug("possibleUserConnections.size() = " + possibleUserConnections.size());
+    	if (possibleUserConnections.size() == 0) {
+    		return 0;
+    	}
     	Connection userConnection = possibleUserConnections.get(0);
     	log.debug("userConnection - success");
     	String providerUserId = userConnection.getKey().getProviderUserId();
@@ -98,58 +103,54 @@ public class TwitterDownloadService {
     	List<Subscription> userSubscriptions = subscriptionService.findByUserId(userId);
     	Set<String> postsHashes = new HashSet();
     	// Get Set of hashes (tags) in new user posts
-	Set<Tweet> userTweets = downloadUserTweets(providerUserId);
-//List<Tweet> listUserTweets = twitter.timelineOperations().getUserTimeline(userId, AMOUNT_OF_POSTS);
-    	log.debug("Line 102");
-//List<Tweet> listUserTweets =  ((Twitter)(userConnection.getApi())).timelineOperations().getUserTimeline(userId, AMOUNT_OF_POSTS);
-//log.debug("Line 103");
-//Set<Tweet> userTweets = new HashSet<Tweet>(listUserTweets);
-    	log.debug("userTweets.size() = " + userTweets.size());
-    	for (Tweet userTweet : userTweets) {
-    		for (HashTagEntity tweetHashTagEntity : userTweet.getEntities().getHashTags()) {
-    			postsHashes.add(tweetHashTagEntity.getText());
-    		}
-    	}
-    	log.debug("postsHashes.size() = " + postsHashes.size());
-    	log.debug("userSubscriptions.size() = " + userSubscriptions.size());
+    	Set<Tweet> userTweets = downloadUserTweets(providerUserId);
+		// Put all user subscriptons into Map<String subsHashTag, SUbscription>
+		Map<String, Subscription> subscMap = new HashMap<String, Subscription>();
+		for (Subscription userSubsc : userSubscriptions) {
+			subscMap.put(userSubsc.getChallenge().getHashtag(), userSubsc);
+		}
+    	log.debug("subscMap.size() = " + subscMap.size());
     	// Get 1 origin for Twitter
     	com.codegroup.challengecloud.model.Origin twitterOrigin = originService.findById(TWITTER_ORIGIN_ID);
-    	// For each subscription test if it's hash is in set. If is, add  an entity to Posts table.
-		    	//TODO May be, we'd better use map<String, Subscription> with posts hashes and Subscriptions???
-		    	// Firstly we will fill the map with only Subscriptions Hashes
-		    	// And then, we will try to get suitable subscription from this map for each Tweet. If it has, add an Entity
-    	for (Subscription userSubscription : userSubscriptions) {
-    		String challengeHash = userSubscription.getChallenge().getHashtag();
-    		if (postsHashes.contains(challengeHash)) {
-    			// This means, that for that subscription there are some posts in userTweets
-    	    	for (Tweet userTweet : userTweets) {
-    	    		boolean tweetContainsHash = false;
-    	    		for (HashTagEntity hte : userTweet.getEntities().getHashTags()) {
-    	    			if (hte.getText().equals(challengeHash)) {
-    	    				tweetContainsHash = true;
-    	    			}
-    	    		}
-    	    		log.debug("tweet with text \"" +
-	    	    		userTweet.getText() +
-	    	    		"\" contains hash " +
-	    	    		challengeHash + " is " +
-	    	    		Boolean.toString(tweetContainsHash));
-    	    		if (tweetContainsHash) {
-    	    			// So, this Tweet is suitable for our subscription. If there is no one in DB, let's add!!!
-    	    			//TODO Check, if there is THIS tweet in DB, it could be done earlier, by tweet date, id
-    	    			postService.createPost(userSubscription,
+    	// For each userTweet test if either one of it's hashes is in Map.
+    	// If is, check, if this post is already in table and add, if not
+    	for (Tweet currentUserTweet : userTweets) {
+    		for (HashTagEntity hte : currentUserTweet.getEntities().getHashTags()) {
+    			Subscription currentUserSubscription;
+    			if ((currentUserSubscription = subscMap.get(hte.getText())) != null) {
+    				String currentUserTweetId = Long.toString(currentUserTweet.getId());
+    				log.debug("Found tweet with hashTag for one of userSubscriptions");
+    				log.debug("currentUserTweetId = " + currentUserTweetId);
+    				if (postService.findById(currentUserTweetId) == null) {
+        				log.debug("There is no post with such id currentUserTweetId = " + currentUserTweetId);
+    					// Put new Post into table
+    	    			postService.createPost(currentUserTweetId,
+    	    					currentUserSubscription,
     	    					//new java.sql.Date((new java.util.Date()).getTime()),
-    	    					new java.sql.Date(userTweet.getCreatedAt().getTime()),
+    	    					new java.sql.Date(currentUserTweet.getCreatedAt().getTime()),
     	    					twitterOrigin);
     	    			postsAdded += 1;
-    	    	    	log.debug("Almost added " + postsAdded + " posts");
-    	    		} else {
-    	    			//log.debug("userTweet with hash");
-    	    		}
-    	    	}
+    				}
+    				// What to do, if there are many suitable hash tags?
+    				break;
+    			}
     		}
     	}
-    	return "Added" + postsAdded + " posts into tabe";
+    	return postsAdded;
+    }
+    
+    public int addAllUsersTwitterPosts() {
+    	//TODO rewrite these mathods to increase perfomanse of using Spring Social
+    	log.debug("addAllUsersTwitterPosts started. Look for all users ");
+    	List<User> allChallengeUsers = userService.findAll();
+    	log.info("addAllUsersTwitterPosts for " + allChallengeUsers.size() + " users");
+    	int addedPosts = 0;
+    	for (User currentUser : allChallengeUsers) {
+    		// I think, there is no big differense either to give ID or User, because we do not need User entity
+    		// We look for all user subscriptions by user's id
+    		addedPosts = addedPosts + addUserHashedPosts(currentUser.getId());
+    	}
+    	return addedPosts;
     }
 
     /**

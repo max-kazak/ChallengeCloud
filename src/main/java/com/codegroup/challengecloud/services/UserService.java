@@ -1,7 +1,10 @@
 package com.codegroup.challengecloud.services;
 
+import java.util.List;
+
 import com.codegroup.challengecloud.constants.UserRoles;
 import com.codegroup.challengecloud.dao.UserDao;
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
 
@@ -106,6 +109,15 @@ public class UserService {
     private void encodePassword(User user) {
         String passwordToEncode = user.getPassword();
         user.setPassword(Generator.generateHashedPass(passwordToEncode));
+    }
+    
+    /**
+     * Created on 07.04.2015 by Vladimir Zhdanov
+     * @return
+     */
+    @Transactional
+    public List<User> findAll() {
+    		return userDao.findAll();
     }
 
 }

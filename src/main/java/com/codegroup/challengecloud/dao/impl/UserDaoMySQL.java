@@ -1,6 +1,7 @@
 package com.codegroup.challengecloud.dao.impl;
 
 import com.codegroup.challengecloud.dao.UserDao;
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.User;
 
 import org.apache.log4j.Logger;
@@ -69,4 +70,14 @@ public class UserDaoMySQL extends HibernateDao implements UserDao {
             return null;
         }
     }
+
+    /**
+     * Created on 07.04.2015 by Vladimir Zhdanov
+     */
+	@Override
+	public List<User> findAll() {
+    	log.debug("looking for all users");
+        List list = find("from User");
+        return (List<User>) list;
+	}
 }

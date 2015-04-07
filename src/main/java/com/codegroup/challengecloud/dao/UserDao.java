@@ -1,5 +1,8 @@
 package com.codegroup.challengecloud.dao;
 
+import java.util.List;
+
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.User;
 
 /**
@@ -14,5 +17,6 @@ public interface UserDao {
     public User findById(String id);
     public User findByLogin(String login);
     public User findByEmail(String email) throws IndexOutOfBoundsException;
+    public List<User> findAll();
 
 }

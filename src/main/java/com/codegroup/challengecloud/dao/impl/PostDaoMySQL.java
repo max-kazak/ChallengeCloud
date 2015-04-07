@@ -49,7 +49,7 @@ public class PostDaoMySQL extends HibernateDao implements PostDao {
     public Post findById(String id) {
         log.debug("Looking for post by id = " + id);
         List list = find("from Post where post_id = ?", id);
-        return (Post) list.get(0);
+        return (Post) ((list.size()==0) ? null : list.get(0));// Modified on 07.04.2015 by Vladimir Zhdanov
     }
 
     /**

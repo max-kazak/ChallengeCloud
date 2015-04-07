@@ -45,6 +45,28 @@ public class PostService {
         return post;
     }
 
+    /**
+     * created on 07.04.2015 by Vladimir Zhdanov
+     * @param postId id for new post
+     * @param subscription
+     * @param date
+     * @param origin
+     * @return
+     */
+    @Transactional
+    public Post createPost(String postId, Subscription subscription, Date date, Origin origin) {
+        Post post = new Post();
+
+        post.setId(postId);
+        post.setSubscription(subscription);
+        post.setDate(date);
+        post.setOrigin(origin);
+
+        postDao.save(post);
+
+        return post;
+    }
+
     @Transactional
     public Post findById(String postId) {
         return postDao.findById(postId);
