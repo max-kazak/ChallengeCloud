@@ -3,12 +3,12 @@
 <body>
 <!-- first challenge -->
 <div class="row challenge">
-    <div class="challenge-img">
+    <#--<div class="challenge-img">
         <img src=${postImage}
-                     alt="Image">
-    </div>
-    <!-- Challenge Info -->
-    <div class="challenge-info">
+                     alt="Image" class="img-thumbnail">
+    </div>-->
+    <!-- Tweet Info -->
+<#--    <div class="challenge-info">
         <div>
             <div style="float: left;">
                 <p>${postDate}</p>
@@ -20,6 +20,15 @@
                 </div>
             </div>
         </div>
+    </div>-->
+
+
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <img src=${postImage} class="center-block img-responsive img-rounded" alt="Image">
+        <h2>${postText}</h2>
+        <span class="text-muted">${postDate}</span>
+        <a href="${postOriginUrl}" class="btn btn-primary pull-right" role="button">Open original posts</a>
     </div>
+
 </body>
 </html>

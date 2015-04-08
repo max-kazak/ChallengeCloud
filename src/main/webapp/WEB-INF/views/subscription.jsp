@@ -30,13 +30,6 @@
                     }
                 });
                 numShown += numToShow;
-            } else {
-                $.ajax({
-                    url: 'subscription-send.html?numToShow=' + numToShow.toString()+ '&numShown='+numShown.toString(),
-                    success: function (data) {
-                        $('#subscription-send').append(data);
-                    }
-                });
             }
         }
     </script>
@@ -112,17 +105,22 @@
     </div>
 
 
-    <div class="row">
+ <%--   <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div>
-                <div id="subscription-send">
+                <div id="subscription-send" class="row placeholders">
                 </div>
             </div>
 
         </div>
         <div></div>
-    </div>
+    </div>--%>
+        <div class="row placeholders">
+            <div id="subscription-send">
+
+            </div>
+        </div>
 
 </div>
 </body>
