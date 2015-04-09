@@ -20,7 +20,7 @@ public class Challenge implements Serializable {
     Integer difficulty;
     String hashtag;
     ChallengeGroup challengeGroup;
-    String imageId;
+    Image image;
 
 
     public Challenge() {
@@ -97,16 +97,16 @@ public class Challenge implements Serializable {
     }
 
     /**
-     * This method returns Image ID.
+     * This method returns Image .
      * @return image ID
      * @author Vladimir Zhdanov
      */
     @Column(name = "IMAGE_ID", nullable = false)
-    public String getImageId() {
-        return imageId;
+    public Image getImage() {
+        return image;
     }
-    public void setImageId(String imageId) {
-        this.imageId = imageId;
+    public void setImage(Image imageId) {
+        this.image = image;
     }
 
     

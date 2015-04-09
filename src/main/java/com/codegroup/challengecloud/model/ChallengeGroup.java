@@ -17,7 +17,7 @@ public class ChallengeGroup implements Serializable {
 
     String id;
     String name;
-    String imageId;
+    Image image;
 
     Set<Challenge> challenges = new HashSet<Challenge>(0);
 
@@ -43,11 +43,11 @@ public class ChallengeGroup implements Serializable {
     }
 
     @Column(name = "IMAGE_ID", nullable = false)
-    public String getImageId() {
-        return imageId;
+    public Image getImage() {
+        return image;
     }
-    public void setImageId(String imageId) {
-        this.imageId = imageId;
+    public void setImage(Image image) {
+        this.image = image;
     }
     
     
@@ -57,7 +57,7 @@ public class ChallengeGroup implements Serializable {
         return "Challenge{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", iconref='" + imageId + '\'' +
+                ", iconref='" + image.getId() + '\'' +
                 '}';
     }
 

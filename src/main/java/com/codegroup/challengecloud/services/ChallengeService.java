@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.codegroup.challengecloud.dao.ChallengeDao;
 import com.codegroup.challengecloud.model.Challenge;
+import com.codegroup.challengecloud.model.ChallengeGroup;
+import com.codegroup.challengecloud.model.Image;
 import com.codegroup.challengecloud.utils.Generator;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class ChallengeService {
     @Autowired
     ChallengeGroupService challengeGroupService;
     
+    @Autowired
+    ImageService imageService;
+    
     private static List<Challenge> challengesAll = null;
 
     public void setChallengeDao(ChallengeDao challengeDao) {
@@ -32,7 +37,10 @@ public class ChallengeService {
     public void updateProfile(Challenge challenge) {
     	challengeDao.update(challenge);
     }
-
+    
+    /**
+     * No image and no challenge group constructor for challenge
+     */
     @Transactional
     public Challenge createChallenge(String title, String description, Integer difficulty, String hashtag){
     	Challenge challenge = new Challenge();
@@ -42,7 +50,24 @@ public class ChallengeService {
     	challenge.setDifficulty(difficulty);
     	challenge.setHashtag(hashtag);
     	challenge.setChallengeGroup(challengeGroupService.findById("5d2c117e674b39de"));
-    	challenge.setImageId("123123");
+    	challenge.setImage(imageService.getImage("123123"));
+    	
+    	challengeDao.save(challenge);
+
+        return challenge;
+    }
+    
+    @Transactional
+    public Challenge createChallenge(String title, String description, Integer difficulty,
+    		String hashtag, ChallengeGroup challengeGroup, Image image){
+    	Challenge challenge = new Challenge();
+    	challenge.setId(Generator.generateId());
+    	challenge.setTitle(title);
+    	challenge.setDescription(description);
+    	challenge.setDifficulty(difficulty);
+    	challenge.setHashtag(hashtag);
+    	challenge.setChallengeGroup(challengeGroup);
+    	challenge.setImage(image);
     	
     	challengeDao.save(challenge);
 

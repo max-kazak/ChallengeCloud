@@ -38,7 +38,20 @@ public class ChallengeGroupService {
     	challengeGroup.setName(name);
 
         Image image = imageService.createImage(name, 'M', imageData);
-    	challengeGroup.setImageId(image.getId());
+    	challengeGroup.setImage(image);
+
+    	challengeGroupDao.save(challengeGroup);
+
+        return challengeGroup;
+    }
+    
+    @Transactional
+    public ChallengeGroup createChallengeGroup(String name, Image image){
+    	ChallengeGroup challengeGroup = new ChallengeGroup();
+    	challengeGroup.setId(Generator.generateId());
+    	challengeGroup.setName(name);
+
+    	challengeGroup.setImage(image);
 
     	challengeGroupDao.save(challengeGroup);
 
