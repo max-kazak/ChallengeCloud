@@ -89,6 +89,7 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 </head>
  
 <body>
+<c:url var="images-managing-upload" value="/images-managing-upload"/>
 <!-- This div is hidden by default. Press Upload to show it!!! -->
 
 <!-- On 01.04.2015 by Vladimir Zhdanov. I took it from http://sergey-oganesyan.ru/javascript-s-primerami/kak-sdelat-vsplyvayushee-okno.html
@@ -115,30 +116,13 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 		<!-- Content -->
 		<div id="window-upload">
 			<div class="col-lg-12">
-				<div class="input-group">
-					<input type="text" class="form-control" style=" id="upload_path" placeholder="Path ...">
-					<span class="input-group-btn">
-						<button class="btn" type="button" onclick="getPosts()">Browse</button>
-					</span>
-				</div>
-				<br />
-				<div class="input-group">
-					<input type="text" class="form-control" id="upload_id" placeholder="ImageId">
-					<span class="input-group-btn">
-						<button class="btn" type="button" onclick="getPosts()">Generate</button>
-					</span>
-				</div>
-				<br />
-				<div class="input-group">
-					<input type="text" class="form-control" id="upload_name" placeholder="Name ...">
-				</div>
-				<br />
-				<div class="input-group">
-					<input type="text" class="form-control" id="upload_description" placeholder="Description ...">
-				</div>
-				<!-- /input-group -->
-				<!-- <img style="margin: 20px 0 0 50px;" src="./images/123123.png" alt="Content">  -->	
-				<li role="presentation" class="pull-right"><button class="btn btn-default" onclick="upload()">Upload</button></li>
+			<c:url var="images-managing-upload" value="/images-managing-upload"/>
+				<form method="POST" enctype="multipart/form-data" action="./images-managing-upload?${_csrf.parameterName}=${_csrf.token}">
+					File to upload: <input type="file" name="file"><br />
+					Name: <input type="text" name="name"><br /> <br /> <input type="submit" value="Upload"> Press here to upload the file!
+					<!-- Example was taken from http://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html -->
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form>
 			</div> <!-- col-lg-12 -->
 		</div>
 	</div>

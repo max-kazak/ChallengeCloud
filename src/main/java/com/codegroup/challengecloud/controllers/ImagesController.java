@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import com.codegroup.challengecloud.model.Image;
 import com.codegroup.challengecloud.services.ImageService;
 
@@ -16,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+
 
 
 /* For FreeMarker */
@@ -32,6 +33,9 @@ import freemarker.template.TemplateException;
  */
 
 @Controller
+//@MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
+//	maxFileSize=1024*1024*10,      // 10MB
+//	maxRequestSize=1024*1024*50)
 public class ImagesController {
     private static final Logger log = Logger.getLogger(ImagesController.class);
     @Resource
@@ -42,6 +46,7 @@ public class ImagesController {
     	Map <String,String> map = new HashMap<String,String>();
     	map.put("message", "Images"); 
     	map.put("max_count_html", Integer.toString(imageService.findAll().size()) );
+    	map.put("uploadUrl", "/challengecloud/images-managing-upload.html");
         //return new ModelAndView("images-managing", "message", "Images");
         return new ModelAndView("images-managing", map);
     }
@@ -98,4 +103,28 @@ public class ImagesController {
         //log.info("getAllImages() returns [" + code + "].");
         return code;
     }
+
+    // Example https://spring.io/guides/gs/uploading-files/
+    // Created on 09.04.2015 by Vladimir Zhdanov
+    @RequestMapping(value="/images-managing-upload", method=RequestMethod.GET)
+    public @ResponseBody String provideUploadInfo() {
+        return "You can upload a file by posting to this same URL.";
+    }
+    @RequestMapping(value = "/images-managing-upload", method = RequestMethod.POST)
+    public @ResponseBody String upload(@RequestParam("name") String name,
+            @RequestParam("file-file") MultipartFile file){
+    	if (!file.isEmpty()) {
+            try {
+                byte[] bytes = file.getBytes();
+                //TODO What to do with size???
+                log.debug("Befre saving an image");
+                imageService.createImage(name, 'S', bytes);
+                return "You successfully uploaded " + name + "!";
+            } catch (Exception e) {
+                return "You failed to upload " + name + " => " + e.getMessage();
+            }
+        } else {
+            return "You failed to upload " + name + " because the file was empty.";
+        }
+        }
 }

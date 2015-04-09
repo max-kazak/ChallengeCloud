@@ -18,5 +18,7 @@
     <import resource="DataSource.xml"/>
     <import resource="Hibernate.xml"/>
     <import resource="spring-security.xml"/>
-
+	<bean id="filesService" class="com.spring.example.service.FilesService">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
 </beans>
