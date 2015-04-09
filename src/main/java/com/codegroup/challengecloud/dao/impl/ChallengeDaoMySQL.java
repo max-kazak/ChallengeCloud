@@ -44,6 +44,13 @@ public class ChallengeDaoMySQL extends HibernateDao implements ChallengeDao {
     }
     
     @Override
+    public Challenge findByTitle(String title) {
+    	log.debug("looking for challenge by title = " + title);
+        List list = find("from Challenge where title like ?", title);
+        return (Challenge) list.get(0);
+    }
+    
+    @Override
     public List<Challenge> findAll() {
     	log.debug("looking for all challenges");
         List list = find("from Challenge");

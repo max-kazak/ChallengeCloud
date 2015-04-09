@@ -20,6 +20,9 @@ public class ChallengeService {
     @Autowired
     ChallengeDao challengeDao;
     
+    @Autowired
+    ChallengeGroupService challengeGroupService;
+    
     private static List<Challenge> challengesAll = null;
 
     public void setChallengeDao(ChallengeDao challengeDao) {
@@ -38,18 +41,19 @@ public class ChallengeService {
     	challenge.setDescription(description);
     	challenge.setDifficulty(difficulty);
     	challenge.setHashtag(hashtag);
-    	//challenge.setChallengeGroup(challengeGroup);
-
+    	challenge.setChallengeGroup(challengeGroupService.findById("5d2c117e674b39de"));
+    	challenge.setImageId("123123");
+    	
     	challengeDao.save(challenge);
 
         return challenge;
     }
 
-    //TODO: When DAO will be ready, uncomment
-//    @Transactional
-//    public Challenge findByTitle(String title) {
-//        return challengeDao.findByTitle(title);
-//    }
+
+    @Transactional
+    public Challenge findByTitle(String title) {
+        return challengeDao.findByTitle(title);
+    }
     
     @Transactional
     public Challenge findById(String id) {

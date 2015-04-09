@@ -14,6 +14,7 @@ public interface ChallengeDao {
     public void delete(Challenge challenge);
 
     public Challenge findById(String id);
+    public Challenge findByTitle(String title);
     public List<Challenge> findAll();
     //TODO: implement this
     //public Challenge findByTitle(String title);
