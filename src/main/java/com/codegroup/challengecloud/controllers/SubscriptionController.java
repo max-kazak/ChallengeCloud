@@ -1,5 +1,6 @@
 package com.codegroup.challengecloud.controllers;
 
+import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.services.TwitterDownloadService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -30,22 +31,30 @@ import java.util.Set;
 public class SubscriptionController {
     private static final Logger log = Logger.getLogger(SubscriptionController.class);
     private static final String TEMPLATE_NAME = "subscription-view.ftl";
-    private static  final String DELIMITER = "http";
+    private static final String DELIMITER = "http";
     private String subscriptionId;
     @Resource
     TwitterDownloadService twitterDownloadService;
 
     @RequestMapping("/subscription")
-    public ModelAndView subscriptionText(@RequestParam(value = "subscriptionId", required = false) String subscriptionId) {
+    public ModelAndView subscriptionText(@RequestParam(value = "subscriptionId", required = true) String subscriptionId) {
+        Map<String, String> modelMap = new HashMap<String, String>();
         setSubscriptionId(subscriptionId);
-        return new ModelAndView("subscription", "message", "Subscriptions");
+        int totalAmount = twitterDownloadService.downloadTweetsForSubscriptionPage(subscriptionId).size();
+        log.debug("totalAmount is " + totalAmount);
+        modelMap.put("totalAmount", new Integer(totalAmount).toString());
+        return new ModelAndView("subscription", modelMap);
     }
 
     @RequestMapping(value = "/subscription-send", method = RequestMethod.GET)
     public
     @ResponseBody
-    String sendAllPostsToPage() {
+    String sendAllPostsToPage(@RequestParam(value = "numToShow", required = true) String numToShow,
+                              @RequestParam(value = "numShown", required = true) String numShown) {
         log.info("sendAllPostsToPage() started");
+        int numToShowInt = Integer.parseInt(numToShow);
+        int numShownInt = Integer.parseInt(numShown);
+
         /*Default value to report user about server problems*/
         String templateResponse = "<p> Internal Error! </p>";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -59,19 +68,12 @@ public class SubscriptionController {
 
         StringWriter stringWriter = new StringWriter();
         try {
+            Iterator<Tweet> iterator = tweets.iterator();
             Template template = configuration.getTemplate(TEMPLATE_NAME);
-            for (Iterator<Tweet> iterator = tweets.iterator(); iterator.hasNext(); ) {
+            log.debug("SUBS HERE 0");
+            for (int i = numShownInt; (i < numShownInt + numToShowInt) && (i < tweets.size()); i++) {
                 Tweet nextTweet = iterator.next();
-                if (nextTweet.hasMedia()) {
-                    input.put("postImage", nextTweet.getEntities().getMedia().get(0).getMediaUrl());
-                    log.debug("Tweet media to add " + nextTweet.getEntities().getMedia().get(0).getMediaUrl());
-                }
-
-                input.put("postOriginUrl", nextTweet.getUnmodifiedText().substring(nextTweet.getUnmodifiedText().
-                        lastIndexOf(DELIMITER)));
-                input.put("postText", nextTweet.getUnmodifiedText().substring(0, nextTweet.
-                        getUnmodifiedText().lastIndexOf(DELIMITER)));
-                input.put("postDate", simpleDateFormat.format(nextTweet.getCreatedAt()));
+                putTweetsIntoMap(input, nextTweet, simpleDateFormat);
                 template.process(input, stringWriter);
             }
         } catch (IOException e) {
@@ -90,11 +92,25 @@ public class SubscriptionController {
         return templateResponse;
     }
 
+    private void putTweetsIntoMap(Map<String, Object> input, Tweet tempTweet, SimpleDateFormat simpleDateFormat) {
+        if (tempTweet.hasMedia()) {
+            input.put("postImage", tempTweet.getEntities().getMedia().get(0).getMediaUrl());
+            log.debug("Tweet media to add " + tempTweet.getEntities().getMedia().get(0).getMediaUrl());
+        }
+
+        input.put("postOriginUrl", tempTweet.getUnmodifiedText().substring(tempTweet.getUnmodifiedText().
+                lastIndexOf(DELIMITER)));
+        input.put("postText", tempTweet.getUnmodifiedText().substring(0, tempTweet.
+                getUnmodifiedText().lastIndexOf(DELIMITER)));
+        input.put("postDate", simpleDateFormat.format(tempTweet.getCreatedAt()));
+    }
+
     public String getSubscriptionId() {
         return subscriptionId;
     }
 
     public void setSubscriptionId(String subscriptionId) {
+        log.debug("subscriptionId is " + subscriptionId);
         this.subscriptionId = subscriptionId;
     }
 }

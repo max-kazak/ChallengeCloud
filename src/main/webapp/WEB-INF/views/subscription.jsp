@@ -13,15 +13,24 @@
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <%--Script was created by Vova, rearrnaged by Yefim--%>
     <script type="text/javascript">
-        var num = -4;// for numeration from 1
-        function appendChallenges() {
-            num = num + 5;
-            $.ajax({
-                url: 'subscription-send.html?subscriptionId=' + num.toString(),
-                success: function (data) {
-                    $('#subscription-send').append(data);
+        var numToShow = 5;// how many subscriptions to request
+        var numShown = 0;// Already received subscriptions
+        var from;// Request "numToShow" (5) subscriptions starting from number "from" (1)
+        max_num = ${totalAmount};
+        function appendPosts() {
+            if(numShown<max_num) {
+                if(numShown+numToShow>max_num) {
+                    numToShow = max_num-numShown;
                 }
-            });
+
+                $.ajax({
+                    url: 'subscription-send.html?numToShow=' + numToShow.toString()+ '&numShown='+numShown.toString(),
+                    success: function (data) {
+                        $('#subscription-send').append(data);
+                    }
+                });
+                numShown += numToShow;
+            }
         }
     </script>
 
@@ -31,7 +40,7 @@
             if ($(document).height() <= $(window).scrollTop() + 1920) {
                 if (loading == false) {
                     loading = true;
-                    appendChallenges();
+                    appendPosts();
                     loading = false;
                 }
 
@@ -39,7 +48,7 @@
         });
         $(document).ready(function () { //Doesn't work
             //alert("ready")
-            appendChallenges();
+            appendPosts();
             $(window).scrollTo(0);
         });
     </script>
@@ -96,17 +105,22 @@
     </div>
 
 
-    <div class="row">
+ <%--   <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div>
-                <div id="subscription-send">
+                <div id="subscription-send" class="row placeholders">
                 </div>
             </div>
 
         </div>
         <div></div>
-    </div>
+    </div>--%>
+        <div class="row placeholders">
+            <div id="subscription-send">
+
+            </div>
+        </div>
 
 </div>
 </body>
