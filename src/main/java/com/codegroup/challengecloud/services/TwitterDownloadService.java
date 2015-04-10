@@ -6,6 +6,7 @@ import com.codegroup.challengecloud.model.User;
 
 import org.apache.log4j.Logger;
 import org.hibernate.hql.internal.ast.tree.MapEntryNode;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.UsersConnectionRepository;
@@ -138,7 +139,7 @@ public class TwitterDownloadService {
     	}
     	return postsAdded;
     }
-    
+
     public int addAllUsersTwitterPosts() {
     	//TODO rewrite these mathods to increase perfomanse of using Spring Social
     	log.debug("addAllUsersTwitterPosts started. Look for all users ");
