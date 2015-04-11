@@ -42,7 +42,8 @@ public class ChallengeGroup implements Serializable {
         this.name = name;
     }
 
-    @Column(name = "IMAGE_ID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "IMAGE_ID", nullable = false)
     public Image getImage() {
         return image;
     }
