@@ -101,11 +101,12 @@ public class Challenge implements Serializable {
      * @return image ID
      * @author Vladimir Zhdanov
      */
-    @Column(name = "IMAGE_ID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "IMAGE_ID", nullable = false)
     public Image getImage() {
         return image;
     }
-    public void setImage(Image imageId) {
+    public void setImage(Image image) {
         this.image = image;
     }
 

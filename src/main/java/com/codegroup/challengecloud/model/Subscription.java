@@ -17,6 +17,7 @@ import java.util.Set;
         uniqueConstraints = {
             @UniqueConstraint( columnNames = {"SUBSCRIPTION_ID"})})
 public class Subscription implements Serializable{
+    private static final long serialVersionUID = 1L;
     String id;
     Date date;
     User user;
