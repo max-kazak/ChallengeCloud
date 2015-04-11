@@ -70,6 +70,10 @@ public class SignInUpController {
 		if (!result.hasErrors()) {
 			logger.debug("The email of user to add: " + user.getEmail());
 
+			if (!user.getPassword().equals(user.getConfirmPassword())) {
+				model.addAttribute("mismatch", "Passwords don't match!");
+				return "signinup";
+			}
 			//checking in user already exists
 			UserDetails registered = checkIfUserExists(user);
 			if (registered == null) {

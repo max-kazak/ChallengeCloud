@@ -113,26 +113,42 @@
                         <div class="form-group">
                             <label for="inputName" class="control-label col-md-2"></label>
                             <div>
-                                <form:input path="name" type="login" class="form-control" id="inputName" placeholder="Name" style="font-size: 20px;"/>
+                                <form:input path="name" type="login"
+											class="form-control" id="inputName"
+											placeholder="Name" style="font-size: 20px;"/>
                             </div>
                         </div>
 						<div class="form-group">
 							<label for="inputLogin" class="control-label col-md-2"></label>
 							<div>
-								<form:input path="login" type="login" class="form-control" id="inputLogin" placeholder="Login" style="font-size: 20px;"/>
+								<form:input path="login" type="login"
+											class="form-control" id="inputLogin"
+											placeholder="Login" style="font-size: 20px;"/>
                             </div>
 						</div>
 						<div class="form-group">
 							<label for="inputPassword" class="control-label col-md-2"></label>
 							<div>
-								<form:password path="password" class="form-control" id="inputPassword" placeholder="Password" style="font-size: 20px;"/>
+								<form:password path="password" class="form-control"
+											   id="inputPassword" placeholder="Password"
+											   style="font-size: 20px;"/>
                             </div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword" class="control-label col-md-2"></label>
+							<div>
+								<form:password path="confirmPassword" class="form-control"
+											   id="inputPassword" placeholder="Confirm password"
+											   style="font-size: 20px;"/>
+							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputEmail" class="control-label col-md-2"></label>
 							<div>
-								<form:input path="email" type="email" class="form-control" id="inputEmail" placeholder="Email" style="font-size: 20px;"/>
+								<form:input path="email" type="email"
+											class="form-control" id="inputEmail"
+											placeholder="Email" style="font-size: 20px;"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -141,6 +157,11 @@
 							</div>
 						</div>
 					</form:form>
+					<c:if test="${not empty mismatch}">
+						<div>
+							<p>${mismatch}</p>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>

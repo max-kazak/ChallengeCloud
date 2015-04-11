@@ -24,6 +24,9 @@ public class User implements Serializable {
     String id;
     String login;
     String password;
+
+
+    String confirmPassword;
     String email;
     String name;
     /**
@@ -33,12 +36,8 @@ public class User implements Serializable {
      */
     Integer role;
 
-
     Set<Subscription> subscriptions;
     UserSetting userSetting;
-
-    public User() {
-    }
 
     @Id
     @Column(name = "USER_ID", unique = true, nullable = false)
@@ -66,6 +65,15 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Transient
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     @Column(name = "EMAIL", nullable = false, unique = true)
