@@ -46,7 +46,7 @@
 					<h3 > In Social Networks </h3>
 					<div class="">
 						<form action="<c:url value="/signin/twitter" />" method="POST" class="submitForm">
-							<button type="submit"><i class="fa fa-twitter fa-3x"></i></button>
+							<button type="submit"><i class="fa fa-twitter fa-3x" onclick=""></i></button>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 						</form>
 						<form action="#" method="POST" class="submitForm">
@@ -101,8 +101,6 @@
 					</c:if>
 				</div>
 			</div>
-			<!--
-			<div class="vertical-divider"></div> -->
 
 			<div class="col-md-6 text-left right-block">
 				<div class="col-md-8">
@@ -116,30 +114,21 @@
                             <label for="inputName" class="control-label col-md-2"></label>
                             <div>
                                 <form:input path="name" type="login" class="form-control" id="inputName" placeholder="Name" style="font-size: 20px;"/>
-                                <%--<form:errors path="name" element="div" />--%>
                             </div>
                         </div>
 						<div class="form-group">
 							<label for="inputLogin" class="control-label col-md-2"></label>
 							<div>
 								<form:input path="login" type="login" class="form-control" id="inputLogin" placeholder="Login" style="font-size: 20px;"/>
-                                <%--<form:errors path="login" element="div" />--%>
                             </div>
 						</div>
 						<div class="form-group">
 							<label for="inputPassword" class="control-label col-md-2"></label>
 							<div>
 								<form:password path="password" class="form-control" id="inputPassword" placeholder="Password" style="font-size: 20px;"/>
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                                <%--<form:errors path="password" element="div" />--%>
                             </div>
 						</div>
-						<%--<div class="form-group">--%>
-							<%--<label for="repeatPassword" class="control-label col-md-2"></label>--%>
-							<%--<div>--%>
-								<%--<form:password path="confirmPassword" class="form-control" id="repeatPassword" placeholder="Repeat Password" style="font-size: 20px;"/>--%>
-							<%--</div>--%>
-						<%--</div>--%>
+
 						<div class="form-group">
 							<label for="inputEmail" class="control-label col-md-2"></label>
 							<div>
@@ -151,7 +140,6 @@
 								<button type="submit" class="btn btn-default"> Sign Up </button>
 							</div>
 						</div>
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					</form:form>
 				</div>
 			</div>

@@ -29,8 +29,8 @@ public class UserSignInAdapter implements SignInAdapter{
 		Authentication auth = new UsernamePasswordAuthenticationToken(userDetail, null, userDetail.getAuthorities());
 		SecurityContextHolder.getContext().setAuthentication(auth);
 
-		logger.debug("SUCCESS in SIGN IN\n");
-		return "/home";
+		logger.debug("Successful sign in, username = " + userDetail.getUsername());
+		return "/settings";
 	}
 
 }

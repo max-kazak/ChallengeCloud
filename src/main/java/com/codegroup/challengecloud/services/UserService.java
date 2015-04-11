@@ -29,7 +29,6 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
-    
     public UserDao getUserDao() {
 		return userDao;
 	}
@@ -38,10 +37,12 @@ public class UserService {
         this.userDao = userDao;
     }
 
+    @Transactional
     public void updateProfile(User user) {
         userDao.update(user);
     }
 
+    @Transactional
     public void deleteProfile(User user) {
         userDao.delete(user);
     }

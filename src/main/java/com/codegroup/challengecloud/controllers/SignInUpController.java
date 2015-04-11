@@ -38,9 +38,9 @@ public class SignInUpController {
 
 	@Autowired
 	ChallengerUserDetailsService userDetailsService;
-//
+
 	@ModelAttribute("user")
-	public User getUser() {
+	public User user() {
 		return new User();
 	}
 	
@@ -82,7 +82,7 @@ public class SignInUpController {
 				SecurityContextHolder.getContext().setAuthentication(auth);
 				logger.debug("Registration and authentication was successful, user with email: " + user.getEmail());
 
-				return "redirect:/home";
+				return "redirect:/settings";
 			} else {
 				logger.debug("The email of existing User: " + user.getEmail());
 				model.addAttribute("emailExists", "The profile already exists with such email: " + user.getEmail());

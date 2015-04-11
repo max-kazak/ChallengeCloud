@@ -22,6 +22,7 @@
     <c:url var="socialnetworks" value="#"/>
     <c:url var="security" value="#"/>
     <c:url value="/connect/twitter" var="connect"/>
+    <c:url var="update" value="/settings"/>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -42,40 +43,96 @@
 </div>
 
 <div class="heading">
-    <h1>Settings</h1>
+    <h1 class="text-center">Settings</h1>
 </div>
 
 <div class="row">
-    <div class="col-md-3">
-        <div class="menu">
-            <ul>
-                <li role="presentation"><a href="${user}">User</a></li>
-                <li role="presentation"><a href="${general}">General</a></li>
-                <li role="presentation"><a href="${socialnetworks}">Social Networks</a></li>
-                <li role="presentation" class="active"><a href="${security}">Security</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-md-9">
+    <div class="col-md-3 col-md-offset-4">
         <div class="settings">
+            <h2> User </h2>
+            <c:set value="${CCloudEmail}" var="CCloudEmail"/>
+            <c:set value="${CCloudLogin}" var="CCloudLogin"/>
+            <c:set value="${CCloudName}" var="CCloudName"/>
+            <c:set value="${CCloudPassword}" var="CCloudPassword"/>
+            <form:form commandName="user" name="updateForm" action="${update}"
+                       method='POST'>
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-md-2"></label>
 
-            <c:if test="${not empty twitterName && not empty profileUrl}">
-                <img src="${imgSrc}"/>
-                <a href="${profileUrl}">${twitterName}</a>
+                    <div>
+                        <form:input path="name" type="login" class="form-control" id="inputName"
+                                    placeholder="Name" style="font-size: 20px;"
+                                    value="${CCloudName}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputLogin" class="control-label col-md-2"></label>
+
+                    <div>
+                        <form:input path="login" type="login" class="form-control" id="inputLogin"
+                                    placeholder="Login" style="font-size: 20px;"
+                                    value="${CCloudLogin}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="control-label col-md-2"></label>
+
+                    <div>
+                        <c:choose>
+                            <c:when test="${not empty CCloudPassword}">
+                                <c:set value="true" var="isDisabled"/>
+                            </c:when>
+                            <c:otherwise>
+                                <c:set value="false" var="isDisabled"/>
+                            </c:otherwise>
+                        </c:choose>
+                        <form:password path="password" class="form-control" id="inputPassword"
+                                       placeholder="Password" style="font-size: 20px;"
+                                       value="${CCloudPassword}" disabled="${isDisabled}" maxlength="20"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="control-label col-md-2"></label>
+
+                    <div>
+                        <form:input path="email" type="email" class="form-control" id="inputEmail"
+                                    placeholder="Email" style="font-size: 20px;"
+                                    value="${CCloudEmail}"/>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary"> Save</button>
+                </div>
+            </form:form>
+
+            <h2>Social networks</h2>
+
+            <h3>Twitter</h3>
+
+            <div>
+                <c:if test="${not empty twitterName && not empty profileUrl}">
+                    <img src="${imgSrc}"/>
+                    <a href="${profileUrl}">${twitterName}</a>
+                </c:if>
+                <c:choose>
+                    <c:when test="${isConnectedToTwitter == 'true'}">
+                        <form:form action="${connect}" method="DELETE" cssClass="provider-connect">
+                            <button class="btn btn-warning pull-right" type="submit">Disconnect</button>
+                        </form:form>
+                    </c:when>
+                    <c:otherwise>
+                        <i class="fa fa-twitter fa-3x"></i>
+                        <form:form action="${connect}" method="POST" cssClass="provider-connect">
+                            <button class="btn btn-primary pull-right" type="submit">Connect</button>
+                        </form:form>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+            <c:if test="${not empty setSave}">
+                <div>
+                    <p>${setSave}</p>
+                </div>
             </c:if>
-            <c:choose>
-                <c:when test="${isConnectedToTwitter == 'true'}">
-                    <form:form action="${connect}" method="DELETE" cssClass="provider-connect">
-                        <button class="btn btn-primary" type="submit">Disconnect</button>
-                    </form:form>
-                </c:when>
-                <c:otherwise>
-                    <i class="fa fa-twitter fa-3x"></i>
-                    <form:form action="${connect}" method="POST" cssClass="provider-connect">
-                        <button class="btn btn-primary" type="submit">Connect</button>
-                    </form:form>
-                </c:otherwise>
-            </c:choose>
         </div>
     </div>
 </div>
