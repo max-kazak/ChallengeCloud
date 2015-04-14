@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.util.List;
 
 
 /**
@@ -38,5 +39,14 @@ public class ImageService {
     @Transactional
     public Image getImage(String id) {
         return imageDao.getImageById(id);
+    }
+    
+    /**
+     * Added on 01.04.2015 by Vladimir Zhdanov
+     * @return List of all images
+     */
+    @Transactional
+    public List<Image> findAll() {
+    		return imageDao.findAll();
     }
 }

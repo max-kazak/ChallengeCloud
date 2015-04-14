@@ -39,4 +39,15 @@ public class ImageDaoMySQL extends HibernateDao implements ImageDao {
         List list = find("from Image where IMAGE_ID = ?", imageId);
         return (Image) list.get(0);
     }
+
+    /**
+     * Added on 01.04.2015 by Vladimir Zhdanov
+     * @return List of all images
+     */
+    @Override
+    public List<Image> findAll() {
+        log.debug("Looking for all images");
+        List list = find("from Image");
+        return (List<Image>) list;
+    }
 }
