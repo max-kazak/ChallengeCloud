@@ -33,9 +33,6 @@ import freemarker.template.TemplateException;
  */
 
 @Controller
-//@MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
-//	maxFileSize=1024*1024*10,      // 10MB
-//	maxRequestSize=1024*1024*50)
 public class ImagesController {
     private static final Logger log = Logger.getLogger(ImagesController.class);
     @Resource
@@ -110,21 +107,21 @@ public class ImagesController {
     public @ResponseBody String provideUploadInfo() {
         return "You can upload a file by posting to this same URL.";
     }
+
     @RequestMapping(value = "/images-managing-upload", method = RequestMethod.POST)
-    public @ResponseBody String upload(@RequestParam("name") String name,
-            @RequestParam("file") MultipartFile file){
+    public @ResponseBody String upload(@RequestParam("file") MultipartFile file){
     	if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
                 //TODO What to do with size???
                 log.debug("Befre saving an image");
-                imageService.createImage(name, 'S', bytes);
-                return "You successfully uploaded " + name + "!";
+                imageService.createImage(file.getName(), 'S', bytes);
+                return "You successfully uploaded " + file.getName() + "!";
             } catch (Exception e) {
-                return "You failed to upload " + name + " => " + e.getMessage();
+                return "You failed to upload " + file.getName() + " => " + e.getMessage();
             }
         } else {
-            return "You failed to upload " + name + " because the file was empty.";
+            return "You failed to upload " + file.getName() + " because the file was empty.";
         }
         }
 }

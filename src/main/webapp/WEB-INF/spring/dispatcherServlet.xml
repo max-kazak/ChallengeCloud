@@ -22,6 +22,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
+
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
 	<!--<beans:bean class="org.springframework.social.connect.web.ConnectController">-->
 		<!--&lt;!&ndash; relies on by-type autowiring for the constructor-args &ndash;&gt;-->
 		<!--<beans:property name="applicationUrl" value="local.com:8080/challengecloud-1.0.0-BUILD-SNAPSHOT/settings" />-->

@@ -18,7 +18,7 @@ import java.util.List;
 @Service("imageService")
 public class ImageService {
 
-    private static final Logger log = Logger.getLogger(UserService.class);
+    private static final Logger log = Logger.getLogger(ImageService.class);
     @Autowired
     ImageDao imageDao;
 
