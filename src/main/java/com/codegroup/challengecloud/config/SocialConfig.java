@@ -83,7 +83,6 @@ public class SocialConfig implements SocialConfigurer{
 	 * @return twitter API
 	 */
 	@Bean
-	@Scope(value="request", proxyMode=ScopedProxyMode.INTERFACES)
 	public Twitter twitter(Environment environment) {
 		return new TwitterTemplate(
 				environment.getProperty("twitter.consumerKey"),

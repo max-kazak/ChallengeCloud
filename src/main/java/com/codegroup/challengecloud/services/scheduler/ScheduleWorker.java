@@ -15,10 +15,10 @@ public class ScheduleWorker {
     TwitterDownloadService twitterDownloadService;
 
     /**
-     * Every ten seconds adding twitterPosts
+     * Every fifteen seconds adding twitterPosts
      * @author Nipel-Crumple
      */
-    @Scheduled(cron="0/5 * * * * ?")
+    @Scheduled(cron="0/15 * * * * ?")
     public void scheduleTwitterDownloadPosts() {
         logger.debug("Launching download posts task");
         twitterDownloadService.addAllUsersTwitterPosts();
