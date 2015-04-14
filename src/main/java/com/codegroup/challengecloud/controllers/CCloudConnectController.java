@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class CCloudConnectController extends ConnectController{
 
-    @Inject
     public CCloudConnectController(ConnectionFactoryLocator connectionFactoryLocator, ConnectionRepository connectionRepository) {
         super(connectionFactoryLocator, connectionRepository);
     }
