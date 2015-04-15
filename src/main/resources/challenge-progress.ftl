@@ -27,7 +27,7 @@
             </div>
         </div>
         <div style="float: left;">
-            <p class="pull-left">${postsAdded}/20 posts</p>
+            <p class="pull-left">${postsAdded}/${totalAmountOfPosts} posts</p>
         </div>
         <#--By Yefim Krokhin on 02.04.2015-->
         <div style="float: right;">

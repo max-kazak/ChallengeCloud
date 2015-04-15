@@ -83,7 +83,7 @@ CREATE TABLE `challenger`.`challenges` (
   `GROUP_ID`     VARCHAR(16)  NOT NULL,
   `IMAGE_ID`     VARCHAR(16) NOT NULL, /* By Vladimir Zhdanov on 28.03.2015 */
   PRIMARY KEY (`CHALLENGE_ID`) USING BTREE,
-  FOREIGN KEY (`GROUP_ID`) REFERENCES `challenger`.`challengegroups` (`GROUP_ID`)
+  FOREIGN KEY (`GROUP_ID`) REFERENCES `challenger`.`challengegroups` (`GROUP_ID`),
   FOREIGN KEY (`IMAGE_ID`) REFERENCES `challenger`.`images` (`IMAGE_ID`)
 
 );
