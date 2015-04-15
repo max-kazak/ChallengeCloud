@@ -68,10 +68,14 @@ public class HomeController {
         String subscriptionName = subscription.getChallenge().getTitle();
         String date = subscription.getDate().toString();
         String subscriptionId = subscription.getId();
+        int amountOfPosts = subscriptionService.findById(subscriptionId).getPosts().size();
+
         input.put("subscriptionName", "Challenge - " + subscriptionName);
         input.put("date", date);
         /*Added by Yefim Krokhin on 02.04.2015*/
         input.put("subscriptionId", subscriptionId);
+        input.put("postsAdded", amountOfPosts);
+        input.put("progress", amountOfPosts*100/20);
     }
 
     @RequestMapping(value = "/home-subscriptions", method = RequestMethod.GET)

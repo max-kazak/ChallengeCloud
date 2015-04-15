@@ -18,15 +18,16 @@
         <br/> <br/>
 
         <div class="progress">
+        <#--added Progress by Yefim Krokhin on 15.04.2015-->
             <div
                     class="progress-bar progress-bar-success progress-bar-striped"
-                    role="progressbar" aria-valuenow=40 aria-valuemin="0"
-                    aria-valuemax="100" style="width: 40%">
-                40% Complete
+                    role="progressbar" aria-valuenow="${progress}" aria-valuemin="0"
+                    aria-valuemax="100" style="width: ${progress}%">
+            ${progress}% Complete
             </div>
         </div>
         <div style="float: left;">
-            <p class="pull-left">8/20 posts</p>
+            <p class="pull-left">${postsAdded}/20 posts</p>
         </div>
         <#--By Yefim Krokhin on 02.04.2015-->
         <div style="float: right;">

@@ -50,7 +50,7 @@ public class TwitterController {
             String res = "";
         	if (add!=null && add.booleanValue()) {
         		//return "Added" + twitterDownloadService.addUserHashedPosts(id)  + " posts into tabe";
-        		return "Added" + twitterDownloadService.addAllUsersTwitterPosts()  + " posts into tabe";
+        		return "Added" + twitterDownloadService.addAllUsersTwitterPosts()  + " posts into tabel";
         	} else {
 	        	Set<Tweet> userTweets = twitterDownloadService.downloadUserHashedPosts(Long.parseLong(id), hash);
 	            log.info("getTwitterPosts() success");
