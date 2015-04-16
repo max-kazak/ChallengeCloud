@@ -14,15 +14,15 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserSettingService {
     @Autowired
     UserSettingDao userSettingDao;
-
+    @Transactional
     public void setUserSettingDao(UserSettingDao userSettingDao) {
         this.userSettingDao = userSettingDao;
     }
-
+    @Transactional
     public void updateUserSetting(UserSetting userSetting) {
         userSettingDao.update(userSetting);
     }
-
+    @Transactional
     public void deleteUserSetting(UserSetting userSetting) {
         userSettingDao.delete(userSetting);
     }

@@ -27,7 +27,7 @@ public class PostService {
     @Resource
     private SubscriptionService subscriptionService;
 
-    public void setSubscriptionDao(PostDao postDao) {
+    public void setPostDao(PostDao postDao) {
         this.postDao = postDao;
     }
 

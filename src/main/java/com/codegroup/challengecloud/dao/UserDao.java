@@ -11,12 +11,17 @@ import com.codegroup.challengecloud.model.User;
 public interface UserDao {
 
     public void save(User user);
+
     public void update(User user);
+
     public void delete(User user);
 
     public User findById(String id);
+
     public User findByLogin(String login);
+
     public User findByEmail(String email) throws IndexOutOfBoundsException;
+
     public List<User> findAll();
 
 }

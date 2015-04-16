@@ -22,6 +22,7 @@ insert into challenger.subscriptions values ("13", "d8fbf948694caf35", "876aee6e
 insert into challenger.subscriptions values ("14", "d8fbf948694caf35", "876aee6e27926e59", CURDATE());
 insert into challenger.posts values("577231985401290754", "twit_id", "13", CURDATE());
 insert into challenger.posts values("577232167299858433", "twit_id", "13", CURDATE());
+insert into challenger.events values('1', 'CCEvent', 'com.codegroup.challengecloud.events.CCEvent');
 
 /* For adding posts by Vladimir Zhdanov */
 Insert Into challenger.users values('19eda4a69b254c61', 'CCloudTest2', 'Bot', NULL, NULL, '1');

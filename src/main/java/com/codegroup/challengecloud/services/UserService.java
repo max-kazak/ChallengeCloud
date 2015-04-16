@@ -1,21 +1,18 @@
 package com.codegroup.challengecloud.services;
 
-import java.util.List;
-
 import com.codegroup.challengecloud.constants.UserRoles;
 import com.codegroup.challengecloud.dao.UserDao;
-import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by Max on 24.01.2015.
@@ -52,7 +49,7 @@ public class UserService {
         User user = new User();
         user.setId(Generator.generateId());
         user.setLogin(login);
-        if (password == null) {
+        if (password != null) {
             user.setPassword(password);
         } else {
             user.setPassword(Generator.generateHashedPass(password));

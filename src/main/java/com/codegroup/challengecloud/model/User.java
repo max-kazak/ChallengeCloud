@@ -127,7 +127,7 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", role=" + role +
-                '}';
+                "}";
     }
 
     /**

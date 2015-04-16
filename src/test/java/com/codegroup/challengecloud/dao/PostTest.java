@@ -44,12 +44,4 @@ public class PostTest {
         /*change by Yefim*/
         Assert.assertEquals(postService.findById(POST_ID_FIRST).getId(), POST_ID_FIRST);
     }
-
-/*    *//**
-     * @author Yefim
-     *//*
-    @Test
-    public void testFindBySubscriptionId() {
-        Assert.assertNotNull(twitterDownloadService.downloadTweetsForSubscriptionPage());
-    }*/
 }

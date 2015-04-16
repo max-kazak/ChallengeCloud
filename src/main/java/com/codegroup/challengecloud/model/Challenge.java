@@ -81,7 +81,7 @@ public class Challenge implements Serializable {
     }
 
     /**
-     * This method returns ChallengeGroup, which this Challnge
+     * This method returns ChallengeGroup, which this Challenge
      * belongs to.
      * @return ChallengeGroup of this Challenge.
      * @author Vladimir Zhdanov

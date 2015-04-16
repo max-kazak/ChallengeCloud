@@ -10,14 +10,23 @@ DROP TABLE IF EXISTS `challenger`.`origins`;
 DROP TABLE IF EXISTS `challenger`.`UserConnection`;
 DROP TABLE IF EXISTS `challenger`.`usersettings`;
 DROP TABLE IF EXISTS `challenger`.`users`;
+/*By Yefim Krokhin on 15.04.2015*/
+DROP TABLE IF EXISTS `challenger`.`events`;
+
+CREATE TABLE `challenger`.`events` (
+  `EVENT_ID` VARCHAR(16)  NOT NULL,
+  `NAME`     VARCHAR(20)  NOT NULL,
+  `CLASS`    VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`EVENT_ID`) USING BTREE
+);
 
 CREATE TABLE `challenger`.`images` (
-	`IMAGE_ID` VARCHAR(16) NOT NULL,
-	`NAME` VARCHAR(20),
-	`DATE` DATE NOT NULL,
-	`SIZE` CHAR(1),
-	`DATA` MEDIUMBLOB NOT NULL,
-	PRIMARY KEY (`IMAGE_ID`) USING BTREE
+  `IMAGE_ID` VARCHAR(16) NOT NULL,
+  `NAME`     VARCHAR(20),
+  `DATE`     DATE        NOT NULL,
+  `SIZE`     CHAR(1),
+  `DATA`     MEDIUMBLOB  NOT NULL,
+  PRIMARY KEY (`IMAGE_ID`) USING BTREE
 );
 
 CREATE TABLE `challenger`.`users` (
@@ -81,7 +90,7 @@ CREATE TABLE `challenger`.`challenges` (
   `DIFFICULTY`   TINYINT(2)   NOT NULL, #10 of 10, f.e.
   `HASHTAG`      VARCHAR(100),
   `GROUP_ID`     VARCHAR(16)  NOT NULL,
-  `IMAGE_ID`     VARCHAR(16) NOT NULL, /* By Vladimir Zhdanov on 28.03.2015 */
+  `IMAGE_ID`     VARCHAR(16)  NOT NULL, /* By Vladimir Zhdanov on 28.03.2015 */
   PRIMARY KEY (`CHALLENGE_ID`) USING BTREE,
   FOREIGN KEY (`GROUP_ID`) REFERENCES `challenger`.`challengegroups` (`GROUP_ID`),
   FOREIGN KEY (`IMAGE_ID`) REFERENCES `challenger`.`images` (`IMAGE_ID`)
@@ -102,14 +111,14 @@ CREATE TABLE `challenger`.`subscriptions` (
 /*Creating table of posts. By Andrey */
 /*Remake by Yefim*/
 CREATE TABLE `challenger`.`posts` (
-  `POST_ID`         VARCHAR(50)  NOT NULL,
-  `ORIGIN_ID`       VARCHAR(16)  NOT NULL,
-  `SUBSCRIPTION_ID` VARCHAR(16)  NOT NULL,
-  `DATE`            DATE    NOT NULL,
+  `POST_ID`         VARCHAR(50) NOT NULL,
+  `ORIGIN_ID`       VARCHAR(16) NOT NULL,
+  `SUBSCRIPTION_ID` VARCHAR(16) NOT NULL,
+  `DATE`            DATE        NOT NULL,
   PRIMARY KEY (`POST_ID`, `ORIGIN_ID`) USING BTREE,
   FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins (`ORIGIN_ID`),
   FOREIGN KEY (`SUBSCRIPTION_ID`) REFERENCES challenger.subscriptions (`SUBSCRIPTION_ID`)
 );
 
-commit;
+COMMIT;
 
