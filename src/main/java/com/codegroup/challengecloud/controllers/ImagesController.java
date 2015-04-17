@@ -2,6 +2,8 @@ package com.codegroup.challengecloud.controllers;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+
+
 
 
 
@@ -67,6 +71,9 @@ public class ImagesController {
     private void putImage(Map<String, Object> input, Image image) {
         input.put("imageId", image.getId());
         input.put("imageName", image.getName());
+        //TODO: It is not thread safe, that's why is not optimized
+        DateFormat df = new SimpleDateFormat("d MM, yyyy");
+        input.put("imageDate", df.format(image.getDate()));
     }
     
     @RequestMapping(value = "/images-managing-all", method = RequestMethod.GET)
@@ -167,6 +174,52 @@ public class ImagesController {
             }
         } else {
         	return imagesManagingUploadPage("You failed to upload " + file.getName() + " because the file was empty."); 
+        }
+    }
+    
+    /**
+     * Created on 17.04.2015 by Vladimir Zhdanov. This method for editing parameters of one image
+     * @param num
+     * @param count
+     * @return String "You successfully edited Image" or "Sorry, but something gone wrong"
+     */
+    @RequestMapping(value = "/images-managing-edit", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String editImage(
+            @RequestParam(value = "id", required = true) String id,
+            @RequestParam(value = "name", required = true) String name) {
+        log.info("editImage()");
+        Image image;
+        image = imageService.getImage(id);
+        if (image != null) {
+        	image.setName(name);
+        	imageService.updateImage(image);
+        	return "You successfully edited Image!";
+        } else {
+        	return "Sorry, but something gone wrong";
+        }
+    }
+    
+    /**
+     * Created on 17.04.2015 by Vladimir Zhdanov. This method deleting one Image
+     * @param num
+     * @param count
+     * @return String "You successfully edited Image" or "Sorry, but something gone wrong"
+     */
+    @RequestMapping(value = "/images-managing-delete", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String deleteImage(
+            @RequestParam(value = "id", required = true) String id) {
+        log.info("deleteImage()");
+        Image image;
+        image = imageService.getImage(id);
+        if (image != null) {
+        	imageService.deleteImage(image);
+        	return "You successfully deleted Image! (!)";
+        } else {
+        	return "Sorry, but something gone wrong";
         }
     }
 }

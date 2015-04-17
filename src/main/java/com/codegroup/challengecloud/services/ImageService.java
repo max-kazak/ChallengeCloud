@@ -1,8 +1,10 @@
 package com.codegroup.challengecloud.services;
 
 import com.codegroup.challengecloud.dao.ImageDao;
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.Image;
 import com.codegroup.challengecloud.utils.Generator;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,22 @@ public class ImageService {
     @Autowired
     ImageDao imageDao;
 
+    //TODO Don't know about @Transactional
+    /**
+     * Created on 17.04.2015 by Vladimir Zhdanov
+     * @param image
+     */
+    @Transactional
+    public void updateImage(Image image) {
+    	imageDao.update(image);
+    }
+    
+    // Created on 17.04.2015 by Vladimir Zhdanov
+    @Transactional
+    public void deleteImage(Image image) {
+    	imageDao.delete(image);
+    }
+    
     @Transactional
     public Image createImage(String name,char size, byte[] data) {
         Image imageEntity = new Image();

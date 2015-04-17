@@ -100,7 +100,36 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 			document.getElementById('window').style.display='block';
 			document.getElementById('transp').style.display='block';
 		}
+		function showEdit(imageId, imageName) {
+			document.getElementById('edit_image_id').value=imageId;
+			document.getElementById('edit_image_name').value=imageName;
+			document.getElementById('window-edit').style.display='block';
+			document.getElementById('window').style.display='block';
+			document.getElementById('transp').style.display='block';
+		}
+		function editImage() {
+			imageId = document.getElementById('edit_image_id').value;
+			imageName = document.getElementById('edit_image_name').value;
+			$.ajax({
+	            url : 'images-managing-edit.html?id=' + imageId + '&name=' + imageName,
+	            success : function(data) {
+	            	alert(data);
+	            	window.location.reload(); // Taken from http://www.mediacollege.com/internet/javascript/page/reload.html
+	        	}
+	        });
+		}
+		function removeImage(imageId) {
+			//document.getElementById('transp').style.display='block';
+			$.ajax({
+	            url : 'images-managing-delete.html?id=' + imageId ,
+	            success : function(data) {
+	            	alert(data);
+	            	window.location.reload(); // Taken from http://www.mediacollege.com/internet/javascript/page/reload.html
+	        	}
+	        });
+		}
 		function hide() {
+			document.getElementById('window-edit').style.display='none';
 			document.getElementById('window-upload').style.display='none';
 			document.getElementById('window').style.display='none';
 			document.getElementById('transp').style.display='none';
@@ -114,13 +143,27 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 		<img class="pull-right close" onclick="hide()" src="./resources/img/close.png" alt="Close">
 		<br/>
 		<!-- Content -->
-		<div id="window-upload">
+		<div id="window-upload" style="display: none;">
 			<div class="col-lg-12">
 			<c:url var="images-managing-upload" value="/images-managing-upload"/>
 				<form method="POST" enctype="multipart/form-data" action="/challengecloud/images-managing-upload">
 					File to upload: <input type="file" name="file"><br /><br />
 			        <input type="submit" value="Upload"> Press here to upload the file!
 				</form>
+			</div> <!-- col-lg-12 -->
+		</div>
+		
+		<div id="window-edit" style="display: none;">
+			<div class="col-lg-12">
+			<c:url var="images-managing-edit" value="/images-managing-edit"/>
+				<!-- <form method="GET" action="/challengecloud/images-managing-edit">
+					<input id="edit_image_id" type="hidden" name="id" value=""><br /><br />
+					Image Name <input type="text" name="name"><br /><br />
+			        <input type="submit" value="Update"> 
+				</form> -->
+					<input id="edit_image_id" type="hidden" name="id" value=""><br /><br />
+					Image Name <input id="edit_image_name" type="text" name="name" value=""><br /><br />
+			        <button class="btn btn-default" onclick="editImage()">Update</button>
 			</div> <!-- col-lg-12 -->
 		</div>
 	</div>
@@ -132,7 +175,7 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 	<c:url var="welcome" value="/welcome" />
 	<c:url var="about" value="#" />
 	<c:url var="ourteam" value="#" />
-	<c:url var="challenges" value="#" />
+	<c:url var="challenges" value="/challenges" />
 	<c:url var="trend" value="#" />
 	<c:url var="trophyroom" value="#" />
 	<c:url var="all" value="#" />
