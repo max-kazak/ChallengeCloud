@@ -1,14 +1,17 @@
 package com.codegroup.challengecloud.services;
 
 import com.codegroup.challengecloud.dao.ImageDao;
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.Image;
 import com.codegroup.challengecloud.utils.Generator;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.util.List;
 
 
 /**
@@ -17,10 +20,26 @@ import java.sql.Date;
 @Service("imageService")
 public class ImageService {
 
-    private static final Logger log = Logger.getLogger(UserService.class);
+    private static final Logger log = Logger.getLogger(ImageService.class);
     @Autowired
     ImageDao imageDao;
 
+    //TODO Don't know about @Transactional
+    /**
+     * Created on 17.04.2015 by Vladimir Zhdanov
+     * @param image
+     */
+    @Transactional
+    public void updateImage(Image image) {
+    	imageDao.update(image);
+    }
+    
+    // Created on 17.04.2015 by Vladimir Zhdanov
+    @Transactional
+    public void deleteImage(Image image) {
+    	imageDao.delete(image);
+    }
+    
     @Transactional
     public Image createImage(String name,char size, byte[] data) {
         Image imageEntity = new Image();
@@ -38,5 +57,14 @@ public class ImageService {
     @Transactional
     public Image getImage(String id) {
         return imageDao.getImageById(id);
+    }
+    
+    /**
+     * Added on 01.04.2015 by Vladimir Zhdanov
+     * @return List of all images
+     */
+    @Transactional
+    public List<Image> findAll() {
+    		return imageDao.findAll();
     }
 }
