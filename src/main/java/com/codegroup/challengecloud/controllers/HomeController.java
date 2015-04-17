@@ -71,6 +71,7 @@ public class HomeController {
         int amountOfPosts = subscription.getPosts().size();
         int totalAmountOfPosts = subscription.getChallenge().getDifficulty();
 
+        input.put("imageId", subscription.getChallenge().getImage().getId()); // Added on 17.04.2015 by Vladimir Zhdanov
         input.put("subscriptionName", "Challenge - " + subscriptionName);
         input.put("date", date);
         /*Added by Yefim Krokhin on 02.04.2015*/

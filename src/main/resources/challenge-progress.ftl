@@ -2,7 +2,7 @@
 <body>
 <div class="row challenge">
     <div class="challenge-img">
-        <img src="./../../resources/img/ch1.PNG"
+        <img src="./images/${imageId}.png"
              alt="Image For Challenge">
     </div>
     <!-- Challenge Info -->
@@ -35,5 +35,6 @@
         </div>
     </div>
     <!-- End of Challenge Info -->
+</div>
 </body>
 </html>
