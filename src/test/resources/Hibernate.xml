@@ -48,5 +48,5 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
-    <import resource="DataSource.xml"></import>
+    <import resource="DataSource.xml"/>
 </beans>

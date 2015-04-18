@@ -4,9 +4,11 @@ import com.codegroup.challengecloud.dao.PostDao;
 import com.codegroup.challengecloud.model.Origin;
 import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.model.Subscription;
+import com.codegroup.challengecloud.services.events.TwitterPostEvent;
 import com.codegroup.challengecloud.utils.Generator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,12 +21,14 @@ import java.util.List;
  */
 @Service("postService")
 public class PostService {
+
+    @Autowired
+    ApplicationContext applicationContext;
     @Autowired
     PostDao postDao;
-
-    @Resource
+    @Autowired
     private UserService userService;
-    @Resource
+    @Autowired
     private SubscriptionService subscriptionService;
 
     public void setPostDao(PostDao postDao) {
@@ -41,7 +45,7 @@ public class PostService {
         post.setOrigin(origin);
 
         postDao.save(post);
-
+        
         return post;
     }
 

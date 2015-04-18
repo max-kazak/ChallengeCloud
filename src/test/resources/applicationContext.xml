@@ -13,7 +13,6 @@
     <context:annotation-config />
     <context:component-scan base-package="com.codegroup.challengecloud" />
     <tx:annotation-driven />
-
     <!-- Database Configuration -->
     <import resource="DataSource.xml"/>
     <import resource="Hibernate.xml"/>
