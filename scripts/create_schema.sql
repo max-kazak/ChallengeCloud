@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS `challenger`.`posts`;
 DROP TABLE IF EXISTS `challenger`.`subscriptions`;
 DROP TABLE IF EXISTS `challenger`.`challenges`;
 DROP TABLE IF EXISTS `challenger`.`challengegroups`;
+DROP TABLE IF EXISTS `challenger`.`badges`;
 DROP TABLE IF EXISTS `challenger`.`images`;
 DROP TABLE IF EXISTS `challenger`.`origins`;
 DROP TABLE IF EXISTS `challenger`.`UserConnection`;
@@ -118,6 +119,19 @@ CREATE TABLE `challenger`.`posts` (
   PRIMARY KEY (`POST_ID`, `ORIGIN_ID`) USING BTREE,
   FOREIGN KEY (`ORIGIN_ID`) REFERENCES challenger.origins (`ORIGIN_ID`),
   FOREIGN KEY (`SUBSCRIPTION_ID`) REFERENCES challenger.subscriptions (`SUBSCRIPTION_ID`)
+);
+
+/*Nipel-Crumple for achivement system*/
+CREATE TABLE `challenger`.`badges` (
+  `BADGE_ID`  varchar(16) NOT NULL,
+    `NAME`    varchar(40) NOT NULL,
+    `DESCRIPTION` varchar(150) NOT NULL,
+    `IMAGE_ID` varchar(16) NOT NULL,
+    `EVENT_ID` varchar(16) NOT NULL,
+    `CONDITION` varchar(80) NOT NULL,
+    PRIMARY KEY(`BADGE_ID`) USING BTREE,
+    FOREIGN KEY(`IMAGE_ID`) REFERENCES `challenger`.`images`(`IMAGE_ID`),
+    FOREIGN KEY(`EVENT_ID`) REFERENCES `challenger`.`events` (`EVENT_ID`)
 );
 
 COMMIT;
