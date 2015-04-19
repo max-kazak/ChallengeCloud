@@ -59,14 +59,14 @@ public class ChallengeService {
     
     @Transactional
     public Challenge createChallenge(String title, String description, Integer difficulty,
-    		String hashtag, ChallengeGroup challengeGroup, Image image){
+    		String hashtag, Image image){
     	Challenge challenge = new Challenge();
     	challenge.setId(Generator.generateId());
     	challenge.setTitle(title);
     	challenge.setDescription(description);
     	challenge.setDifficulty(difficulty);
     	challenge.setHashtag(hashtag);
-    	challenge.setChallengeGroup(challengeGroup);
+    	challenge.setChallengeGroup(challengeGroupService.findById("5d2c117e674b39de"));
     	challenge.setImage(image);
     	
     	challengeDao.save(challenge);
