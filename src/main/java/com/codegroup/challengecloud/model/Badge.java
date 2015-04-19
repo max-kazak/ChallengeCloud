@@ -1,13 +1,14 @@
 package com.codegroup.challengecloud.model;
 
 import javax.persistence.*;
+
 import java.io.Serializable;
 
 /**
  * Created by Nipel-Crumple on 18.04.2015.
  */
 @Entity
-@Table(name = "BADGES", catalog = "challenger")
+@Table(name = "badges", catalog = "challenger")
 public class Badge implements Serializable{
     private static final long serialVersionUID = 1L;
 
@@ -19,7 +20,7 @@ public class Badge implements Serializable{
     private String condition;
 
     @Id
-    @Column(name = "BADGE_ID", unique = true)
+    @Column(name = "BADGE_ID", unique = true, nullable = false)
     public String getId() {
         return id;
     }
@@ -28,7 +29,7 @@ public class Badge implements Serializable{
         this.id = id;
     }
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
     public String getName() {
         return name;
     }
@@ -37,7 +38,7 @@ public class Badge implements Serializable{
         this.name = name;
     }
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = false)
     public String getDescription() {
         return description;
     }
@@ -47,18 +48,17 @@ public class Badge implements Serializable{
     }
 
 
-    @OneToOne
-    @JoinColumn(name = "IMAGE_ID")
+    @ManyToOne
+    @JoinColumn(name = "IMAGE_ID", nullable = false)
     public Image getImage() {
         return image;
     }
-
     public void setImage(Image image) {
         this.image = image;
     }
 
-    @OneToOne
-    @JoinColumn(name = "EVENT_ID")
+    @ManyToOne
+    @JoinColumn(name = "EVENT_ID", nullable = false)
     public Event getEvent() {
         return event;
     }
@@ -67,7 +67,7 @@ public class Badge implements Serializable{
         this.event = event;
     }
 
-    @Column(name = "CONDITION")
+    @Column(name = "CONDITION", nullable = false)
     public String getCondition() {
         return condition;
     }

@@ -28,7 +28,7 @@ public class BadgeDaoMySQL extends HibernateDao implements BadgeDao {
     @Override
     @Transactional
     public Badge findByName(String badgeName) {
-        logger.info("getting badge by id = " + badgeName);
+        logger.info("getting badge by name = " + badgeName);
         List badges = find("from Badge where name = ?", badgeName);
         return (Badge) badges.get(0);
     }
@@ -36,7 +36,7 @@ public class BadgeDaoMySQL extends HibernateDao implements BadgeDao {
     @Override
     @Transactional
     public Badge findByEventId(String eventId) {
-        logger.info("getting badge by id = " + eventId);
+        logger.info("getting badge by eventId = " + eventId);
         List badges = find("from Badge where event_id = ?", eventId);
         return (Badge) badges.get(0);
     }
