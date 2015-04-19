@@ -3,8 +3,8 @@
 <!-- first challenge -->
 <div class="row challenge">
   <div class="challenge-img">
-    <img src="./resources/img/ch1.PNG"
-	 alt="Image For Challenge">
+    <img src="./images/${imageId}.png"
+         alt="Image For Challenge">
       </div>
       <!-- Challenge Info -->
       <div class="challenge-info">
@@ -13,7 +13,7 @@
 	    <p> ${challengeName} </p>
 	  </div>
 	  <div style="float: right;">
-	    <p>1 jan, 2015</p>
+	    <p>Difficulty: ${challengeDifficulty}</p>
 	  </div>
 	</div>
 	<br /> <br />
@@ -27,8 +27,8 @@
 	</div>
 	<div style="float: right;">
 	  <p>
-	    <a href="#" class="btn btn-default" role="button">More</a>
-	    <a href="#" class="btn btn-primary" role="button">Add</a>
+	    <a href="#" class="btn btn-default" role="button" onclick="showMore('${challengeId}')">More</a>
+	    <a href="#" class="btn btn-default" role="button" onclick="addChallenge('${challengeId}')">Add</a>
 	  </p>
 
 	</div>

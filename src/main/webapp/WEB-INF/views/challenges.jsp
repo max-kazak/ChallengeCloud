@@ -7,8 +7,10 @@
 <TITLE>Challenges</TITLE>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />"> 
+    <link rel="stylesheet" href="<c:url value="/resources/css/transparent.css" />"> 
+    
+    
 <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
@@ -55,6 +57,47 @@
 </head>
  
 <body>
+<!-- On 19.04.2015 by Vladimir Zhdanov -->
+	<script type="text/javascript">
+		function showMore(challengeId, challengeName) {
+			//document.getElementById('more_challenge_name').value=challengeId;
+			//document.getElementById('more_challenge_description').value=challengeName;
+			document.getElementById('window-more').style.display='block';
+			document.getElementById('window').style.display='block';
+			document.getElementById('transp').style.display='block';
+		}
+		function addChallenge(challengeId) {
+			
+		}
+		function hide() {
+			document.getElementById('window-more').style.display='none';
+			document.getElementById('window').style.display='none';
+			document.getElementById('transp').style.display='none';
+		}
+	</script>
+	<!-- Transparant background-->
+	<div id="transp" onclick="hide()"></div>
+	<!-- Window -->
+	<div id="window">
+		<!-- Close -->
+		<img class="pull-right close" onclick="hide()" src="./resources/img/close.png" alt="Close">
+		<br/>
+		<!-- Content -->
+		
+		<div id="window-more" style="display: none;">
+			<div class="col-lg-12">
+				<!-- <form method="GET" action="/challengecloud/images-managing-edit">
+					<input id="edit_image_id" type="hidden" name="id" value=""><br /><br />
+					Image Name <input type="text" name="name"><br /><br />
+			        <input type="submit" value="Update"> 
+				</form> -->
+					<input id="edit_image_id" type="hidden" name="id" value=""><br /><br />
+					Image Name <input id="edit_image_name" type="text" name="name" value=""><br /><br />
+			        <button class="btn btn-default" onclick="editImage()">Update</button>
+			</div> <!-- col-lg-12 -->
+		</div>
+	</div>
+	
 <div class="main">
 	<c:url var="home" value="/home" />
 	<c:url var="settings" value="/settings" />

@@ -72,8 +72,11 @@ public class ChallengesController {
      */
     private void putChallenge(Map<String, Object> input, Challenge challenge) {
 
-        input.put("challengeName", challenge.getTitle());//"Challenge " + Integer.toString(2));
-        input.put("challengeDescription", "Challenge Description " + Integer.toString(2));
+        input.put("challengeId", challenge.getId());
+        input.put("challengeName", challenge.getTitle());
+        input.put("challengeDescription", challenge.getDescription());
+        input.put("imageId", challenge.getImage().getId());
+        input.put("challengeDifficulty", challenge.getDifficulty().toString());
     }
     
     @RequestMapping(value = "/challenges-all", method = RequestMethod.GET)

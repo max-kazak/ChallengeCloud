@@ -10,9 +10,12 @@ values ("d8fbf948694caf35", "Yefim", "yefim krokhin", "$2a$10$rdHCgQDkMqQSk9IK8r
 -- Nipel-Crumple 12.03.2015
 insert into `challenger`.`images` values ("123123","Image1","2015-03-12", "S", LOAD_FILE('D:\#1.png'));
 insert into `challenger`.`images` values ("5f7f505e8099a263","Bicycle","2015-03-28", "S", LOAD_FILE('D:\Bicycle.png')); /* By Vladimir Zhdanov on 28.03.2015 */
-insert into challenger.images values("dadsf87a823e98d2", "MrTwitter", CURDATE(), 'M', LOAD_FILE("D:/mrtwitter.png")); /*Nipel-Crumple 18.04.15 for achivements*/
+insert into challenger.images values("dadsf87a823e98d2", "MrTwitter", CURDATE(), 'M', LOAD_FILE("D:\mrtwitter.png")); /*Nipel-Crumple 18.04.15 for achivements*/
+insert into `challenger`.`images` values ("a078b67302203463","Health Group","2015-04-19", "S", LOAD_FILE('D:\Heart.png')); /* By Vladimir Zhdanov on 19.04.2015 */
 insert into challenger.challengegroups values ("5d2c117e674b39de", "Challenge group 1 name", "123123");
+insert into challenger.challengegroups values ("20eec2f9234e010a", "Health", "a078b67302203463");
 insert into challenger.challenges values ("876aee6e27926e59", "Challenge 1 title", "Challenge 1  decription", 20, "Challenge 1 hash tag", "5d2c117e674b39de", "5f7f505e8099a263"); /* Added ImageID by Vladimir Zhdanov on 18.03.2015 */
+insert into challenger.challenges values ("1a8af31c496601eb", "To Work By Bicycle", "Travel to your work by bicycle for 5 days", 8, "CCBicycle", "20eec2f9234e010a", "5f7f505e8099a263");
 insert into challenger.subscriptions values ("11", "d6fbf948694caf35", "876aee6e27926e59", CURDATE());
 insert into challenger.subscriptions values ("12", "d6fbf948694caf35", "876aee6e27926e59", CURDATE());
 
