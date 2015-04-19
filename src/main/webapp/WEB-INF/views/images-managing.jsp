@@ -7,42 +7,11 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />"> 
+	<link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />"> 
+	<link rel="stylesheet" href="<c:url value="/resources/css/transparent.css" />"> 
     
-<!-- On 01.04.2015 by Vladimir Zhdanov. I took it from http://sergey-oganesyan.ru/javascript-s-primerami/kak-sdelat-vsplyvayushee-okno.html
-and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
-<style type="text/css">
-	#transp{
-		display: none;
-		opacity: 0.8;
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		padding: 16px;
-		background-color: rgba(1, 1, 1, 0.725);
-		z-index: 100;
-		overflow: auto;
-	}
-	#window{
-		margin: 50px auto;
-		display: none;
-		background: #fff;
-		z-index: 200;
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		padding: 16px;
-	}
-	.close{
-		cursor: pointer;
-	}
-	
-</style>
+
+
 <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
@@ -169,7 +138,7 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 	</div>
 
 
-	<div class="main">
+	<div >
 	<c:url var="home" value="/home" />
 	<c:url var="settings" value="/settings" />
 	<c:url var="welcome" value="/welcome" />
@@ -216,7 +185,7 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
             <div class="menu">
                 <!-- <ul class="nav nav-pills nav-stacked"> -->
                 <ul class="menu">
-                    <li role="presentation" class="active"><a href="#">Challenges</a></li>
+                    <li role="presentation" class="active"><a href="<c:url value="challenges" />">Challenges</a></li>
                     <li role="presentation"><a href="#">Trend</a></li>
                     <li role="presentation"><a href="#">Trophy Room</a></li>
                     <li role="presentation"><a href="<c:url value="/settings" />">Settings</a></li>
@@ -232,7 +201,7 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 					</div>
 					<div class="menu2">
 						<ul class="nav nav-pills">
-							<li role="presentation" class="active"><a href="#">All</a></li>
+							<li role="presentation" class="active"><a href="/challenges">All</a></li>
 							<li role="presentation"><a href="#">Recent</a></li>
 							<li role="presentation"><a href="#">Random</a></li>
 							<li role="presentation" class="pull-right"><button class="btn btn-default" onclick="showUpload()">Upload</button></li>
