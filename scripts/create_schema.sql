@@ -13,7 +13,9 @@ DROP TABLE IF EXISTS `challenger`.`usersettings`;
 DROP TABLE IF EXISTS `challenger`.`users`;
 /*By Yefim Krokhin on 15.04.2015*/
 DROP TABLE IF EXISTS `challenger`.`events`;
+DROP TABLE IF EXISTS `challenger`.`history`;
 
+/*By Yefim Krokhin on 15.04.2015*/
 CREATE TABLE `challenger`.`events` (
   `EVENT_ID` VARCHAR(16)  NOT NULL,
   `NAME`     VARCHAR(20)  NOT NULL,
@@ -40,6 +42,17 @@ CREATE TABLE `challenger`.`users` (
   PRIMARY KEY (`USER_ID`) USING BTREE,
   UNIQUE KEY `UNI_USER_EMAIL` (`EMAIL`) USING BTREE,
   UNIQUE KEY `UNI_USER_LOGIN` (`LOGIN`) USING BTREE
+);
+
+/*By Yefim Krokhin on 19.04.2015*/
+CREATE TABLE `challenger`.`history` (
+  `USER_ID`  VARCHAR(16) NOT NULL,
+  `TIME`     TIMESTAMP,
+  `EVENT_ID` VARCHAR(16) NOT NULL,
+  `REF_ID`   VARCHAR(16) NOT NULL,
+  PRIMARY KEY (`USER_ID`, `TIME`, `EVENT_ID`) USING BTREE,
+  FOREIGN KEY (`USER_ID`) REFERENCES challenger.users (`USER_ID`),
+  FOREIGN KEY (`EVENT_ID`) REFERENCES challenger.events (`EVENT_ID`)
 );
 
 CREATE TABLE `challenger`.`usersettings` (
@@ -123,15 +136,15 @@ CREATE TABLE `challenger`.`posts` (
 
 /*Nipel-Crumple for achivement system*/
 CREATE TABLE `challenger`.`badges` (
-  `BADGE_ID`  varchar(16) NOT NULL,
-    `NAME`    varchar(40) NOT NULL,
-    `DESCRIPTION` varchar(150) NOT NULL,
-    `IMAGE_ID` varchar(16) NOT NULL,
-    `EVENT_ID` varchar(16) NOT NULL,
-    `CONDITION` varchar(80) NOT NULL,
-    PRIMARY KEY(`BADGE_ID`) USING BTREE,
-    FOREIGN KEY(`IMAGE_ID`) REFERENCES `challenger`.`images`(`IMAGE_ID`),
-    FOREIGN KEY(`EVENT_ID`) REFERENCES `challenger`.`events` (`EVENT_ID`)
+  `BADGE_ID`    VARCHAR(16)  NOT NULL,
+  `NAME`        VARCHAR(40)  NOT NULL,
+  `DESCRIPTION` VARCHAR(150) NOT NULL,
+  `IMAGE_ID`    VARCHAR(16)  NOT NULL,
+  `EVENT_ID`    VARCHAR(16)  NOT NULL,
+  `CONDITION`   VARCHAR(80)  NOT NULL,
+  PRIMARY KEY (`BADGE_ID`) USING BTREE,
+  FOREIGN KEY (`IMAGE_ID`) REFERENCES `challenger`.`images` (`IMAGE_ID`),
+  FOREIGN KEY (`EVENT_ID`) REFERENCES `challenger`.`events` (`EVENT_ID`)
 );
 
 COMMIT;

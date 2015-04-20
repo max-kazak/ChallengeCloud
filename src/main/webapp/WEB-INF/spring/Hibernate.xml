@@ -36,6 +36,7 @@
                 <value>com.codegroup.challengecloud.model.Origin</value>
                 <value>com.codegroup.challengecloud.model.Image</value>
                 <value>com.codegroup.challengecloud.model.Event</value>
+                <value>com.codegroup.challengecloud.model.History</value>
                 <value>com.codegroup.challengecloud.model.Badge</value>
             </list>
         </property>
