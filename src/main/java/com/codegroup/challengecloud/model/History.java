@@ -19,17 +19,17 @@ public class History implements Serializable {
     String refId;
     Event event;
     User user;
-    String historyId;
+    String id;
     Timestamp timestamp;
 
     @Id
     @Column(name = "HISTORY_ID", unique = true, nullable = false)
-    public String getHistoryId() {
-        return historyId;
+    public String getId() {
+        return id;
     }
 
-    public void setHistoryId(String historyId) {
-        this.historyId = historyId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @ManyToOne
@@ -74,9 +74,10 @@ public class History implements Serializable {
 
     @Override
     public String toString() {
-        return "History{user_id='" + user.getId() + "\'" +
+        return "History{id='" + id +
+                "', user_id='" + user.getId() + "\'" +
                 ", time='" + timestamp + "\'" +
                 ", event_id='" + event.getId() + "\'" +
-                ", ref_id='" + refId + "}";
+                ", ref_id='" + refId + "'}";
     }
 }

@@ -1,9 +1,10 @@
 package com.codegroup.challengecloud.dao;
 
 import com.codegroup.challengecloud.model.History;
+import com.codegroup.challengecloud.model.User;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Timestamp;
+import java.util.Set;
 
 /**
  * Created by Krokhin on 19.04.2015.
@@ -18,5 +19,7 @@ public interface HistoryDao {
 
     public History findByRefId(String refId);
 
-    public History findByHistoryId(String historyId);
+    public History findById(String historyId);
+
+    public Set<History> getHistoryForUser(User user);
 }

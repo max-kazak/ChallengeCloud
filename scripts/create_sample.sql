@@ -42,6 +42,7 @@ INSERT INTO challenger.events VALUES ('1', 'CCEvent', 'com.codegroup.challengecl
 INSERT INTO challenger.events VALUES ('2', "TwitterPostEvent", "com.codegroup.challengecloud.events.TwitterPostEvent");
 /*Nipel-Crumple for event <---> achievement*/
 INSERT INTO challenger.history VALUES ('123', 'd8fbf948694caf35', '2008-01-01 00:00:01', '1', '577231985401290754');
+INSERT INTO challenger.history VALUES ('12', 'd8fbf948694caf35', '2007-01-01 00:00:01', '1', '577232167299858433');
 
 /* For adding posts by Vladimir Zhdanov */
 INSERT INTO challenger.users VALUES ('19eda4a69b254c61', 'CCloudTest2', 'Bot', NULL, NULL, '1');

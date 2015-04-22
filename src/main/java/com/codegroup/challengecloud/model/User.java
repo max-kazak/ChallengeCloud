@@ -16,16 +16,12 @@ import java.util.Set;
         @UniqueConstraint(columnNames = "LOGIN")})
 public class User implements Serializable {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
 
     String id;
     String login;
     String password;
-
-
+    Set<History> historyNotes;
     String confirmPassword;
     String email;
     String name;
@@ -159,5 +155,18 @@ public class User implements Serializable {
 
     public void setUserSetting(UserSetting userSetting) {
         this.userSetting = userSetting;
+    }
+
+
+    /**
+     * @author Yefin on 22.04.2015
+     */
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    public Set<History> getHistoryNotes() {
+        return historyNotes;
+    }
+
+    public void setHistoryNotes(Set<History> historyNotes) {
+        this.historyNotes = historyNotes;
     }
 }

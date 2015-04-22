@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Set;
 
 /**
  * Created by Krokhin on 21.04.2015.
@@ -38,12 +38,12 @@ public class HistoryService{
     @Transactional
     public History createHistory(String userId, Timestamp timestamp, String eventId, String refId) {
         History history = new History();
-        history.setHistoryId(Generator.generateId());
+        history.setId(Generator.generateId());
         history.setUser(userService.findById(userId));
         history.setTimestamp(timestamp);
         history.setEvent(eventService.findById(eventId));
         history.setRefId(refId);
-        log.debug("Creating history note with id = " + history.getHistoryId());
+        log.debug("Creating history note with id = " + history.getId());
         historyDao.save(history);
         return history;
     }
@@ -59,7 +59,12 @@ public class HistoryService{
     }
 
     @Transactional
-    public History findByHistoryId(String historyId) {
-        return historyDao.findByHistoryId(historyId);
+    public History findById(String historyId) {
+        return historyDao.findById(historyId);
+    }
+
+    @Transactional
+    public Set<History> findHistoryForCurrentUser() {
+        return historyDao.getHistoryForUser(userService.getCurrentUser());
     }
 }

@@ -2,11 +2,14 @@ package com.codegroup.challengecloud.dao.impl;
 
 import com.codegroup.challengecloud.dao.HistoryDao;
 import com.codegroup.challengecloud.model.History;
+import com.codegroup.challengecloud.model.User;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Timestamp;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Krokhin on 21.04.2015.
@@ -39,15 +42,32 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
 
     @Override
     public History findByRefId(String refId) {
-        log.debug("find history record with reID " + refId);
+        log.debug("find history record with refID " + refId);
         List list = find("from History where REF_ID = ?", refId);
         return (History) list.get(0);
     }
 
     @Override
-    public History findByHistoryId(String historyId) {
-        log.debug("find history record by  PK:  " + historyId);
+    public History findById(String historyId) {
+        log.debug("find history record by PK:  " + historyId);
         List list = find("from History where HISTORY_ID = ?", historyId);
         return (History) list.get(0);
+    }
+
+    @Override
+    public Set<History> getHistoryForUser(User user) {
+        Set<History> unsortedHistory = user.getHistoryNotes();
+        Set<History> sortedHistory = new TreeSet<>(new Comparator<History>() {
+            @Override
+            public int compare(History o1, History o2) {
+                return o1.getTimestamp().compareTo(o2.getTimestamp());
+            }
+
+        });
+
+        for (History tempHistory : unsortedHistory) {
+            sortedHistory.add(tempHistory);
+        }
+        return sortedHistory;
     }
 }
