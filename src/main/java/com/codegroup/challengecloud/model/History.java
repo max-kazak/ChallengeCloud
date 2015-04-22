@@ -8,34 +8,42 @@ import java.sql.Timestamp;
  * Created by Krokhin on 19.04.2015.
  */
 
-@Embeddable
-class HistoryPK {
+@Entity
+@Table(name = "history", catalog = "challenger", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "HISTORY_ID")
+})
+public class History implements Serializable {
 
-    @Column(name = "USER_ID", unique = false, nullable = false)
-    private String userID;
+    private static final long serialVersionUID = 1L;
+
+    String refId;
+    Event event;
+    User user;
+    String historyId;
+    Timestamp timestamp;
+
+    @Id
+    @Column(name = "HISTORY_ID", unique = true, nullable = false)
+    public String getHistoryId() {
+        return historyId;
+    }
+
+    public void setHistoryId(String historyId) {
+        this.historyId = historyId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", unique = false, nullable = false)
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 
     @Column(name = "TIME", unique = false, nullable = false)
-    private Timestamp timestamp;
-
-    @Column(name = "EVENT_ID", unique = false, nullable = false)
-    private String eventId;
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-    public String getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
     public Timestamp getTimestamp() {
         return timestamp;
     }
@@ -43,46 +51,16 @@ class HistoryPK {
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
-}
 
-@Entity
-@Table(name = "history", catalog = "challenger"/*, uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"USER_ID", "TIME", "EVENT_ID"})
-}*/)
-public class History implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-    String userId;
-    Timestamp timestamp;
-    String eventId;
-    String refId;
-
-    @EmbeddedId
-    private HistoryPK historyPK;
-
-    public String getUserId() {
-        return historyPK.getUserID();
+    @ManyToOne
+    @JoinColumn(name = "EVENT_ID", unique = false, nullable = false)
+    public Event getEvent() {
+        return event;
     }
 
-    public void setUserId(String userId) {
-        historyPK.setUserID(userId);
-    }
-
-    public Timestamp getTimestamp() {
-        return historyPK.getTimestamp();
-    }
-
-    public void setTimestamp(Timestamp timestamp) {
-        historyPK.setTimestamp(timestamp);
-    }
-
-    public String getEventId() {
-        return historyPK.getEventId();
-    }
-
-    public void setEventId(String eventId) {
-        historyPK.setEventId(eventId);
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     @Column(name = "REF_ID", unique = false, nullable = false)
@@ -96,9 +74,9 @@ public class History implements Serializable {
 
     @Override
     public String toString() {
-        return "History{user_id='" + userId + "\'" +
+        return "History{user_id='" + user.getId() + "\'" +
                 ", time='" + timestamp + "\'" +
-                ", event_id='" + eventId + "\'" +
+                ", event_id='" + event.getId() + "\'" +
                 ", ref_id='" + refId + "}";
     }
 }

@@ -28,7 +28,7 @@ public class HibernateDao {
     /* Created on 01.03.2015 by Vladimir Zhdanov */
 
     /**
-     * Querry without parameters. Can be used to get all elements,
+     * Query without parameters. Can be used to get all elements,
      * like challengeGroups.
      *
      * @param query - Querry string
@@ -43,10 +43,30 @@ public class HibernateDao {
         return getSession().createQuery(query).setParameter(0, parameter).list();
     }
 
+
+    /**
+     * Find in DB using complex conditions
+     * example: from History where USER_ID = ? and TIME = ? and EVENT_ID = ?
+     *
+     * @author Yefim on 22.04.2015
+     */
+
+    protected List<Objects> findComplexCondition(String query, Object[] args) {
+        Query hibQuery = getSession().createQuery(query);
+        int amountOfParameters = args.length;
+        int i = 0;
+        while (i < amountOfParameters) {
+            hibQuery.setParameter(i, args[i]);
+            i++;
+        }
+        return hibQuery.list();
+    }
+
     /**
      * Find smth ib DB using List as parameter
      * example of usage: find("from Post where subscription_id in (:param)", parameters)
-     *@author Yefim on 31.03.2015
+     *
+     * @author Yefim on 31.03.2015
      */
     protected List<Objects> find(String query, List parameterList) {
         return getSession().createQuery(query).setParameterList("param", parameterList).list();

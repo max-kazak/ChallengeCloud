@@ -18,5 +18,5 @@ public interface HistoryDao {
 
     public History findByRefId(String refId);
 
-    public History findByCompositePK(String userId, Timestamp timestamp, String eventId);
+    public History findByHistoryId(String historyId);
 }
