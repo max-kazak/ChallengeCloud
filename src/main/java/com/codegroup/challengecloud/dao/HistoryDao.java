@@ -18,5 +18,5 @@ public interface HistoryDao {
 
     public History findByRefId(String refId);
 
-    public History findByHistoryId(String historyId);
+    public History findById(String historyId);
 }

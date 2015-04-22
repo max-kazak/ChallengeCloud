@@ -5,7 +5,6 @@ import com.codegroup.challengecloud.model.History;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -39,14 +38,14 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
 
     @Override
     public History findByRefId(String refId) {
-        log.debug("find history record with reID " + refId);
+        log.debug("find history record with refID " + refId);
         List list = find("from History where REF_ID = ?", refId);
         return (History) list.get(0);
     }
 
     @Override
-    public History findByHistoryId(String historyId) {
-        log.debug("find history record by  PK:  " + historyId);
+    public History findById(String historyId) {
+        log.debug("find history record by PK:  " + historyId);
         List list = find("from History where HISTORY_ID = ?", historyId);
         return (History) list.get(0);
     }

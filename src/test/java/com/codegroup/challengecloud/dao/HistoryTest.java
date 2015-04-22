@@ -17,10 +17,9 @@ import javax.annotation.Resource;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class HistoryTest {
-    private static final String EXCPECTED_USER = "d8fbf948694caf35";
-    private static final String EXCPECTED_TIME = "2008-01-01 00:00:01";
     private static final String EXCPECTED_EVENT = "1";
-    private static final String EXCPECTED_REF = "577231985401290754";
+    private static final String EXCPECTED_ID = "123";
+    private static final String EXCPECTED_REF_ID = "577231985401290754";
 
     @Autowired
     public SessionFactory sessionFactory;
@@ -28,8 +27,14 @@ public class HistoryTest {
     @Resource
     private HistoryService historyService;
 
+
     @Test
-    public void testFindByRef() {
-        Assert.assertNotNull(historyService.findByHistoryId("123"));
+    public void testFindByRefId() {
+        Assert.assertEquals(EXCPECTED_REF_ID, historyService.findByRefId(EXCPECTED_REF_ID).getRefId());
+    }
+    @Test
+    public void testFindById() {
+        Assert.assertNotNull(historyService.findById(EXCPECTED_ID));
+        Assert.assertEquals(EXCPECTED_ID, historyService.findById(EXCPECTED_ID).getId());
     }
 }

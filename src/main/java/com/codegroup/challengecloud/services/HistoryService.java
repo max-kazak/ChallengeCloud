@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -37,7 +36,7 @@ public class HistoryService{
     @Transactional
     public History createHistory(String userId, Timestamp timestamp, String eventId, String refId) {
         History history = new History();
-        history.setHistoryId(Generator.generateId());
+        history.setId(Generator.generateId());
         history.setUser(userService.findById(userId));
         history.setTimestamp(timestamp);
         history.setEvent(eventService.findById(eventId));
@@ -57,7 +56,7 @@ public class HistoryService{
     }
 
     @Transactional
-    public History findByHistoryId(String historyId) {
-        return historyDao.findByHistoryId(historyId);
+    public History findById(String historyId) {
+        return historyDao.findById(historyId);
     }
 }
