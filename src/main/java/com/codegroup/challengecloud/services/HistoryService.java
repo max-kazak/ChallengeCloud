@@ -3,6 +3,7 @@ package com.codegroup.challengecloud.services;
 import com.codegroup.challengecloud.dao.HistoryDao;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.utils.Generator;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ import java.sql.Timestamp;
  */
 @Service("historyService")
 public class HistoryService{
-
+    private static Logger log = Logger.getLogger(HistoryService.class);
     @Autowired
     HistoryDao historyDao;
 
@@ -42,7 +43,8 @@ public class HistoryService{
         history.setTimestamp(timestamp);
         history.setEvent(eventService.findById(eventId));
         history.setRefId(refId);
-
+        log.debug("Creating history note with id = " + history.getHistoryId());
+        historyDao.save(history);
         return history;
     }
 

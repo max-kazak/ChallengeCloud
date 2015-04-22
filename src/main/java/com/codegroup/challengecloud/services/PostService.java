@@ -45,7 +45,7 @@ public class PostService {
         post.setOrigin(origin);
 
         postDao.save(post);
-        
+
         return post;
     }
 
