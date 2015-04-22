@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 /**
  * Created by Krokhin on 21.04.2015.
  */
 @Service("historyService")
-public class HistoryService{
+public class HistoryService {
 
     @Autowired
     HistoryDao historyDao;
@@ -58,5 +59,10 @@ public class HistoryService{
     @Transactional
     public History findById(String historyId) {
         return historyDao.findById(historyId);
+    }
+
+    @Transactional
+    public Set<History> findHistoryForCurrentUser() {
+        return historyDao.getHistoryForUser(userService.getCurrentUser());
     }
 }

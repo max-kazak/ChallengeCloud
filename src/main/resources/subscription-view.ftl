@@ -21,7 +21,7 @@
             </div>
         </div>
     </div>-->
-
+<#--TODO reformat shape of post-->
 
     <div class="col-xs-6 col-sm-3 placeholder">
         <img src=${postImage} class="center-block img-responsive img-rounded" alt="Image">
