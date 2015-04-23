@@ -40,7 +40,7 @@ public class ChallengeDaoMySQL extends HibernateDao implements ChallengeDao {
     public Challenge findById(String id) {
     	log.debug("looking for challenge by id = " + id);
         List list = find("from Challenge where challenge_id = ?", id);
-        return (Challenge) list.get(0);
+        return (Challenge) (list.size() > 0 ? list.get(0) : null);
     }
     
     @Override
