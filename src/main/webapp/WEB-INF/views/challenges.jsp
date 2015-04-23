@@ -59,15 +59,21 @@
 <body>
 <!-- On 19.04.2015 by Vladimir Zhdanov -->
 	<script type="text/javascript">
-		function showMore(challengeId, challengeName) {
-			//document.getElementById('more_challenge_name').value=challengeId;
-			//document.getElementById('more_challenge_description').value=challengeName;
+		function showMore(challengeName, challengeDescription, challengeDifficulty) {
+			document.getElementById('more_challenge_name').innerHTML=challengeName;
+			document.getElementById('more_challenge_difficulty').innerHTML="Difficulty: " + challengeDifficulty;
+			document.getElementById('more_challenge_description').innerHTML=challengeDescription;
 			document.getElementById('window-more').style.display='block';
 			document.getElementById('window').style.display='block';
 			document.getElementById('transp').style.display='block';
 		}
 		function addChallenge(challengeId) {
-			
+			$.ajax({
+	            url : 'challenges-subscribe.html?id=' + challengeId,
+	            success : function(data) {
+	            	alert(data);
+	        	}
+	        });
 		}
 		function hide() {
 			document.getElementById('window-more').style.display='none';
@@ -91,9 +97,9 @@
 					Image Name <input type="text" name="name"><br /><br />
 			        <input type="submit" value="Update"> 
 				</form> -->
-					<input id="edit_image_id" type="hidden" name="id" value=""><br /><br />
-					Image Name <input id="edit_image_name" type="text" name="name" value=""><br /><br />
-			        <button class="btn btn-default" onclick="editImage()">Update</button>
+				<p id="more_challenge_name"/> <br/> <br/>
+				<p id="more_challenge_difficulty"/> <br/> <br/>
+				<p id="more_challenge_description"/> <br/> <br/>
 			</div> <!-- col-lg-12 -->
 		</div>
 	</div>
@@ -181,5 +187,10 @@
 			<div></div>
 		</div>
 	</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script> 
 </body>
 </html>
