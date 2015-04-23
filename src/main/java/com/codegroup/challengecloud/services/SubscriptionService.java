@@ -48,6 +48,21 @@ public class SubscriptionService {
 
         return subscription;
     }
+    
+    // Created on 23.04.2015 by Vladimir Zhdanov
+    @Transactional
+    public Subscription createSubscription(User user, Challenge challenge, Date date) {
+        Subscription subscription = new Subscription();
+
+        subscription.setId(Generator.generateId());
+        subscription.setUser(user);
+        subscription.setChallenge(challenge);
+        subscription.setDate(date);
+
+        subscriptionDao.save(subscription);
+
+        return subscription;
+    }
 
     @Transactional
     public Subscription findById(String subscriptionId) {

@@ -8,10 +8,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+
+
+
 //import com.codegroup.challengecloud.model.User;
 //import com.codegroup.challengecloud.services.UserService;
 import com.codegroup.challengecloud.model.Challenge;
+import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.services.ChallengeService;
+import com.codegroup.challengecloud.services.SubscriptionService;
+import com.codegroup.challengecloud.services.UserService;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -22,6 +28,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+
+
+
 
 /* For FreeMarker */
 import freemarker.template.Configuration;
@@ -40,6 +49,10 @@ public class ChallengesController {
     private static final Logger log = Logger.getLogger(ChallengesController.class);
     @Resource
     private ChallengeService challengeService;
+    @Resource
+    private UserService userService;
+    @Resource
+    SubscriptionService subscriptionService;
 
     @RequestMapping("/challenges")
     public ModelAndView challengesText() {
@@ -119,6 +132,27 @@ public class ChallengesController {
             log.error("Can't load template: IOException.");
         }
         //log.info("getAllChallenges() returns [" + code + "].");
+        return code;
+    }
+    
+    @RequestMapping(value = "/challenges-subscribe", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String subscribeChallenge(
+            @RequestParam(value = "id", required = true) String id) {
+        log.info("subscribeChallenge()");
+        String code = "<p> Internal Error! </p>";
+        User currentUser = userService.getCurrentUser();
+        Challenge currentChallenge = challengeService.findById(id);
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+
+        if ((currentChallenge != null) && (currentUser != null)) {
+        	subscriptionService.createSubscription(currentUser, currentChallenge, sqlDate);
+        	code = "You subscribed the challenge";
+        } else {
+        	code = "Sorry, but for unknown reason You failed to subscribe the challenge";
+        }
         return code;
     }
 }

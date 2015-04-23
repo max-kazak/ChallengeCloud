@@ -27,7 +27,7 @@
 	</div>
 	<div style="float: right;">
 	  <p>
-	    <a href="#" class="btn btn-default" role="button" onclick="showMore('${challengeId}')">More</a>
+	    <a href="#" class="btn btn-default" role="button" onclick="showMore('${challengeName}','${challengeDescription}' , '${challengeDifficulty}')">More</a>
 	    <a href="#" class="btn btn-default" role="button" onclick="addChallenge('${challengeId}')">Add</a>
 	  </p>
 
