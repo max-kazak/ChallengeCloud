@@ -12,7 +12,7 @@ public class TwitterPostEvent extends CCloudEvent {
     private User user;
     private long timePost;
     private String postId;
-    private final String eventId = "2";
+    private String id;
 
 
     /**
@@ -49,7 +49,11 @@ public class TwitterPostEvent extends CCloudEvent {
         return "TwitterPost happened:" + msg;
     }
 
-    public String getEventId() {
-        return eventId;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -1,5 +1,6 @@
 package com.codegroup.challengecloud.services.listeners;
 
+import com.codegroup.challengecloud.constants.EventIds;
 import com.codegroup.challengecloud.services.HistoryService;
 import com.codegroup.challengecloud.services.UserService;
 import com.codegroup.challengecloud.services.events.CCloudEvent;
@@ -36,11 +37,12 @@ public class HistoryListener implements ApplicationListener<CCloudEvent> {
     public void onApplicationEvent(CCloudEvent event) {
         log.info(event.toString());
         if (event instanceof TwitterPostEvent) {
+            event.setId(EventIds.TWITTERPOSTEVENT_ID);
             String userId = ((TwitterPostEvent) event).getUser().getId();
             String postId = ((TwitterPostEvent) event).getPostId();
             Timestamp timestamp = new Timestamp(((TwitterPostEvent) event).getTimePost());
             log.debug("Creating history note with TwitterPostEvent " + ((TwitterPostEvent) event).getPostId());
-            historyService.createHistory(userId, timestamp,((TwitterPostEvent) event).getEventId(), postId);
+            historyService.createHistory(userId, timestamp,((TwitterPostEvent) event).getId(), postId);
         }
     }
 }
