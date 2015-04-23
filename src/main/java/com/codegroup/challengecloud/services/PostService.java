@@ -4,6 +4,7 @@ import com.codegroup.challengecloud.dao.PostDao;
 import com.codegroup.challengecloud.model.Origin;
 import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.model.Subscription;
+import com.codegroup.challengecloud.services.events.CCloudEvent;
 import com.codegroup.challengecloud.services.events.TwitterPostEvent;
 import com.codegroup.challengecloud.utils.Generator;
 
@@ -60,14 +61,16 @@ public class PostService {
     @Transactional
     public Post createPost(String postId, Subscription subscription, Date date, Origin origin) {
         Post post = new Post();
-
         post.setId(postId);
         post.setSubscription(subscription);
         post.setDate(date);
         post.setOrigin(origin);
-
         postDao.save(post);
-
+        CCloudEvent event = new TwitterPostEvent(applicationContext,
+                    "create new Post with origin " + origin.getName(),
+                    date.getTime(),
+                    postId, subscription.getUser());
+        applicationContext.publishEvent(event);
         return post;
     }
 

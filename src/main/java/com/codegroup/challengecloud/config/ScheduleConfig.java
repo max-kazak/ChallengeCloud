@@ -21,7 +21,7 @@ public class ScheduleConfig {
     TwitterDownloadService twitterDownloadService;
 
     /**
-     * Every 5 minutes adding twitterPosts
+     * Every 2 minutes adding twitterPosts
      * @author Nipel-Crumple
      */
     @Scheduled(cron="0 0/2 * * * ?")
