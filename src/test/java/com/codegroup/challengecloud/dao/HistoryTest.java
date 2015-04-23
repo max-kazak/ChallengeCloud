@@ -1,12 +1,12 @@
 package com.codegroup.challengecloud.dao;
 
-import com.codegroup.challengecloud.dao.impl.HistoryDaoMySQL;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.services.HistoryService;
 import com.codegroup.challengecloud.services.UserService;
 import junit.framework.Assert;
 import org.hibernate.SessionFactory;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -72,5 +73,13 @@ public class HistoryTest {
                 amount++;
             } else break;
         }
+    }
+
+    @Ignore("specific test for every user but it works")
+    @Test
+    public void testCounter() {
+        User user = userService.findByLogin("Nipel-Crumple");
+        long actual = historyService.getNumberOfUserTweets(user);
+        Assert.assertEquals((long) 6, actual);
     }
 }

@@ -1,9 +1,12 @@
 package com.codegroup.challengecloud.dao.impl;
 
+import com.codegroup.challengecloud.constants.EventIds;
 import com.codegroup.challengecloud.dao.HistoryDao;
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Comparator;
@@ -70,4 +73,19 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
         }
         return sortedHistory;
     }
+
+    @Override
+    public long getNumberOfTwitterPosts(User user) {
+        long num;
+        Query query = getSession().createQuery(
+                "select count(*) from com.codegroup.challengecloud.model.History history " +
+                "WHERE event_id = ? AND user_id = ?")
+                .setString(0, EventIds.TWITTERPOSTEVENT_ID)
+                .setString(1, user.getId());
+        num = (long) query.list().get(0);
+        log.debug("Number of UserTweets with id " + user.getId() + " equals " + num);
+        return num;
+    }
+
+
 }

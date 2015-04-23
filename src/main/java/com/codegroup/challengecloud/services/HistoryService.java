@@ -2,6 +2,7 @@ package com.codegroup.challengecloud.services;
 
 import com.codegroup.challengecloud.dao.HistoryDao;
 import com.codegroup.challengecloud.model.History;
+import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -66,5 +68,10 @@ public class HistoryService{
     @Transactional
     public Set<History> findHistoryForCurrentUser() {
         return historyDao.getHistoryForUser(userService.getCurrentUser());
+    }
+
+    @Transactional
+    public long getNumberOfUserTweets(User user) {
+        return historyDao.getNumberOfTwitterPosts(user);
     }
 }
