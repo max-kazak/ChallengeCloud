@@ -13,6 +13,8 @@
 	<annotation-driven />
 	<context:component-scan base-package="com.codegroup.challengecloud.controllers" />
 
+	<beans:bean id="socialConfig" class="com.codegroup.challengecloud.config.SocialConfig" />
+
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
