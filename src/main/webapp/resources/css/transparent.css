@@ -14,7 +14,7 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html */
 	overflow: auto;
 }
 #window{
-	margin: 50px auto;
+	margin: 5% 20%;
 	display: none;
 	background: #fff;
 	z-index: 200;

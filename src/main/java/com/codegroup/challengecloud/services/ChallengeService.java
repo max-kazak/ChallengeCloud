@@ -27,8 +27,6 @@ public class ChallengeService {
     
     @Autowired
     ImageService imageService;
-    
-    private static List<Challenge> challengesAll = null;
 
     public void setChallengeDao(ChallengeDao challengeDao) {
         this.challengeDao = challengeDao;
@@ -87,9 +85,6 @@ public class ChallengeService {
 
     @Transactional
     public List<Challenge> findAll() {
-    	if (challengesAll != null)
-    		return challengesAll;
-    	else
-    		return challengesAll = challengeDao.findAll();
+    		return challengeDao.findAll();
     }
 }
