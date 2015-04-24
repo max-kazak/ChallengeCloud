@@ -110,7 +110,7 @@
 	<c:url var="welcome" value="/welcome" />
 	<c:url var="about" value="#" />
 	<c:url var="ourteam" value="#" />
-	<c:url var="challenges" value="#" />
+	<c:url var="challenges" value="/challenges" />
 	<c:url var="trend" value="#" />
 	<c:url var="trophyroom" value="#" />
 	<c:url var="all" value="#" />
