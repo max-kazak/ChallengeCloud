@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/transparent.css" />"> 
 
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -56,6 +57,45 @@
 
 
 <body>
+<!-- On 27.04.2015 by Vladimir Zhdanov. I took it from http://sergey-oganesyan.ru/javascript-s-primerami/kak-sdelat-vsplyvayushee-okno.html
+and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
+	<script type="text/javascript">
+		function downloadAchievements() {
+            $.ajax({
+                url: 'home-achievements.html',
+                success: function (data) {
+                    $('#home-achievements').empty().append(data);
+                }
+            });
+	    }
+		function showAchievements() {
+			downloadAchievements();
+			document.getElementById('window-achievements').style.display='block';
+			document.getElementById('window').style.display='block';
+			document.getElementById('transp').style.display='block';
+		}
+		function hide() {
+			document.getElementById('window-achievements').style.display='none';
+			document.getElementById('window').style.display='none';
+			document.getElementById('transp').style.display='none';
+		}
+	</script>
+<!-- Transparant background-->
+	<div id="transp" onclick="hide()"></div>
+	<!-- Window -->
+	<div id="window">
+		<!-- Close -->
+		<img class="pull-right close" onclick="hide()" src="./resources/img/close.png" alt="Close">
+		<br/>
+		<!-- Content -->
+		<div id="window-achievements" style="display: none;">
+			<div class="col-lg-12">
+				<div id="home-achievements">
+				</div>
+			</div> <!-- col-lg-12 -->
+		</div>
+	</div>
+	
 <div class="main">
     <c:url var="welcome" value="/welcome"/>
     <c:url var="home" value="/home"/>
@@ -102,7 +142,7 @@
                 <ul class="menu">
                     <li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
                     <li role="presentation"><a href="${trend}">Trend</a></li>
-                    <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+                    <li role="presentation"><a onclick="showAchievements()">Trophy Room</a></li>
                     <li role="presentation"><a href="${settings}">Settings</a></li>
                 </ul>
             </div>

@@ -38,6 +38,7 @@ public class HomeController {
 
     private static final Logger log = Logger.getLogger(HomeController.class);
     private static final String TEMPLATE_NAME = "challenge-progress.ftl";
+    private static final String ACHIEVEMENTS_TEMPLATE_NAME = "home-achievements.ftl"; 
 
     @Resource
     private SubscriptionService subscriptionService;
@@ -125,5 +126,15 @@ public class HomeController {
         }
         log.info("sendAllSubscriptionsToPage() returns [" + templateResponse + "].");
         return templateResponse;
+    }
+
+    // Created on 27.04.2015 by Vladimir Zhdanov
+    @RequestMapping(value = "/home-achievements", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String sendAllAchievementsToPage() {
+        log.info("Getting Achievements for home page");
+        //log.debug("Getting list of achievements for current user");
+        return "<p> Sorry, display of Achievements not realized yet </p>";
     }
 }
