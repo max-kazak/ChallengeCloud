@@ -1,0 +1,18 @@
+body {
+	background-image: url('background.jpg');
+}
+
+ul {
+	list-style-type: none;
+}
+
+.menu {
+	background-color: #7FC7FF;
+	border-radius: 10px;	
+}
+
+.challenge-progress {
+	background-color: #7FC7FF;
+	border-radius: 15px;
+	border: 2px solid #4E4D51;
+}

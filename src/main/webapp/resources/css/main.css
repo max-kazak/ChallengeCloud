@@ -1,34 +1,38 @@
-@font-face {
-    font-family: Nipel; /* Имя шрифта */
-    src: url(../fonts/toms-handwritten-new.ttf); /* Путь к файлу со шрифтом */
-   }
-
-body {
-	font-family: Nipel;
-}
-
-.navigator {
-	border-bottom: 2px solid grey;
-	/*	width:60%;*/
-}
-
 .header {
+	background-color: #FFFFFF;
+
+	border-bottom: 2px solid #4E4D51;
+
+	padding-top: 5px;
+	margin-bottom: 10px;
+	
 	font-size: 34px;
-	margin: 1px 0px 1px 0px;
+
 }
 
-
-.list-inline {
-	margin-left: 0px;
-	margin-bottom: 0px
+.header .nav i {
+  color: #464451;
+  font-size: 28px;
 }
 
-.vertical {
-	border-right: 2px solid grey;
+.header .nav a {
+  color: #464451;
+  font-size: 28px;
 }
 
-.nav-pills {
-	margin-left: 0px;
+.header .nav li {
+  display: inline;
+  margin: 10px;
+}
+
+.main .nav a {
+  color: #464451;
+  font-size: 28px;
+}
+
+.main .nav li {
+  display: inline;
+  margin: 10px;
 }
 
 .linker {
@@ -92,20 +96,7 @@ body {
     margin-bottom:13px;
 }
 
-.nav i {
-  color: #5a5a5a;
-  font-size: 28px;
-}
 
-.nav a {
-  color: #5a5a5a;
-  font-size: 28px;
-}
-
-.nav li {
-  display: inline;
-  margin: 10px;
-}
 
 .submitForm {
 	display: inline-block;
