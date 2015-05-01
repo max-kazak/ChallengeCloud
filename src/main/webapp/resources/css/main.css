@@ -41,7 +41,6 @@
 	height: 100%;
 }
 
-
 .soc-net {
 	margin: 0px 6px 0px 0px;
 	color: inherit;
@@ -74,11 +73,6 @@
 	height: 100%;
 	padding: 0;
 	background: grey;
-}
-
-.sign-out {
-    padding-right: 0px;
-    border-right: 0px;
 }
 
 .neighborhood-guides {

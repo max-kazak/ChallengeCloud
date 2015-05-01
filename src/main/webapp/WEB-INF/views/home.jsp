@@ -1,10 +1,11 @@
-<!--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <!--Created by Vladimir Zhdanov on 05.03.2015-->
 <head>
     <title>CCloud | Home</title>
+    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
@@ -113,10 +114,10 @@
                 </div>
             </div>
 
-            <div class="col-md-3 col-md-offset-1">
+            <div class="col-md-6">
                 <!-- Central col -->
                 <div class="row">
-                    <div class="menu2">
+                    <div class="pull-right">
                         <ul class="nav nav-pills">
                             <li role="presentation" class="active"><a href="${active}">Active</a></li>
                             <li role="presentation"><a href="${archive}">Archive</a></li>
@@ -124,18 +125,14 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!-- End of Central col -->
-        </div>
 
-        <div class="row">
-            <div class="col-md-6 col-md-offset-4">
                 <div>
                     <div id="home-subscriptions">
                     <!--CHALLENGES GO HERE -->
                     </div>
                 </div>
             </div>
+            <!-- End of Central col -->
         </div>
     </div>
 </body>
