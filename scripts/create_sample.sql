@@ -33,13 +33,11 @@ INSERT INTO challenger.subscriptions VALUES ("12", "d6fbf948694caf35", "876aee6e
 
 /*By Yefim*/
 INSERT INTO challenger.usersettings VALUES ("d6fbf948694caf35", "English");
-INSERT INTO challenger.origins VALUES ("twit_id", "Twitter");
 INSERT INTO challenger.subscriptions VALUES ("13", "d8fbf948694caf35", "876aee6e27926e59", CURDATE());
 INSERT INTO challenger.subscriptions VALUES ("14", "d8fbf948694caf35", "876aee6e27926e59", CURDATE());
 INSERT INTO challenger.posts VALUES ("577231985401290754", "twit_id", "13", CURDATE());
 INSERT INTO challenger.posts VALUES ("577232167299858433", "twit_id", "13", CURDATE());
-INSERT INTO challenger.events VALUES ('1', 'CCEvent', 'com.codegroup.challengecloud.events.CCEvent');
-INSERT INTO challenger.events VALUES ('2', "TwitterPostEvent", "com.codegroup.challengecloud.events.TwitterPostEvent");
+
 /*Nipel-Crumple for event <---> achievement*/
 INSERT INTO challenger.history VALUES ('123', 'd8fbf948694caf35', '2008-01-01 00:00:01', '1', '577231985401290754');
 INSERT INTO challenger.history VALUES ('12', 'd8fbf948694caf35', '2007-01-01 00:00:01', '1', '577232167299858433');

@@ -20,6 +20,9 @@ CREATE TABLE `challenger`.`events` (
   PRIMARY KEY (`EVENT_ID`) USING BTREE
 );
 
+INSERT INTO challenger.events VALUES ('1', 'CCEvent', 'com.codegroup.challengecloud.events.CCEvent');
+INSERT INTO challenger.events VALUES ('2', "TwitterPostEvent", "com.codegroup.challengecloud.events.TwitterPostEvent");
+
 CREATE TABLE `challenger`.`images` (
   `IMAGE_ID` VARCHAR(16) NOT NULL,
   `NAME`     VARCHAR(20),
@@ -84,6 +87,8 @@ CREATE TABLE `challenger`.`origins` (
   `NAME`      VARCHAR(20) NOT NULL,
   PRIMARY KEY (`ORIGIN_ID`) USING BTREE
 );
+
+INSERT INTO challenger.origins VALUES ("twit_id", "Twitter");
 
 /* Creating table of challenge groups by Vladimir Zhdanov */
 CREATE TABLE `challenger`.`challengegroups` (
