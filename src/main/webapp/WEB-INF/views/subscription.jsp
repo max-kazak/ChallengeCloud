@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/welcome.css" />">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <title>CCloud|Subscriptions</title>
 
     <script type="text/javascript"
@@ -18,6 +19,9 @@
         var from;// Request "numToShow" (5) subscriptions starting from number "from" (1)
         max_num = ${totalAmount};
         function appendPosts() {
+            if (max_num ==0) {
+                $('#subscription-send').html("NO POSTS YET");
+            }
             if(numShown<max_num) {
                 if(numShown+numToShow>max_num) {
                     numToShow = max_num-numShown;
@@ -57,70 +61,73 @@
 <body>
 
 <div class="main">
-    <c:url var="home" value="/home" />
-    <c:url var="welcome" value="/welcome" />
-    <c:url var="about" value="#" />
-    <c:url var="ourteam" value="#" />
-    <c:url value="/j_spring_security_logout" var="logoutUrl" />
-    <div class="nav">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="${welcome}">
-                        <i class="fa fa-cloud"></i>ChallengeCloud
-                    </a>
-                </div>
-                <div class="col-md-9">
-                    <ul class="pull-left">
-                        <li><a href="${home}">Home</a></li>
-                        <li><a href="${about}">About</a></li>
-                        <li><a href="${ourteam}">Our Team</a></li>
-                    </ul>
-                    <form:form name="logoutForm" action="${logoutUrl}" method="POST" cssClass="logoutForm pull-right">
-                        <button class="btn btn-default btn-lg" type="submit"> Log out</button>
-                    </form:form>
+    <c:url var="welcome" value="/welcome"/>
+    <c:url var="home" value="/home"/>
+    <c:url var="settings" value="/settings"/>
+    <c:url var="subscription" value="/subscription" />
+    <c:url var="about" value="#"/>
+    <c:url var="ourteam" value="#"/>
+    <c:url var="challenges" value="/challenges"/>
+    <c:url var="trend" value="#"/>
+    <c:url var="trophyroom" value="#"/>
+    <c:url var="active" value="#"/>
+    <c:url var="archive" value="#"/>
+    <c:url var="upcoming" value="#"/>
+    <c:url value="/j_spring_security_logout" var="logoutUrl"/>
+
+    <div class="header">
+        <div class="nav navigator">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="${welcome}"> <i class="fa fa-cloud"></i>ChallengeCloud
+                        </a>
+                    </div>
+
+                    <div class="col-md-9">
+                        <ul class="pull-right">
+                            <li><a href="${home}">Home</a></li>
+                            <li><a href="${about}">About</a></li>
+                            <li><a href="${ourteam}">Our Team</a></li>
+                            <li>
+                                <form:form name="logoutForm" action="${logoutUrl}" method="POST" cssClass="logoutForm pull-right">
+                                    <button class="btn btn-default btn-lg" type="submit"> Log out</button>
+                                </form:form>
+                            </li>
+                        </ul>
+                        <div class="pull-right">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container body">
-        <div class="col-md-10 text-left left-block">
-            <h2> Posts </h2>
 
-        <div class="col-md-2 text-left right-block">
-            <h2> Options </h2>
-
-            <div class="col-md-10">
-                <ul class="pull-left">
-                    <li>
-                        <button type="button" class="btn btn-default"> Cancel</button>
-                    </li>
-
-                    <li>
-                        <button type="button" class="btn btn-default"> Dare</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
- <%--   <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <div>
-                <div id="subscription-send" class="row placeholders">
+    <div class ="main">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-2">
+                <div class="menu">
                 </div>
             </div>
 
-        </div>
-        <div></div>
-    </div>--%>
-        <div class="row placeholders">
-            <div id="subscription-send">
+            <div class="col-md-6">
+                <!-- Central col -->
+                <div class="row">
+                    <div class="pull-right">
+                        <ul class="nav nav-pills">
 
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="subscription-send">
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
 </div>
 </body>
