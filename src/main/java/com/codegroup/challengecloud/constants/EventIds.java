@@ -6,4 +6,5 @@ package com.codegroup.challengecloud.constants;
 public interface EventIds {
     public final static String CCLOUDEVENT_ID = "1";
     public final static String TWITTERPOSTEVENT_ID = "2";
+    public final static String ACHIEVMENTEVENT_ID = "3";
 }

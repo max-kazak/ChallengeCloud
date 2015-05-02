@@ -1,5 +1,6 @@
 package com.codegroup.challengecloud.dao;
 
+import com.codegroup.challengecloud.model.Badge;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.services.HistoryService;
@@ -32,6 +33,9 @@ public class HistoryTest {
 
     @Autowired
     public SessionFactory sessionFactory;
+
+    @Autowired
+    public BadgeDao badgeDao;
 
     @Autowired
     public HistoryDao historyDao;
@@ -81,5 +85,18 @@ public class HistoryTest {
         User user = userService.findByLogin("Nipel-Crumple");
         long actual = historyService.getNumberOfUserTweets(user);
         Assert.assertEquals((long) 6, actual);
+    }
+
+    @Ignore("Test is very specific for every developer")
+    @Test
+    public void getUserBadgesTest() {
+        User user = userService.findByEmail("volterr@gmail.com");
+        Set<Badge> badges = historyService.getUserBadges(user);
+        Badge badge = badgeDao.findByName("Mister Twitter");
+
+        Assert.assertNotNull(badges);
+        Assert.assertEquals(badge.getName(), "Mister Twitter");
+        Assert.assertFalse(badges.isEmpty());
+        Assert.assertTrue(badges.contains(badge));
     }
 }

@@ -3,6 +3,7 @@ package com.codegroup.challengecloud.services.listeners;
 import com.codegroup.challengecloud.constants.EventIds;
 import com.codegroup.challengecloud.services.HistoryService;
 import com.codegroup.challengecloud.services.UserService;
+import com.codegroup.challengecloud.services.events.AchievementEvent;
 import com.codegroup.challengecloud.services.events.CCloudEvent;
 import com.codegroup.challengecloud.services.events.TwitterPostEvent;
 import org.apache.log4j.Logger;
@@ -19,7 +20,7 @@ import java.sql.Timestamp;
  * CCloudEvents in CCLoud application </p>
  * Created by Nipel-Crumple on 18.04.2015.
  */
-@Service("HistoryListener")
+@Service("historyListener")
 public class HistoryListener implements ApplicationListener<CCloudEvent> {
 
     private static final Logger log = Logger.getLogger(HistoryListener.class);

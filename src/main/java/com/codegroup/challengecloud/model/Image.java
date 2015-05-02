@@ -3,6 +3,7 @@ package com.codegroup.challengecloud.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Arrays;
 
 /**
  * Created by Nipel-Crumple on 12.03.2015.
@@ -60,5 +61,31 @@ public class Image implements Serializable {
 
     public void setData(byte[] image) {
         this.image = image;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Image image1 = (Image) o;
+
+        if (size != image1.size) return false;
+        if (!date.equals(image1.date)) return false;
+        if (!id.equals(image1.id)) return false;
+        if (!Arrays.equals(image, image1.image)) return false;
+        if (!name.equals(image1.name)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + date.hashCode();
+        result = 31 * result + (int) size;
+        result = 31 * result + Arrays.hashCode(image);
+        return result;
     }
 }

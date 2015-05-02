@@ -1,5 +1,6 @@
 package com.codegroup.challengecloud.services.events;
 
+import com.codegroup.challengecloud.constants.EventIds;
 import org.springframework.context.ApplicationEvent;
 
 /**
@@ -18,6 +19,7 @@ public class CCloudEvent extends ApplicationEvent {
     public CCloudEvent(Object o, String msg) {
         super(o);
         this.msg = msg;
+        this.id = EventIds.CCLOUDEVENT_ID;
     }
 
     public String getId() {

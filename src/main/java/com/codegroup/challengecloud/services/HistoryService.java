@@ -1,6 +1,7 @@
 package com.codegroup.challengecloud.services;
 
 import com.codegroup.challengecloud.dao.HistoryDao;
+import com.codegroup.challengecloud.model.Badge;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
@@ -17,7 +18,7 @@ import java.util.Set;
  * Created by Krokhin on 21.04.2015.
  */
 @Service("historyService")
-public class HistoryService{
+public class HistoryService {
     private static Logger log = Logger.getLogger(HistoryService.class);
     @Autowired
     HistoryDao historyDao;
@@ -73,5 +74,10 @@ public class HistoryService{
     @Transactional
     public long getNumberOfUserTweets(User user) {
         return historyDao.getNumberOfTwitterPosts(user);
+    }
+
+    @Transactional
+    public Set<Badge> getUserBadges(User user){
+        return historyDao.getUserBadges(user);
     }
 }

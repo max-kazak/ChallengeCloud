@@ -1,5 +1,6 @@
 package com.codegroup.challengecloud.services.events;
 
+import com.codegroup.challengecloud.constants.EventIds;
 import com.codegroup.challengecloud.model.User;
 import org.springframework.context.ApplicationContext;
 
@@ -29,6 +30,7 @@ public class TwitterPostEvent extends CCloudEvent {
         this.msg = msg;
         this.timePost = timePost;
         this.postId = postId;
+        this.id = EventIds.TWITTERPOSTEVENT_ID;
         this.user = user;
     }
 

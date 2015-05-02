@@ -57,5 +57,27 @@ public class Event implements Serializable {
                 ", class='" + clazz +
                 "}";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Event event = (Event) o;
+
+        if (!clazz.equals(event.clazz)) return false;
+        if (!id.equals(event.id)) return false;
+        if (!name.equals(event.name)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + clazz.hashCode();
+        return result;
+    }
 }
 

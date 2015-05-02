@@ -75,4 +75,44 @@ public class Badge implements Serializable{
     public void setCondition(String condition) {
         this.condition = condition;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Badge badge = (Badge) o;
+
+        if (!condition.equals(badge.condition)) return false;
+        if (!description.equals(badge.description)) return false;
+        if (!event.equals(badge.event)) return false;
+        if (!id.equals(badge.id)) return false;
+        if (!image.equals(badge.image)) return false;
+        if (!name.equals(badge.name)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + description.hashCode();
+        result = 31 * result + image.hashCode();
+        result = 31 * result + event.hashCode();
+        result = 31 * result + condition.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Badge{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", image=" + image +
+                ", event=" + event +
+                ", condition='" + condition + '\'' +
+                '}';
+    }
 }

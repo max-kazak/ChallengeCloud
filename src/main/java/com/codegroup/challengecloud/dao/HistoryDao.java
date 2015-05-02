@@ -1,5 +1,6 @@
 package com.codegroup.challengecloud.dao;
 
+import com.codegroup.challengecloud.model.Badge;
 import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
@@ -26,4 +27,6 @@ public interface HistoryDao {
     public Set<History> getHistoryForUser(User user);
 
     public long getNumberOfTwitterPosts(User user);
+
+    public Set<Badge> getUserBadges(User user);
 }

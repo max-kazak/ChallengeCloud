@@ -1,18 +1,18 @@
 package com.codegroup.challengecloud.dao.impl;
 
 import com.codegroup.challengecloud.constants.EventIds;
+import com.codegroup.challengecloud.dao.BadgeDao;
 import com.codegroup.challengecloud.dao.HistoryDao;
+import com.codegroup.challengecloud.model.Badge;
 import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by Krokhin on 21.04.2015.
@@ -21,6 +21,9 @@ import java.util.TreeSet;
 public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
 
     private static final Logger log = Logger.getLogger(HistoryDaoMySQL.class);
+
+    @Autowired
+    BadgeDao badgeDao;
 
     @Override
     public void save(History history) {
@@ -87,5 +90,17 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
         return num;
     }
 
-
+    @Override
+    public Set<Badge> getUserBadges(User user) {
+        log.debug("Getting all badges of user with id = " + user.getId());
+        List list = find("from History where EVENT_ID = ?", EventIds.ACHIEVMENTEVENT_ID);
+        log.debug("list of badges returned: " + list.toString());
+        Set<Badge> badges = new HashSet<>();
+        for (Object temp : list) {
+            if (temp instanceof History) {
+                badges.add(badgeDao.findById(((History) temp).getRefId()));
+            }
+        }
+        return badges;
+    }
 }
