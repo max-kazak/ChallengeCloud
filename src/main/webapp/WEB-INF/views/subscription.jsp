@@ -20,7 +20,7 @@
         max_num = ${totalAmount};
         function appendPosts() {
             if (max_num ==0) {
-                $('#subscription-send').html("NO POSTS YET");
+                $('#subscription-send').append('<h2>No posts yet</h2><a href="home" class="btn btn-primary" role="button">Home</a>');
             }
             if(numShown<max_num) {
                 if(numShown+numToShow>max_num) {
@@ -122,6 +122,8 @@
                 </div>
 
                 <div>
+                    <%--<h2>No post yet here, try another subscription</h2>
+                    <a href="home" class="btn btn-primary pull-right" role="button">Home</a>--%>
                     <div id="subscription-send">
                     </div>
                 </div>
