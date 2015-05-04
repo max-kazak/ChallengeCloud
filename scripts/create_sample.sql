@@ -22,7 +22,7 @@ VALUES ("a078b67302203463", "Health Group", "2015-04-19", "S", LOAD_FILE('D:\Hea
 INSERT INTO challenger.challengegroups VALUES ("5d2c117e674b39de", "Challenge group 1 name", "123123");
 INSERT INTO challenger.challengegroups VALUES ("20eec2f9234e010a", "Health", "a078b67302203463");
 INSERT INTO challenger.challenges VALUES
-  ("876aee6e27926e59", "Challenge 1 title", "Challenge 1  decription", 20, "Challenge 1 hash tag", "5d2c117e674b39de",
+  ("876aee6e27926e59", "Challenge 1 title", "Challenge 1  decription", 20, "Challenge1", "5d2c117e674b39de",
    "5f7f505e8099a263");
 /* Added ImageID by Vladimir Zhdanov on 18.03.2015 */
 INSERT INTO challenger.challenges VALUES
@@ -34,7 +34,6 @@ INSERT INTO challenger.subscriptions VALUES ("12", "d6fbf948694caf35", "876aee6e
 /*By Yefim*/
 INSERT INTO challenger.usersettings VALUES ("d6fbf948694caf35", "English");
 INSERT INTO challenger.subscriptions VALUES ("13", "d8fbf948694caf35", "876aee6e27926e59", CURDATE());
-INSERT INTO challenger.subscriptions VALUES ("14", "d8fbf948694caf35", "876aee6e27926e59", CURDATE());
 INSERT INTO challenger.posts VALUES ("577231985401290754", "twit_id", "13", CURDATE());
 INSERT INTO challenger.posts VALUES ("577232167299858433", "twit_id", "13", CURDATE());
 

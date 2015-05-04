@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <!--Created by Yefim on 02.03.2015-->
 <head>
-    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/css/welcome.css" />">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
+    <%--<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">--%>
+    <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
     <title>CCloud|Subscriptions</title>
 
     <script type="text/javascript"
@@ -108,6 +108,13 @@
         <div class="row">
             <div class="col-md-2 col-md-offset-2">
                 <div class="menu">
+                    <!-- <ul class="nav nav-pills nav-stacked"> -->
+                    <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
+                        <li role="presentation"><a href="${trend}">Trend</a></li>
+                        <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+                        <li role="presentation"><a href="${settings}">Settings</a></li>
+                    </ul>
                 </div>
             </div>
 
@@ -116,21 +123,22 @@
                 <div class="row">
                     <div class="pull-right">
                         <ul class="nav nav-pills">
-
+                            <li role="presentation" class="active"><a href="${active}">Active</a></li>
+                            <li role="presentation"><a href="${archive}">Archive</a></li>
+                            <li role="presentation"><a href="${upcoming}">Upcoming</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div>
-                    <%--<h2>No post yet here, try another subscription</h2>
-                    <a href="home" class="btn btn-primary pull-right" role="button">Home</a>--%>
                     <div id="subscription-send">
+                        <!--CHALLENGES GO HERE -->
                     </div>
                 </div>
             </div>
+            <!-- End of Central col -->
         </div>
     </div>
-
 </div>
 </body>
 </html>
