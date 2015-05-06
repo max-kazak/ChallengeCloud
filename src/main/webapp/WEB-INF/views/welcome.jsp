@@ -60,7 +60,7 @@
                 <button class="btn btn-primary btn-lg" type="submit">About</button>
             </form:form>
 
-            <form:form name="signinupForm" action="${signin}" method="GET" cssClass="pull-right">
+            <form:form name="signinupForm" action="${signinup}" method="GET" cssClass="pull-right">
                 <button class="btn btn-primary btn-lg" type="submit">Sign In</button>
             </form:form>
 

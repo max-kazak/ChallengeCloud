@@ -8,6 +8,7 @@
 	
 	font-size: 34px;
 
+	height: 70px;
 }
 
 .header .nav i {
@@ -34,6 +35,18 @@
   display: inline;
   margin: 10px;
 }
+
+body {
+	background-color: #FFFFFF;
+	background-image: url('./../../resources/img/background.jpg');
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+}
+
+ul {
+	list-style-type: none;
+}
+
 
 .linker {
 	width: 100%;
