@@ -43,7 +43,13 @@ public class HistoryListener implements ApplicationListener<CCloudEvent> {
             String postId = ((TwitterPostEvent) event).getPostId();
             Timestamp timestamp = new Timestamp(((TwitterPostEvent) event).getTimePost());
             log.debug("Creating history note with TwitterPostEvent " + ((TwitterPostEvent) event).getPostId());
-            historyService.createHistory(userId, timestamp,((TwitterPostEvent) event).getId(), postId);
+            historyService.createHistory(userId, timestamp, ((TwitterPostEvent) event).getId(), postId);
+        }
+
+        if (event instanceof AchievementEvent) {
+            AchievementEvent achievementEvent = (AchievementEvent) event;
+            historyService.createHistory(achievementEvent.getUser().getId(), new Timestamp(achievementEvent.getTime()),
+                    achievementEvent.getId(), achievementEvent.getBadge().getId());
         }
     }
 }
