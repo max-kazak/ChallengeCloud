@@ -64,3 +64,8 @@
 .footer a {
   color: #5a5a5a;
 }
+
+body {
+  background-image: none;
+  background-color: #FFFFFF;
+}

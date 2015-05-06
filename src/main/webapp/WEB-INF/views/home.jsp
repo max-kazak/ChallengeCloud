@@ -131,6 +131,13 @@
                     <!--CHALLENGES GO HERE -->
                     </div>
                 </div>
+
+                <div class="challenge-add">
+                    <a href ="challenges">
+                        <h1> <i class="fa fa-plus"></i>
+                        take on a new challenge</h1>
+                    </a>
+                </div>
             </div>
             <!-- End of Central col -->
         </div>
