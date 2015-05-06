@@ -17,6 +17,9 @@ public class AchievementEvent extends CCloudEvent {
     /**
      * @param o   - object from that event was published
      * @param msg - message of the applied event
+     * @param time - when user gets achievement
+     * @param user - who gave achievement
+     * @param badge - type of achievement
      * @author Nipel-Crumple
      */
     public AchievementEvent(Object o, String msg, long time, User user, Badge badge) {

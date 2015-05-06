@@ -26,8 +26,8 @@ import java.util.Set;
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class HistoryTest {
     private static final String EXCPECTED_EVENT = "1";
-    private static final String FIRST_EXCPECTED_ID = "12";
-    private static final String SECOND_EXCPECTED_ID = "123";
+    private static final String FIRST_EXCPECTED_ID = "4f140f81bbad8692";
+    private static final String SECOND_EXCPECTED_ID = "84d4e0fd55e6315e";
     private static final String EXCPECTED_REF_ID = "577231985401290754";
     private static final String USER_ID = "d8fbf948694caf35";
 

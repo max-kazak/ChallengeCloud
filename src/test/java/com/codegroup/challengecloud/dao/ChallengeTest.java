@@ -34,8 +34,8 @@ public class ChallengeTest{
     
     @Test
     public void testFindByTitle() {
-        Assert.assertNotNull(challengeService.findByTitle("Challenge 1 title"));
-        System.out.println(challengeService.findByTitle("Challenge 1 title").getTitle());
+        Assert.assertNotNull(challengeService.findByTitle("Run about 2 km a day"));
+        System.out.println(challengeService.findByTitle("Run about 2 km a day").getTitle());
     }
 
     @Test

@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS `challenger`.`users`;
 
 CREATE TABLE `challenger`.`events` (
   `EVENT_ID` VARCHAR(16)  NOT NULL,
-  `NAME`     VARCHAR(20)  NOT NULL,
+  `NAME`     VARCHAR(40)  NOT NULL,
   `CLASS`    VARCHAR(100) NOT NULL,
   PRIMARY KEY (`EVENT_ID`) USING BTREE
 );
@@ -23,6 +23,7 @@ CREATE TABLE `challenger`.`events` (
 INSERT INTO challenger.events VALUES ('1', 'CCEvent', 'com.codegroup.challengecloud.events.CCEvent');
 INSERT INTO challenger.events VALUES ('2', "TwitterPostEvent", "com.codegroup.challengecloud.events.TwitterPostEvent");
 insert into challenger.events values ("3", "AchievementEvent","com.codegroup.challengecloud.events.AchievementEvent");
+insert into challenger.events values ("4", "ChallengeCompletedEvent", "com.codegroup.challengecloud.events.ChallengeCompletedEvent");
 
 CREATE TABLE `challenger`.`images` (
   `IMAGE_ID` VARCHAR(16) NOT NULL,
@@ -109,10 +110,10 @@ CREATE TABLE `challenger`.`challenges` (
   `HASHTAG`      VARCHAR(100),
   `GROUP_ID`     VARCHAR(16)  NOT NULL,
   `IMAGE_ID`     VARCHAR(16)  NOT NULL, /* By Vladimir Zhdanov on 28.03.2015 */
+  `CONDITION`	 VARCHAR(200) NOT NULL,
   PRIMARY KEY (`CHALLENGE_ID`) USING BTREE,
   FOREIGN KEY (`GROUP_ID`) REFERENCES `challenger`.`challengegroups` (`GROUP_ID`),
   FOREIGN KEY (`IMAGE_ID`) REFERENCES `challenger`.`images` (`IMAGE_ID`)
-
 );
 
 /* Creating table of subscriptions */

@@ -18,8 +18,8 @@ import junit.framework.Assert;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class ImageTest {
-    private final String IMAGE_ID = "123123";
-    private final String IMAGE_NAME = "Image1";
+    private final String IMAGE_ID = "k9f4976e1281a910";
+    private final String IMAGE_NAME = "sport";
     @Autowired
     ImageService imageService;
 
