@@ -5,6 +5,7 @@ import com.codegroup.challengecloud.services.HistoryService;
 import com.codegroup.challengecloud.services.UserService;
 import com.codegroup.challengecloud.services.events.AchievementEvent;
 import com.codegroup.challengecloud.services.events.CCloudEvent;
+import com.codegroup.challengecloud.services.events.ChallengeCompletedEvent;
 import com.codegroup.challengecloud.services.events.TwitterPostEvent;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,18 +39,23 @@ public class HistoryListener implements ApplicationListener<CCloudEvent> {
     public void onApplicationEvent(CCloudEvent event) {
         log.info(event.toString());
         if (event instanceof TwitterPostEvent) {
-            event.setId(EventIds.TWITTERPOSTEVENT_ID);
-            String userId = ((TwitterPostEvent) event).getUser().getId();
             String postId = ((TwitterPostEvent) event).getPostId();
-            Timestamp timestamp = new Timestamp(((TwitterPostEvent) event).getTimePost());
-            log.debug("Creating history note with TwitterPostEvent " + ((TwitterPostEvent) event).getPostId());
-            historyService.createHistory(userId, timestamp, ((TwitterPostEvent) event).getId(), postId);
+            log.debug("Creating history note with TwitterPostEvent " + event.getId());
+            historyService.createHistory(event.getUser(), new Timestamp(event.getTime()), event.getId(), postId);
         }
 
         if (event instanceof AchievementEvent) {
-            AchievementEvent achievementEvent = (AchievementEvent) event;
-            historyService.createHistory(achievementEvent.getUser().getId(), new Timestamp(achievementEvent.getTime()),
-                    achievementEvent.getId(), achievementEvent.getBadge().getId());
+            log.debug("Creating history note with AchievementEvent " + event.getId());
+            historyService.createHistory(event.getUser(),
+                    new Timestamp(event.getTime()), event.getId(), ((AchievementEvent) event).getBadge().getId());
+        }
+
+        if (event instanceof ChallengeCompletedEvent) {
+            log.debug("Creating history note with ChallengeCompletedEvent " + event.getId());
+            historyService.createHistory(event.getUser(),
+                    new Timestamp(event.getTime()),
+                    EventIds.CHALLENGECOMPLETEDEVENT_ID,
+                    ((ChallengeCompletedEvent) event).getChallenge().getId());
         }
     }
 }

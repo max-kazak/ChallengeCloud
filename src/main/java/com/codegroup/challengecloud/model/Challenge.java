@@ -21,6 +21,7 @@ public class Challenge implements Serializable {
     String hashtag;
     ChallengeGroup challengeGroup;
     Image image;
+    String condition;
 
 
     public Challenge() {
@@ -110,5 +111,15 @@ public class Challenge implements Serializable {
         this.image = image;
     }
 
-    
+    /**
+     * @author Nipel-Crumple
+     */
+    @Column(name = "CONDITION", nullable = false)
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
 }

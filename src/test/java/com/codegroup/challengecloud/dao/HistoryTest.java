@@ -1,8 +1,10 @@
 package com.codegroup.challengecloud.dao;
 
 import com.codegroup.challengecloud.model.Badge;
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
+import com.codegroup.challengecloud.services.ChallengeService;
 import com.codegroup.challengecloud.services.HistoryService;
 import com.codegroup.challengecloud.services.UserService;
 import junit.framework.Assert;
@@ -46,6 +48,8 @@ public class HistoryTest {
     @Resource
     private UserService userService;
 
+    @Autowired
+    private ChallengeService challengeService;
 
     @Test
     public void testFindByRefId() {
@@ -77,6 +81,16 @@ public class HistoryTest {
                 amount++;
             } else break;
         }
+    }
+
+    @Test
+    public void getTweetsByChallengeAndUser() {
+        User user = userService.findByLogin("Yefim");
+        Assert.assertNotNull(user);
+        Challenge challenge = challengeService.findById("876aee6e27926e59");
+        Assert.assertNotNull(challenge);
+        long num = historyService.getNumberOfTweetsForUserByChallenge(user, challenge);
+        Assert.assertEquals(2, num);
     }
 
     @Ignore("specific test for every user but it works")

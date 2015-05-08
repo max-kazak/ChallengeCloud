@@ -1,19 +1,21 @@
 package com.codegroup.challengecloud.services;
 
+import com.codegroup.challengecloud.constants.EventIds;
 import com.codegroup.challengecloud.dao.PostDao;
-import com.codegroup.challengecloud.model.Origin;
-import com.codegroup.challengecloud.model.Post;
-import com.codegroup.challengecloud.model.Subscription;
+import com.codegroup.challengecloud.model.*;
 import com.codegroup.challengecloud.services.events.CCloudEvent;
+import com.codegroup.challengecloud.services.events.ChallengeCompletedEvent;
 import com.codegroup.challengecloud.services.events.TwitterPostEvent;
 import com.codegroup.challengecloud.utils.Generator;
 
+import org.apache.log4j.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.sql.Date;
 import java.util.List;
 
@@ -22,11 +24,13 @@ import java.util.List;
  */
 @Service("postService")
 public class PostService {
-
+    private static final Logger log = Logger.getLogger(PostService.class);
     @Autowired
     ApplicationContext applicationContext;
     @Autowired
     PostDao postDao;
+    @Autowired
+    HistoryService historyService;
     @Autowired
     private UserService userService;
     @Autowired
@@ -52,7 +56,8 @@ public class PostService {
 
     /**
      * created on 07.04.2015 by Vladimir Zhdanov
-     * @param postId id for new post
+     *
+     * @param postId       id for new post
      * @param subscription
      * @param date
      * @param origin
@@ -66,11 +71,35 @@ public class PostService {
         post.setDate(date);
         post.setOrigin(origin);
         postDao.save(post);
+        User user = subscription.getUser();
+        Challenge challenge = subscription.getChallenge();
         CCloudEvent event = new TwitterPostEvent(applicationContext,
-                    "create new Post with origin " + origin.getName(),
-                    date.getTime(),
-                    postId, subscription.getUser());
+                "create new Post with origin " + origin.getName(),
+                user,
+                date.getTime(),
+                postId);
         applicationContext.publishEvent(event);
+        log.info(event.toString());
+
+        /* Check if challenge completed without collisions connected with the same challenges*/
+        long conditionTweets = 0;
+        long numOfTweets = historyService.getNumberOfTweetsForUserByChallenge(user, challenge);
+        try {
+            JSONObject json = new JSONObject(challenge.getCondition());
+            conditionTweets = json.getLong("posts");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        if ((numOfTweets == conditionTweets) && (conditionTweets != 0)) {
+            log.debug("Number of tweets. Actual: " + numOfTweets + " ;\n Condition: " + conditionTweets);
+            ChallengeCompletedEvent eventCompleted = new ChallengeCompletedEvent(applicationContext,
+                    "Challenge with id = " + challenge.getId() + " completed by userId = " + user.getId(),
+                    user, date.getTime(), challenge);
+            applicationContext.publishEvent(eventCompleted);
+            log.info(event.toString());
+        }
+
         return post;
     }
 

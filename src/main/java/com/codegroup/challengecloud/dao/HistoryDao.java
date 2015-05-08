@@ -29,4 +29,6 @@ public interface HistoryDao {
     public long getNumberOfTwitterPosts(User user);
 
     public Set<Badge> getUserBadges(User user);
+
+    public long getNumberOfTwitsForUserByChallenge(User user, Challenge challenge);
 }

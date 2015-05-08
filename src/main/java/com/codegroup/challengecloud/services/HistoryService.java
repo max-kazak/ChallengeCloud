@@ -2,6 +2,7 @@ package com.codegroup.challengecloud.services;
 
 import com.codegroup.challengecloud.dao.HistoryDao;
 import com.codegroup.challengecloud.model.Badge;
+import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
 import com.codegroup.challengecloud.utils.Generator;
@@ -38,10 +39,10 @@ public class HistoryService {
     }
 
     @Transactional
-    public History createHistory(String userId, Timestamp timestamp, String eventId, String refId) {
+    public History createHistory(User user, Timestamp timestamp, String eventId, String refId) {
         History history = new History();
         history.setId(Generator.generateId());
-        history.setUser(userService.findById(userId));
+        history.setUser(user);
         history.setTimestamp(timestamp);
         history.setEvent(eventService.findById(eventId));
         history.setRefId(refId);
@@ -66,8 +67,8 @@ public class HistoryService {
     }
 
     @Transactional
-    public Set<History> findHistoryForCurrentUser() {
-        return historyDao.getHistoryForUser(userService.getCurrentUser());
+    public Set<History> findHistoryForUser(User user) {
+        return historyDao.getHistoryForUser(user);
     }
 
     @Transactional
@@ -78,5 +79,10 @@ public class HistoryService {
     @Transactional
     public Set<Badge> getUserBadges(User user){
         return historyDao.getUserBadges(user);
+    }
+
+    @Transactional
+    public long getNumberOfTweetsForUserByChallenge(User user, Challenge challenge) {
+        return historyDao.getNumberOfTwitsForUserByChallenge(user,challenge);
     }
 }

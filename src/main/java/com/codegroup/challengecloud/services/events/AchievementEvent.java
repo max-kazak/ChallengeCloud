@@ -10,35 +10,28 @@ import com.codegroup.challengecloud.model.User;
  */
 public class AchievementEvent extends CCloudEvent {
 
-    private User user;
-    private long time;
-    private String id;
+    private static final String id = EventIds.ACHIEVMENTEVENT_ID;
     private Badge badge;
+
     /**
-     * @param o   - object from that event was published
-     * @param msg - message of the applied event
-     * @param time - when user gets achievement
-     * @param user - who gave achievement
+     * @param o     - object from that event was published
+     * @param msg   - message of the applied event
+     * @param time  - when user gets achievement
+     * @param user  - who gave achievement
      * @param badge - type of achievement
      * @author Nipel-Crumple
      */
-    public AchievementEvent(Object o, String msg, long time, User user, Badge badge) {
-        super(o, msg);
-        this.id = EventIds.ACHIEVMENTEVENT_ID;
-        this.time = time;
-        this.user = user;
+    public AchievementEvent(Object o, String msg, User user, long time, Badge badge) {
+        super(o, msg, user, time);
         this.badge = badge;
     }
 
     @Override
-    public String toString() {
-        return "AchievementEvent happenned" + msg;
-    }
-
     public User getUser() {
         return user;
     }
 
+    @Override
     public long getTime() {
         return time;
     }
@@ -50,5 +43,10 @@ public class AchievementEvent extends CCloudEvent {
 
     public Badge getBadge() {
         return badge;
+    }
+
+    @Override
+    public String toString() {
+        return "AchievementEvent happenned" + msg;
     }
 }

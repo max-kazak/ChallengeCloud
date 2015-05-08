@@ -56,11 +56,12 @@ public class TwitterPostListener implements ApplicationListener<TwitterPostEvent
 
         if (numberTwits >= condition && !userBadges.contains(badge)) {
             logger.info("condition: " + condition + " " + userBadges.contains(badge));
-            long time = event.getTimePost();
+            long time = event.getTime();
             AchievementEvent achievementEvent = new AchievementEvent(applicationContext, "got Achievement",
-                    time, user, badge);
+                    user, time, badge);
 
             applicationContext.publishEvent(achievementEvent);
+            logger.info(achievementEvent.toString());
         }
     }
 }

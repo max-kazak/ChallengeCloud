@@ -9,9 +9,12 @@ import com.codegroup.challengecloud.model.History;
 import com.codegroup.challengecloud.model.User;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
+import org.hibernate.type.LongType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -102,5 +105,23 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
             }
         }
         return badges;
+    }
+
+    @Override
+    public long getNumberOfTwitsForUserByChallenge(User user, Challenge challenge) {
+        SQLQuery query = getSession()
+                .createSQLQuery("SELECT COUNT(*) " +
+                        "FROM challenger.history ch, challenger.posts p, challenger.subscriptions s " +
+                        "WHERE ch.REF_ID = p.POST_ID AND p.SUBSCRIPTION_ID = s.SUBSCRIPTION_ID " +
+                        "AND s.CHALLENGE_ID = :challenge_id " +
+                        "AND ch.USER_ID = :user_id " +
+                        "GROUP BY ch.USER_ID");
+        query.setString("challenge_id", challenge.getId());
+        query.setString("user_id", user.getId());
+        long number = ((BigInteger) query.list().get(0)).longValue();
+        log.debug("Number of tweets for user = " + user.getId() +
+                " with challenge_id = " + challenge.getId() +
+                " is " + number);
+        return number;
     }
 }

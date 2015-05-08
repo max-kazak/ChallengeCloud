@@ -9,53 +9,44 @@ import org.springframework.context.ApplicationContext;
  */
 public class TwitterPostEvent extends CCloudEvent {
 
-
-    private User user;
-    private long timePost;
     private String postId;
-    private String id;
-
+    private static final String id = EventIds.TWITTERPOSTEVENT_ID;
 
     /**
-     * @param o   - object from that event was published
-     * @param msg - message of the applied event
+     * @param o        - object from that event was published
+     * @param msg      - message of the applied event
      * @param timePost - time when post was done
-     * @param postId - ID of post was done
-     * @param user - user who has done the post
+     * @param postId   - ID of post was done
+     * @param user     - user who has done the post
      * @author Nipel-Crumple
      */
 
-    public TwitterPostEvent(Object o, String msg, long timePost, String postId, User user) {
-        super(o, msg);
-        this.msg = msg;
-        this.timePost = timePost;
+    public TwitterPostEvent(Object o, String msg, User user, long timePost, String postId) {
+        super(o, msg, user, timePost);
         this.postId = postId;
-        this.id = EventIds.TWITTERPOSTEVENT_ID;
-        this.user = user;
     }
 
-    public long getTimePost() {
-        return timePost;
+    @Override
+    public long getTime() {
+        return time;
+    }
+
+    @Override
+    public User getUser() {
+        return user;
     }
 
     public String getPostId() {
         return postId;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     @Override
-    public String toString() {
-        return "TwitterPost happened:" + msg;
-    }
-
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "TwitterPostEvent happened:" + msg;
     }
 }
