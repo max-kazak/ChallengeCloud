@@ -138,7 +138,7 @@ CREATE TABLE `challenger`.`posts` (
   FOREIGN KEY (`SUBSCRIPTION_ID`) REFERENCES challenger.subscriptions (`SUBSCRIPTION_ID`)
 );
 
-/*Nipel-Crumple for achivement system*/
+/*Nipel-Crumple for achievement system*/
 CREATE TABLE `challenger`.`badges` (
   `BADGE_ID`    VARCHAR(16)  NOT NULL,
   `NAME`        VARCHAR(40)  NOT NULL,

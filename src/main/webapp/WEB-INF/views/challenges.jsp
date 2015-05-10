@@ -5,7 +5,7 @@
 <!--Created by Vladimir Zhdanov on 15.03.2015-->
 <head>
     <TITLE>Challenges</TITLE>
-    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />">
@@ -117,6 +117,7 @@
     <c:url var="challenges" value="/challenges"/>
     <c:url var="trend" value="#"/>
     <c:url var="trophyroom" value="/trophy"/>
+    <c:url var="history" value="/history"/>
     <c:url var="all" value="#"/>
     <c:url var="recommendations" value="#"/>
     <c:url var="random" value="#"/>
@@ -159,6 +160,7 @@
                     <li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
                     <li role="presentation"><a href="${trend}">Trend</a></li>
                     <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+                    <li role="presentation"><a href="${history}">My history</a></li>
                     <li role="presentation"><a href="${settings}">Settings</a></li>
                 </ul>
             </div>
