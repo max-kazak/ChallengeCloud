@@ -40,13 +40,10 @@ public class TwitterPostListener implements ApplicationListener<TwitterPostEvent
         Badge badge = badgeDao.findByEventId(event.getId());
 
         long condition = 0;
-        JSONObject jsonCondition = null;
         try {
-            jsonCondition = new JSONObject(badge.getCondition());
-            if (jsonCondition != null) {
-                condition = jsonCondition.getLong("twitterPosts");
-                logger.info("Condition in Mr Twitter " + condition);
-            }
+            JSONObject jsonCondition = new JSONObject(badge.getCondition());
+            condition = jsonCondition.getLong("twitterPosts");
+            logger.info("Condition in Mr Twitter " + condition);
         } catch (JSONException e) {
             e.printStackTrace();
         }

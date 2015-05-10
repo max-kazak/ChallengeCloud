@@ -85,4 +85,9 @@ public class HistoryService {
     public long getNumberOfTweetsForUserByChallenge(User user, Challenge challenge) {
         return historyDao.getNumberOfTwitsForUserByChallenge(user,challenge);
     }
+
+    @Transactional
+    public long getNumberOfCompletedChallenges(User user, Challenge challenge) {
+        return historyDao.getNumberOfCompletedChallenges(user, challenge);
+    }
 }

@@ -111,15 +111,32 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
     public long getNumberOfTwitsForUserByChallenge(User user, Challenge challenge) {
         SQLQuery query = getSession()
                 .createSQLQuery("SELECT COUNT(*) " +
-                        "FROM challenger.history ch, challenger.posts p, challenger.subscriptions s " +
-                        "WHERE ch.REF_ID = p.POST_ID AND p.SUBSCRIPTION_ID = s.SUBSCRIPTION_ID " +
-                        "AND s.CHALLENGE_ID = :challenge_id " +
-                        "AND ch.USER_ID = :user_id " +
-                        "GROUP BY ch.USER_ID");
+                                "FROM challenger.history ch, challenger.posts p, challenger.subscriptions s " +
+                                "WHERE ch.REF_ID = p.POST_ID AND p.SUBSCRIPTION_ID = s.SUBSCRIPTION_ID " +
+                                "AND s.CHALLENGE_ID = :challenge_id " +
+                                "AND ch.USER_ID = :user_id " +
+                                "GROUP BY ch.USER_ID");
         query.setString("challenge_id", challenge.getId());
         query.setString("user_id", user.getId());
         long number = ((BigInteger) query.list().get(0)).longValue();
         log.debug("Number of tweets for user = " + user.getId() +
+                " with challenge_id = " + challenge.getId() +
+                " is " + number);
+        return number;
+    }
+
+    @Override
+    public long getNumberOfCompletedChallenges(User user, Challenge challenge) {
+        SQLQuery query = getSession()
+                .createSQLQuery("SELECT COUNT(*) " +
+                                "FROM challenger.history ch " +
+                                "WHERE ch.REF_ID = :challenge_id " +
+                                "AND ch.USER_ID = :user_id " +
+                                "GROUP BY ch.USER_ID");
+        query.setString("challenge_id", challenge.getId());
+        query.setString("user_id", user.getId());
+        long number = ((BigInteger) query.list().get(0)).longValue();
+        log.debug("Number of completed challenges for user = " + user.getId() +
                 " with challenge_id = " + challenge.getId() +
                 " is " + number);
         return number;

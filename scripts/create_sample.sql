@@ -18,6 +18,7 @@ INSERT INTO challenger.images VALUES ("dadsf87a823e98d2", "mrtwitter", "2015-04-
 INSERT INTO challenger.images VALUES ("a078b67302203463", "health", "2015-04-19", "S", LOAD_FILE('D:\\heart.png'));
 INSERT INTO challenger.images VALUES ("e1235e4da17459ad", "running", "2015-01-29", "S", LOAD_FILE('D:\\running.png'));
 INSERT INTO challenger.images VALUES ("5440d562099d1653", "walking", "2015-02-24", "S", LOAD_FILE('D:\\walking.png'));
+insert into challenger.images values ("5b65dda05d8fee5a", "completed", CURDATE(), 'S', LOAD_FILE('D:\\completed.png'));
 /* By Vladimir Zhdanov on 19.04.2015 */
 INSERT INTO challenger.challengegroups VALUES ("5d2c117e674b39de", "Sport", "k9f4976e1281a910");
 INSERT INTO challenger.challengegroups VALUES ("20eec2f9234e010a", "Health", "a078b67302203463");

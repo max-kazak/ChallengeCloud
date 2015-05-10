@@ -10,6 +10,8 @@ import com.codegroup.challengecloud.services.PostService;
 import com.codegroup.challengecloud.services.SubscriptionService;
 import com.codegroup.challengecloud.services.UserService;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -69,7 +71,13 @@ public class HomeController {
         String date = subscription.getDate().toString();
         String subscriptionId = subscription.getId();
         int amountOfPosts = subscription.getPosts().size();
-        int totalAmountOfPosts = subscription.getChallenge().getDifficulty();
+        int totalAmountOfPosts = 0;
+        try {
+            JSONObject json = new JSONObject(subscription.getChallenge().getCondition());
+            totalAmountOfPosts = json.getInt("posts");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         input.put("imageId", subscription.getChallenge().getImage().getId()); // Added on 17.04.2015 by Vladimir Zhdanov
         input.put("subscriptionName", "Challenge - " + subscriptionName);

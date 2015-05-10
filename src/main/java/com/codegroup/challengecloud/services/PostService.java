@@ -81,7 +81,6 @@ public class PostService {
         applicationContext.publishEvent(event);
         log.info(event.toString());
 
-        /* Check if challenge completed without collisions connected with the same challenges*/
         long conditionTweets = 0;
         long numOfTweets = historyService.getNumberOfTweetsForUserByChallenge(user, challenge);
         try {
@@ -91,7 +90,7 @@ public class PostService {
             e.printStackTrace();
         }
 
-        if ((numOfTweets == conditionTweets) && (conditionTweets != 0)) {
+        if (numOfTweets % conditionTweets == 0) {
             log.debug("Number of tweets. Actual: " + numOfTweets + " ;\n Condition: " + conditionTweets);
             ChallengeCompletedEvent eventCompleted = new ChallengeCompletedEvent(applicationContext,
                     "Challenge with id = " + challenge.getId() + " completed by userId = " + user.getId(),

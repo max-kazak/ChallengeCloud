@@ -64,7 +64,7 @@
     <c:url var="ourteam" value="#"/>
     <c:url var="challenges" value="/challenges"/>
     <c:url var="trend" value="#"/>
-    <c:url var="trophyroom" value="#"/>
+    <c:url var="trophyroom" value="/trophy"/>
     <c:url var="active" value="#"/>
     <c:url var="archive" value="#"/>
     <c:url var="upcoming" value="#"/>
