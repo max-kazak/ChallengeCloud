@@ -76,6 +76,7 @@
 <c:url var="challenges" value="/challenges"/>
 <c:url var="trend" value="#"/>
 <c:url var="trophyroom" value="#"/>
+<c:url var="history" value="/history"/>
 <c:url var="active" value="#"/>
 <c:url var="archive" value="#"/>
 <c:url var="upcoming" value="#"/>
@@ -121,6 +122,7 @@
                     <li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
                     <li role="presentation"><a href="${trend}">Trend</a></li>
                     <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+                    <li role="presentation"><a href="${history}">My history</a></li>
                     <li role="presentation"><a href="${settings}">Settings</a></li>
                 </ul>
             </div>
