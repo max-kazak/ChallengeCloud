@@ -5,6 +5,7 @@
 <!--Created by Andrey on 01.03.20115-->
 <head>
     <title>Settings</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
@@ -23,10 +24,11 @@
     <c:url var="security" value="#"/>
     <c:url value="/connect/twitter" var="connect"/>
     <c:url var="update" value="/settings"/>
+    <c:url var="relevantPage" value="/"/>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <a href="${welcome}">
+                <a href="${relevantPage}">
                     <i class="fa fa-cloud"></i>ChallengeCloud
                 </a>
             </div>

@@ -70,7 +70,6 @@ public class SubscriptionController {
         try {
             Iterator<Tweet> iterator = tweets.iterator();
             Template template = configuration.getTemplate(TEMPLATE_NAME);
-            log.debug("SUBS HERE 0");
             for (int i = numShownInt; (i < numShownInt + numToShowInt) && (i < tweets.size()); i++) {
                 Tweet nextTweet = iterator.next();
                 putTweetsIntoMap(input, nextTweet, simpleDateFormat);
@@ -88,7 +87,7 @@ public class SubscriptionController {
             }
             templateResponse = stringWriter.toString();
         }
-        log.info("sendAllPostsToPage() returns [" + templateResponse + "].");
+        log.info("sendAllPostsToPage() returns [" + templateResponse + "]");
         return templateResponse;
     }
 

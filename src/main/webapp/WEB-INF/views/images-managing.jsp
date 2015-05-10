@@ -4,6 +4,7 @@
 <!--Created by Vladimir Zhdanov on 28.03.2015-->
 <head>
 <TITLE>Images</TITLE>
+	<link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
@@ -146,16 +147,17 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 	<c:url var="ourteam" value="#" />
 	<c:url var="challenges" value="/challenges" />
 	<c:url var="trend" value="#" />
-	<c:url var="trophyroom" value="#" />
+		<c:url var="trophyroom" value="/trophy"/>
 	<c:url var="all" value="#" />
 	<c:url var="recommendations" value="#" />
 	<c:url var="random" value="#" />
+		<c:url var="relevantPage" value="/"/>
 	<c:url value="/j_spring_security_logout" var="logoutUrl" />
 		<div class="nav navigator">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<a href="${welcome}"> <i class="fa fa-cloud"></i>ChallengeCloud
+						<a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
 						</a>
 					</div>
 

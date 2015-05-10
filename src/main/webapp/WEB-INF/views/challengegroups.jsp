@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/welcome.css" />">
     <title>CCloud|Groups</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
@@ -43,12 +44,13 @@
     <c:url var="welcome" value="/welcome" />
     <c:url var="about" value="" />
     <c:url var="ourteam" value="" />
+    <c:url var="relevantPage" value="/"/>
     <c:url value="/j_spring_security_logout" var="logoutUrl" />
     <div class="nav">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="${welcome}">
+                    <a href="${relevantPage}">
                         <i class="fa fa-cloud"></i>ChallengeCloud
                     </a>
                 </div>

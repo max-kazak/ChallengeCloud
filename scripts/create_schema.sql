@@ -110,7 +110,6 @@ CREATE TABLE `challenger`.`challenges` (
   `HASHTAG`      VARCHAR(100),
   `GROUP_ID`     VARCHAR(16)  NOT NULL,
   `IMAGE_ID`     VARCHAR(16)  NOT NULL, /* By Vladimir Zhdanov on 28.03.2015 */
-  `CONDITION`	 VARCHAR(200) NOT NULL,
   PRIMARY KEY (`CHALLENGE_ID`) USING BTREE,
   FOREIGN KEY (`GROUP_ID`) REFERENCES `challenger`.`challengegroups` (`GROUP_ID`),
   FOREIGN KEY (`IMAGE_ID`) REFERENCES `challenger`.`images` (`IMAGE_ID`)
@@ -139,7 +138,7 @@ CREATE TABLE `challenger`.`posts` (
   FOREIGN KEY (`SUBSCRIPTION_ID`) REFERENCES challenger.subscriptions (`SUBSCRIPTION_ID`)
 );
 
-/*Nipel-Crumple for achivement system*/
+/*Nipel-Crumple for achievement system*/
 CREATE TABLE `challenger`.`badges` (
   `BADGE_ID`    VARCHAR(16)  NOT NULL,
   `NAME`        VARCHAR(40)  NOT NULL,

@@ -9,6 +9,7 @@
     <%--<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">--%>
     <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
     <title>CCloud|Subscriptions</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -69,10 +70,12 @@
     <c:url var="ourteam" value="#"/>
     <c:url var="challenges" value="/challenges"/>
     <c:url var="trend" value="#"/>
-    <c:url var="trophyroom" value="#"/>
+    <c:url var="trophyroom" value="/trophy"/>
     <c:url var="active" value="#"/>
     <c:url var="archive" value="#"/>
+    <c:url var="history" value="#"/>
     <c:url var="upcoming" value="#"/>
+    <c:url var="relevantPage" value="/"/>
     <c:url value="/j_spring_security_logout" var="logoutUrl"/>
 
     <div class="header">
@@ -80,7 +83,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <a href="${welcome}"> <i class="fa fa-cloud"></i>ChallengeCloud
+                        <a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
                         </a>
                     </div>
 
@@ -113,6 +116,7 @@
                         <li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
                         <li role="presentation"><a href="${trend}">Trend</a></li>
                         <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+                        <li role="presentation"><a href="${history}">My history</a></li>
                         <li role="presentation"><a href="${settings}">Settings</a></li>
                     </ul>
                 </div>

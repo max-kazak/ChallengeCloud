@@ -1,12 +1,9 @@
 package com.codegroup.challengecloud.dao.impl;
 
 import com.codegroup.challengecloud.constants.EventIds;
-import com.codegroup.challengecloud.dao.BadgeDao;
+import com.codegroup.challengecloud.model.*;
+import com.codegroup.challengecloud.services.BadgeService;
 import com.codegroup.challengecloud.dao.HistoryDao;
-import com.codegroup.challengecloud.model.Badge;
-import com.codegroup.challengecloud.model.Challenge;
-import com.codegroup.challengecloud.model.History;
-import com.codegroup.challengecloud.model.User;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
@@ -26,7 +23,7 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
     private static final Logger log = Logger.getLogger(HistoryDaoMySQL.class);
 
     @Autowired
-    BadgeDao badgeDao;
+    BadgeService badgeService;
 
     @Override
     public void save(History history) {
@@ -101,26 +98,28 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
         Set<Badge> badges = new HashSet<>();
         for (Object temp : list) {
             if (temp instanceof History) {
-                badges.add(badgeDao.findById(((History) temp).getRefId()));
+                badges.add(badgeService.findById(((History) temp).getRefId()));
             }
         }
         return badges;
     }
 
     @Override
-    public long getNumberOfTwitsForUserByChallenge(User user, Challenge challenge) {
+    public long getNumberOfTwitsForUserBySubscription(User user, Subscription subscription) {
         SQLQuery query = getSession()
                 .createSQLQuery("SELECT COUNT(*) " +
                                 "FROM challenger.history ch, challenger.posts p, challenger.subscriptions s " +
                                 "WHERE ch.REF_ID = p.POST_ID AND p.SUBSCRIPTION_ID = s.SUBSCRIPTION_ID " +
                                 "AND s.CHALLENGE_ID = :challenge_id " +
                                 "AND ch.USER_ID = :user_id " +
+                                "AND s.SUBSCRIPTION_ID = :subscription_id " +
                                 "GROUP BY ch.USER_ID");
-        query.setString("challenge_id", challenge.getId());
+        query.setString("challenge_id", subscription.getChallenge().getId());
         query.setString("user_id", user.getId());
+        query.setString("subscription_id", subscription.getId());
         long number = ((BigInteger) query.list().get(0)).longValue();
         log.debug("Number of tweets for user = " + user.getId() +
-                " with challenge_id = " + challenge.getId() +
+                " with challenge_id = " + subscription.getChallenge().getId() +
                 " is " + number);
         return number;
     }

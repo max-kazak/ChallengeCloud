@@ -1,11 +1,9 @@
 package com.codegroup.challengecloud.dao;
 
-import com.codegroup.challengecloud.model.Badge;
-import com.codegroup.challengecloud.model.Challenge;
-import com.codegroup.challengecloud.model.History;
-import com.codegroup.challengecloud.model.User;
+import com.codegroup.challengecloud.model.*;
 import com.codegroup.challengecloud.services.ChallengeService;
 import com.codegroup.challengecloud.services.HistoryService;
+import com.codegroup.challengecloud.services.SubscriptionService;
 import com.codegroup.challengecloud.services.UserService;
 import junit.framework.Assert;
 import org.hibernate.SessionFactory;
@@ -18,7 +16,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -47,6 +44,9 @@ public class HistoryTest {
 
     @Resource
     private UserService userService;
+
+    @Autowired
+    private SubscriptionService subscriptionService;
 
     @Autowired
     private ChallengeService challengeService;
@@ -89,7 +89,8 @@ public class HistoryTest {
         Assert.assertNotNull(user);
         Challenge challenge = challengeService.findById("876aee6e27926e59");
         Assert.assertNotNull(challenge);
-        long num = historyService.getNumberOfTweetsForUserByChallenge(user, challenge);
+        Subscription subscription = subscriptionService.findById("13");
+        long num = historyService.getNumberOfTweetsForUserBySubscription(user, subscription);
         Assert.assertEquals(2, num);
     }
 

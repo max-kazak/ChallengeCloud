@@ -138,3 +138,12 @@ ul {
 .signinupForm {
 	margin: 3px 0;
 }
+
+.trophy {
+	margin: 10px;
+	padding: 10px;
+	background-color: lightblue;
+	border: 1px solid grey;
+	border-radius: 20px;
+	height: 148px;
+}
