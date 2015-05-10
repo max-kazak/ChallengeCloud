@@ -1,3 +1,4 @@
+
 .menu {
 	background-color: #7FC7FF;
 	border-radius: 10px;
@@ -8,22 +9,41 @@
 	border-radius: 15px;
 	border: 2px solid #4E4D51;
 	margin: 10px;
-	min-height: 200px;
 }
 
-.challenge-img img {
-	width: 200px;
-	height: 200px;
-	margin: 10px 10px 10px 0px;
-	border-radius: 3px;
+img
+{
+  width: auto;
+  height: auto;
+  max-width: 100%;
 }
+
+.challenge-img {
+	float: left;
+	width: 25%;
+	height: auto;
+	border-radius: 3px;
+   /* border: 1px solid grey; */
+  padding: 1%;
+}
+
+.challenge-info {
+  float: right;
+  width: 75%;
+   /*border: 1px solid grey; */
+  padding: 1%;
+}
+
+
+
+
+
 
 .challenge-head {
 	margin-bottom: 50px;
 }
 
 .challenge-info {
-	margin: 10px 10px 10px 5px;
 }
 
 .progress {
