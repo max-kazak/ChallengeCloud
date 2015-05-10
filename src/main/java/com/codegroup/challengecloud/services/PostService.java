@@ -1,9 +1,6 @@
 package com.codegroup.challengecloud.services;
 
-import com.codegroup.challengecloud.constants.EventIds;
-import com.codegroup.challengecloud.dao.BadgeDao;
 import com.codegroup.challengecloud.dao.PostDao;
-import com.codegroup.challengecloud.dao.impl.BadgeDaoMySQL;
 import com.codegroup.challengecloud.model.*;
 import com.codegroup.challengecloud.services.events.AchievementEvent;
 import com.codegroup.challengecloud.services.events.CCloudEvent;
@@ -87,7 +84,7 @@ public class PostService {
         log.info(event.toString());
 
         long conditionTweets = 0;
-        long numOfTweets = historyService.getNumberOfTweetsForUserByChallenge(user, challenge);
+        long numOfTweets = historyService.getNumberOfTweetsForUserBySubscription(user, subscription);
 
         List<Badge> badges = badgeService.findByEventId("4");
         Badge neededBadge = null;

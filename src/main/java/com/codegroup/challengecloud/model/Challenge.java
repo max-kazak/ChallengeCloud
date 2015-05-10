@@ -110,16 +110,4 @@ public class Challenge implements Serializable {
     public void setImage(Image image) {
         this.image = image;
     }
-
-    /**
-     * @author Nipel-Crumple
-     */
-    @Column(name = "CONDITION", nullable = false)
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
 }
