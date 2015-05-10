@@ -92,8 +92,7 @@ public class HomeController {
         /*Added by Yefim Krokhin on 02.04.2015*/
         input.put("subscriptionId", subscriptionId);
         input.put("postsAdded", amountOfPosts);
-        /*TODO solve problem with arithmetic division by zero*/
-        input.put("progress", 50);
+        input.put("progress", amountOfPosts*100/totalAmountOfPosts);
         input.put("totalAmountOfPosts", totalAmountOfPosts);
     }
 
