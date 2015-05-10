@@ -25,14 +25,14 @@ INSERT INTO challenger.challengegroups VALUES ("20eec2f9234e010a", "Health", "a0
 
 INSERT INTO challenger.challenges VALUES
   ("876aee6e27926e59", "Run about 2 km a day", "You have to run about 2 km a day without any breaks", 20, "CCRunning2km", "5d2c117e674b39de",
-   "e1235e4da17459ad");
+   "e1235e4da17459ad", '{\"posts\":3}');
 /* Added ImageID by Vladimir Zhdanov on 18.03.2015 */
 INSERT INTO challenger.challenges VALUES 
   ("1a8af31c496601eb", "To Work By Bicycle", 
-  	"Travel to your work by bicycle for 5 days", 8, "CCBicycle", "20eec2f9234e010a", "5f7f505e8099a263");
+  	"Travel to your work by bicycle for 5 days", 8, "CCBicycle", "20eec2f9234e010a", "5f7f505e8099a263",'{\"posts\":3}');
 INSERT INTO challenger.challenges VALUES
   ('7362914e9fade238', '3000 steps every day', 
-  	'You have to step at least 3000 steps every day', 30, 'CCSteps3000', '5d2c117e674b39de','5440d562099d1653');
+  	'You have to step at least 3000 steps every day', 30, 'CCSteps3000', '5d2c117e674b39de','5440d562099d1653','{\"posts\":3}');
 
 INSERT INTO challenger.subscriptions VALUES ("11", "d6fbf948694caf35", "876aee6e27926e59", CURDATE());
 INSERT INTO challenger.subscriptions VALUES ("12", "d6fbf948694caf35", "876aee6e27926e59", CURDATE());
@@ -59,8 +59,5 @@ INSERT INTO challenger.UserConnection VALUES
 INSERT INTO challenger.badges VALUES
   ("aislfu4odefsrgts", "Mister Twitter", "Congratulation! You've created 5 posts and got 'Mister Twitter' badge!",
    "dadsf87a823e98d2", "2", "{ \"twitterPosts\":5 }");
-INSERT INTO challenger.badges VALUES("c5975b57c81ba656", "Speedy Racer",'Challenge "To Work By Bicycle" was completed!', "5b65dda05d8fee5a", "4", '{"challenge_id":"1a8af31c496601eb", "posts":3}');
-INSERT INTO challenger.badges VALUES("42ad31bea9ddba9b", "Stepper", 'Challenge "3000 steps every day" was completed!', "5b65dda05d8fee5a", "4", '{"challenge_id":"7362914e9fade238", "posts":3}');
-INSERT INTO challenger.badges VALUES("6f2d68c1db840f05", "Quicksilver", 'Challenge "Run about 2 km a day" was completed!', "5b65dda05d8fee5a", "4", '{"challenge_id":"876aee6e27926e59", "posts":3}');
 
 COMMIT;
