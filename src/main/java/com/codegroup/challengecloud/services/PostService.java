@@ -1,8 +1,8 @@
 package com.codegroup.challengecloud.services;
 
-import com.codegroup.challengecloud.constants.EventIds;
 import com.codegroup.challengecloud.dao.PostDao;
 import com.codegroup.challengecloud.model.*;
+import com.codegroup.challengecloud.services.events.AchievementEvent;
 import com.codegroup.challengecloud.services.events.CCloudEvent;
 import com.codegroup.challengecloud.services.events.ChallengeCompletedEvent;
 import com.codegroup.challengecloud.services.events.TwitterPostEvent;
@@ -35,6 +35,8 @@ public class PostService {
     private UserService userService;
     @Autowired
     private SubscriptionService subscriptionService;
+    @Autowired
+    private BadgeService badgeService;
 
     public void setPostDao(PostDao postDao) {
         this.postDao = postDao;
@@ -82,12 +84,20 @@ public class PostService {
         log.info(event.toString());
 
         long conditionTweets = 0;
-        long numOfTweets = historyService.getNumberOfTweetsForUserByChallenge(user, challenge);
-        try {
-            JSONObject json = new JSONObject(challenge.getCondition());
-            conditionTweets = json.getLong("posts");
-        } catch (JSONException e) {
-            e.printStackTrace();
+        long numOfTweets = historyService.getNumberOfTweetsForUserBySubscription(user, subscription);
+
+        List<Badge> badges = badgeService.findByEventId("4");
+        Badge neededBadge = null;
+        for (Badge badge : badges) {
+            try {
+                JSONObject json = new JSONObject(badge.getCondition());
+                if (json.getString("challenge_id").equals(challenge.getId())) {
+                    conditionTweets = json.getLong("posts");
+                    neededBadge = badge;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
         if (numOfTweets % conditionTweets == 0) {
@@ -95,7 +105,11 @@ public class PostService {
             ChallengeCompletedEvent eventCompleted = new ChallengeCompletedEvent(applicationContext,
                     "Challenge with id = " + challenge.getId() + " completed by userId = " + user.getId(),
                     user, date.getTime(), challenge);
+            AchievementEvent achievementEvent = new AchievementEvent(applicationContext, "Achievement with challengeId = " +
+            challenge.getId() + " completed by userId = " + user.getId(), user, date.getTime(), neededBadge);
+
             applicationContext.publishEvent(eventCompleted);
+            applicationContext.publishEvent(achievementEvent);
             log.info(event.toString());
         }
 

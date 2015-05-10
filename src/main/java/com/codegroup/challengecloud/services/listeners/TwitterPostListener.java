@@ -3,6 +3,7 @@ package com.codegroup.challengecloud.services.listeners;
 import com.codegroup.challengecloud.dao.BadgeDao;
 import com.codegroup.challengecloud.model.Badge;
 import com.codegroup.challengecloud.model.User;
+import com.codegroup.challengecloud.services.BadgeService;
 import com.codegroup.challengecloud.services.HistoryService;
 import com.codegroup.challengecloud.services.events.AchievementEvent;
 import com.codegroup.challengecloud.services.events.TwitterPostEvent;
@@ -32,12 +33,14 @@ public class TwitterPostListener implements ApplicationListener<TwitterPostEvent
     ApplicationContext applicationContext;
 
     @Autowired
-    BadgeDao badgeDao;
+    BadgeService badgeService;
 
     @Override
     public void onApplicationEvent(TwitterPostEvent event) {
         long numberTwits = historyService.getNumberOfUserTweets(event.getUser());
-        Badge badge = badgeDao.findByEventId(event.getId());
+
+        //TODO : this case works only if TwitterPostEvent is in DB in amount of 1.
+        Badge badge = badgeService.findByEventId(event.getId()).get(0);
 
         long condition = 0;
         try {

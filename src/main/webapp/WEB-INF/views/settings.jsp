@@ -5,6 +5,7 @@
 <!--Created by Andrey on 01.03.20115-->
 <head>
     <title>Settings</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">

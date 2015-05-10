@@ -1,17 +1,16 @@
 package com.codegroup.challengecloud.controllers;
 
+import com.codegroup.challengecloud.model.Badge;
+import com.codegroup.challengecloud.services.*;
 import org.apache.log4j.Logger;
 
 import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.model.Subscription;
-import com.codegroup.challengecloud.services.ChallengeService;
-import com.codegroup.challengecloud.services.PostService;
-import com.codegroup.challengecloud.services.SubscriptionService;
-import com.codegroup.challengecloud.services.UserService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -44,6 +43,9 @@ public class HomeController {
     @Resource
     private SubscriptionService subscriptionService;
 
+    @Autowired
+    BadgeService badgeService;
+
     private List<Subscription> subscriptions;
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -72,11 +74,16 @@ public class HomeController {
         String subscriptionId = subscription.getId();
         int amountOfPosts = subscription.getPosts().size();
         int totalAmountOfPosts = 0;
-        try {
-            JSONObject json = new JSONObject(subscription.getChallenge().getCondition());
-            totalAmountOfPosts = json.getInt("posts");
-        } catch (JSONException e) {
-            e.printStackTrace();
+        List<Badge> badges = badgeService.findByEventId("4");
+        for (Badge badge : badges) {
+            try {
+                JSONObject json = new JSONObject(badge.getCondition());
+                if (json.getString("challenge_id").equals(subscription.getChallenge().getId())) {
+                    totalAmountOfPosts = json.getInt("posts");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
         input.put("imageId", subscription.getChallenge().getImage().getId()); // Added on 17.04.2015 by Vladimir Zhdanov

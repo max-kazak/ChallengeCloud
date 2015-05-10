@@ -9,6 +9,7 @@
   <%--<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">--%>
   <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
   <title>CCloud|History</title>
+  <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 
   <script type="text/javascript"
           src="http://code.jquery.com/jquery-1.10.1.min.js"></script>

@@ -1,10 +1,7 @@
 package com.codegroup.challengecloud.services;
 
 import com.codegroup.challengecloud.dao.HistoryDao;
-import com.codegroup.challengecloud.model.Badge;
-import com.codegroup.challengecloud.model.Challenge;
-import com.codegroup.challengecloud.model.History;
-import com.codegroup.challengecloud.model.User;
+import com.codegroup.challengecloud.model.*;
 import com.codegroup.challengecloud.utils.Generator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,8 +79,8 @@ public class HistoryService {
     }
 
     @Transactional
-    public long getNumberOfTweetsForUserByChallenge(User user, Challenge challenge) {
-        return historyDao.getNumberOfTwitsForUserByChallenge(user,challenge);
+    public long getNumberOfTweetsForUserBySubscription(User user, Subscription subscription) {
+        return historyDao.getNumberOfTwitsForUserBySubscription(user, subscription);
     }
 
     @Transactional

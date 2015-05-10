@@ -1,9 +1,6 @@
 package com.codegroup.challengecloud.dao;
 
-import com.codegroup.challengecloud.model.Badge;
-import com.codegroup.challengecloud.model.Challenge;
-import com.codegroup.challengecloud.model.History;
-import com.codegroup.challengecloud.model.User;
+import com.codegroup.challengecloud.model.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,7 +27,7 @@ public interface HistoryDao {
 
     public Set<Badge> getUserBadges(User user);
 
-    public long getNumberOfTwitsForUserByChallenge(User user, Challenge challenge);
+    public long getNumberOfTwitsForUserBySubscription(User user, Subscription subscription);
 
     public long getNumberOfCompletedChallenges(User user, Challenge challenge);
 }
