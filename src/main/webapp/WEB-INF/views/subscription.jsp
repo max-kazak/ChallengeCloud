@@ -9,6 +9,7 @@
     <%--<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">--%>
     <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
     <title>CCloud|Subscriptions</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -69,7 +70,7 @@
     <c:url var="ourteam" value="#"/>
     <c:url var="challenges" value="/challenges"/>
     <c:url var="trend" value="#"/>
-    <c:url var="trophyroom" value="#"/>
+    <c:url var="trophyroom" value="/trophy"/>
     <c:url var="active" value="#"/>
     <c:url var="archive" value="#"/>
     <c:url var="upcoming" value="#"/>

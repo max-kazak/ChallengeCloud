@@ -12,6 +12,7 @@
 		<intercept-url pattern="/settings**" access="ROLE_USER" />
 		<intercept-url pattern="/challenges**" access="ROLE_USER" />
 		<intercept-url pattern="/subscription**" access="ROLE_USER" />
+		<intercept-url pattern="/trophy**" access="ROLE_USER" />
 		<!-- ADMINISTRATION -->
 		<intercept-url pattern="/images-managing**" access="ROLE_ADMIN" />
 		<intercept-url pattern="/images-managing-upload**" access="ROLE_ADMIN" />

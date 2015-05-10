@@ -4,6 +4,7 @@
 <!--Created by Vladimir Zhdanov on 22.03.2015-->
 <head>
 <TITLE>Challenge Creation</TITLE>
+	<link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
@@ -74,7 +75,7 @@
     <c:url var="ourteam" value="#"/>
     <c:url var="challenges" value="#"/>
     <c:url var="trend" value="#"/>
-    <c:url var="trophyroom" value="#"/>
+	<c:url var="trophyroom" value="/trophy"/>
     <c:url var="active" value="#"/>
     <c:url var="archive" value="#"/>
     <c:url var="upcoming" value="#"/>

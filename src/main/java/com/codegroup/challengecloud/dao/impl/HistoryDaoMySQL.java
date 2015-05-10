@@ -1,7 +1,7 @@
 package com.codegroup.challengecloud.dao.impl;
 
 import com.codegroup.challengecloud.constants.EventIds;
-import com.codegroup.challengecloud.dao.BadgeDao;
+import com.codegroup.challengecloud.services.BadgeService;
 import com.codegroup.challengecloud.dao.HistoryDao;
 import com.codegroup.challengecloud.model.Badge;
 import com.codegroup.challengecloud.model.Challenge;
@@ -26,7 +26,7 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
     private static final Logger log = Logger.getLogger(HistoryDaoMySQL.class);
 
     @Autowired
-    BadgeDao badgeDao;
+    BadgeService badgeService;
 
     @Override
     public void save(History history) {
@@ -101,7 +101,7 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
         Set<Badge> badges = new HashSet<>();
         for (Object temp : list) {
             if (temp instanceof History) {
-                badges.add(badgeDao.findById(((History) temp).getRefId()));
+                badges.add(badgeService.findById(((History) temp).getRefId()));
             }
         }
         return badges;

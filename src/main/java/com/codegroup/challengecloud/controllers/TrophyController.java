@@ -38,8 +38,8 @@ public class TrophyController {
         Set<Badge> userBadges = historyService.getUserBadges(user);
         StringBuffer response = new StringBuffer();
         for (Badge badge : userBadges) {
-            response.append("<div style='height:128px'>");
-            response.append("<img style='height:inherit; width:128px;'class='col-md-4' src=\'./images/" + badge.getImage().getId() + "\' >");
+            response.append("<div class='trophy'>");
+            response.append("<img style='height:128px; width:128px;'class='col-md-4' src=\'./images/" + badge.getImage().getId() + "\' >");
             response.append("<h2 class='col-md-8'>");
             response.append(badge.getName());
             response.append("</h2>");

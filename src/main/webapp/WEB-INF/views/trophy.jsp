@@ -4,55 +4,15 @@
 <html>
 <!--Created by Vladimir Zhdanov on 05.03.2015-->
 <head>
-    <title>CCloud | Home</title>
+    <title>CCloud | Trophies</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
-
+    <link rel="image/png" href="&#xf0c2;"/>
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <!--Script was created by Vova, rearrnaged by Yefim-->
-    <%--<script type="text/javascript">
-      var numToShow = 5;// how many subscriptions to request
-      var numShown = 0;// Already recieved subscriptions
-      var from;// Request "numToShow" (5) subscriptions starting from number "from" (1)
-      max_num = ${total_num};// Number of subscriptions in database comes from jsp
-      function appendChallenges() {
-        if(numShown<max_num) {
-          if(numShown+numToShow>max_num) {
-            numToShow = max_num-numShown;
-          }
-
-          $.ajax({
-            url: 'home-subscriptions.html?numToShow=' + numToShow.toString()+ '&numShown='+numShown.toString(),
-            success: function (data) {
-              $('#home-subscriptions').append(data);
-            }
-          });
-          numShown += numToShow;
-        }
-      }
-    </script>
-
-    <script type="text/javascript">
-      var loading = false;
-      $(window).scroll(function () {
-        if ($(document).height() <= $(window).scrollTop() + 1920) {
-          if (loading == false) {
-            loading = true;
-            appendChallenges();
-            loading = false;
-          }
-        }
-      });
-      $(document).ready(function () { //Doesn't work
-        //alert("ready")
-        appendChallenges();
-        $(window).scrollTo(0);
-      });
-    </script>
-  </head>--%>
 
     <script>
         $(document).ready(function () {
@@ -75,7 +35,7 @@
 <c:url var="ourteam" value="#"/>
 <c:url var="challenges" value="/challenges"/>
 <c:url var="trend" value="#"/>
-<c:url var="trophyroom" value="#"/>
+<c:url var="trophyroom" value="/trophy"/>
 <c:url var="active" value="#"/>
 <c:url var="archive" value="#"/>
 <c:url var="upcoming" value="#"/>
@@ -127,23 +87,11 @@
         </div>
 
         <div class="col-md-6">
-            <!-- Central col -->
-            <div class="row">
-                <div class="pull-right">
-                    <ul class="nav nav-pills">
-                        <li role="presentation" class="active"><a href="${active}">Active</a></li>
-                        <li role="presentation"><a href="${archive}">Archive</a></li>
-                        <li role="presentation"><a href="${upcoming}">Upcoming</a></li>
-                    </ul>
-                </div>
-            </div>
-
             <div>
                 <div id="achievements">
                     <!--Achievements are here -->
                 </div>
             </div>
-
         </div>
         <!-- End of Central col -->
     </div>

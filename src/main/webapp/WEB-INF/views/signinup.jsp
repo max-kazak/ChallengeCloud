@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
 	<title>CCloud | Login</title>
+	<link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 </head>
 <body>
 	<div class="main">
