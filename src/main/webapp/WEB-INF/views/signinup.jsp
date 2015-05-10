@@ -3,20 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
-    <title>CCloud | Login</title>
-=======
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
 	<title>CCloud | Login</title>
 	<link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
->>>>>>> 9ffa9dc4ca22e8e5ec1813955419fb685172ba94
 </head>
 <body>
 <div class="main">

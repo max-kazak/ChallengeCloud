@@ -131,28 +131,6 @@
 						<a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
 						</a>
 					</div>
-=======
-    <c:url var="home" value="/home"/>
-    <c:url var="settings" value="/settings"/>
-    <c:url var="welcome" value="/welcome"/>
-    <c:url var="about" value="#"/>
-    <c:url var="ourteam" value="#"/>
-    <c:url var="challenges" value="/challenges"/>
-    <c:url var="trend" value="#"/>
-    <c:url var="trophyroom" value="/trophy"/>
-    <c:url var="history" value="/history"/>
-    <c:url var="all" value="#"/>
-    <c:url var="recommendations" value="#"/>
-    <c:url var="random" value="#"/>
-    <c:url value="/j_spring_security_logout" var="logoutUrl"/>
-    <div class="nav navigator">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="${welcome}"> <i class="fa fa-cloud"></i>ChallengeCloud
-                    </a>
-                </div>
->>>>>>> 9ffa9dc4ca22e8e5ec1813955419fb685172ba94
 
                 <div class="col-md-9">
                     <ul class="pull-left">
