@@ -40,6 +40,7 @@
 <c:url var="active" value="#"/>
 <c:url var="archive" value="#"/>
 <c:url var="upcoming" value="#"/>
+<c:url var="relevantPage" value="/"/>
 <c:url value="/j_spring_security_logout" var="logoutUrl"/>
 
 <div class="header">
@@ -47,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="${welcome}"> <i class="fa fa-cloud"></i>ChallengeCloud
+                    <a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
                     </a>
                 </div>
 
