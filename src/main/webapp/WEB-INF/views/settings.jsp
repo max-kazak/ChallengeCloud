@@ -23,10 +23,11 @@
     <c:url var="security" value="#"/>
     <c:url value="/connect/twitter" var="connect"/>
     <c:url var="update" value="/settings"/>
+    <c:url var="relevantPage" value="/"/>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <a href="${welcome}">
+                <a href="${relevantPage}">
                     <i class="fa fa-cloud"></i>ChallengeCloud
                 </a>
             </div>
