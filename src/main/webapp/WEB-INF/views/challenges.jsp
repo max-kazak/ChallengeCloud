@@ -109,7 +109,6 @@
 </div>
 
 <div class="main">
-<<<<<<< HEAD
 	<c:url var="home" value="/home" />
 	<c:url var="settings" value="/settings" />
 	<c:url var="welcome" value="/welcome" />
@@ -117,7 +116,7 @@
 	<c:url var="ourteam" value="#" />
 	<c:url var="challenges" value="/challenges" />
 	<c:url var="trend" value="#" />
-	<c:url var="trophyroom" value="#" />
+	<c:url var="trophyroom" value="/trophy" />
 	<c:url var="history" value="/history"/>
 	<c:url var="all" value="#" />
 	<c:url var="recommendations" value="#" />

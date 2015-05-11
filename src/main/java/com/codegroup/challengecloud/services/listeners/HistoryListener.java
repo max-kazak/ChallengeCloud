@@ -1,12 +1,10 @@
 package com.codegroup.challengecloud.services.listeners;
 
 import com.codegroup.challengecloud.constants.EventIds;
+import com.codegroup.challengecloud.model.Subscription;
 import com.codegroup.challengecloud.services.HistoryService;
 import com.codegroup.challengecloud.services.UserService;
-import com.codegroup.challengecloud.services.events.AchievementEvent;
-import com.codegroup.challengecloud.services.events.CCloudEvent;
-import com.codegroup.challengecloud.services.events.ChallengeCompletedEvent;
-import com.codegroup.challengecloud.services.events.TwitterPostEvent;
+import com.codegroup.challengecloud.services.events.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -56,6 +54,14 @@ public class HistoryListener implements ApplicationListener<CCloudEvent> {
                     new Timestamp(event.getTime()),
                     EventIds.CHALLENGECOMPLETEDEVENT_ID,
                     ((ChallengeCompletedEvent) event).getChallenge().getId());
+        }
+
+        if (event instanceof SubscriptionEvent) {
+            log.debug("Creating history note with SubscriptionEvent " + event.getId());
+            historyService.createHistory(event.getUser(),
+                    new Timestamp(event.getTime()),
+                    event.getId(),
+                    ((SubscriptionEvent) event).getSubscription().getId());
         }
     }
 }

@@ -24,6 +24,7 @@ INSERT INTO challenger.events VALUES ('1', 'CCEvent', 'com.codegroup.challengecl
 INSERT INTO challenger.events VALUES ('2', "TwitterPostEvent", "com.codegroup.challengecloud.events.TwitterPostEvent");
 insert into challenger.events values ("3", "AchievementEvent","com.codegroup.challengecloud.events.AchievementEvent");
 insert into challenger.events values ("4", "ChallengeCompletedEvent", "com.codegroup.challengecloud.events.ChallengeCompletedEvent");
+insert into challenger.events values ("5", "SubscriptionEvent", "com.codegroup.challengecloud.events.SubscriptionEvent");
 
 CREATE TABLE `challenger`.`images` (
   `IMAGE_ID` VARCHAR(16) NOT NULL,
