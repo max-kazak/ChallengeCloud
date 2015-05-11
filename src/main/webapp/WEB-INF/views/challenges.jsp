@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/challenges.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/transparent.css" />">
 
 

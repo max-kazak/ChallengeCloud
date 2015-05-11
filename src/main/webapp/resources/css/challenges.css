@@ -4,7 +4,7 @@
 	border-radius: 10px;
 }
 
-.challenge-progress {
+.challenge-view {
 	background-color: #7FC7FF;
 	border-radius: 15px;
 	border: 2px solid #4E4D51;
@@ -44,22 +44,4 @@ img
 }
 
 .challenge-info {
-}
-
-.progress {
-	clear: both;
-	margin-bottom: 70px;
-}
-
-.challenge-add {
-	background-color: #7FC7FF;
-	border-radius: 15px;
-	border: 2px solid #4E4D51;
-	margin: 10px;
-	min-height: 200px;
-}
-
-.challenge-add h1 {
-	margin-top: 70px;
-	margin-left: 250px;
 }
