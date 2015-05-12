@@ -92,15 +92,23 @@ public class SubscriptionController {
     }
 
     private void putTweetsIntoMap(Map<String, Object> input, Tweet tempTweet, SimpleDateFormat simpleDateFormat) {
+        String marker = "http://t.co/";
         if (tempTweet.hasMedia()) {
             input.put("postImage", tempTweet.getEntities().getMedia().get(0).getMediaUrl());
             log.debug("Tweet media to add " + tempTweet.getEntities().getMedia().get(0).getMediaUrl());
+        } else {
+            input.put("postImage", tempTweet.getUser().getProfileImageUrl());
         }
 
-        input.put("postOriginUrl", tempTweet.getUnmodifiedText().substring(tempTweet.getUnmodifiedText().
-                lastIndexOf(DELIMITER)));
-        input.put("postText", tempTweet.getUnmodifiedText().substring(0, tempTweet.
-                getUnmodifiedText().lastIndexOf(DELIMITER)));
+        if(tempTweet.getUnmodifiedText().contains(marker)) {
+            input.put("postText", tempTweet.getUnmodifiedText().substring(0, tempTweet.
+                    getUnmodifiedText().lastIndexOf(DELIMITER)));
+        } else {
+            input.put("postText", tempTweet.getText());
+        }
+
+        input.put("postOriginUrl", tempTweet.getUser().getProfileUrl());
+
         input.put("postDate", simpleDateFormat.format(tempTweet.getCreatedAt()));
     }
 

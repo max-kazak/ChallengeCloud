@@ -22,7 +22,7 @@
                         <h2 class="pull-left">${postText}</h2>
                     </div>
                     <div>
-                        <a href="${postOriginUrl}" class="btn btn-primary pull-right" role="button">Original</a>
+                        <a href="${postOriginUrl}" class="btn btn-primary pull-right" role="button">User's account</a>
                     </div>
                 </div>
             </div>
