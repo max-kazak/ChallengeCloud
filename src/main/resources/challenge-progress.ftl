@@ -2,14 +2,11 @@
     <body>
         <div class="challenge-progress">
             <div class="challenge">
-                <div class="col-md-3">
                     <div class="challenge-img">
                         <img src="./images/${imageId}.png"
                              alt="Image For Challenge">
                     </div>
-                </div>
                 <!-- Challenge Info -->
-                <div class="col-md-9">
                     <div class="challenge-info">
                         <div class="challenge-head">
                             <div class="pull-left">
@@ -19,6 +16,7 @@
                                 <p>${date}</p>
                             </div>
                         </div>
+                        <br/>
                         <div class="progress">
                         <!--added Progress by Yefim Krokhin on 15.04.2015-->
                             <div
@@ -38,7 +36,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 <div style="clear:both;"></div>
                 <!-- End of Challenge Info -->
             </div>

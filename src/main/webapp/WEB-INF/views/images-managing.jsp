@@ -147,7 +147,7 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 	<c:url var="ourteam" value="#" />
 	<c:url var="challenges" value="/challenges" />
 	<c:url var="trend" value="#" />
-		<c:url var="trophyroom" value="/trophy"/>
+	<c:url var="trophyroom" value="/trophy"/>
 	<c:url var="all" value="#" />
 	<c:url var="recommendations" value="#" />
 	<c:url var="random" value="#" />

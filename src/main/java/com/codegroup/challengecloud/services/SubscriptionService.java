@@ -5,10 +5,13 @@ import com.codegroup.challengecloud.model.Challenge;
 import com.codegroup.challengecloud.model.Post;
 import com.codegroup.challengecloud.model.Subscription;
 import com.codegroup.challengecloud.model.User;
+import com.codegroup.challengecloud.services.events.CCloudEvent;
+import com.codegroup.challengecloud.services.events.SubscriptionEvent;
 import com.codegroup.challengecloud.utils.Generator;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +27,9 @@ import java.util.Set;
 public class SubscriptionService {
     @Autowired
     SubscriptionDao subscriptionDao;
+
+    @Autowired
+    ApplicationContext applicationContext;
 
     @Autowired
     UserService userService;
@@ -53,13 +59,15 @@ public class SubscriptionService {
     @Transactional
     public Subscription createSubscription(User user, Challenge challenge, Date date) {
         Subscription subscription = new Subscription();
-
         subscription.setId(Generator.generateId());
         subscription.setUser(user);
         subscription.setChallenge(challenge);
         subscription.setDate(date);
-
         subscriptionDao.save(subscription);
+
+        CCloudEvent event = new SubscriptionEvent(applicationContext, "User subscribed",
+                user, date.getTime(), subscription);
+        applicationContext.publishEvent(event);
 
         return subscription;
     }
