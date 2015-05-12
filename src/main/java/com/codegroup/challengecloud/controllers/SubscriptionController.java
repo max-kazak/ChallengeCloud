@@ -106,8 +106,8 @@ public class SubscriptionController {
         } else {
             input.put("postText", tempTweet.getText());
         }
-
-        input.put("postOriginUrl", tempTweet.getUser().getProfileUrl());
+        input.put("nick", tempTweet.getUser().getScreenName());
+        input.put("tweetAcc", tempTweet.getUser().getProfileUrl());
 
         input.put("postDate", simpleDateFormat.format(tempTweet.getCreatedAt()));
     }

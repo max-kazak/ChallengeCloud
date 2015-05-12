@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
-    <%--<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">--%>
     <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
+<%--<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">--%>
     <title>CCloud|Subscriptions</title>
     <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 
