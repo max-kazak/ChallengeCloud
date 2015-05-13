@@ -4,11 +4,10 @@
 <html>
 <!--Created by Vladimir Zhdanov on 15.03.2015-->
 <head>
-    <TITLE>Challenges</TITLE>
-    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />"/>
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
+    <TITLE>CCloud | Challenges</TITLE>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/css/settings.css" />">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<c:url value="/resources/css/challenges.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/transparent.css" />">
@@ -110,36 +109,36 @@
     </div>
 </div>
 
-<div class="main">
-	<c:url var="home" value="/home" />
-	<c:url var="settings" value="/settings" />
-	<c:url var="welcome" value="/welcome" />
-	<c:url var="about" value="#" />
-	<c:url var="ourteam" value="#" />
-	<c:url var="challenges" value="/challenges" />
-	<c:url var="trend" value="#" />
-	<c:url var="trophyroom" value="/trophy" />
-	<c:url var="history" value="/history"/>
-	<c:url var="all" value="#" />
-	<c:url var="recommendations" value="#" />
-	<c:url var="random" value="#" />
-	<c:url var="relevantPage" value="/"/>
-	<c:url value="/j_spring_security_logout" var="logoutUrl" />
-		<div class="nav navigator">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3">
-						<a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
-						</a>
-					</div>
+<c:url var="welcome" value="/welcome"/>
+<c:url var="home" value="/home"/>
+<c:url var="settings" value="/settings"/>
+<c:url var="subscription" value="/subscription"/>
+<c:url var="about" value="#"/>
+<c:url var="ourteam" value="#"/>
+<c:url var="challenges" value="/challenges"/>
+<c:url var="trend" value="#"/>
+<c:url var="trophyroom" value="/trophy"/>
+<c:url var="history" value="/history"/>
+<c:url var="active" value="#"/>
+<c:url var="archive" value="#"/>
+<c:url var="upcoming" value="#"/>
+<c:url var="relevantPage" value="/"/>
+<c:url value="/j_spring_security_logout" var="logoutUrl"/>
+
+<div class="header">
+    <div class="nav navigator">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
+                    </a>
+                </div>
 
                 <div class="col-md-9">
-                    <ul class="pull-left">
+                    <ul class="pull-right">
                         <li><a href="${home}">Home</a></li>
                         <li><a href="${about}">About</a></li>
                         <li><a href="${ourteam}">Our Team</a></li>
-                    </ul>
-                    <ul class="pull-right">
                         <li>
                             <form:form name="logoutForm" action="${logoutUrl}" method="POST"
                                        cssClass="logoutForm pull-right">
@@ -147,27 +146,29 @@
                             </form:form>
                         </li>
                     </ul>
+                    <div class="pull-right">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <br/>
-    <!-- For Horizontal and Vertical lines not contact -->
-
+<div class="main">
     <div class="row">
-        <div class="col-md-3">
-            <div class="menu">
-                <!-- <ul class="nav nav-pills nav-stacked"> -->
-                <ul class="menu">
-                    <li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
-                    <li role="presentation"><a href="${trend}">Trend</a></li>
-                    <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
-                    <li role="presentation"><a href="${history}">My history</a></li>
-                    <li role="presentation"><a href="${settings}">Settings</a></li>
-                </ul>
-            </div>
-        </div>
+		<div class="col-md-2 col-md-offset-2">
+			<div class="menu">
+				<!-- <ul class="nav nav-pills nav-stacked"> -->
+				<ul class="nav nav-pills nav-stacked">
+					<li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
+					<li role="presentation"><a href="${trend}">Trend</a></li>
+					<li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+					<li role="presentation"><a href="${history}">My history</a></li>
+					<li role="presentation"><a href="${settings}">Settings</a></li>
+				</ul>
+			</div>
+		</div>
 
         <div class="col-md-6">
             <!-- Central col -->
