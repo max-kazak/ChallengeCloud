@@ -49,7 +49,20 @@
 </div>
 
 <div class="row">
-    <div class="col-md-3 col-md-offset-4">
+    <div class="col-md-2 col-md-offset-2">
+        <div class="menu">
+            <!-- <ul class="nav nav-pills nav-stacked"> -->
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="${home}">Home</a></li>
+                <li role="presentation"><a href="${challenges}">Challenges</a></li>
+                <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+                <li role="presentation"><a href="${history}">My history</a></li>
+                <li role="presentation" class="active"><a href="${settings}">Settings</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6">
         <div class="settings">
             <h2> User </h2>
             <c:set value="${CCloudEmail}" var="CCloudEmail"/>

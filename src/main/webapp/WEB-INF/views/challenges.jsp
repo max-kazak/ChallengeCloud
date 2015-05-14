@@ -161,8 +161,8 @@
 			<div class="menu">
 				<!-- <ul class="nav nav-pills nav-stacked"> -->
 				<ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="${home}">Home</a></li>
 					<li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
-					<li role="presentation"><a href="${trend}">Trend</a></li>
 					<li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
 					<li role="presentation"><a href="${history}">My history</a></li>
 					<li role="presentation"><a href="${settings}">Settings</a></li>
