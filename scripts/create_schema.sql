@@ -40,7 +40,7 @@ CREATE TABLE `challenger`.`users` (
   `LOGIN`   VARCHAR(20) NOT NULL,
   `NAME`    VARCHAR(20) NOT NULL,
   `PASS`    VARCHAR(60),
-  `EMAIL`   VARCHAR(20),
+  `EMAIL`   VARCHAR(40),
   `ROLES`   INT(3)      NOT NULL,
   PRIMARY KEY (`USER_ID`) USING BTREE,
   UNIQUE KEY `UNI_USER_EMAIL` (`EMAIL`) USING BTREE,
@@ -105,7 +105,7 @@ CREATE TABLE `challenger`.`challengegroups` (
 /* Creating table of challenges by Vladimir Zhdanov */
 CREATE TABLE `challenger`.`challenges` (
   `CHALLENGE_ID` VARCHAR(16)  NOT NULL,
-  `TITLE`        VARCHAR(25)  NOT NULL,
+  `TITLE`        VARCHAR(40)  NOT NULL,
   `DESCRIPTION`  VARCHAR(200) NOT NULL,
   `DIFFICULTY`   TINYINT(2)   NOT NULL, #10 of 10, f.e.
   `HASHTAG`      VARCHAR(100),
