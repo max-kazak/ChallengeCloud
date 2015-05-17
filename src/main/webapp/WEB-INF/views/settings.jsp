@@ -24,6 +24,12 @@
     <c:url var="trophyroom" value="/trophy"/>
     <c:url var="history" value="/history"/>
     <c:url var="relevantPage" value="/"/>
+    <c:url var="user" value="#"/>
+    <c:url var="general" value="#"/>
+    <c:url var="socialnetworks" value="#"/>
+    <c:url var="security" value="#"/>
+    <c:url value="/connect/twitter" var="connect"/>
+    <c:url var="update" value="/settings"/>
     <c:url value="/j_spring_security_logout" var="logoutUrl"/>
 
     <div class="header">
