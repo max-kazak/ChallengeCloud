@@ -123,6 +123,7 @@
 <c:url var="archive" value="#"/>
 <c:url var="upcoming" value="#"/>
 <c:url var="relevantPage" value="/"/>
+<c:url var="challenge_creation" value="/challenge_creation"/>
 <c:url value="/j_spring_security_logout" var="logoutUrl"/>
 
 <div class="header">
@@ -181,6 +182,7 @@
                         <li role="presentation" class="active"><a href="#">All</a></li>
                         <li role="presentation"><a href="${recommendations}">Recommendations</a></li>
                         <li role="presentation"><a href="${random}">Random</a></li>
+                        <li role="presentation"><a href="${challenge_creation}">Create</a></li>
                     </ul>
                 </div>
                 <!-- Pills -->
