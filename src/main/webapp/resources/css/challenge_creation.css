@@ -3,6 +3,16 @@
 	border-radius: 10px;
 }
 
-.input-group {
-	margin-bottom: 10px;
+.form-group {
+	width: 100%;
+	margin: 10px;
+}
+
+button {
+	margin: 10px;
+}
+
+#create_button {
+	margin-top: 20px;
+	margin-left: -10px;
 }

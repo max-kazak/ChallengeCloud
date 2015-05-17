@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <!--Created by Yefim on 02.03.2015-->
 <head>
+  <title>CCloud | History</title>
   <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
-  <%--<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">--%>
   <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
-  <title>CCloud | History</title>
+  
   <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 
   <script type="text/javascript"
@@ -61,7 +61,6 @@
 </head>
 <body>
 
-<div class="main">
   <c:url var="welcome" value="/welcome"/>
   <c:url var="home" value="/home"/>
   <c:url var="settings" value="/settings"/>
@@ -93,7 +92,7 @@
               <li><a href="${ourteam}">Our Team</a></li>
               <li>
                 <form:form name="logoutForm" action="${logoutUrl}" method="POST" cssClass="logoutForm pull-right">
-                  <button class="btn btn-default btn-lg" type="submit"> Log out</button>
+                  <button class="btn btn-default btn-lg" type="submit">Log out</button>
                 </form:form>
               </li>
             </ul>
@@ -142,6 +141,6 @@
       <!-- End of Central col -->
     </div>
   </div>
-</div>
+
 </body>
 </html>

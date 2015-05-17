@@ -133,26 +133,48 @@
 	        </div>
 
 			<div class="col-md-6">
-				<button type="button" onclick="showImages()">Choose Image</button>
+				<h1>Challenge creation</h1>
+				<button type="button" class="btn btn-primary btn-lg" onclick="showImages()">Choose Image</button>
 
 				<div id="chosen_image">
 				</div>
 
-				<div class="input-group">
-					<input type="text" class="form-control" id="title" placeholder="Challenge title">
-				</div>
-				<div class="input-group">
-					<input type="text" class="form-control" id="description" placeholder="Description">
-				</div>
-				<div class="input-group">
-					<input type="text" class="form-control" id="diff" placeholder="Difficulty a.k.a. number of posts">
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">#</span>
-					<input type="text" class="form-control" id="hash" placeholder="Hashtag">
-				</div>
-				<div>
-					<button type="button" onclick="createChallenge()">Create</button>
+				<div class="form-group">
+    				<label for="challengeName"><h3>Challenge name</h3></label>
+    				<div class="input-group input-group-lg">
+   						<input type="text" class="form-control" id="title" placeholder="Give your challenge a name">
+   						<span class="input-group-addon"></span>
+   					</div>
+  				</div>
+
+				<div class="form-group">
+    				<label for="challengeName"><h3>Description</h3></label>
+    				<div class="input-group input-group-lg">
+	   					<input type="text" class="form-control" id="description"
+	   					 placeholder="Make a short and appropriate description for your image">
+	   					 <span class="input-group-addon"></span>
+	   				</div>
+  				</div>
+
+				<div class="form-group">
+    				<label for="challengeName"><h3>Difficulty</h3></label>
+   					<div class="input-group input-group-lg">
+						<input type="text" class="form-control" id="diff" placeholder="Difficulty a.k.a. number of posts">
+						<span class="input-group-addon"></span>
+					</div>
+  				</div>
+
+				<div class="form-group">
+    				<label for="challengeName"><h3>Hashtag</h3></label>
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon">#</span>
+						<input type="text" class="form-control" id="hash" placeholder="Hashtag">
+					</div>
+  				</div>
+
+				<div id="create_button">
+					<button type="button" class="btn btn-primary btn-lg btn-block" onclick="createChallenge()">
+						Create</button>
 				</div>
 				<div id="msg"></div>
 			</div>
