@@ -5,12 +5,11 @@
 <!--Created by Vladimir Zhdanov on 05.03.2015-->
 <head>
     <title>CCloud | Home</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
-      
-    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 
     <script type="text/javascript"
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -89,8 +88,9 @@
                         <li><a href="${about}">About</a></li>
                         <li><a href="${ourteam}">Our Team</a></li>
                         <li>
-                            <form:form name="logoutForm" action="${logoutUrl}" method="POST" cssClass="logoutForm pull-right">
-                                <button class="btn btn-default btn-lg" type="submit">Log out</button>
+                            <form:form name="logoutForm" action="${logoutUrl}" method="POST"
+                                       cssClass="logoutForm pull-right">
+                                <button class="btn btn-default btn-lg" type="submit"> Log out</button>
                             </form:form>
                         </li>
                     </ul>
