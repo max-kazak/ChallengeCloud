@@ -66,7 +66,7 @@ public class HistoryDaoMySQL extends HibernateDao implements HistoryDao {
         Set<History> sortedHistory = new TreeSet<>(new Comparator<History>() {
             @Override
             public int compare(History o1, History o2) {
-                return o1.getTimestamp().compareTo(o2.getTimestamp());
+                return (-1)*(o1.getTimestamp().compareTo(o2.getTimestamp()));
             }
 
         });
