@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import sun.rmi.runtime.Log;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -42,6 +43,8 @@ public class HistoryController {
     SubscriptionService subscriptionService;
     @Autowired
     BadgeService badgeService;
+    @Autowired
+    ChallengeService challengeService;
 
 
     @RequestMapping("/history")
@@ -104,7 +107,7 @@ public class HistoryController {
         String CHALLENGE_COMPLETED_EVENT_ID = "4";
         String SUBSCRIPTION_EVENT_ID = "5";
 
-        log.info("putHistory eventId" + tempHistory.getEvent().getId());
+        log.info("putHistory eventId " + tempHistory.getEvent().getId());
 
         input.put("date", simpleDateFormat.format(tempHistory.getTimestamp()));
 
@@ -119,11 +122,12 @@ public class HistoryController {
             input.put("message", "You got \"" + badge.getName() + "\" achievement");
             input.put("image", badge.getImage().getId());
         } else if (tempHistory.getEvent().getId().equals(CHALLENGE_COMPLETED_EVENT_ID)) {
-            Badge badge = badgeService.findById(tempHistory.getRefId());
-            input.put("message", "You got \"" + badge.getName() + "\" achievement - complete challenge");
-            input.put("image", badge.getImage().getId());
+            Challenge challenge = challengeService.findById(tempHistory.getRefId());
+            input.put("message", "You got \"" + challenge.getTitle() + "\" achievement - complete challenge");
+            input.put("image", challenge.getImage().getId());
         } else if (tempHistory.getEvent().getId().equals(SUBSCRIPTION_EVENT_ID)){
-            Subscription subscription = subscriptionService.findById(tempHistory.getId());
+            log.debug("subs id " + tempHistory.getRefId());
+            Subscription subscription = subscriptionService.findById(tempHistory.getRefId());
             Challenge challenge = subscription.getChallenge();
             input.put("message", "You subscribed to  \"" + challenge.getTitle() + "\"");
             input.put("image", challenge.getImage().getId());
