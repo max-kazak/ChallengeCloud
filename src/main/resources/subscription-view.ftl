@@ -23,7 +23,7 @@
                     <h2 class="pull-left">${postText}</h2>
                 </div>
                 <div>
-                    <a href="${tweetAcc}" class="btn btn-primary pull-right" role="button">User's account</a>
+                    <a href="${originPost}" class="btn btn-primary pull-right" role="button">Original post</a>
                 </div>
             </div>
         </div>
