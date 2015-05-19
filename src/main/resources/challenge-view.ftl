@@ -37,7 +37,7 @@
         </div>
         <div class="bottom-details">
             <div>
-                <h3 class="pull-left" style="margin-top: 5px">Use this hashtag #${challengeHashtag} for your posts</h3>
+                <p class="pull-left" style="margin-top: 5px">Use this hashtag <strong> #${challengeHashtag}</strong> for your posts</p>
             </div>
             <!--By Yefim Krokhin on 02.04.2015-->
             <div>
