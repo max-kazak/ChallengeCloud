@@ -37,6 +37,6 @@ public class SubscriptionEvent extends CCloudEvent {
 
     @Override
     public String toString() {
-        return "SubscriptionEvent happenned" + msg;
+        return "SubscriptionEvent happened" + msg;
     }
 }

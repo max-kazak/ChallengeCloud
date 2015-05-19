@@ -11,34 +11,38 @@
 	<link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 </head>
 <body>
+
+<c:url var="signinup" value="/signinup"/>
+<c:url var="home" value="/home"/>
+<c:url var="welcome" value="/welcome"/>
+<c:url var="ourteam" value="#"/>
+<c:url var="about" value="#"/>
+
 <div class="main">
-    <c:url var="signinup" value="/signinup"/>
-    <c:url var="home" value="/home"/>
-    <c:url var="welcome" value="/welcome"/>
-    <c:url var="ourteam" value="#"/>
-    <c:url var="about" value="#"/>
-    <div class="nav navigator">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="${welcome}">
-                        <i class="fa fa-cloud"></i>ChallengeCloud
-                    </a>
-                </div>
-                <div class="col-md-9">
-                    <ul class="pull-left">
-                        <li><a href="${home}">Home</a></li>
-                        <li><a href="${about}">About</a></li>
-                        <li><a href="${ourteam}">Our Team</a></li>
-                    </ul>
-                    <ul class="pull-right">
-                        <li><a href="${signinup}">Sign UP</a></li>
-                        <li><a href="${signinup}">Sign IN</a></li>
-                    </ul>
+    <div class="header">
+        <div class="nav navigator">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
+                        </a>
+                    </div>
+
+                    <div class="col-md-9">
+                        <ul class="pull-right">
+                            <li><a href="${home}">Home</a></li>
+                            <li><a href="${about}">About</a></li>
+                            <li><a href="${ourteam}">Our Team</a></li>
+                            <li><a href="${signinup}">
+                                <button type="button" class="btn btn-primary btn-lg" disabled="disabled">Sign In</button>
+                            </a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="container body">
         <div class="col-md-6 text-left left-block">
 

@@ -5,7 +5,7 @@
 <!--Created by Vladimir Zhdanov on 05.03.2015-->
 <head>
     <title>CCloud | Home</title>
-    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
+    <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
@@ -94,9 +94,6 @@
                             </form:form>
                         </li>
                     </ul>
-                    <div class="pull-right">
-
-                    </div>
                 </div>
             </div>
         </div>
@@ -110,8 +107,8 @@
             <div class="menu">
                 <!-- <ul class="nav nav-pills nav-stacked"> -->
                 <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
-                    <li role="presentation"><a href="${trend}">Trend</a></li>
+                    <li role="presentation" class="active"><a href="${home}">Home</a></li>
+                    <li role="presentation"><a href="${challenges}">Challenges</a></li>
                     <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
                     <li role="presentation"><a href="${history}">My history</a></li>
                     <li role="presentation"><a href="${settings}">Settings</a></li>

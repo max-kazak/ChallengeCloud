@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <!--Created by Vladimir Zhdanov on 22.03.2015-->
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />"> 
+	<link rel="stylesheet" href="<c:url value="/resources/css/challenge_creation.css" />">
 
 	<script type="text/javascript"
 	    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -54,7 +56,12 @@
 
 		function chooseImage(imageId) {
 			chosenImageId = imageId
-			$('#chosen_image').append(chosenImageId);
+
+			$('#chosen_image').append(
+				    '<div class="challenge-img">
+                        <img src="./images/'+chosenImageId+'.png"
+                             alt="Image For Challenge">
+                    </div>');
 		}
 
 		function showImages() {
@@ -66,82 +73,116 @@
  
 <body>
 	<!--Page content-->
-	<c:url var="welcome" value="/welcome"/>
-    <c:url var="home" value="/home"/>
-    <c:url var="settings" value="/settings"/>
-    <c:url var="subscription" value="/subscription" />
-    <c:url var="images_managing" value="/images-managing"/>
-    <c:url var="about" value="#"/>
-    <c:url var="ourteam" value="#"/>
-    <c:url var="challenges" value="#"/>
-    <c:url var="trend" value="#"/>
-	<c:url var="trophyroom" value="/trophy"/>
-    <c:url var="active" value="#"/>
-    <c:url var="archive" value="#"/>
-    <c:url var="upcoming" value="#"/>
-	<c:url var="relevantPage" value="/"/>
-    <c:url value="/j_spring_security_logout" var="logoutUrl"/>
+<c:url var="welcome" value="/welcome"/>
+<c:url var="home" value="/home"/>
+<c:url var="settings" value="/settings"/>
+<c:url var="subscription" value="/subscription"/>
+<c:url var="about" value="#"/>
+<c:url var="ourteam" value="#"/>
+<c:url var="challenges" value="/challenges"/>
+<c:url var="trend" value="#"/>
+<c:url var="trophyroom" value="/trophy"/>
+<c:url var="history" value="/history"/>
+<c:url var="active" value="#"/>
+<c:url var="archive" value="#"/>
+<c:url var="upcoming" value="#"/>
+<c:url var="relevantPage" value="/"/>
+<c:url value="/j_spring_security_logout" var="logoutUrl"/>
 
 
-	<div class="nav navigator">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
-                    </a>
-                </div>
+	<div class="header">
+	    <div class="nav navigator">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-3">
+	                    <a href="${relevantPage}"> <i class="fa fa-cloud"></i>ChallengeCloud
+	                    </a>
+	                </div>
 
-                <div class="col-md-9">
-                    <ul class="pull-left">
-                        <li><a href="${home}">Home</a></li>
-                        <li><a href="${about}">About</a></li>
-                        <li><a href="${ourteam}">Our Team</a></li>
-                    </ul>
-                    <form:form name="logoutForm" action="${logoutUrl}" method="POST" cssClass="logoutForm pull-right">
-                        <button class="btn btn-default btn-lg" type="submit"> Log out</button>
-                    </form:form>
-                </div>
-            </div>
-        </div>
-    </div>
+	                <div class="col-md-9">
+	                    <ul class="pull-right">
+	                        <li><a href="${home}">Home</a></li>
+	                        <li><a href="${about}">About</a></li>
+	                        <li><a href="${ourteam}">Our Team</a></li>
+	                        <li>
+	                            <form:form name="logoutForm" action="${logoutUrl}" method="POST"
+	                                       cssClass="logoutForm pull-right">
+	                                <button class="btn btn-default btn-lg" type="submit"> Log out</button>
+	                            </form:form>
+	                        </li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
 
 	<div class="main">
 		<div class="row">
-			<div class="col-lg-3">
-				<p>${message}</p>
-				<div id="debug"></div>
-			</div>
+			<div class="col-md-2 col-md-offset-2">
+	            <div class="menu">
+	                <!-- <ul class="nav nav-pills nav-stacked"> -->
+	                <ul class="nav nav-pills nav-stacked">
+	                    <li role="presentation"><a href="${home}">Home</a></li>
+	                    <li role="presentation"><a href="${challenges}">Challenges</a></li>
+	                    <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
+	                    <li role="presentation"><a href="${history}">My history</a></li>
+	                    <li role="presentation"><a href="${settings}">Settings</a></li>
+	                </ul>
+	            </div>
+	        </div>
 
-			<div class="col-lg-6">
-				<button type="button" onclick="showImages()">Choose Image</button>
+			<div class="col-md-6">
+				<h1>Challenge creation</h1>
+				<button type="button" class="btn btn-primary btn-lg" onclick="showImages()">Choose Image</button>
 
 				<div id="chosen_image">
 				</div>
 
-				<div class="input-group">
-					<input type="text" class="form-control" id="title" placeholder="Challenge title">
-				</div>
-				<div class="input-group">
-					<input type="text" class="form-control" id="description" placeholder="Description">
-				</div>
-				<div class="input-group">
-					<input type="text" class="form-control" id="diff" placeholder="Difficulty">
-					<span class="input-group-addon">/10</span>
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">#</span>
-					<input type="text" class="form-control" id="hash" placeholder="Hashtag">
-				</div>
-				<div>
-					<button type="button" onclick="createChallenge()">Create</button>
+				<div class="form-group">
+    				<label for="challengeName"><h3>Challenge name</h3></label>
+    				<div class="input-group input-group-lg">
+   						<input type="text" class="form-control" id="title" placeholder="Give your challenge a name">
+   						<span class="input-group-addon"></span>
+   					</div>
+  				</div>
+
+				<div class="form-group">
+    				<label for="challengeName"><h3>Description</h3></label>
+    				<div class="input-group input-group-lg">
+	   					<input type="text" class="form-control" id="description"
+	   					 placeholder="Make a short and appropriate description for your image">
+	   					 <span class="input-group-addon"></span>
+	   				</div>
+  				</div>
+
+				<div class="form-group">
+    				<label for="challengeName"><h3>Difficulty</h3></label>
+   					<div class="input-group input-group-lg">
+						<input type="text" class="form-control" id="diff" placeholder="Difficulty a.k.a. number of posts">
+						<span class="input-group-addon"></span>
+					</div>
+  				</div>
+
+				<div class="form-group">
+    				<label for="challengeName"><h3>Hashtag</h3></label>
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon">#</span>
+						<input type="text" class="form-control" id="hash" placeholder="Hashtag">
+					</div>
+  				</div>
+
+				<div id="create_button">
+					<button type="button" class="btn btn-primary btn-lg btn-block" onclick="createChallenge()">
+						Create</button>
 				</div>
 				<div id="msg"></div>
 			</div>
 
-			<div class="col-lg-3">
+			<div class="col-md-2">
 				<div id="shown_images" style="display: none;">
-					<div><a href="${images_managing}">Or upload a new image</a></div>
+					<div><p>Choose from the images below or<a href="${images_managing}"> upload a new image</a></p></div>
 					<div id="images"></div>
 					<button type="button" onclick="appendImages()">More</button>
 				</div>

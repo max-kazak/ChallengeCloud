@@ -1,14 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <!--Created by Yefim on 02.03.2015-->
 <head>
+    <title>CCloud | Subscriptions</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
-    <%--<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">--%>
     <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />">
-    <title>CCloud|Subscriptions</title>
+
     <link rel="shortcut icon" href="<c:url value="/resources/img/cloud-icon.png" />" />
 
     <script type="text/javascript"
@@ -61,7 +62,6 @@
 </head>
 <body>
 
-<div class="main">
     <c:url var="welcome" value="/welcome"/>
     <c:url var="home" value="/home"/>
     <c:url var="settings" value="/settings"/>
@@ -94,7 +94,7 @@
                             <li><a href="${ourteam}">Our Team</a></li>
                             <li>
                                 <form:form name="logoutForm" action="${logoutUrl}" method="POST" cssClass="logoutForm pull-right">
-                                    <button class="btn btn-default btn-lg" type="submit"> Log out</button>
+                                    <button class="btn btn-default btn-lg" type="submit">Log out</button>
                                 </form:form>
                             </li>
                         </ul>
@@ -113,8 +113,8 @@
                 <div class="menu">
                     <!-- <ul class="nav nav-pills nav-stacked"> -->
                     <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="active"><a href="${challenges}">Challenges</a></li>
-                        <li role="presentation"><a href="${trend}">Trend</a></li>
+                        <li role="presentation"><a href="${home}">Home</a></li>
+                        <li role="presentation"><a href="${challenges}">Challenges</a></li>
                         <li role="presentation"><a href="${trophyroom}">Trophy Room</a></li>
                         <li role="presentation"><a href="${history}">My history</a></li>
                         <li role="presentation"><a href="${settings}">Settings</a></li>
@@ -124,15 +124,7 @@
 
             <div class="col-md-6">
                 <!-- Central col -->
-                <div class="row">
-                    <div class="pull-right">
-                        <ul class="nav nav-pills">
-                            <li role="presentation" class="active"><a href="${active}">Active</a></li>
-                            <li role="presentation"><a href="${archive}">Archive</a></li>
-                            <li role="presentation"><a href="${upcoming}">Upcoming</a></li>
-                        </ul>
-                    </div>
-                </div>
+
 
                 <div>
                     <div id="subscription-send">
@@ -143,6 +135,5 @@
             <!-- End of Central col -->
         </div>
     </div>
-</div>
 </body>
 </html>

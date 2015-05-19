@@ -90,6 +90,7 @@ public class ChallengesController {
         input.put("challengeDescription", challenge.getDescription());
         input.put("imageId", challenge.getImage().getId());
         input.put("challengeDifficulty", challenge.getDifficulty().toString());
+        input.put("challengeHashtag", challenge.getHashtag());
     }
     
     @RequestMapping(value = "/challenges-all", method = RequestMethod.GET)

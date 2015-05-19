@@ -26,12 +26,12 @@
   margin: 10px;
 }
 
-.main .nav a {
+.nav a {
   color: #464451;
   font-size: 28px;
 }
 
-.main .nav li {
+.nav li {
   display: inline;
   margin: 10px;
 }
@@ -69,6 +69,10 @@ ul {
 .btn-default {
 	background: #EBEBEB;
 	color: #4169E1;
+	font-size: 20px;
+}
+
+.btn-primary {
 	font-size: 20px;
 }
 

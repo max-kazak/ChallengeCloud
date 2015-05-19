@@ -1,63 +1,6 @@
-.nav i {
-  color: #5a5a5a;
-  font-size: 28px;
-}
-
-.nav a {
-  color: #5a5a5a;
-  font-size: 28px;
-}
-
-.nav li {
-  display: inline;
-  margin: 10px;
-}
-
-.heading {
-  position: relative;
-  margin-left: 12%;
-}
-
-.menu ul {
-  list-style-type: none;
-  font-size: 28px;
-  border-right: 1px solid grey;
-}
-
-.settings ul {
-  list-style-type: none;
-  font-size: 18px;
-  border-right: 1px solid grey;
-}
-
-.menu2 ul {
-  font-size: 28px;
-  border-bottom: 1px solid grey;
-}
-.challenge {
-  border: 1px solid grey;
-  margin: 0%;
-}
-.challenge-img {
-  float: left;
-  width: 25%;
-  /* border: 1px solid grey; */
-  padding: 1%;
-}
-.challenge img{
-  max-width: 100%;
-  /* max-height: 100%; */
-  border: 1px solid grey;
-  size: auto;
-}
-.challenge-info {
-  float: right;
-  width: 75%;
-  /* border: 1px solid grey; */
-  padding: 1%;
-}
-.challenge p {
-  font-size: 20px;
+.menu {
+  background-color: #7FC7FF;
+  border-radius: 10px;
 }
 
 .provider-connect {

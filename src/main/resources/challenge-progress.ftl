@@ -10,10 +10,10 @@
                     <div class="challenge-info">
                         <div class="challenge-head">
                             <div class="pull-left">
-                                <p>${subscriptionName}</p>
+                                <h3>${subscriptionName}</h3>
                             </div>
                             <div class="pull-right">
-                                <p>${date}</p>
+                                <h3>${date}</h3>
                             </div>
                         </div>
                         <br/>
@@ -28,12 +28,12 @@
                         </div>
                         <div class="bottom-details">
                             <div>
-                                <p class="pull-left">${postsAdded}/${totalAmountOfPosts} posts</p>
+                                <h3 class="pull-left" style="margin-top: 5px">${postsAdded}/${totalAmountOfPosts} posts</h3>
+                                <a href="subscription?subscriptionId=${subscriptionId}" class="btn btn-primary pull-right" role="button">Details</a>
                             </div>
                             <!--By Yefim Krokhin on 02.04.2015-->
                             <div>
-                                <a href="subscription?subscriptionId=${subscriptionId}" class="btn btn-primary pull-right" role="button">Details</a>
-                            </div>
+                           </div>
                         </div>
                     </div>
                 <div style="clear:both;"></div>

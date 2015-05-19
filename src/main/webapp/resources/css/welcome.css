@@ -10,12 +10,13 @@
 
 .nav li {
   display: inline;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .jumbotron {
   postion: absolute;
-  margin-top: 0px;
+  margin-top: -10px;
   margin-bottom: 50px;
   background-image:url('./../../resources/img/welcome-main.jpg');
   height: 600px;

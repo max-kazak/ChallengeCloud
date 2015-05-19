@@ -53,6 +53,7 @@ public class HistoryTest {
 
     @Test
     public void testFindByRefId() {
+        Assert.assertNotNull(historyService.findByRefId(EXCPECTED_REF_ID).getRefId());
         Assert.assertEquals(EXCPECTED_REF_ID, historyService.findByRefId(EXCPECTED_REF_ID).getRefId());
     }
 
@@ -68,6 +69,7 @@ public class HistoryTest {
         Set<History> allNotes = historyDao.getHistoryForUser(user);
         Assert.assertNotNull(allNotes);
         Iterator<History> iterator = allNotes.iterator();
+        Assert.assertEquals(5, allNotes.size());
         int amount = 0;
         while (iterator.hasNext()) {
             if (amount < 2) {
