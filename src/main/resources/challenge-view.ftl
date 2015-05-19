@@ -35,6 +35,15 @@
             </p>
 
         </div>
+        <div class="bottom-details">
+            <div>
+                <h3 class="pull-left" style="margin-top: 5px">Use this hashtag #${challengeHashtag} for your posts</h3>
+            </div>
+            <!--By Yefim Krokhin on 02.04.2015-->
+            <div>
+            </div>
+        </div>
+
     </div>
     <!-- End of Challenge Info -->
 </div>
