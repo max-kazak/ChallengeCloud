@@ -79,4 +79,12 @@ INSERT INTO challenger.badges VALUES ("eae10de4997ee2a7", "Mr Reader", "Challeng
 INSERT INTO challenger.badges VALUES ("5854ee1ccbf90ef9", "Photographer", "Challenge 'Take 5 photos a day' was completed!", "5b65dda05d8fee5a", "4", '{"challenge_id":"0782fea3e2579887", "posts":5}');
 INSERT INTO challenger.badges VALUES ("334fc14089c85b14", "Java Porgrammer", "Challenge 'Programm in Java' was completed!", "5b65dda05d8fee5a", "4", '{"challenge_id":"cf4a517311bde16e", "posts":7}');
 
+
+
+-- creating sample for presentation
+INSERT INTO challenger.users VALUES ("d4dc72b420e03abd", "Crisburgher", "John Crisburgh", 
+"$2a$10$TnlmWdSe9gd68d8WfJ9iRu39jAEbVn1aumgc0exY/d/HqlbFOMpXC", "thesoftparade@mail.ru", "1");
+INSERT INTO challenger.subscriptions VALUES ("416106ac571ac02c", "d4dc72b420e03abd","9a7cbe0c69620843", "2015-04-29");
+INSERT INTO challenger.subscriptions VALUES ("7b88021d358e62a0", "d4dc72b420e03abd","cf4a517311bde16e", "2015-05-19");
+INSERT INTO challenger.subscriptions VALUES ("9f9f5e9e6b975255", "d4dc72b420e03abd","7362914e9fade238", "2015-05-13");
 COMMIT;
