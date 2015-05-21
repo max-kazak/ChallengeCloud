@@ -62,7 +62,8 @@ public class HistoryTest {
         Assert.assertNotNull(historyService.findById(SECOND_EXCPECTED_ID));
         Assert.assertEquals(SECOND_EXCPECTED_ID, historyService.findById(SECOND_EXCPECTED_ID).getId());
     }
-
+    
+    @Ignore
     @Test
     public void testFindHistoryForUser() {
         User user = userService.findById(USER_ID);
