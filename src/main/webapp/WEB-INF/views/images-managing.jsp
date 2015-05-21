@@ -116,7 +116,7 @@ and http://sergey-oganesyan.ru/examples/window_na_fone.html -->
 		<div id="window-upload" style="display: none;">
 			<div class="col-lg-12">
 			<c:url var="images-managing-upload" value="/images-managing-upload"/>
-				<form method="POST" enctype="multipart/form-data" action="/challengecloud/images-managing-upload">
+				<form method="POST" enctype="multipart/form-data" action="/images-managing-upload">
 					File to upload: <input type="file" name="file"><br /><br />
 			        <input type="submit" value="Upload"> Press here to upload the file!
 				</form>

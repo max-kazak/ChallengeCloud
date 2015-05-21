@@ -24,7 +24,7 @@ public class ScheduleConfig {
      * Every 2 minutes adding twitterPosts
      * @author Nipel-Crumple
      */
-    @Scheduled(cron="0 0/2 * * * ?")
+    @Scheduled(cron="0/30 * * * * ?")
     public void scheduleTwitterDownloadPosts() {
         log.debug("Launching download posts task");
         twitterDownloadService.addAllUsersTwitterPosts();
