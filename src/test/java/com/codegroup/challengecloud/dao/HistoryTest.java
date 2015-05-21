@@ -69,16 +69,16 @@ public class HistoryTest {
         Set<History> allNotes = historyDao.getHistoryForUser(user);
         Assert.assertNotNull(allNotes);
         Iterator<History> iterator = allNotes.iterator();
-        Assert.assertEquals(5, allNotes.size());
+        Assert.assertEquals(2, allNotes.size());
         int amount = 0;
         while (iterator.hasNext()) {
             if (amount < 2) {
                 History tempHistory = iterator.next();
                 if (amount == 0) {
 
-                    Assert.assertEquals(tempHistory.getId(), FIRST_EXCPECTED_ID);
-                } else {
                     Assert.assertEquals(tempHistory.getId(), SECOND_EXCPECTED_ID);
+                } else {
+                    Assert.assertEquals(tempHistory.getId(), FIRST_EXCPECTED_ID);
                 }
                 amount++;
             } else break;

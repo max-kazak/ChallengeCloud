@@ -87,4 +87,8 @@ INSERT INTO challenger.users VALUES ("d4dc72b420e03abd", "Crisburgher", "John Cr
 INSERT INTO challenger.subscriptions VALUES ("416106ac571ac02c", "d4dc72b420e03abd","9a7cbe0c69620843", "2015-04-29");
 INSERT INTO challenger.subscriptions VALUES ("7b88021d358e62a0", "d4dc72b420e03abd","cf4a517311bde16e", "2015-05-19");
 INSERT INTO challenger.subscriptions VALUES ("9f9f5e9e6b975255", "d4dc72b420e03abd","7362914e9fade238", "2015-05-13");
+
+INSERT INTO challenger.history VALUES ("54a13ee5005f08dc", "d4dc72b420e03abd", "2015-05-18 00:00:00", "5", "416106ac571ac02c");
+INSERT INTO challenger.history VALUES ("293b2ed251b07a58", "d4dc72b420e03abd", "2015-05-12 00:00:00", "5", "7b88021d358e62a0");
+INSERT INTO challenger.history VALUES ("fb7fc6010ef81c6a", "d4dc72b420e03abd", "2015-05-11 00:00:00", "5", "9f9f5e9e6b975255");
 COMMIT;
